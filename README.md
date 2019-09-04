@@ -1,20 +1,20 @@
-#2019_2_Pirogi Frontend Repo
+# 2019_2_Pirogi Frontend Repo
 
 Репозиторий фронтенда
 
-##Описание
+## Описание
 
-###Ссылка на поиграть
+### Ссылка на поиграть
 Coming soon..
 
-###Ментор
+### Ментор
  - [Пупчин Павел](https://github.com/4taa)
 
-###Developers
+### Developers
  - [Бакулев Артем](github.com/Artefakt-ff)
  - [Анастасия Сушина](github.com/ansushina)
  - [Елизавета прохорова](github.com/lisa-bella97)
  - [Олег Щербаков](github.com/oleg-student) 
 
-###Репозиторий бекенда
+### Репозиторий бекенда
 Coming soon..
