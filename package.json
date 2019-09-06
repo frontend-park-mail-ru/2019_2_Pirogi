@@ -1,0 +1,9 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm server.js",
+    "build": "echo \"I am long command\""
+  },
+  "dependencies": {}
+}
