@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm server.js",
+    "start": "npm server.js"
   },
   "dependencies": {},
   "devDependencies": {
