@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "start": "npm server.js",
-    "build": "echo \"I am long command\""
   },
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "static": "^2.0.0"
+  }
 }

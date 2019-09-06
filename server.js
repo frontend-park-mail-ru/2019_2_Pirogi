@@ -1,21 +1,22 @@
 const http = require('http');
 const fs = require('fs');
+const Logger = require('./static/js/libs/Logger');
+const basePath = '/public/';
 
+let log = new Logger();
 const server = http.createServer((req, res) => {
     let {url} = req;
-    if (/\/$/.test(url)){
-        url = '/index.html' + url;
+    if (/\/$/.test(url)) {
+        url = 'index.html';
     }
-    let body;
-
     try {
-        body = fs.readFileSync(`./public${url}`);
+        const body = fs.readFileSync(`.${basePath}${url}`);
         res.write(body);
-    }
-    catch (e) {
+    } catch (e) {
+        log.addError(e);
         res.statusCode = 404;
     }
     res.end();
 });
 
-server.listen(3000);
+server.listen(80);
