@@ -1,22 +1,21 @@
 const express = require('express');
-const logger = require('./static/js/libs/Logger');
+const Logger = require('./static/js/libs/Logger');
 const app = express();
 
-const log = new logger();
-app.use(express.static('public/'));
+__dirname += '/public';
 
-app.get('/', function (req, res) {
-    app.sendFile('index.html')
+const log = new Logger();
+app.get('*', function (req, res) {
+    res.sendFile(__dirname + req.url + '.html', (e) => {
+            log.logError(404, req.url);
+            return res.status(404).send('Route ' + req.url + ' is not found.');
+        }
+    )
 });
 
 app.listen(80);
 
-app.use(function (req, res, next) {
-    log.addError(404, req.url);
-    return res.status(404).send('Route ' + req.url + ' not found.');
-});
-
-app.use(function (err, req, res, next) {
-    log.addError(500, err);
+app.use((err, req, res) => {
+    log.logError(500, err);
     return res.status(500).send(err);
 });
