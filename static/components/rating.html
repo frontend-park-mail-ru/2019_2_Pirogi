@@ -6,60 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Полоска рейтинга</title>
     <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../css/all.css" >
+    <link rel="stylesheet" href="../styles/all.css" >
+    <link rel="stylesheet" href="../styles/rating.css" >
 </head>
 <body>
-<style>
-    .outer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .inner {
-        display: inline-block;
-        vertical-align: middle;
-        margin: auto;
-    }
-    div {
-        background-color: var(--color-dark);
-        height: 106px;
-        width: 100%;
-        opacity: 1;
-    }
-    p.normal {
-        font-family: Helvetica Neue Medium;
-        font-size: 20pt;
-        color: var(--color-light);
-    }
-    span.positive {
-        font-size: 24pt;
-        color: var(--color-success);
-    }
-    span.negative {
-        font-size: 24pt;
-        color: var(--color-error);
-    }
-    .star {
-        color: #E5D161;
-    }
-</style>
-<div class="outer">
-    <span class="inner">
-        <p class="normal">Рейтинг фильма: <span class="positive">7.44</span></p>
-    </span>
-    <span class="inner">
-        <p class="normal">Комментарии: <span style="font-size: 24pt;">100 | </span>
-		<span class="positive">+24</span>
-		<span style="font-size: 24pt;"> | </span>
-		<span class="negative">-76</span>
-		</p>
-    </span>
-    <span class="inner">
-        <i class="fas fa-star star fa-2x"></i>
-		<i class="fas fa-star star fa-2x"></i>
-		<i class="fas fa-star star fa-2x"></i>
-		<i class="fas fa-star star fa-2x"></i>
-		<i class="fas fa-star star fa-2x"></i>
-    </span>
+<div class="outer main-div">
+    <div class="inner">
+        <div class="font-normal">Рейтинг фильма: <div class="inline font-positive">7.44</div></div>
+    </div>
+    <div class="inner">
+        <div class="font-normal">Комментарии: <div class="inline font-size-24">100 | </div>
+		<div class="inline font-positive">+24</div>
+		<div class="inline font-size-24"> | </div>
+		<div class="inline font-negative">-76</div>
+		</div>
+    </div>
+    <div class="inner">
+        <i class="fas fa-star fa-2x star-color"></i>
+        <i class="fas fa-star fa-2x star-color"></i>
+        <i class="fas fa-star fa-2x star-color"></i>
+        <i class="fas fa-star fa-2x star-color"></i>
+        <i class="fas fa-star fa-2x star-color"></i>
+    </div>
 </div>
 </body>
