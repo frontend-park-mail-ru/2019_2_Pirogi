@@ -7,13 +7,16 @@ __dirname += '/public';
 const log = new Logger();
 app.get('*', function (req, res) {
     res.sendFile(__dirname + req.url + '.html', (e) => {
-            log.logError(404, req.url);
-            return res.status(404).send('Route ' + req.url + ' is not found.');
+            if (e) {
+                log.logError(404, req.url);
+                return res.status(404).send('Route ' + req.url + ' is not found.');
+            }
         }
-    )
+    );
 });
 
 app.listen(80);
+
 
 app.use((err, req, res) => {
     log.logError(500, err);
