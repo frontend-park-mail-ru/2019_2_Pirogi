@@ -6,6 +6,26 @@
     --color-success: #F2FDF0;
 }
 
+.bg-darkest {
+    background-color: var(--color-darkest);
+}
+
+.bg-dark {
+    background-color: var(--color-dark);
+}
+
+.bg-light {
+    background-color: var(--color-light);
+}
+
+.bg-error {
+    background-color: var(--color-error);
+}
+
+.bg-success {
+    background-color: var(--color-success);
+}
+
 @font-face {
     font-family: Helvetica Neue Medium;
     src: local('Helvetica Neue Medium'), local('Helvetica-Neue-Medium'),
@@ -61,7 +81,7 @@
 }
 
 .font-Baskerville-Regular {
-    font-family: Baskerville Regular, sans-serif;
+    font-family: Baskerville Regular, serif;
 }
 
 .box-shadow {
