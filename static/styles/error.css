@@ -1,0 +1,40 @@
+.main-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.inner {
+    display: inline-block;
+    vertical-align: middle;
+    margin: auto;
+}
+
+.font-bold-80-pt {
+    font-family: "Helvetica Neue Bold", sans-serif;
+    font-size: 80pt;
+    text-align: center;
+}
+
+.font-regular-24-pt {
+    font-family: "Helvetica Neue Regular", sans-serif;
+    font-size: 24pt;
+    text-align: center;
+}
+
+.font-regular-18-pt {
+    font-family: "Helvetica Neue Regular", sans-serif;
+    font-size: 18pt;
+    text-align: center;
+}
+
+.margin {
+    margin: 5%;
+}
