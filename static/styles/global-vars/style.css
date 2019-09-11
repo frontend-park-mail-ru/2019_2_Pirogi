@@ -31,7 +31,6 @@
 .container-fluid {
     display: flex;
     margin: auto;
-    padding: 0 20px;
     width: 100%;
 }
 
@@ -235,5 +234,22 @@ var(--font-small)
 }
 
 .mt-5 {
-    margin-top: 50px;
+    margin-top: 100px;
+}
+.mt-4 {
+    margin-top: 80px;
+}
+.mt-3 {
+    margin-top: 60px;
+}
+.mt-2 {
+    margin-top: 40px;
+}
+
+.mt-1 {
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
 }
