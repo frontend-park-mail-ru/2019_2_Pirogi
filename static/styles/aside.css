@@ -1,0 +1,36 @@
+.aside {
+    max-width: 30%;
+}
+
+.aside > *:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.aside__headline {
+    font-size: 20px;
+    min-height: 2em;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.aside__headline h2 {
+    align-self: center;
+    display: block;
+}
+
+.aside__description {
+    background-color: var(--color-light);
+}
+
+table {
+    margin: 0 auto;
+}
+
+table tbody {
+    overflow-wrap: break-word;
+}
+
+.left_col {
+    width: 25%;
+}

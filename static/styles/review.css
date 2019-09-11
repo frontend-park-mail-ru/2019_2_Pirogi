@@ -1,0 +1,29 @@
+.reviews {
+    padding: 20px;
+}
+
+.review {
+    padding: 10px;
+    background-color: lightgreen;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.review *:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+.review__source .movie__description a {
+    all: unset;
+    font-size: 24px;
+}
+
+.review__quote-headline {
+    display: flex;
+}
+
+.review__quote-headline--right {
+    margin-left: auto;
+}
+
+
