@@ -10,7 +10,7 @@
 }
 
 .navbar-title {
-    font-family: font-Baskerville-Regular;
+    font-family: Baskerville Regular, serif;
     color: var(--color-light);
     padding: 30px 20px;
     font-size: 40px;
@@ -23,7 +23,7 @@
 
 .navbar-item {
     margin: 0 20px;
-    font-family: font-Helvetica-Light;
+    font-family: Helvetica Neue Light, sans-serif;
     color: var(--color-light);
     background-color: var(--color-darkest);
     font-size:30px;
@@ -33,7 +33,7 @@
 
 .navbar-item-current {
     margin: 0 20px;
-    font-family: font-Helvetica-Medium;
+    font-family: Helvetica Neue Medium, sans-serif;
     color: var(--color-light);
     background-color: var(--color-darkest);
     font-size:30px;

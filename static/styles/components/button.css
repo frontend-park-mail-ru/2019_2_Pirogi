@@ -1,7 +1,7 @@
 button,
 input[type=button] {
     font-size: 20px;
-    font-family: font-Helvetica-Light;
+    font-family: Helvetica Neue Light, sans-serif;
     padding: 10px 10px;
     margin: 10px 10px;
     border: 1px solid var(--color-dark);

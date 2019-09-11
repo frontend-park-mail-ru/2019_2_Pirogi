@@ -1,6 +1,6 @@
 input,
 textarea {
-    font-family: font-Helvetica-Light;
+    font-family: Helvetica Neue Light, sans-serif;
     color: var(--color-dark);
     background-color: var(--color-light);
     font-size: 20px;
