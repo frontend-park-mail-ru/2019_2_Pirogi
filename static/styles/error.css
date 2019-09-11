@@ -6,30 +6,28 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    top: 0;
-    left: 0;
     overflow: auto;
 }
 
-.inner {
+.block-inner {
     display: inline-block;
     vertical-align: middle;
     margin: auto;
 }
 
-.font-bold-80-pt {
+.error-text_font-size_80pt {
     font-family: "Helvetica Neue Bold", sans-serif;
     font-size: 80pt;
     text-align: center;
 }
 
-.font-regular-24-pt {
+.error-text_font-size_24pt {
     font-family: "Helvetica Neue Regular", sans-serif;
     font-size: 24pt;
     text-align: center;
 }
 
-.font-regular-18-pt {
+.error-text_font-size_18pt {
     font-family: "Helvetica Neue Regular", sans-serif;
     font-size: 18pt;
     text-align: center;
