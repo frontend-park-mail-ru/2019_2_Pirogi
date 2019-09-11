@@ -8,7 +8,6 @@ textarea {
     margin: 10px 10px;
     border: 1px solid var(--color-dark);
     border-radius: 21px;
-    opacity: 1;
     resize:none;
 }
 
