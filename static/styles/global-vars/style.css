@@ -3,8 +3,38 @@
     --color-dark: #4C6C73;
     --color-light: #EBF1F2;
     --color-error: #F8F2F2;
+    --color-error-bright: #f85255;
     --color-success: #F2FDF0;
+    --color-success-bright: #30bd41;
+    --color-yellow: #E5D161;
+
+    --font-size-small: 1em;
+    --font-size-medium: 1.5em;
+    --font-size-large: 2em;
+
+    --font-light: Helvetica Neue Light;
+    --font-regular: Helvetica Neue Regular;
+    --font-medium: Helvetica Neue Medium;
+    --font-bold: Helvetica Neue Bold;
+
 }
+
+/*-------------CONTAINERS-------------*/
+
+.container {
+    display: flex;
+    width: 60%;
+    padding: 0 20px;
+    margin: auto;
+}
+
+.container-fluid {
+    display: flex;
+    margin: auto;
+    width: 100%;
+}
+
+/*--------------COLORS----------------*/
 
 .bg-darkest {
     background-color: var(--color-darkest);
@@ -26,66 +56,200 @@
     background-color: var(--color-success);
 }
 
+.color-darkest {
+    color: var(--color-darkest);
+}
+
+.color-dark {
+    color: var(--color-dark);
+}
+
+.color-light {
+    color: var(--color-light);
+}
+
+.color-error {
+    color: var(--color-error);
+}
+
+.color-error-bright {
+    color: var(--color-error-bright);
+}
+
+.color-success {
+    color: var(--color-success);
+}
+
+.color-success-bright {
+    color: var(--color-success-bright);
+}
+
+.color-yellow {
+    color: var(--color-yellow)
+}
+
+
+/*--------------FONTS-----------------*/
+
 @font-face {
     font-family: Helvetica Neue Medium;
     src: local('Helvetica Neue Medium'), local('Helvetica-Neue-Medium'),
-        url('../../fonts/HelveticaNeueCyr-Medium.woff2') format('woff2'),
-        url('../../fonts/HelveticaNeueCyr-Medium.woff') format('woff'),
-        url('../../fonts/HelveticaNeueCyr-Medium.ttf') format('truetype');
+    url('../fonts/HelveticaNeueCyr-Medium.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueCyr-Medium.woff') format('woff'),
+    url('../fonts/HelveticaNeueCyr-Medium.ttf') format('truetype');
 }
 
 @font-face {
     font-family: Helvetica Neue Light;
     src: local('Helvetica Neue Light'), local('Helvetica-Neue-Light'),
-        url('../../fonts/HelveticaNeueCyr-Light.woff2') format('woff2'),
-        url('../../fonts/HelveticaNeueCyr-Light.woff') format('woff'),
-        url('../../fonts/HelveticaNeueCyr-Light.ttf') format('truetype');
+    url('../fonts/HelveticaNeueCyr-Light.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueCyr-Light.woff') format('woff'),
+    url('../fonts/HelveticaNeueCyr-Light.ttf') format('truetype');
 }
 
 @font-face {
     font-family: Helvetica Neue Bold;
     src: local('Helvetica Neue Bold'), local('Helvetica-Neue-Bold'),
-        url('../../fonts/HelveticaNeueCyr-Bold.woff2') format('woff2'),
-        url('../../fonts/HelveticaNeueCyr-Bold.woff') format('woff'),
-        url('../../fonts/HelveticaNeueCyr-Bold.ttf') format('truetype');
+    url('../fonts/HelveticaNeueCyr-Bold.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueCyr-Bold.woff') format('woff'),
+    url('../fonts/HelveticaNeueCyr-Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: Helvetica Neue Regular;
     src: local('Helvetica Neue Roman'), local('Helvetica-Neue-Roman'),
-        url('../../fonts/HelveticaNeueCyr-Roman.woff2') format('woff2'),
-        url('../../fonts/HelveticaNeueCyr-Roman.woff') format('woff'),
-        url('../../fonts/HelveticaNeueCyr-Roman.ttf') format('truetype');
+    url('../fonts/HelveticaNeueCyr-Roman.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueCyr-Roman.woff') format('woff'),
+    url('../fonts/HelveticaNeueCyr-Roman.ttf') format('truetype');
 }
 
 @font-face {
     font-family: Baskerville Regular;
     src: local('Baskerville Regular'), local('Baskerville-Regular'),
-        url('../../fonts/LibreBaskerville-Regular.ttf') format('truetype');
+    url('../fonts/LibreBaskerville-Regular.ttf') format('truetype');
 }
 
-.font-Helvetica-Medium {
+.font-medium {
     font-family: Helvetica Neue Medium, sans-serif;
 }
 
-.font-Helvetica-Light {
+.font-light {
     font-family: Helvetica Neue Light, sans-serif;
 }
 
-.font-Helvetica-Bold {
+.font-bold {
     font-family: Helvetica Neue Bold, sans-serif;
 }
 
-.font-Helvetica-Regular {
+.font-regular {
     font-family: Helvetica Neue Regular, sans-serif;
 }
 
-.font-Baskerville-Regular {
+.font-title-regular {
     font-family: Baskerville Regular, serif;
 }
+
+.font-size-small {
+var(--font-small)
+}
+
+.font-size-medium {
+    font-size: var(--font-size-medium)
+}
+
+.font-size-large {
+    font-size: var(--font-size-large)
+}
+
 
 .box-shadow {
     -webkit-box-shadow: 0 3px 6px #00000029;
     -moz-box-shadow: 0 3px 6px #00000029;
     box-shadow: 0 3px 6px #00000029;
+}
+
+
+/*--------------DISPLAY--------------*/
+.inline {
+    display: inline;
+}
+
+
+/*--------------LOCATION-------------*/
+
+.text-center {
+    text-align: center;
+}
+
+.content-center {
+    justify-content: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+
+/*------------MARGINS---------------*/
+
+
+.pt-1 {
+    padding-top: 20px;
+}
+
+.pt-2 {
+    padding-top: 40px;
+}
+
+.pt-3 {
+    padding-top: 60px;
+}
+
+.pt-4 {
+    padding-top: 80px;
+}
+
+.pt-5 {
+    padding-top: 100px;
+}
+
+.pb-1 {
+    padding-bottom: 20px;
+}
+
+.pb-2 {
+    padding-bottom: 40px;
+}
+
+.pb-3 {
+    padding-bottom: 60px;
+}
+
+.pb-4 {
+    padding-bottom: 80px;
+}
+
+.pb-5 {
+    padding-bottom: 100px;
+}
+
+.mt-5 {
+    margin-top: 100px;
+}
+.mt-4 {
+    margin-top: 80px;
+}
+.mt-3 {
+    margin-top: 60px;
+}
+.mt-2 {
+    margin-top: 40px;
+}
+
+.mt-1 {
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
 }
