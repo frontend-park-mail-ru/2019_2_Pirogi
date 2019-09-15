@@ -1,20 +1,32 @@
-@import "../../variables"
+@import '../../css/variables'
 
 .navbar
   background-color: $color-darkest
   width: 100%
-  min-height: 100px
+  min-height: 75px
+  top: 0
+  left: 0
   position: fixed
   display: flex
   flex-wrap: wrap
   justify-content: space-evenly
   align-items: center
 
+
 .navbar__item
   color: $color-light
   font-family: $font-regular
-  font-size: $font-size-large
+  font-size: $font-size-medium
   text-transform: uppercase
+  text-decoration: none
+  +transition(0.5s)
+  &:hover
+    color: $color-yellow
+    +transition(0.5s)
 
 .navbar__item_current
-  font-family: $font-medium
+  font-family: $font-bold
+
+.navbar__input
+  &:focus
+    +shadow-light

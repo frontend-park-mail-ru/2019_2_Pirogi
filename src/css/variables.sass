@@ -9,10 +9,11 @@ $color-success-bright: #30bd41
 $color-yellow: #E5D161
 
 $color-darkest-75: rgba(1, 28, 38, 0.75)
+$color-light-75: rgba(235, 241, 242, 0.75)
 
 $font-size-small: 1em
-$font-size-medium: 1.5em
-$font-size-large: 2em
+$font-size-medium: 1.4em
+$font-size-large: 1.6em
 
 $font-light: Helvetica Neue Light, sans-serif
 $font-regular: Helvetica Neue Regular, sans-serif
@@ -28,7 +29,12 @@ $font-serif: Baskerville Regular, serif
   -webkit-transition: $seconds
 
 
-@mixin common-shadow
+@mixin shadow-light
+  -webkit-box-shadow: 0 0 10px 0 $color-light-75
+  -moz-box-shadow: 0 0 10px 0 $color-light-75
+  box-shadow: 0 0 10px 0 $color-light-75
+
+@mixin shadow-dark
   -webkit-box-shadow: 0 5px 10px 0 $color-darkest-75
   -moz-box-shadow: 0 5px 10px 0 $color-darkest-75
   box-shadow: 0 5px 10px 0 $color-darkest-75

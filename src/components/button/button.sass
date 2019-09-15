@@ -1,0 +1,29 @@
+@import '../../css/variables'
+
+.button
+  background-color: $color-light
+  min-width: 8em
+  font-size: $font-size-small
+  font-family: $font-light
+  text-align: center
+  padding: 10px 10px
+  border: 1px solid $color-darkest
+  border-radius: 21px
+  cursor: pointer
+  text-transform: lowercase
+  +transition(0.5s)
+
+  &:hover
+    background-color: $color-darkest
+    color: $color-light
+    border: 1px solid $color-light
+
+  &:focus
+    outline: none
+    +shadow-dark
+
+  &:disabled
+    // TODO: выбрать цвет для выключенных элементов
+    opacity: 0.5
+    pointer-events: none
+    user-select: none
