@@ -18,3 +18,4 @@ import './components/navbar/navbar.sass'
 
 import './pages/admin/admin.sass'
 import './pages/film/film.sass'
+import './pages/error/error.sass'
