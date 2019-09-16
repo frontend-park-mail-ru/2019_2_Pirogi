@@ -13,17 +13,12 @@ module.exports = {
                     'css-loader',
                     {
                         loader: 'sass-loader',
-                        options: {
-                            sassOptions: {
-                                includePaths: ['fonts/', 'absolute/path/b'],
-                            },
-                        },
                     },
                 ],
             },
             {
                 // Для включения в css файлов шрифтов и картинок
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                test: /\.(jpg|png|woff|woff2|eot|ttf|svg)$/,
                 loader: 'url-loader?limit=100000'
             }
         ],
