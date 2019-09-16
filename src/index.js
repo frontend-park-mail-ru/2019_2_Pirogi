@@ -13,9 +13,10 @@ import './components/textarea/textarea.sass'
 import './components/button/button.sass'
 import './components/logo/logo.sass'
 
+import './components/top/top.sass'
 import './components/navbar/navbar.sass'
-
 
 import './pages/admin/admin.sass'
 import './pages/film/film.sass'
 import './pages/error/error.sass'
+import './pages/search/search.sass'
