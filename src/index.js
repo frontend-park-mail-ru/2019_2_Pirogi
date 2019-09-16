@@ -15,6 +15,7 @@ import './components/logo/logo.sass'
 
 import './components/top/top.sass'
 import './components/navbar/navbar.sass'
+import './components/paginator/paginator.sass'
 
 import './pages/admin/admin.sass'
 import './pages/film/film.sass'
