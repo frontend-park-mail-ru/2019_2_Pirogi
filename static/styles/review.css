@@ -1,5 +1,11 @@
-.reviews {
+.review-list {
     padding: 20px;
+}
+
+.link {
+    all: unset;
+    font-size: 24px;
+    color: blue;
 }
 
 .review {
@@ -11,11 +17,6 @@
 
 .review *:not(:last-child) {
     margin-bottom: 8px;
-}
-
-.review__source .movie__description a {
-    all: unset;
-    font-size: 24px;
 }
 
 .review__quote-headline {

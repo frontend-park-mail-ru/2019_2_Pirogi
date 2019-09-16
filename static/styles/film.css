@@ -8,10 +8,18 @@
     padding: 0 20px;
 }
 
-.film__description h2 {
+.text-title {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+}
+
+.table {
+    display: flex;
+}
+
+.table > *:not(:last-child) {
+    margin-right: 15px;
 }
 
 .film__description .film__info {
@@ -20,13 +28,4 @@
 
 .film__description > *:not(:last-child) {
     margin-bottom: 15px;
-}
-
-table tbody {
-    width: 100%;
-    overflow-wrap: break-word;
-}
-
-.left_col {
-    width: 20%;
 }

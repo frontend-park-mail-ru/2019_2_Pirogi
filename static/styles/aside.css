@@ -2,35 +2,29 @@
     max-width: 30%;
 }
 
-.aside > *:not(:last-child) {
-    margin-bottom: 20px;
-}
-
 .aside__headline {
     font-size: 20px;
-    min-height: 2em;
+    min-height: 30px;
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
-.aside__headline h2 {
+.aside__headline--center {
     align-self: center;
     display: block;
 }
 
-.aside__description {
+.table {
     background-color: var(--color-light);
+    display: flex;
+    justify-content: center;
 }
 
-table {
-    margin: 0 auto;
+.table > *:not(:last-child) {
+    margin-right: 15px;
 }
 
-table tbody {
-    overflow-wrap: break-word;
-}
-
-.left_col {
-    width: 25%;
+.aside > *:not(:last-child) {
+    margin-bottom: 20px;
 }

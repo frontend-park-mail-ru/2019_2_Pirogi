@@ -14,18 +14,18 @@
     padding: 5px;
 }
 
-.user-info__details ul {
+.user-info__details .ul {
     list-style: none;
     width: 90%;
     margin: 0 auto;
 }
 
-.user-info__details ul li {
+.user-info__details .ul .li {
     text-align: center;
     font-size: 16px;
     padding: 16px;
 }
 
-.user-info__details ul li:not(:last-child) {
+.user-info__details .ul .li:not(:last-child) {
      border-bottom: 1px solid var(--color-dark);
 }
