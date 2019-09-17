@@ -18,7 +18,7 @@ module.exports = {
             },
             {
                 // Для включения в css файлов шрифтов и картинок
-                test: /\.(jpg|png|woff|woff2|eot|ttf|svg)$/,
+                test: /\.(jp.*g|png|woff|woff2|eot|ttf|svg)$/,
                 loader: 'url-loader?limit=100000'
             }
         ],
