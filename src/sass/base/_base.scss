@@ -1,21 +1,17 @@
 :root {
-  --color-darkest: #011C26;
-  --color-dark: #4C6C73;
-  --color-light: #EBF1F2;
-  --color-error: #F8F2F2;
-  --color-error-bright: #f85255;
-  --color-success: #F2FDF0;
-  --color-success-bright: #30bd41;
-  --color-yellow: #E5D161;
+  // TODO: set color scheme
+  --color-primary: #AD141E;
+  --color-primary-light: #ADFFFF;
+  --color-primary-dark: #ADADAD;
 
-  --font-size-small: 1em;
-  --font-size-medium: 1.5em;
-  --font-size-large: 2em;
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
 
-  --font-light: 'Helvetica Neue Light';
-  --font-regular: 'Helvetica Neue Regular';
-  --font-medium: 'Helvetica Neue Medium';
-  --font-bold: 'Helvetica Neue Bold';
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
 }
 
 * {
@@ -34,10 +30,16 @@ html {
   // 10px/16px = 62.5%
   font-size: 62.5%;
   box-sizing: border-box;
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%;
+  }
 }
 
 body {
-  font-family: --font-regular, sans-serif;
+  // TODO: set font
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   line-height: 1.6;
   color: var(--color-grey-dark-2);
   background-image: linear-gradient(
@@ -45,5 +47,6 @@ body {
                   var(--color-primary-light),
                   var(--color-primary-dark));
   background-repeat: no-repeat;
+
   min-height: 100vh;
 }

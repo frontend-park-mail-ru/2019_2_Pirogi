@@ -25,6 +25,16 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(html)$/,
+                use: {
+                    loader: 'html-loader',
+                    options: {
+                        pretty: true,
+                        attrs: ['img:src','link:href','image:xlink:href', 'use:xlink:href']
+                    }
+                }
+            },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {

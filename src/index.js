@@ -1,6 +1,6 @@
 import './sass/main.scss'
 
-console.log('bitch');
-console.log('bitch');
-console.log('bitch');
-console.log('bitch');
+console.log('blyat');
+console.log('blyat');
+console.log('blyat');
+console.log('blyat');
