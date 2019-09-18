@@ -94,39 +94,39 @@
 @font-face {
     font-family: Helvetica Neue Medium;
     src: local('Helvetica Neue Medium'), local('Helvetica-Neue-Medium'),
-    url('../fonts/HelveticaNeueCyr-Medium.woff2') format('woff2'),
-    url('../fonts/HelveticaNeueCyr-Medium.woff') format('woff'),
-    url('../fonts/HelveticaNeueCyr-Medium.ttf') format('truetype');
+    url('../../fonts/HelveticaNeueCyr-Medium.woff2') format('woff2'),
+    url('../../fonts/HelveticaNeueCyr-Medium.woff') format('woff'),
+    url('../../fonts/HelveticaNeueCyr-Medium.ttf') format('truetype');
 }
 
 @font-face {
     font-family: Helvetica Neue Light;
     src: local('Helvetica Neue Light'), local('Helvetica-Neue-Light'),
-    url('../fonts/HelveticaNeueCyr-Light.woff2') format('woff2'),
-    url('../fonts/HelveticaNeueCyr-Light.woff') format('woff'),
-    url('../fonts/HelveticaNeueCyr-Light.ttf') format('truetype');
+    url('../../fonts/HelveticaNeueCyr-Light.woff2') format('woff2'),
+    url('../../fonts/HelveticaNeueCyr-Light.woff') format('woff'),
+    url('../../fonts/HelveticaNeueCyr-Light.ttf') format('truetype');
 }
 
 @font-face {
     font-family: Helvetica Neue Bold;
     src: local('Helvetica Neue Bold'), local('Helvetica-Neue-Bold'),
-    url('../fonts/HelveticaNeueCyr-Bold.woff2') format('woff2'),
-    url('../fonts/HelveticaNeueCyr-Bold.woff') format('woff'),
-    url('../fonts/HelveticaNeueCyr-Bold.ttf') format('truetype');
+    url('../../fonts/HelveticaNeueCyr-Bold.woff2') format('woff2'),
+    url('../../fonts/HelveticaNeueCyr-Bold.woff') format('woff'),
+    url('../../fonts/HelveticaNeueCyr-Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: Helvetica Neue Regular;
     src: local('Helvetica Neue Roman'), local('Helvetica-Neue-Roman'),
-    url('../fonts/HelveticaNeueCyr-Roman.woff2') format('woff2'),
-    url('../fonts/HelveticaNeueCyr-Roman.woff') format('woff'),
-    url('../fonts/HelveticaNeueCyr-Roman.ttf') format('truetype');
+    url('../../fonts/HelveticaNeueCyr-Roman.woff2') format('woff2'),
+    url('../../fonts/HelveticaNeueCyr-Roman.woff') format('woff'),
+    url('../../fonts/HelveticaNeueCyr-Roman.ttf') format('truetype');
 }
 
 @font-face {
     font-family: Baskerville Regular;
     src: local('Baskerville Regular'), local('Baskerville-Regular'),
-    url('../fonts/LibreBaskerville-Regular.ttf') format('truetype');
+    url('../../fonts/LibreBaskerville-Regular.ttf') format('truetype');
 }
 
 .font-medium {
@@ -150,7 +150,7 @@
 }
 
 .font-size-small {
-var(--font-small)
+    font-size: var(--font-size-small)
 }
 
 .font-size-medium {
