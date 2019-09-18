@@ -1,0 +1,36 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "kinopoisk-spa",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "keywords": [
+    "spa",
+    "kinopoisk"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "cssnano": "^4.1.10",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "live-server": "^1.2.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.22.12",
+    "sass-loader": "^8.0.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.6.0",
+    "babel-polyfill": "^6.26.0"
+  }
+}

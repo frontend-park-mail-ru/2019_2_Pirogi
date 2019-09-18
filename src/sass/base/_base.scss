@@ -1,0 +1,49 @@
+:root {
+  --color-darkest: #011C26;
+  --color-dark: #4C6C73;
+  --color-light: #EBF1F2;
+  --color-error: #F8F2F2;
+  --color-error-bright: #f85255;
+  --color-success: #F2FDF0;
+  --color-success-bright: #30bd41;
+  --color-yellow: #E5D161;
+
+  --font-size-small: 1em;
+  --font-size-medium: 1.5em;
+  --font-size-large: 2em;
+
+  --font-light: 'Helvetica Neue Light';
+  --font-regular: 'Helvetica Neue Regular';
+  --font-medium: 'Helvetica Neue Medium';
+  --font-bold: 'Helvetica Neue Bold';
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  // 1rem = 10px
+  // 10px/16px = 62.5%
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: --font-regular, sans-serif;
+  line-height: 1.6;
+  color: var(--color-grey-dark-2);
+  background-image: linear-gradient(
+                  to right bottom,
+                  var(--color-primary-light),
+                  var(--color-primary-dark));
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
