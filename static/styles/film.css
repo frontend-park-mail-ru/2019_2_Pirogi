@@ -1,0 +1,31 @@
+.film {
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.film__description {
+    padding: 0 20px;
+}
+
+.text-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table {
+    display: flex;
+}
+
+.table > *:not(:last-child) {
+    margin-right: 15px;
+}
+
+.film__description .film__info {
+    display: flex;
+}
+
+.film__description > *:not(:last-child) {
+    margin-bottom: 15px;
+}
