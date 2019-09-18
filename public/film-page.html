@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>О фильме</title>
-    <link rel="stylesheet" href="../static/styles/reset.css">
-    <link rel="stylesheet" href="../static/styles/style.css">
+    <link rel="stylesheet" href="../static/styles/default/reset.css">
+    <link rel="stylesheet" href="../static/styles/global-vars/style.css">
     <link rel="stylesheet" href="../static/styles/components.css">
     <link rel="stylesheet" href="../static/styles/all.css">
     <link rel="stylesheet" href="../static/styles/film-page.css">
@@ -59,13 +59,13 @@
         <div class="outer font-light">
             <div class="inner">
                 <div class="font-size-medium color-light">Рейтинг фильма:
-                    <span class="color-yellow">7.44</span>
+                    <div class="inline color-yellow">7.44</div>
                 </div>
             </div>
             <div class="inner">
                 <div class="font-size-medium color-light">Комментарии:
                     <div class="inline">
-                        100 | <span class="color-success-bright">24</span> | <span class="color-error-bright">76</span>
+                        100 | <div class="inline color-success-bright">24</div> | <div class="inline color-error-bright">76</div>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
     <div class="container flex-column">
         <div id="feedback-form">
             <hr>
-            <h3 class="font-medium color-darkest font-size-small">Расскажите что Вы думаете о фильме: </h3>
+            <h3 class="font-medium color-darkest font-size-small">Расскажите, что Вы думаете о фильме: </h3>
             <form>
                 <label for="new-feedback-title"></label>
                 <input id="new-feedback-title" type="text" placeholder="Заголовок">
