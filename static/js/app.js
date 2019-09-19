@@ -4,6 +4,7 @@ import ProfileController from "./controllers/profileController"
 import FilmController from "./controllers/filmController";
 import SearchController from "./controllers/searchController";
 import IndexController from "./controllers/indexController";
+import AdminController from "./controllers/adminController";
 
 const sayHello = () => {
     console.log("hello");
@@ -17,5 +18,6 @@ const sayHello = () => {
     const fController = new FilmController(globalEventBus);
     const sController = new SearchController(globalEventBus);
     const iController = new IndexController(globalEventBus);
+    const aController = new AdminController(globalEventBus);
 
 })();
