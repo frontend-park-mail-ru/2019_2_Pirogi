@@ -3,6 +3,7 @@ import EntranceController from "./controllers/entranceController"
 import ProfileController from "./controllers/profileController"
 import FilmController from "./controllers/filmController";
 import SearchController from "./controllers/searchController";
+import IndexController from "./controllers/indexController";
 
 const sayHello = () => {
     console.log("hello");
@@ -15,5 +16,6 @@ const sayHello = () => {
     const pController = new ProfileController(globalEventBus);
     const fController = new FilmController(globalEventBus);
     const sController = new SearchController(globalEventBus);
+    const iController = new IndexController(globalEventBus);
 
 })();
