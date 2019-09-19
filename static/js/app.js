@@ -15,5 +15,5 @@ const sayHello = () => {
     const pController = new ProfileController(globalEventBus);
     const fController = new FilmController(globalEventBus);
     const sController = new SearchController(globalEventBus);
-    
+
 })();
