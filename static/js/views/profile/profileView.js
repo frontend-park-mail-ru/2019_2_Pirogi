@@ -13,7 +13,5 @@ export default class ProfileView extends View {
 
     render(root, data) {
         super.render(root,data);
-
-
     }
 }
