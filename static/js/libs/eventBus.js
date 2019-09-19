@@ -3,12 +3,12 @@
 export default class EventBus {
 
     constructor(events = [{}]) {
-        this.EventsArray = new Object();
-        events.forEach(function(item, index, array) {
-            if (this.EventsArray[item.key] != undefined)
+        this.EventsArray = new Map();
+        events.forEach((item, index, array) => {
+            if (this.EventsArray[item.key] !== undefined)
                 return;
 
-            if (typeof item.func != "function" && item.func != undefined)
+            if (typeof item.func !== "function" && item.func !== undefined)
                 return;
 
             this.EventsArray[item.key] = item.func;
@@ -16,15 +16,15 @@ export default class EventBus {
     }
 
     addEventListener(event, func) {
-        if (this.EventsArray[event] != undefined)
+        if (this.EventsArray[event] !== undefined)
             return;
-        if (typeof func != "function" && func != undefined)
+        if (typeof func !== "function" && func !== undefined)
             return;
         this.EventsArray[event] = func;
     }
 
     callEvent(event, ...args) {
-        if (this.EventsArray[event] == undefined)
+        if (this.EventsArray[event] === undefined)
             return;
         return this.EventsArray[event](...args);
     }

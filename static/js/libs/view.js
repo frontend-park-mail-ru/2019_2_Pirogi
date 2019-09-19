@@ -1,6 +1,6 @@
 export default class View {
-    constructor(eventBus, template) {
-        this.el = document.createElement('div')
+    constructor(eventBus, template = {}) {
+        this.el = document.createElement('div');
         this.eventBus = eventBus;
         this.template = template;
         this.openFlag = false;
@@ -11,6 +11,7 @@ export default class View {
         console.log("render page...");
         this.el = root;
         this.openFlag = true;
+        //this.el.innerHTML = template(data);
     }
 
     hide() {
