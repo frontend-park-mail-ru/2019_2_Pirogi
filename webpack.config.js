@@ -4,17 +4,9 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.s[ac]ss$/i,
-                use: [
-                    // fallback to style-loader in development
-                    process.env.NODE_ENV !== 'production'
-                        ? 'style-loader'
-                        : MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    {
-                        loader: 'sass-loader',
-                    },
-                ],
+                test: /\.s[ac]ss$/,
+                loader: 'sass-loader',
+
             },
             {
                 // Для включения в css файлов шрифтов и картинок
