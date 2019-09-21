@@ -7,7 +7,6 @@ export default class LoginModel {
         this.localEventBus.addEventListener('onRegisterCheck', this.onRegisterCheck.bind(this))
     }
 
-
     onAuthCheck(data) {
         console.log('Checking login and password...');
         this.isAuth = true;

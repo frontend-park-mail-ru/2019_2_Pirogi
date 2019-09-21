@@ -11,7 +11,7 @@ export default class FilmView extends View {
         this.localEventBus.addEventListener('addMyNewReview', this.addMyReview.bind(this));
     }
 
-    addMyReview(title, body) {
+    addMyReview(reviewData) {
         console.log('add new review')
     }
 

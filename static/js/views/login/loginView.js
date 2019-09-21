@@ -1,7 +1,6 @@
 import View from '../../libs/view.js' 
 //import template from './login.tmpl.js'
 
-
 export default class LoginView extends View {
     constructor(localEventBus, globalEventBus = {})
     {
@@ -46,7 +45,7 @@ export default class LoginView extends View {
             repeatPassword: 'blablabla',
         };
 
-        this.localEventBus.dispatchEvent('onRegisterCheck', email, nickname, password, repeatPassword);
+        this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);
     }
 
     onRegisterReply() {
@@ -67,6 +66,4 @@ export default class LoginView extends View {
         this.registerButton = document.getElementById('register-button');
         this.registerButton.addEventListener('click', this.localEventBus.dispatchEvent('myRegisterEvent').bind(this));
     }
-
-
 }

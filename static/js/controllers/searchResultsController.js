@@ -2,7 +2,6 @@ import EventBus from '../libs/eventBus';
 import SearchResultsModel from '../models/searchResultsModel';
 import SearchResultsView from '../views/searchResults/searchResultsView';
 
-
 const searchEvents = [
     {key:'', func: undefined},
 ];

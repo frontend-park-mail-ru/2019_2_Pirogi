@@ -1,6 +1,5 @@
 import View from '../../libs/view.js'
 
-
 export default class AdminView extends View {
     constructor(localEventBus, globalEventBus = {}) {
         super(localEventBus);

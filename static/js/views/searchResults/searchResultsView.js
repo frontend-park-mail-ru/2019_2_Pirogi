@@ -10,7 +10,6 @@ export default class SearchResultsView extends View {
 
     render(root, data = {}) {
         console.log('rendering searchResults page');
-        super.render(root,data);
+        super.render(root, data);
     }
-
 }
