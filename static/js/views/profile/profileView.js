@@ -1,9 +1,9 @@
-import View from "../../libs/view.js"
-//import template from "./profile_tmpl.xml"
+import View from '../../libs/view.js'
+//import template from './profile.tmpl.js'
 
 
 export default class ProfileView extends View {
-    constructor(localEventBus, globalEventBus) {
+    constructor(localEventBus, globalEventBus = {}) {
         super(localEventBus);
 
         this.localEventBus = localEventBus;
@@ -12,6 +12,6 @@ export default class ProfileView extends View {
     }
 
     render(root, data) {
-        super.render(root,data);
+        super.render(root, data);
     }
 }

@@ -1,15 +1,15 @@
 export default class FilmModel {
-    constructor(localEventBus, globalEventBus) {
+    constructor(localEventBus, globalEventBus = {}) {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
 
-        this.localEventBus.addEventListener("ReviewCheck", this.OnReviewCheck.bind(this));
+        this.localEventBus.addEventListener('reviewCheck', this.onReviewCheck.bind(this));
 
     }
 
-    OnReviewCheck(title, body) {
-        console.log("checking review");
-        this.localEventBus.callEvent("AddMyNewReview", title, body);
+    onReviewCheck(data) {
+        console.log('checking review');
+        this.localEventBus.dispatchEvent('addMyNewReview', data);
     }
 
 }

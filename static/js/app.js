@@ -1,23 +1,20 @@
-import EventBus from "./libs/eventBus.js"
-import EntranceController from "./controllers/entranceController"
-import ProfileController from "./controllers/profileController"
-import FilmController from "./controllers/filmController";
-import SearchController from "./controllers/searchController";
-import IndexController from "./controllers/indexController";
-import AdminController from "./controllers/adminController";
+import EventBus from './libs/eventBus.js'
+import LoginController from './controllers/loginController'
+import ProfileController from './controllers/profileController'
+import FilmController from './controllers/filmController';
+import SearchResultsController from './controllers/searchResultsController';
+import IndexController from './controllers/indexController';
+import AdminController from './controllers/adminController';
 
-const sayHello = () => {
-    console.log("hello");
-};
+document.addEventListener('DOMContentLoaded',() => {
+    const globalEventBus = new EventBus([{}]);
 
-(function Application() {
-    const globalEventBus = new EventBus([{key:"NewsButtonClicked", func: sayHello}]);
+    const loginController = new LoginController(globalEventBus);
+    const profileController = new ProfileController(globalEventBus);
+    const filmController = new FilmController(globalEventBus);
+    const searchResultsController = new SearchResultsController(globalEventBus);
+    const indexController = new IndexController(globalEventBus);
+    const adminController = new AdminController(globalEventBus);
 
-    const eController = new EntranceController(globalEventBus);
-    const pController = new ProfileController(globalEventBus);
-    const fController = new FilmController(globalEventBus);
-    const sController = new SearchController(globalEventBus);
-    const iController = new IndexController(globalEventBus);
-    const aController = new AdminController(globalEventBus);
+});
 
-})();

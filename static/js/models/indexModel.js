@@ -1,5 +1,5 @@
 export default class IndexModel {
-    constructor(localEventBus, globalEventBus) {
+    constructor(localEventBus, globalEventBus = {}) {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
 

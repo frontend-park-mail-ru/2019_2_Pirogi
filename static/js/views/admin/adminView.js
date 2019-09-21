@@ -1,41 +1,42 @@
-import View from "../../libs/view.js"
+import View from '../../libs/view.js'
 
 
 export default class AdminView extends View {
-    constructor(localEventBus, globalEventBus) {
+    constructor(localEventBus, globalEventBus = {}) {
         super(localEventBus);
 
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
 
-        this.localEventBus.addEventListener("myFilmAddEvent", this.OnFilmAdd.bind(this));
-        this.localEventBus.addEventListener("FilmAdded", this.AddNewFilm.bind(this));
-        this.localEventBus.addEventListener("FilmAddFailed", this.AddFilmFailed.bind(this));
+        this.localEventBus.addEventListener('myFilmAddEvent', this.onFilmAdd.bind(this));
+        this.localEventBus.addEventListener('filmAdded', this.addNewFilm.bind(this));
+        this.localEventBus.addEventListener('filmAddFailed', this.addFilmFailed.bind(this));
 
     }
 
-    AddNewFilm() {
-        console.log("new film added");
+    addNewFilm() {
+        console.log('new film added');
     }
 
-    AddFilmFailed() {
-        console.log("Film adding failed");
+    addFilmFailed() {
+        console.log('Film adding failed');
     }
 
-    OnFilmAdd() {
-        console.log("on adding film");
+    onFilmAdd() {
+        console.log('on adding film');
 
-        const FilmInfo = {
+        this.filmInfo = {
           year: 2019,
-          genre:"romance",
+          genre:'romance',
         };
 
-        this.localEventBus.callEvent("AddFilmCheck", FilmInfo);
+        this.localEventBus.dispatchEvent('addFilmCheck', this.filmInfo);
     }
 
     render(root, data) {
-        super.render(root,data);
+        super.render(root, data);
 
-        document.getElementById("admin-form__button").addEventListener('click', this.localEventBus.callEvent("myFilmAddEvent"));
+        this.adminFormButton = document.getElementById('admin-form__button');
+        this.adminFormButton.addEventListener('click', this.localEventBus.dispatchEvent('myFilmAddEvent'));
     }
 }

@@ -1,8 +1,8 @@
-import View from "../../libs/view";
+import View from '../../libs/view';
 
 
 export default class IndexView extends View {
-    constructor(localEventBus, globalEventBus) {
+    constructor(localEventBus, globalEventBus = {}) {
         super(localEventBus);
 
         this.localEventBus = localEventBus;
@@ -11,6 +11,6 @@ export default class IndexView extends View {
     }
 
     render(root, data) {
-        super.render(root,data);
+        super.render(root, data);
     }
 }

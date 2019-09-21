@@ -1,18 +1,18 @@
-import EventBus from "../libs/eventBus"
-import FilmModel from "../models/filmModel";
-import FilmView from "../views/film/filmView";
+import EventBus from '../libs/eventBus'
+import FilmModel from '../models/filmModel';
+import FilmView from '../views/film/filmView';
 
 const filmEvents = [
-    {key:"myReviewEvent", func: undefined},
-    {key:"AddMyNewReview", func: undefined},
-    {key:"ReviewCheck", func: undefined},
+    {key:'myReviewEvent'},
+    {key:'addMyNewReview'},
+    {key:'reviewCheck'},
 ];
 
 export default class FilmController {
-    constructor(globalEventBus) {
+    constructor(globalEventBus = {}) {
         this.localEventBus = new EventBus(filmEvents);
 
-        this.fModel = FilmModel(this.localEventBus, globalEventBus);
-        this.fView = FilmView(this.localEventBus, globalEventBus);
+        this.filmModel = FilmModel(this.localEventBus, globalEventBus);
+        this.filmView = FilmView(this.localEventBus, globalEventBus);
     }
 }

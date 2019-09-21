@@ -1,9 +1,9 @@
-import EventBus from "../libs/eventBus";
-import IndexModel from "../models/indexModel";
-import IndexView from "../views/index/indexView";
+import EventBus from '../libs/eventBus';
+import IndexModel from '../models/indexModel';
+import IndexView from '../views/index/indexView';
 
 const indexEvents = [
-    {key:"", func: undefined}
+    {key:''}
 ];
 
 export default class IndexController {
@@ -11,7 +11,7 @@ export default class IndexController {
 
         this.localEventBus = new EventBus(indexEvents);
 
-        this.iView = new IndexView(this.localEventBus, globalEventBus);
-        this.iModel = new IndexModel(this.localEventBus, globalEventBus);
+        this.indexView = new IndexView(this.localEventBus, globalEventBus);
+        this.indexModel = new IndexModel(this.localEventBus, globalEventBus);
     }
 }

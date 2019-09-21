@@ -1,34 +1,37 @@
-import View from "../../libs/view";
+import View from '../../libs/view';
 
 export default class FilmView extends View {
-    constructor(localEventBus, globalEventBus) {
+    constructor(localEventBus, globalEventBus = {}) {
         super(localEventBus);
 
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
 
-        this.localEventBus.addEventListener("myReviewEvent", this.OnReview.bind(this));
-        this.localEventBus.addEventListener("AddMyNewReview", this.AddMyReview.bind(this));
+        this.localEventBus.addEventListener('myReviewEvent', this.onReview.bind(this));
+        this.localEventBus.addEventListener('addMyNewReview', this.addMyReview.bind(this));
     }
 
-    AddMyReview(title, body) {
-        console.log("add new review")
+    addMyReview(title, body) {
+        console.log('add new review')
     }
 
-    OnReview() {
-        console.log("read data for review");
+    onReview() {
+        console.log('read data for review');
 
-        const title = "blablabla";
-        const body = "blablablablablabla";
-        this.localEventBus.callEvent("ReviewCheck", title, body);
+        this.reviewData = {
+            title:  'blablabla',
+            body: 'blablablablablabla',
+        };
+        this.localEventBus.dispatchEvent('reviewCheck', this.reviewData);
     }
 
     render(root, data = {}) {
-        console.log("render film page");
+        console.log('render film page');
 
-        super.render(root,data);
+        super.render(root, data);
 
-        document.getElementById('review-submit').addEventListener('click', this.localEventBus.callEvent('myReviewEvent'));
+        this.reviewSubmit = document.getElementById('review-submit');
+        this.reviewSubmit.addEventListener('click', this.localEventBus.dispatchEvent('myReviewEvent'));
     }
 
 }
