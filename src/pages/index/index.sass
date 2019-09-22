@@ -2,10 +2,10 @@
 .index
   display: flex
 
-  margin-top: 100px
+  margin-top: 10*$indent
   .top
-    margin-left: 20px
-    margin-bottom: 20px
+    margin-left: 2*$indent
+    margin-bottom: 2*$indent
   .navbar
     z-index: 100
 
@@ -23,24 +23,24 @@
 
 .films-bar
   justify-content: space-between
-  margin: 20px 0
+  margin: 2*$indent 0
   display: flex
   .film-bar__card
     width: 100%
-    margin-right: 20px
+    margin-right: 2*$indent
     text-align: center
     +shadow-dark
     &:last-of-type
       margin-right: 0
 
   .film-bar__info
-    padding: 20px
+    padding: 2*$indent
   .film-bar__img
     position: relative
     img
       width: 100%
-    .text-title
-      padding: 10px 0
+    .title
+      padding: $indent 0
       position: absolute
       bottom: 0
       margin: auto

@@ -2,8 +2,9 @@
   "name": "frontend",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack && node app.js",
-    "build": "webpack --watch"
+    "build": "webpack",
+    "dev": "webpack --watch",
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "^4.17.1"

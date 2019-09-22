@@ -5,25 +5,25 @@
   align-items: center
   flex-direction: row
   text-align: center
-  padding-top: 100px
+  padding-top: 10*$indent
   width: 60%
 
 .film *
-  margin-top: 5px
-  margin-bottom: 5px
+  margin-top: $indent/2
+  margin-bottom: $indent/2
 
 .film__img
   height: 45vh
   +shadow-dark
 
 .film__description
-  margin: 0 20px
+  margin: 0 2*$indent
   display: flex
   flex-direction: column
 
 .rating
   +shadow-dark
-  margin: 20px 0
+  margin: 2*$indent 0
   align-items: center
   justify-content: space-evenly
   min-height: 75px
@@ -31,14 +31,14 @@
   display: flex
   width: 100%
 
-.rating__block .text-title
+.rating__block .title
   font-size: $font-size-medium
   color: $color-light
 
   display: flex
 
-.text-title *
-  margin: 0 10px
+.title *
+  margin: 0 $indent
 
 .film__star
   color: $color-dark
@@ -55,11 +55,11 @@
   width: 60%
 
 .feedback-form *
-  margin: 15px 0
+  margin: 2*$indent 0
 
 .feedbacks
   text-align: center
   width: 60%
 
 .feedbacks *
-  margin: 15px 0
+  margin: 2*$indent 0
