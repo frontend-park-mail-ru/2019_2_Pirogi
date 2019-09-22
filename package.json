@@ -10,6 +10,11 @@
   "dependencies": {
     "express": "^4.17.1"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint"
+    }
+  },
   "devDependencies": {
     "eslint": "^6.4.0",
     "eslint-config-google": "^0.14.0",
