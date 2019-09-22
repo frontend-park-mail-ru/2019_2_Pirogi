@@ -1,35 +1,26 @@
 
 @import 'abstracts/variables';
+@import 'abstracts/variables1';
+@import 'abstracts/mixins';
 
-@import "vendors/reset";
-@import "vendors/fonts";
+@import 'vendors/reset';
+@import 'vendors/fonts';
 
 @import 'base/base';
+@import 'base/typography';
 
+@import 'layout/body';
 @import 'layout/container';
 @import 'layout/header';
+@import 'layout/hr';
+@import 'layout/storage';
 
 @import 'components/components';
 @import 'components/logo';
+@import 'components/search';
+@import 'components/user-info';
 
-// TODO: delete
-//@import 'abstracts/mixins';
-//
-//
-//@import 'base/typography';
-//
-//@import 'layout/navigation';
-//@import 'layout/grid';
-//@import 'layout/header';
-//@import 'layout/footer';
-//@import 'layout/sidebar';
-//@import 'layout/forms';
-//
-//@import 'components/buttons';
-//@import 'components/carousel';
-//@import 'components/cover';
-//@import 'components/dropdown';
-//
+
 //@import 'pages/home';
 //@import 'pages/contact';
 //
