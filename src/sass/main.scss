@@ -1,28 +1,6 @@
-
-@import 'abstracts/variables';
-@import 'abstracts/variables1';
-@import 'abstracts/mixins';
+@import 'variables/variables';
 
 @import 'vendors/reset';
 @import 'vendors/fonts';
 
-@import 'base/base';
-@import 'base/typography';
-
-@import 'layout/body';
-@import 'layout/container';
-@import 'layout/header';
-@import 'layout/hr';
-@import 'layout/storage';
-
-@import 'components/components';
-@import 'components/logo';
-@import 'components/search';
-@import 'components/user-info';
-
-
-//@import 'pages/home';
-//@import 'pages/contact';
-//
-//@import 'themes/theme';
-//@import 'themes/admin';
+@import 'components/form';

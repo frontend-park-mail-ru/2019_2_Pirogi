@@ -19,8 +19,7 @@ module.exports = {
         // for html templates and page generations
         new HmtlWebpackPlugin({
             filename: 'index.html',
-            template: './src/assets/index.html'
-
+            template: './src/assets/form.html'
         })
     ],
     module: {
