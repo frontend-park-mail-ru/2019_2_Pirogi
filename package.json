@@ -4,7 +4,9 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack --watch",
-    "start": "node app.js"
+    "start": "node app.js",
+    "lint": "./node_modules/.bin/eslint src *.js --fix",
+    "prepush": "call npm run lint"
   },
   "dependencies": {
     "express": "^4.17.1"
