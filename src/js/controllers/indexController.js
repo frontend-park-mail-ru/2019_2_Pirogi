@@ -1,9 +1,9 @@
-import EventBus from '../libs/eventBus';
-import IndexModel from '../models/indexModel';
-import IndexView from '../views/index/indexView';
+import EventBus from '../libs/eventBus.js';
+import IndexModel from '../models/indexModel.js';
+import IndexView from '../views/index/indexView.js';
 
 const indexEvents = [
-  {key: ''},
+  {},
 ];
 /** class*/
 export default class IndexController {

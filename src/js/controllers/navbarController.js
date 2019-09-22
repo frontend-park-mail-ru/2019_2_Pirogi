@@ -1,6 +1,5 @@
-
-import NavbarModel from '../models/navbarModel';
-import NavbarView from '../views/navbar/navbarView';
+import NavbarModel from '../models/navbarModel.js';
+import NavbarView from '../views/navbar/navbarView.js';
 
 /** class*/
 export default class NavbarController {

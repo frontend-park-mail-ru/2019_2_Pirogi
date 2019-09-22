@@ -1,6 +1,6 @@
-import EventBus from '../libs/eventBus';
-import FilmModel from '../models/filmModel';
-import FilmView from '../views/film/filmView';
+import EventBus from '../libs/eventBus.js';
+import FilmModel from '../models/filmModel.js';
+import FilmView from '../views/film/filmView.js';
 
 const filmEvents = [
   {key: 'myReviewEvent'},

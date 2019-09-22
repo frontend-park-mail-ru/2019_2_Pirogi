@@ -1,6 +1,6 @@
-import EventBus from '../libs/eventBus';
-import SearchResultsModel from '../models/searchResultsModel';
-import SearchResultsView from '../views/searchResults/searchResultsView';
+import EventBus from '../libs/eventBus.js';
+import SearchResultsModel from '../models/searchResultsModel.js';
+import SearchResultsView from '../views/searchResults/searchResultsView.js';
 
 const searchEvents = [
   {},

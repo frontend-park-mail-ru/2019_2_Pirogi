@@ -1,6 +1,6 @@
-import EventBus from '../libs/eventBus';
-import AdminModel from '../models/adminModel';
-import AdminView from '../views/admin/adminView';
+import EventBus from '../libs/eventBus.js';
+import AdminModel from '../models/adminModel.js';
+import AdminView from '../views/admin/adminView.js';
 
 const adminEvents = [
   {key: 'myFilmAddEvent'},

@@ -3,7 +3,7 @@ import ProfileView from '../views/profile/profileView.js';
 import ProfileModel from '../models/profileModel.js';
 
 const profileEvents = [
-  {key: '', func: undefined},
+  {},
 ];
 
 /** class*/

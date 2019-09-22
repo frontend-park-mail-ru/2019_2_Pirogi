@@ -1,4 +1,4 @@
-import View from '../../libs/view';
+import View from '../../libs/view.js';
 
 /** class*/
 export default class IndexView extends View {

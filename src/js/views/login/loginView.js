@@ -19,7 +19,7 @@ export default class LoginView extends View {
     this.localEventBus.addEventListener('authGood',
         this.goToMain.bind(this));
     this.localEventBus.addEventListener('myRegisterEvent',
-        this.onRegister().bind(this));
+        this.onRegister.bind(this));
     this.localEventBus.addEventListener('registerFailed',
         this.onRegisterReply.bind(this));
     this.localEventBus.addEventListener('registerCompleted',

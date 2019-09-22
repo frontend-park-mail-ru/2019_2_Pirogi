@@ -7,14 +7,17 @@ export default class EventBus {
     this.eventsMap = new Map();
     events.forEach((item) => {
       if (item.key === undefined) {
+        console.log('Error! key = null');
         return;
       }
 
       if (typeof item.func !== 'function' && item.func !== undefined) {
+        console.log('Error! function != function');
         return;
       }
 
       if (this.eventsMap[item.key] !== undefined) {
+        console.log('Error! key have already exists');
         return;
       }
 
@@ -28,9 +31,11 @@ export default class EventBus {
    */
   addEventListener(event, func) {
     if (this.eventsMap[event] !== undefined) {
+      console.log('Error! key have already exists');
       return;
     }
     if (typeof func !== 'function' && func !== undefined) {
+      console.log('Error! function != function');
       return;
     }
 
@@ -44,6 +49,7 @@ export default class EventBus {
    */
   dispatchEvent(event, ...args) {
     if (this.eventsMap[event] === undefined) {
+      console.log('Error! key does not exists');
       return;
     }
 
