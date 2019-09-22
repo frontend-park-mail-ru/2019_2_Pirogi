@@ -1,69 +1,90 @@
-import View from '../../libs/view.js' 
-//import template from './login.tmpl.js'
+import View from '../../libs/view.js';
+// import template from './login.tmpl.js'
 
+/** class*/
 export default class LoginView extends View {
-    constructor(localEventBus, globalEventBus = {})
-    {
-        super(localEventBus);
-        this.localEventBus = localEventBus;
-        this.globalEventBus = globalEventBus;
+  /**
+   * @param {object} localEventBus
+   * @param {object} globalEventBus
+   */
+  constructor(localEventBus, globalEventBus = {}) {
+    super(localEventBus);
+    this.localEventBus = localEventBus;
+    this.globalEventBus = globalEventBus;
 
-        this.localEventBus.addEventListener('myAuthEvent', this.onAuth.bind(this));
-        this.localEventBus.addEventListener('authFailed', this.onAuthReply.bind(this));
-        this.localEventBus.addEventListener('authGood', this.goToMain.bind(this));
-        this.localEventBus.addEventListener('myRegisterEvent', this.onRegister().bind(this));
-        this.localEventBus.addEventListener('registerFailed', this.onRegisterReply.bind(this));
-        this.localEventBus.addEventListener('registerCompleted', this.registrationOk.bind(this));
-    }
+    this.localEventBus.addEventListener('myAuthEvent',
+        this.onAuth.bind(this));
+    this.localEventBus.addEventListener('authFailed',
+        this.onAuthReply.bind(this));
+    this.localEventBus.addEventListener('authGood',
+        this.goToMain.bind(this));
+    this.localEventBus.addEventListener('myRegisterEvent',
+        this.onRegister().bind(this));
+    this.localEventBus.addEventListener('registerFailed',
+        this.onRegisterReply.bind(this));
+    this.localEventBus.addEventListener('registerCompleted',
+        this.registrationOk.bind(this));
+  }
 
-    goToMain() {
-        console.log('Auth is good, lets go to main page!')
-    }
+  /** function */
+  goToMain() {
+    console.log('Auth is good, lets go to main page!');
+  }
 
-    onAuthReply() {
-        console.log('Bad auth!')
-    }
+  /** function */
+  onAuthReply() {
+    console.log('Bad auth!');
+  }
 
-    onAuth() {
-        console.log('lets read our data');
-        
-        this.authData = {
-            password: 'blablabla',
-            login: 'blabla@bla.ru',
-        };
+  /** function */
+  onAuth() {
+    console.log('lets read our data');
 
-        this.localEventBus.dispatchEvent('onAuthCheck', this.authData);
-    }
+    this.authData = {
+      password: 'blablabla',
+      login: 'blabla@bla.ru',
+    };
 
-    onRegister() {
-        console.log('lets see users data');
+    this.localEventBus.dispatchEvent('onAuthCheck', this.authData);
+  }
 
-        this.registerData = {
-            password: 'blablabla',
-            email: 'blabla@bla.ru',
-            nickname: 'vasyakrutoi',
-            repeatPassword: 'blablabla',
-        };
+  /** function */
+  onRegister() {
+    console.log('lets see users data');
 
-        this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);
-    }
+    this.registerData = {
+      password: 'blablabla',
+      email: 'blabla@bla.ru',
+      nickname: 'vasyakrutoi',
+      repeatPassword: 'blablabla',
+    };
 
-    onRegisterReply() {
-        console.log('Registration failed');
-    }
+    this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);
+  }
 
-    registrationOk() {
-        console.log('Registration OK');
-    }
+  /** function */
+  onRegisterReply() {
+    console.log('Registration failed');
+  }
 
-    render(root, data = {}) {
-        // Render page
-        console.log('render login page');
-        super.render(root, data);
+  /** function */
+  registrationOk() {
+    console.log('Registration OK');
+  }
+  /**
+   * @param {object} root
+   * @param {object} data
+   */
+  render(root, data = {}) {
+    // Render page
+    console.log('render login page');
+    super.render(root, data);
 
-        this.loginBitton = document.getElementById('login-button');
-        this.loginBitton.addEventListener('click', this.localEventBus.dispatchEvent('myAuthEvent').bind(this));
-        this.registerButton = document.getElementById('register-button');
-        this.registerButton.addEventListener('click', this.localEventBus.dispatchEvent('myRegisterEvent').bind(this));
-    }
+    this.loginBitton = document.getElementById('login-button');
+    this.loginBitton.addEventListener('click',
+        this.localEventBus.dispatchEvent('myAuthEvent').bind(this));
+    this.registerButton = document.getElementById('register-button');
+    this.registerButton.addEventListener('click',
+        this.localEventBus.dispatchEvent('myRegisterEvent').bind(this));
+  }
 }

@@ -1,6 +1,11 @@
+/** class*/
 export default class ProfileModel {
-    constructor(localEventBus, globalEventBus = {}) {
-        this.localEventBus = localEventBus;
-        this.globalEventBus = globalEventBus;
-    }
+  /**
+   * @param {object} localEventBus
+   * @param {object} globalEventBus
+   */
+  constructor(localEventBus, globalEventBus = {}) {
+    this.localEventBus = localEventBus;
+    this.globalEventBus = globalEventBus;
+  }
 }

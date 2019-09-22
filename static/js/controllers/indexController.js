@@ -3,15 +3,17 @@ import IndexModel from '../models/indexModel';
 import IndexView from '../views/index/indexView';
 
 const indexEvents = [
-    {key:''}
+  {key: ''},
 ];
-
+/** class*/
 export default class IndexController {
-    constructor(globalEventBus = {}) {
+  /**
+   * @param {object} globalEventBus
+   */
+  constructor(globalEventBus = {}) {
+    this.localEventBus = new EventBus(indexEvents);
 
-        this.localEventBus = new EventBus(indexEvents);
-
-        this.indexView = new IndexView(this.localEventBus, globalEventBus);
-        this.indexModel = new IndexModel(this.localEventBus, globalEventBus);
-    }
+    this.indexView = new IndexView(this.localEventBus, globalEventBus);
+    this.indexModel = new IndexModel(this.localEventBus, globalEventBus);
+  }
 }
