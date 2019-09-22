@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>О фильме</title>
+    <link rel="stylesheet" href="../static/styles/reset.css">
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <link rel="stylesheet" href="../static/styles/components.css">
+    <link rel="stylesheet" href="../static/styles/all.css">
+    <link rel="stylesheet" href="../static/styles/film-page.css">
+</head>
+<body>
+<main>
+    <div class="navbar">
+        <a class="logo" href="/">CINSEAR</a>
+        <input class="navbar__search-form" type="text" placeholder="поиск">
+        <a class="navbar__item navbar__item_current">новинки</a>
+        <a class="navbar__item">фильмы</a>
+        <a class="navbar__item">рейтинги</a>
+        <div class="button">войти</div>
+    </div>
+    <div class="film">
+        <img class="film__img" src="../src/images/tmp_film_card.jpg" alt="название фильма">
+        <div class="film__description">
+            <div class="title">Film title</div>
+            <div class="hr"></div>
+            <div class="film__description-details">
+                <div class="list-item">Genre</div>
+                <div class="list-item">Year</div>
+                <div class="list-item">Name Surname</div>
+            </div>
+            <div class="hr"></div>
+            <div class="text">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+                ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+                elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                dolores et ea rebum.
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="rating">
+        <div class="rating__outer">
+            <div class="rating__outer-inner">
+                <div class="title">Рейтинг фильма:
+                    <div class="text_yellow">7.44</div>
+                </div>
+            </div>
+            <div class="rating__outer-inner">
+                <div class="title">Комментарии:
+                    <div class="rating__outer-inner">
+                        100 | <span class="text_success">24</span> | <span
+                            class="text_error">76</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rating__outer-inner">
+                <i class="fas fa-star fa-2x star"></i>
+                <i class="fas fa-star fa-2x star"></i>
+                <i class="fas fa-star fa-2x star"></i>
+                <i class="fas fa-star fa-2x star"></i>
+                <i class="fas fa-star fa-2x star"></i>
+            </div>
+        </div>
+    </div>
+    <div class="feedback-form">
+        <div class="hr"></div>
+        <div class="title">Расскажите что Вы думаете о фильме:</div>
+        <form class="form">
+            <input class="input" type="text" placeholder="Заголовок">
+            <textarea class="textarea" placeholder="Текст рецензии"></textarea>
+            <input class="button" type="button" value="Отправить">
+        </form>
+        <div class="hr"></div>
+    </div>
+    <div class="feedbacks">
+        <div class="hr"></div>
+        <div class="title">Рецензии:</div>
+        <div class="hr"></div>
+        <div class="feedback"></div>
+    </div>
+</main>
+</body>
+</html>

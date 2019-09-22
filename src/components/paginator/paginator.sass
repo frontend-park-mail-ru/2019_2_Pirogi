@@ -1,0 +1,23 @@
+@import "../../css/variables"
+.paginator
+  width: 100%
+  text-align: center
+  display: flex
+  flex-direction: row
+  justify-content: center
+  padding-bottom: 2*$indent
+
+.paginator__item
+  border: 1px solid $color-darkest
+  border-right: none
+  padding: $indent
+  cursor: pointer
+  +transition(0.5s)
+  &:hover
+    +transition(0.5s)
+    background-color: $color-darkest
+    color: $color-yellow
+  &:last-of-type
+    border-right: 1px solid $color-darkest
+
+
