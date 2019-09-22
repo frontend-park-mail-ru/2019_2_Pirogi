@@ -5,8 +5,7 @@
     "build": "webpack",
     "dev": "webpack --watch",
     "start": "node app.js",
-    "lint": "./node_modules/.bin/eslint src *.js --fix",
-    "prepush": "call npm run lint"
+    "lint": "./node_modules/.bin/eslint src *.js --fix"
   },
   "dependencies": {
     "express": "^4.17.1"
