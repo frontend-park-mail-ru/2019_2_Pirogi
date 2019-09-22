@@ -2,12 +2,26 @@
   "name": "frontend",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm app.js"
+    "build": "webpack",
+    "dev": "webpack --watch",
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "static": "^2.0.0"
+    "css-loader": "^3.2.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^4.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0",
+    "@babel/core": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "static": "^2.0.0",
+    "style-loader": "^1.0.0",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.8"
   }
 }

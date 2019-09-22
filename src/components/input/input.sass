@@ -1,0 +1,18 @@
+@import '../../css/variables'
+
+.input
+  font-family: $font-light
+  color: $color-dark
+  background-color: $color-light
+  font-size: $font-size-small
+  padding: $indent 2*$indent
+  border: 0.5px solid $color-darkest
+  border-radius: 2*$indent
+  resize: none
+  +transition(0.5s)
+
+
+  &:focus
+    +transition(0.5s)
+    outline: none
+    +shadow-dark
