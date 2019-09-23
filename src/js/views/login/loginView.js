@@ -1,5 +1,4 @@
 import View from '../../libs/view.js';
-import template from './login.tmpl.js';
 
 /** class*/
 export default class LoginView extends View {
@@ -8,8 +7,8 @@ export default class LoginView extends View {
    * @param {object} globalEventBus
    * @param {object} root
    */
-    constructor(localEventBus, globalEventBus = {}, root) {
-        super(localEventBus, template, root);
+    constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
+        super(localEventBus, root);
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
         this.root = root;

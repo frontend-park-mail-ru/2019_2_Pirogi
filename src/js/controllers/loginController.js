@@ -19,7 +19,7 @@ export default class LoginController {
    * @param {object} globalEventBus
    * @param {object} root
    */
-    constructor(globalEventBus = {}, root) {
+    constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(loginEvents);
 
         this.loginView = new LoginView(this.localEventBus, globalEventBus, root);

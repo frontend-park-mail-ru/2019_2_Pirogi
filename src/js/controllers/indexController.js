@@ -9,7 +9,7 @@ export default class IndexController {
    * @param {object} globalEventBus
    * @param {object} root
    */
-    constructor(globalEventBus = {}, root) {
+    constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(indexEvents);
 
         this.indexView = new IndexView(this.localEventBus, globalEventBus, root);

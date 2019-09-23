@@ -1,5 +1,5 @@
 /** class*/
-module.export = class Logger {
+module.exports = class Logger {
     /** constructor*/
     constructor() {}
 
@@ -12,6 +12,8 @@ module.export = class Logger {
             console.log('Error 404: ' + body + ' is not found.');
         } else if (code === 500) {
             console.log('Error 500: Server error.');
+        } else {
+            console.log('Error' + code);
         }
     }
 

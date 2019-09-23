@@ -10,10 +10,10 @@ import NavbarController from './controllers/navbarController.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const globalEventBus = new EventBus([{}]);
-    const header = document.querySelector('<header>');
+    const header = document.querySelector('header');
     const navbarController = new NavbarController(globalEventBus, header);
 
-    const body = document.querySelector('<body>');
+    const body = document.querySelector('body');
 
     const loginController = new LoginController(globalEventBus, body);
     const profileController = new ProfileController(globalEventBus, body);

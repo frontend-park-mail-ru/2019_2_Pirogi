@@ -6,7 +6,7 @@ export default class NavbarView extends View {
      * @param {object} globalEventBus
      * @param {object} root
      */
-    constructor(globalEventBus, root) {
+    constructor(globalEventBus = {}, root = {}) {
         super(globalEventBus, root);
 
         this.globalEvetBus = globalEventBus;
@@ -28,7 +28,7 @@ export default class NavbarView extends View {
     /**
      * @param {object} data
      */
-    render(data) {
+    render(data = {}) {
         super.render(data);
 
         this.isAuth = true;

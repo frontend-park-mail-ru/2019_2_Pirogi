@@ -16,7 +16,7 @@ export default class AdminController {
      * @param {object} globalEventBus
      * @param {object} root
      */
-    constructor(globalEventBus = {}, root) {
+    constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(adminEvents);
 
         this.adminView = new AdminView(this.localEventBus, globalEventBus, root);
