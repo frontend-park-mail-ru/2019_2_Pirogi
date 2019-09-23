@@ -1,3 +1,5 @@
+const Logger = require('./src/js/libs/logger');
+
 export default class Router {
     constructor(root) {
         this.root = root;
@@ -13,7 +15,7 @@ export default class Router {
         this.root.addEventListener('click', (event) => {
             if (event.target.tagName === 'A' && event.target.hostname === location.hostname) {
                 event.preventDefault();
-                this.change(event.target.pathname);
+                this.route(event.target.pathname);
             }
         });
 
@@ -26,7 +28,8 @@ export default class Router {
 
     route(path) {
         if (!this.routes.has(path)) {
-            console.log('404');
+            const log = new Logger();
+            log.logError(404, path);
             this.currentPath = null;
             return;
         }
@@ -45,7 +48,7 @@ export default class Router {
             window.history.pushState(null, null, path);
         }
 
-        let route = this.routes.get(path);
+        const route = this.routes.get(path);
         route.view.render(route.data);
         this.currentPath = path;
     }
