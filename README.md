@@ -5,7 +5,7 @@
 ## Описание
 
 ### Ссылка на поиграть
-[CinSearch](https://20192pirogi.adbakulev.now.sh)
+[CinSearch](http://167.71.5.55/)
 
 ### Ментор
  - [Пупчин Павел](https://github.com/4taa)
