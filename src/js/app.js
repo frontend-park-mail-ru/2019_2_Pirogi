@@ -1,4 +1,3 @@
-/* eslint-disable */
 import EventBus from './libs/eventBus.js';
 import LoginController from './controllers/loginController.js';
 import ProfileController from './controllers/profileController.js';
@@ -7,14 +6,14 @@ import SearchResultsController from './controllers/searchResultsController.js';
 import IndexController from './controllers/indexController.js';
 import AdminController from './controllers/adminController.js';
 import NavbarController from './controllers/navbarController.js';
-import Router from './libs/router';
+import Router from './libs/router.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const globalEventBus = new EventBus([{}]);
-    const header = document.querySelector('<header>');
+    const header = document.querySelector('header');
+    // eslint-disable-next-line
     const navbarController = new NavbarController(globalEventBus, header);
-
-    const body = document.querySelector('<body>');
+    const body = document.querySelector('body');
 
     const loginController = new LoginController(globalEventBus, body);
     const profileController = new ProfileController(globalEventBus, body);
@@ -25,18 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const router = new Router(body);
 
-    router.add('/login', body, loginController.loginView);
-    router.add('/profile', body, profileController.profileView);
-    router.add('/film', body, filmController.filmView);
-    router.add('/search', body, searchResultsController.searchResultsView);
-    router.add('/admin', body, adminController.adminView);
-    router.add('/', body, indexController.indexView);
-    router.add('/new', body, indexController.indexView);
-    router.add('/films', body, indexController.indexView);
-    router.add('/ratings', body, indexController.indexView);
-    router.add('/year', body, indexController.indexView);
-    router.add('/genre', body, indexController.indexView);
-    router.add('/actors', body, indexController.indexView);
+    router.add('/login', loginController.loginView);
+    router.add('/profile', profileController.profileView);
+    router.add('/film', filmController.filmView);
+    router.add('/search', searchResultsController.searchResultsView);
+    router.add('/admin', adminController.adminView);
+    router.add('/', indexController.indexView);
+    router.add('/new', indexController.indexView);
+    router.add('/films', indexController.indexView);
+    router.add('/ratings', indexController.indexView);
+    router.add('/year', indexController.indexView);
+    router.add('/genre', indexController.indexView);
+    router.add('/actors', indexController.indexView);
 
     router.start();
 });

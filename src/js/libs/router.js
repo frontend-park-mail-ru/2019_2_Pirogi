@@ -10,6 +10,13 @@ export default class Router {
             this.route(window.location.pathname);
         });
 
+        this.root.addEventListener('click', (event) => {
+            if (event.target.tagName === 'A' && event.target.hostname === location.hostname) {
+                event.preventDefault();
+                this.change(event.target.pathname);
+            }
+        });
+
         this.route(window.location.pathname);
     }
 
