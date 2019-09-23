@@ -2,9 +2,7 @@ import EventBus from '../libs/eventBus.js';
 import SearchResultsModel from '../models/searchResultsModel.js';
 import SearchResultsView from '../views/searchResults/searchResultsView.js';
 
-const searchEvents = [
-    {},
-];
+const searchEvents = [];
 /** class*/
 export default class SearchResultsController {
     /**

@@ -4,13 +4,13 @@ import LoginModel from '../models/loginModel.js';
 
 const loginEvents = [
     {key: 'myAuthEvent'},
-    {key: 'AuthFailed'},
-    {key: 'AuthGood'},
+    {key: 'authFailed'},
+    {key: 'authGood'},
     {key: 'myRegisterEvent'},
     {key: 'onAuthCheck'},
     {key: 'onRegisterCheck'},
-    {key: 'RegisterFailed'},
-    {key: 'RegisterCompleted'},
+    {key: 'registerFailed'},
+    {key: 'registerCompleted'},
 ];
 
 /** class*/

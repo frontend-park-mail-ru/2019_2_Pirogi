@@ -2,9 +2,7 @@ import EventBus from '../libs/eventBus.js';
 import ProfileView from '../views/profile/profileView.js';
 import ProfileModel from '../models/profileModel.js';
 
-const profileEvents = [
-    {},
-];
+const profileEvents = [];
 
 /** class*/
 export default class ProfileController {
