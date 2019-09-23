@@ -1,3 +1,4 @@
+
 /** class*/
 export default class EventBus {
     /**
@@ -7,17 +8,17 @@ export default class EventBus {
         this.eventsMap = new Map();
         events.forEach((item) => {
             if (item.key === undefined) {
-                console.log('Error! key = null');
+                console.log('No key value');
                 return;
             }
 
             if (typeof item.func !== 'function' && item.func !== undefined) {
-                console.log('Error! function != function');
+                console.log('func arg is not function');
                 return;
             }
 
             if (this.eventsMap[item.key] !== undefined) {
-                console.log('Error! key have already exists');
+                console.log('Key' + item.key + 'have already exist');
                 return;
             }
 
@@ -30,12 +31,18 @@ export default class EventBus {
    * @param {function} func
    */
     addEventListener(event, func) {
-        if (this.eventsMap[event] !== undefined) {
-            console.log('Error! key have already exists');
+        if (event === undefined) {
+            console.log('No event value ');
             return;
         }
-        if (typeof func !== 'function' && func !== undefined) {
-            console.log('Error! function != function');
+
+        if (this.eventsMap[event] !== undefined) {
+            console.log('Key' + event + 'have already exist');
+            return;
+        }
+
+        if (typeof func !== 'function') {
+            console.log('func arg is not function');
             return;
         }
 
@@ -48,8 +55,13 @@ export default class EventBus {
    * @return {*} blabla
    */
     dispatchEvent(event, ...args) {
+        if (event === undefined) {
+            console.log('No event value');
+            return;
+        }
+
         if (this.eventsMap[event] === undefined) {
-            console.log('Error! key does not exists');
+            console.log('No such event: ' + event);
             return;
         }
 

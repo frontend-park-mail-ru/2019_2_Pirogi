@@ -9,7 +9,7 @@ export default class SearchResultsController {
    * @param {object} globalEventBus
    * @param {object} root
    */
-    constructor(globalEventBus = {}, root) {
+    constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(searchEvents);
 
         this.searchResultsView = new SearchResultsView(this.localEventBus,

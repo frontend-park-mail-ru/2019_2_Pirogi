@@ -7,7 +7,7 @@ export default class FilmView extends View {
    * @param {object} globalEventBus
    * @param {object} root
    */
-    constructor(localEventBus, globalEventBus = {}, root) {
+    constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
         super(localEventBus, root);
 
         this.localEventBus = localEventBus;

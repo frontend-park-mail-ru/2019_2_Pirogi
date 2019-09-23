@@ -3,7 +3,7 @@ export default class NavbarModel {
     /**
      * @param {object} globalEventBus
      */
-    constructor(globalEventBus) {
+    constructor(globalEventBus = {}) {
         this.globalEventBus = globalEventBus;
     }
 }

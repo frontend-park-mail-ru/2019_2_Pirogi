@@ -1,3 +1,4 @@
+import '../index.sass';
 import EventBus from './libs/eventBus.js';
 import LoginController from './controllers/loginController.js';
 import ProfileController from './controllers/profileController.js';

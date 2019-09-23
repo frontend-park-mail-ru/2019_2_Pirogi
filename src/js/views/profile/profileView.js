@@ -8,7 +8,7 @@ export default class ProfileView extends View {
    * @param {object} globalEventBus
    * @param {object} root
    */
-    constructor(localEventBus, globalEventBus = {}, root) {
+    constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
         super(localEventBus, root);
 
         this.localEventBus = localEventBus;
@@ -19,7 +19,7 @@ export default class ProfileView extends View {
 
    * @param {object} data
    */
-    render(data) {
+    render(data = {}) {
         super.render(data);
     }
 }
