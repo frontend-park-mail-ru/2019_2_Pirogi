@@ -9,16 +9,17 @@ import NavbarController from './controllers/navbarController.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const globalEventBus = new EventBus([{}]);
-    const navbarController = new NavbarController(globalEventBus);
+    const header = document.querySelector('<header>');
+    const navbarController = new NavbarController(globalEventBus, header);
 
-    const body = document.getElementsByTagName('<body>');
+    const body = document.querySelector('<body>');
 
-    const loginController = new LoginController(globalEventBus);
-    const profileController = new ProfileController(globalEventBus);
-    const filmController = new FilmController(globalEventBus);
-    const searchResultsController = new SearchResultsController(globalEventBus);
-    const indexController = new IndexController(globalEventBus);
-    const adminController = new AdminController(globalEventBus);
+    const loginController = new LoginController(globalEventBus, body);
+    const profileController = new ProfileController(globalEventBus, body);
+    const filmController = new FilmController(globalEventBus, body);
+    const searchResultsController = new SearchResultsController(globalEventBus, body);
+    const indexController = new IndexController(globalEventBus, body);
+    const adminController = new AdminController(globalEventBus, body);
 
     // Проверка, чтобы lint не ругался
     if (navbarController !== undefined &&

@@ -12,10 +12,10 @@ export default class FilmController {
     /**
    * @param {object} globalEventBus
    */
-    constructor(globalEventBus = {}) {
+    constructor(globalEventBus = {}, root) {
         this.localEventBus = new EventBus(filmEvents);
 
-        this.filmModel = new FilmModel(this.localEventBus, globalEventBus);
+        this.filmModel = new FilmModel(this.localEventBus, globalEventBus, root);
         this.filmView = new FilmView(this.localEventBus, globalEventBus);
     }
 }

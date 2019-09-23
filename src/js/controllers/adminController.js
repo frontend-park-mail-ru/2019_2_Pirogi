@@ -15,10 +15,10 @@ export default class AdminController {
     /**
    * @param {object} globalEventBus
    */
-    constructor(globalEventBus = {}) {
+    constructor(globalEventBus = {}, root) {
         this.localEventBus = new EventBus(adminEvents);
 
-        this.adminView = new AdminView(this.localEventBus, globalEventBus);
+        this.adminView = new AdminView(this.localEventBus, globalEventBus, root);
         this.adminModel = new AdminModel(this.localEventBus, globalEventBus);
     }
 }

@@ -6,8 +6,8 @@ export default class FilmView extends View {
    * @param {object} localEventBus
    * @param {object} globalEventBus
    */
-    constructor(localEventBus, globalEventBus = {}) {
-        super(localEventBus);
+    constructor(localEventBus, globalEventBus = {}, root) {
+        super(localEventBus, root);
 
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
@@ -37,13 +37,12 @@ export default class FilmView extends View {
         this.localEventBus.dispatchEvent('reviewCheck', this.reviewData);
     }
     /**
-   * @param {object} root
    * @param {object} data
    */
-    render(root, data = {}) {
+    render(data = {}) {
         console.log('render film page');
 
-        super.render(root, data);
+        super.render(data);
 
         this.reviewSubmit = document.getElementById('review-submit');
         this.reviewSubmit.addEventListener('click',

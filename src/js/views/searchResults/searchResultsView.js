@@ -5,19 +5,19 @@ export default class SearchResultsView extends View {
     /**
    * @param {object} localEventBus
    * @param {object} globalEventBus
+     * @param {objec} root
    */
-    constructor(localEventBus, globalEventBus) {
-        super(localEventBus);
+    constructor(localEventBus, globalEventBus, root) {
+        super(localEventBus, root);
 
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
     }
     /**
-   * @param {object} root
    * @param {object} data
    */
-    render(root, data = {}) {
+    render(data = {}) {
         console.log('rendering searchResults page');
-        super.render(root, data);
+        super.render(data);
     }
 }

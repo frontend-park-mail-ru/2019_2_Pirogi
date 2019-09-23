@@ -6,8 +6,8 @@ export default class NavbarController {
     /**
      * @param {object} globalEventBus
      */
-    constructor(globalEventBus = {}) {
-        this.navbarView = new NavbarView(globalEventBus);
+    constructor(globalEventBus = {}, root) {
+        this.navbarView = new NavbarView(globalEventBus, root);
         this.navbarModel = new NavbarModel(globalEventBus);
     }
 }

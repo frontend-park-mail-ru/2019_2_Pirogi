@@ -11,10 +11,10 @@ export default class ProfileController {
     /**
    * @param {object} globalEventBus
    */
-    constructor(globalEventBus = {}) {
+    constructor(globalEventBus = {}, root) {
         this.localEventBus = new EventBus(profileEvents);
 
-        this.profileView = new ProfileView(this.localEventBus, globalEventBus);
+        this.profileView = new ProfileView(this.localEventBus, globalEventBus, root);
         this.profileModel = new ProfileModel(this.localEventBus, globalEventBus);
     }
 }

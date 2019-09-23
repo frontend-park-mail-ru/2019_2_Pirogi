@@ -6,8 +6,8 @@ export default class AdminView extends View {
    * @param {object} localEventBus
    * @param {object} globalEventBus
    */
-    constructor(localEventBus, globalEventBus = {}) {
-        super(localEventBus);
+    constructor(localEventBus, globalEventBus = {}, root) {
+        super(localEventBus, root);
 
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
@@ -42,11 +42,10 @@ export default class AdminView extends View {
         this.localEventBus.dispatchEvent('addFilmCheck', this.filmInfo);
     }
     /**
-   * @param {object} root
    * @param {object} data
    */
-    render(root, data) {
-        super.render(root, data);
+    render(data = {}) {
+        super.render(data);
 
         this.adminFormButton = document.getElementById('admin-form__button');
         this.adminFormButton.addEventListener('click',

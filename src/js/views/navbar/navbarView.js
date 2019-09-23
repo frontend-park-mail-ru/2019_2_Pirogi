@@ -5,16 +5,15 @@ export default class NavbarView extends View {
     /**
      * @param {object} globalEventBus
      */
-    constructor(globalEventBus) {
-        super(globalEventBus);
+    constructor(globalEventBus, root) {
+        super(globalEventBus, root);
 
         this.globalEvetBus = globalEventBus;
     }
     /**
-     * @param {object} root
      * @param {object} data
      */
-    render(root, data) {
-        super.render(root, data);
+    render(data) {
+        super.render(data);
     }
 }
