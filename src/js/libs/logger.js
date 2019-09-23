@@ -1,5 +1,5 @@
 /** class*/
-module.export = class Logger {
+module.exports = class Logger {
     /** constructor*/
     constructor() {}
 
