@@ -8,6 +8,7 @@ const profileEvents = [];
 export default class ProfileController {
     /**
    * @param {object} globalEventBus
+   * @param {object} root
    */
     constructor(globalEventBus = {}, root) {
         this.localEventBus = new EventBus(profileEvents);

@@ -13,8 +13,9 @@ const adminEvents = [
 /** class*/
 export default class AdminController {
     /**
-   * @param {object} globalEventBus
-   */
+     * @param {object} globalEventBus
+     * @param {object} root
+     */
     constructor(globalEventBus = {}, root) {
         this.localEventBus = new EventBus(adminEvents);
 

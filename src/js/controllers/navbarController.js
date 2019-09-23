@@ -5,6 +5,7 @@ import NavbarView from '../views/navbar/navbarView.js';
 export default class NavbarController {
     /**
      * @param {object} globalEventBus
+     * @param {object} root
      */
     constructor(globalEventBus = {}, root) {
         this.navbarView = new NavbarView(globalEventBus, root);

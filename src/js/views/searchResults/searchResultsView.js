@@ -5,7 +5,7 @@ export default class SearchResultsView extends View {
     /**
    * @param {object} localEventBus
    * @param {object} globalEventBus
-     * @param {objec} root
+   * @param {object} root
    */
     constructor(localEventBus, globalEventBus, root) {
         super(localEventBus, root);

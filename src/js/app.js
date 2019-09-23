@@ -1,3 +1,4 @@
+/* eslint-disable */
 import EventBus from './libs/eventBus.js';
 import LoginController from './controllers/loginController.js';
 import ProfileController from './controllers/profileController.js';
@@ -21,17 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
     const indexController = new IndexController(globalEventBus, body);
     const adminController = new AdminController(globalEventBus, body);
 
-    // Проверка, чтобы lint не ругался
-    if (navbarController !== undefined &&
-      loginController !== undefined &&
-      profileController !== undefined &&
-      filmController !== undefined &&
-      searchResultsController !== undefined &&
-      indexController !== undefined &&
-      adminController !== undefined &&
-      body !== undefined
-    ) {
-        console.log('all controllers was build');
-    }
 });
 

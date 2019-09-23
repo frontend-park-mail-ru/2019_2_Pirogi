@@ -4,6 +4,7 @@ import View from '../../libs/view.js';
 export default class NavbarView extends View {
     /**
      * @param {object} globalEventBus
+     * @param {object} root
      */
     constructor(globalEventBus, root) {
         super(globalEventBus, root);

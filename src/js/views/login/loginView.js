@@ -6,6 +6,7 @@ export default class LoginView extends View {
     /**
    * @param {object} localEventBus
    * @param {object} globalEventBus
+   * @param {object} root
    */
     constructor(localEventBus, globalEventBus = {}, root) {
         super(localEventBus, template, root);

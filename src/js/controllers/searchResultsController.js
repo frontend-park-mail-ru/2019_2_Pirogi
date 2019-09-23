@@ -7,6 +7,7 @@ const searchEvents = [];
 export default class SearchResultsController {
     /**
    * @param {object} globalEventBus
+   * @param {object} root
    */
     constructor(globalEventBus = {}, root) {
         this.localEventBus = new EventBus(searchEvents);

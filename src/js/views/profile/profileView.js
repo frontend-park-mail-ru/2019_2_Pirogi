@@ -6,7 +6,7 @@ export default class ProfileView extends View {
     /**
    * @param {object} localEventBus
    * @param {object} globalEventBus
-     * @param {object} root
+   * @param {object} root
    */
     constructor(localEventBus, globalEventBus = {}, root) {
         super(localEventBus, root);

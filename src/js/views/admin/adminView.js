@@ -5,6 +5,7 @@ export default class AdminView extends View {
     /**
    * @param {object} localEventBus
    * @param {object} globalEventBus
+   * @param {object} root
    */
     constructor(localEventBus, globalEventBus = {}, root) {
         super(localEventBus, root);
