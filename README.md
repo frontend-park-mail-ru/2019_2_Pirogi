@@ -5,16 +5,16 @@
 ## Описание
 
 ### Ссылка на поиграть
-[CinSearch](https://20192pirogi.adbakulev.now.sh)
+[CinSearch](http://167.71.5.55/)
 
 ### Ментор
  - [Пупчин Павел](https://github.com/4taa)
 
 ### Developers
- - [Бакулев Артем](github.com/Artefakt-ff)
- - [Анастасия Сушина](github.com/ansushina)
- - [Елизавета Прохорова](github.com/lisa-bella97)
- - [Олег Щербаков](github.com/oleg-student) 
+ - [Бакулев Артем](https://github.com/Artefakt-ff)
+ - [Анастасия Сушина](https://github.com/ansushina)
+ - [Елизавета Прохорова](https://github.com/lisa-bella97)
+ - [Олег Щербаков](https://github.com/oleg-student) 
 
 ### Репозиторий бекенда
 Coming soon..

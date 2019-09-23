@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../static/styles/default/reset.css">
+    <link rel="stylesheet" href="../static/styles/global-vars/style.css">
+    <link rel="stylesheet" href="../static/styles/components.css">
+    <link rel="stylesheet" href="../static/styles/all.css">
+</head>
+<body>
+<div class="container-fluid bg-light" style="min-height: 100vh">
+    <div class="navbar">
+        <div>
+            <a class="navbar-title" href="/">CINSEAR</a>
+        </div>
+        <div>
+            <label for="search"></label>
+            <input id="search" type="text" placeholder="поиск" class="navbar-search">
+        </div>
+        <div>
+            <a class="navbar-item navbar-item-current">новинки</a>
+            <a class="navbar-item">фильмы</a>
+            <a class="navbar-item">рейтинги</a>
+        </div>
+        <div>
+            <button>войти</button>
+        </div>
+    </div>
+    <div class="container content-center mt-5 pt-1 flex-column font-light">
+        <div class="container-fluid content-center">
+            <h2 class="font-size-large font-regular">Добавить новый фильм: </h2>
+
+        </div>
+        <form>
+            <label for="genre" class="mt-1">Введите жанр: </label>
+            <input type="text" id="genre" placeholder="Жанр">
+            <label for="year" class="mt-1">Введите год: </label>
+            <input type="text" id="year" placeholder="Год">
+            <label for="actors" class="mt-1">Введите актеров: </label>
+            <input type="text" id="actors" placeholder="Актеры">
+            <label for="description" class="mt-1">Введите описание: </label>
+            <textarea id="description" placeholder="Описание"></textarea>
+            <label class=" mt-1" for="picture">Загрузите картинку: </label>
+            <input type="file" id="picture">
+            <input type="button" class="btn-dark" value="Отправить">
+        </form>
+
+    </div>
+</div>
+</body>
+</html>

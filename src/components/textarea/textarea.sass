@@ -1,0 +1,17 @@
+@import '../../css/variables'
+
+.textarea
+  font-family: $font-light
+  color: $color-dark
+  background-color: $color-light
+  font-size: $font-size-small
+  padding: $indent 2*$indent
+  border: 0.5px solid $color-darkest
+  border-radius: 20px
+  resize: none
+  +transition(0.5s)
+
+  &:focus
+    outline: none
+    +shadow-dark
+    +transition(0.5s)
