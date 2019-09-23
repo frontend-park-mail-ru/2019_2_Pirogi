@@ -5,14 +5,15 @@
     "build": "webpack",
     "dev": "webpack --watch",
     "start": "node app.js",
-    "lint": "./node_modules/.bin/eslint src *.js --fix"
+    "lint": "./node_modules/.bin/eslint .",
+    "lint-fix": "./node_modules/.bin/eslint --fix ."
   },
   "dependencies": {
     "express": "^4.17.1"
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run lint"
+      "pre-commit": "npm run lint"
     }
   },
   "devDependencies": {

@@ -8,20 +8,20 @@ import AdminController from './controllers/adminController.js';
 import NavbarController from './controllers/navbarController.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const globalEventBus = new EventBus([{}]);
-  const navbarController = new NavbarController(globalEventBus);
+    const globalEventBus = new EventBus([{}]);
+    const navbarController = new NavbarController(globalEventBus);
 
-  const body = document.getElementsByTagName('<body>');
+    const body = document.getElementsByTagName('<body>');
 
-  const loginController = new LoginController(globalEventBus);
-  const profileController = new ProfileController(globalEventBus);
-  const filmController = new FilmController(globalEventBus);
-  const searchResultsController = new SearchResultsController(globalEventBus);
-  const indexController = new IndexController(globalEventBus);
-  const adminController = new AdminController(globalEventBus);
+    const loginController = new LoginController(globalEventBus);
+    const profileController = new ProfileController(globalEventBus);
+    const filmController = new FilmController(globalEventBus);
+    const searchResultsController = new SearchResultsController(globalEventBus);
+    const indexController = new IndexController(globalEventBus);
+    const adminController = new AdminController(globalEventBus);
 
-  // Проверка, чтобы lint не ругался
-  if (navbarController !== undefined &&
+    // Проверка, чтобы lint не ругался
+    if (navbarController !== undefined &&
       loginController !== undefined &&
       profileController !== undefined &&
       filmController !== undefined &&
@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
       indexController !== undefined &&
       adminController !== undefined &&
       body !== undefined
-  ) {
-    console.log('all controllers was build');
-  }
+    ) {
+        console.log('all controllers was build');
+    }
 });
 

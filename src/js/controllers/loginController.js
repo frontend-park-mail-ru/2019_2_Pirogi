@@ -3,25 +3,25 @@ import LoginView from '../views/login/loginView.js';
 import LoginModel from '../models/loginModel.js';
 
 const loginEvents = [
-  {key: 'myAuthEvent'},
-  {key: 'AuthFailed'},
-  {key: 'AuthGood'},
-  {key: 'myRegisterEvent'},
-  {key: 'onAuthCheck'},
-  {key: 'onRegisterCheck'},
-  {key: 'RegisterFailed'},
-  {key: 'RegisterCompleted'},
+    {key: 'myAuthEvent'},
+    {key: 'AuthFailed'},
+    {key: 'AuthGood'},
+    {key: 'myRegisterEvent'},
+    {key: 'onAuthCheck'},
+    {key: 'onRegisterCheck'},
+    {key: 'RegisterFailed'},
+    {key: 'RegisterCompleted'},
 ];
 
 /** class*/
 export default class LoginController {
-  /**
+    /**
    * @param {object} globalEventBus
    */
-  constructor(globalEventBus = {}) {
-    this.localEventBus = new EventBus(loginEvents);
+    constructor(globalEventBus = {}) {
+        this.localEventBus = new EventBus(loginEvents);
 
-    this.loginView = new LoginView(this.localEventBus, globalEventBus);
-    this.loginModel = new LoginModel(this.localEventBus, globalEventBus);
-  }
+        this.loginView = new LoginView(this.localEventBus, globalEventBus);
+        this.loginModel = new LoginModel(this.localEventBus, globalEventBus);
+    }
 }

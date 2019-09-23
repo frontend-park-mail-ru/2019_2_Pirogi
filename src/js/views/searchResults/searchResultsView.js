@@ -2,22 +2,22 @@ import View from '../../libs/view.js';
 
 /** class*/
 export default class SearchResultsView extends View {
-  /**
+    /**
    * @param {object} localEventBus
    * @param {object} globalEventBus
    */
-  constructor(localEventBus, globalEventBus) {
-    super(localEventBus);
+    constructor(localEventBus, globalEventBus) {
+        super(localEventBus);
 
-    this.localEventBus = localEventBus;
-    this.globalEventBus = globalEventBus;
-  }
-  /**
+        this.localEventBus = localEventBus;
+        this.globalEventBus = globalEventBus;
+    }
+    /**
    * @param {object} root
    * @param {object} data
    */
-  render(root, data = {}) {
-    console.log('rendering searchResults page');
-    super.render(root, data);
-  }
+    render(root, data = {}) {
+        console.log('rendering searchResults page');
+        super.render(root, data);
+    }
 }
