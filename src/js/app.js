@@ -7,6 +7,7 @@ import SearchResultsController from './controllers/searchResultsController.js';
 import IndexController from './controllers/indexController.js';
 import AdminController from './controllers/adminController.js';
 import NavbarController from './controllers/navbarController.js';
+import Router from './libs/router';
 
 document.addEventListener('DOMContentLoaded', () => {
     const globalEventBus = new EventBus([{}]);
@@ -22,5 +23,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const indexController = new IndexController(globalEventBus, body);
     const adminController = new AdminController(globalEventBus, body);
 
-});
+    const router = new Router(body);
 
+    router.add('/login', body, loginController.loginView);
+    router.add('/profile', body, profileController.profileView);
+    router.add('/film', body, filmController.filmView);
+    router.add('/search', body, searchResultsController.searchResultsView);
+    router.add('/admin', body, adminController.adminView);
+    router.add('/', body, indexController.indexView);
+    router.add('/new', body, indexController.indexView);
+    router.add('/films', body, indexController.indexView);
+    router.add('/ratings', body, indexController.indexView);
+    router.add('/year', body, indexController.indexView);
+    router.add('/genre', body, indexController.indexView);
+    router.add('/actors', body, indexController.indexView);
+
+    router.start();
+});
