@@ -12,17 +12,7 @@ import Router from './libs/router.js';
 document.addEventListener('DOMContentLoaded', () => {
     const globalEventBus = new EventBus([{}]);
     const header = document.querySelector('header');
-    // eslint-disable-next-line
-    const navbarController = new NavbarController(globalEventBus, header);
     const body = document.querySelector('body');
-
-    const loginController = new LoginController(globalEventBus, body);
-    const profileController = new ProfileController(globalEventBus, body);
-    const filmController = new FilmController(globalEventBus, body);
-    const searchResultsController = new SearchResultsController(globalEventBus, body);
-    const indexController = new IndexController(globalEventBus, body);
-    const adminController = new AdminController(globalEventBus, body);
-
     const router = new Router(body);
 
     router.add('/login', loginController.loginView);
@@ -39,4 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
     router.add('/actors', indexController.indexView);
 
     router.start();
+
+    // eslint-disable-next-line
+    const navbarController = new NavbarController(globalEventBus, header);
+    const loginController = new LoginController(globalEventBus, body);
+    const profileController = new ProfileController(globalEventBus, body);
+    const filmController = new FilmController(globalEventBus, body);
+    const searchResultsController = new SearchResultsController(globalEventBus, body);
+    const indexController = new IndexController(globalEventBus, body);
+    const adminController = new AdminController(globalEventBus, body);
 });

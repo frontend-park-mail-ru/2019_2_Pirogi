@@ -49,7 +49,7 @@ export default class Router {
         }
 
         const route = this.routes.get(path);
-        route.view.render(route.data);
         this.currentPath = path;
+        route.view.render(route.data);
     }
 }
