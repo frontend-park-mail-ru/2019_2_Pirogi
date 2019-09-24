@@ -25,3 +25,13 @@ elements.loginForm.addEventListener(
         formProcessing(e);
     }
 );
+
+elements.signinForm.addEventListener(
+    'submit',
+    e => {
+        console.log("form submitted");
+        e.preventDefault();
+        formView.clearErrors(e.target);
+        formProcessing(e);
+    }
+);

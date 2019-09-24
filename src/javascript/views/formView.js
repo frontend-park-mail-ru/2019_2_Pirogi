@@ -3,7 +3,7 @@ const markupError = (errorMsg) => {
     return `
         <div class="error">${errorMsg}</div>
     `;
-}
+};
 
 export const renderErrors = (form, errors) => {
     for (const key in errors) {
@@ -20,11 +20,9 @@ export const renderErrors = (form, errors) => {
 };
 
 export const clearErrors = (form) => {
-    console.log("ClearErrors");
-    console.log(form);
-
-    for (const item of form.getElementsByClassName('error')) {
-        console.log(item);
-        item.parentNode.removeChild(item);
+    for (const item of Array.from(form.childNodes)) {
+        if (item.className === 'error') {
+            item.parentNode.removeChild(item);
+        }
     }
 };
