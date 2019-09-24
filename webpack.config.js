@@ -1,4 +1,5 @@
 module.exports = {
+    entry: './src/js/app.js',
     mode: 'development',
     module: {
         rules: [
@@ -13,15 +14,15 @@ module.exports = {
             {
                 // Для включения в css файлов шрифтов и картинок
                 test: /\.(jp?g|png|woff|woff2|eot|ttf|svg)$/,
-                loader: 'url-loader?limit=100000'
+                loader: 'url-loader?limit=100000',
             },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader'
-                }
-            }
+                    loader: 'babel-loader',
+                },
+            },
         ],
     },
 };
