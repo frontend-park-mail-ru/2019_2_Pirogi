@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // eslint-disable-next-line
     const navbarController = new NavbarController(globalEventBus, header);
-    const loginController = new LoginController(globalEventBus, body);
+    const loginController = new LoginController(globalEventBus, body, router);
     const profileController = new ProfileController(globalEventBus, body);
     const filmController = new FilmController(globalEventBus, body);
     const searchResultsController = new SearchResultsController(globalEventBus, body);

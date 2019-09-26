@@ -7,11 +7,12 @@ export default class LoginView extends View {
    * @param {object} globalEventBus
    * @param {object} root
    */
-    constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
+    constructor(localEventBus = {}, globalEventBus = {}, root = {}, router) {
         super(localEventBus, root);
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
         this.root = root;
+        this.router = router;
 
         this.localEventBus.addEventListener('myAuthEvent',
             this.onAuth.bind(this));
@@ -30,6 +31,8 @@ export default class LoginView extends View {
     /** function */
     goToMain() {
         console.log('Auth is good, lets go to main page!');
+        this.globalEventBus.dispatchEvent('authPassed');
+        this.router.route('/');
     }
 
     /** function */
@@ -73,6 +76,9 @@ export default class LoginView extends View {
     /** function */
     registrationOk() {
         console.log('Registration OK');
+        this.globalEventBus.dispatchEvent('authPassed');
+        this.router.route('/');
+        //this.router.route('/profile');
     }
     /**
    * @param {object} data
