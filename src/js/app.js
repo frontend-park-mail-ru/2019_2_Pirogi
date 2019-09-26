@@ -15,6 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.querySelector('body');
     const router = new Router(body);
 
+    // eslint-disable-next-line
+    const navbarController = new NavbarController(globalEventBus, header);
+    const loginController = new LoginController(globalEventBus, body);
+    const profileController = new ProfileController(globalEventBus, body);
+    const filmController = new FilmController(globalEventBus, body);
+    const searchResultsController = new SearchResultsController(globalEventBus, body);
+    const indexController = new IndexController(globalEventBus, body);
+    const adminController = new AdminController(globalEventBus, body);
+
     router.add('/login', loginController.loginView);
     router.add('/profile', profileController.profileView);
     router.add('/film', filmController.filmView);
@@ -30,12 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     router.start();
 
-    // eslint-disable-next-line
-    const navbarController = new NavbarController(globalEventBus, header);
-    const loginController = new LoginController(globalEventBus, body);
-    const profileController = new ProfileController(globalEventBus, body);
-    const filmController = new FilmController(globalEventBus, body);
-    const searchResultsController = new SearchResultsController(globalEventBus, body);
-    const indexController = new IndexController(globalEventBus, body);
-    const adminController = new AdminController(globalEventBus, body);
+
+
 });

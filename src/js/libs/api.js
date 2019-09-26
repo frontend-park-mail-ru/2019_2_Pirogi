@@ -4,46 +4,64 @@ export default class Api {
 
     static login(data = {}) {
         return Network.doPost('/login/', {
-            login: data['login'],
-            password: data['password'],
+            login: data.login,
+            password: data.password,
         });
     }
 
-    logout(data = {}) {
+    static logout(data = {}) {
         return Network.doDelete('/logout/', {
-            login: data['login'],
-            password: data['password'],
+            login: data.login,
+            password: data.password,
         });
     }
-    register(data = {}) {
+    static register(data = {}) {
         return Network.doPost('/users/', {
-            login: data['login'],
-            password: data['password'],
-            nickname: data['nickname'],
-            rating: 0,
+            login: data.login,
+            password: data.password,
+            nickname: data.nickname,
         });
     }
-    editProfile(data = {}) {
+    static editProfile(data = {}) {
         const formData = new FormData();
 
-        formData.append('login', data['login']);
-        formData.append('password', data['password']);
-        formData.append('nickname', data['nickname']);
-        formData.append('avatar', data['avatar']);
+        formData.append('login', data.login);
+        formData.append('password', data.password);
+        formData.append('nickname', data.nickname);
+        formData.append('avatar', data.avatar);
 
         return Network.doPutFormData('/users/', formData);
     }
 
-    getProfileInfo() {
-
+    static getProfileInfo(data = {}) {
+        return Network.doGet(`/users/${data.userID}`);
     }
 
-    getFilmInfo() {}
-    getFilmList() {}
-    addNewFilm() {}
+    static getFilmInfo(data = {}) {
+        return Network.doGet(`/films/${data.filmID}`);
+    }
 
-    sendReview() {}
+    static addNewFilm(data = {}) {
+        return Network.doPost('/films/', {
+            title: data.title,
+            description: data.description,
+            genres: data.genres,
+            date : data.date,
+            actors: data.actors,
+            directors: data.directors,
+            rating: data.rating,
+        });
+    }
+
+    static sendReview(data = {}) {
+        return Network.doPost('/reviews/', {
+            film_id: data.filmID,
+            user_id: data.userID,
+            title: data.title,
+            description: data.description,
+        });
+    }
+
     getReviews() {}
-
-
+    getFilmList() {}
 }

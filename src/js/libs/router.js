@@ -1,4 +1,4 @@
-const Logger = require('./src/js/libs/logger');
+const Logger = require('./logger');
 
 export default class Router {
     constructor(root) {

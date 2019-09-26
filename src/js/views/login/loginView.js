@@ -33,8 +33,9 @@ export default class LoginView extends View {
     }
 
     /** function */
-    onAuthReply() {
+    onAuthReply(data = {}) {
         console.log('Bad auth!');
+        console.log(data);
     }
 
     /** function */
@@ -64,8 +65,9 @@ export default class LoginView extends View {
     }
 
     /** function */
-    onRegisterReply() {
+    onRegisterReply(data = {}) {
         console.log('Registration failed');
+        console.log(data);
     }
 
     /** function */
