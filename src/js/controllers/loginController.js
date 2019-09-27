@@ -22,6 +22,9 @@ export default class LoginController {
     constructor(globalEventBus = {}, root = {}, router) {
         this.localEventBus = new EventBus(loginEvents);
 
+        this.localEventBus.addEventListener('authGood', router.route('/'));
+        this.localEventBus.addEventListener('registerCompleted', router.route('/'));
+
         this.loginView = new LoginView(this.localEventBus, globalEventBus, root, router);
         this.loginModel = new LoginModel(this.localEventBus, globalEventBus);
     }

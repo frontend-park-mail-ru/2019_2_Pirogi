@@ -28,6 +28,7 @@ export default class LoginModel {
         Api.login(data)
             .then((res) => {
                 if (res.ok) {
+                    this.globalEventBus.dispatchEvent('authPassed');
                     this.localEventBus.dispatchEvent('authGood');
                 } else {
                     res.json().then(data=>this.localEventBus.dispatchEvent('authFailed', data));
@@ -47,6 +48,7 @@ export default class LoginModel {
         Api.register(data)
             .then((res) => {
                 if (res.ok) {
+                    this.globalEventBus.dispatchEvent('authPassed');
                     this.localEventBus.dispatchEvent('registerCompleted');
                 } else {
                     res.json().then(data => this.localEventBus.dispatchEvent('registerFailed', data));

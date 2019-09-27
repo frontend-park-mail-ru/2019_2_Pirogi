@@ -3,20 +3,20 @@ import Network from './network';
 export default class Api {
 
     static login({login, password}) {
-        return Network.doPost('/login/', {
+        return Network.doPost('/api/login/', {
             login,
             password,
         });
     }
 
     static logout(data = {}) {
-        return Network.doDelete('/logout/', {
+        return Network.doDelete('/api/logout/', {
             login: data.login,
             password: data.password,
         });
     }
     static register({login, password, nickname}) {
-        return Network.doPost('/users/', {
+        return Network.doPost('/api/users/', {
             login,
             password,
             nickname,
@@ -30,19 +30,19 @@ export default class Api {
         formData.append('nickname', nickname);
         formData.append('avatar', avatar);
 
-        return Network.doPutFormData('/users/', formData);
+        return Network.doPutFormData('/api/users/', formData);
     }
 
     static getProfileInfo({userID}) {
-        return Network.doGet(`/users/${userID}`);
+        return Network.doGet(`/api/users/${userID}`);
     }
 
     static getFilmInfo({filmID}) {
-        return Network.doGet(`/films/${filmID}`);
+        return Network.doGet(`/api/films/${filmID}`);
     }
 
     static addNewFilm({title, description, genres, date, actors, directors, rating}) {
-        return Network.doPost('/films/', {
+        return Network.doPost('/api/films/', {
             title,
             description,
             genres,
@@ -54,7 +54,7 @@ export default class Api {
     }
 
     static sendReview({filmID, userID, title, description}) {
-        return Network.doPost('/reviews/', {
+        return Network.doPost('/api/reviews/', {
             film_id: filmID,
             user_id: userID,
             title,

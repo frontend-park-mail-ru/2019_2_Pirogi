@@ -1,4 +1,4 @@
-const MY_PATH = 'http://167.71.5.55/api';
+const MY_PATH = 'http://167.71.5.55';
 
 export default class Network {
 
