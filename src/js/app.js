@@ -7,7 +7,6 @@ import SearchResultsController from './controllers/searchResultsController.js';
 import IndexController from './controllers/indexController.js';
 import AdminController from './controllers/adminController.js';
 import NavbarController from './controllers/navbarController.js';
-import ProfileEditController from './controllers/profileEditController';
 import Router from './libs/router.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,11 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchResultsController = new SearchResultsController(globalEventBus, body);
     const indexController = new IndexController(globalEventBus, body);
     const adminController = new AdminController(globalEventBus, body);
-    const profileEditController = new ProfileEditController(globalEventBus, body);
 
     router.add('/login', loginController.loginView);
     router.add('/profile', profileController.profileView);
-    router.add('/profileedit', profileEditController.profileEditView);
     router.add('/film', filmController.filmView);
     router.add('/search', searchResultsController.searchResultsView);
     router.add('/admin', adminController.adminView);

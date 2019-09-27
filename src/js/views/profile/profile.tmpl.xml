@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+    <div class="profile">
+        <div class="profile__info"> <!-- to center this section or whatever -->
+            <img class="profile__photo" alt="username" src="/src/images/avatar.jpg"/>
+            <div class="profile__info-details list"> <!-- img -->
+                <div class="list__item">
+                    <div class="title">AlmostCurrentPerson</div>
+                </div>
+                <div class="list__item">
+                    <div class="hr"></div>
+                    <div>рейтинг на сайте:</div>
+                    <div class="title"> 18,12</div>
+                    <div class="hr"></div>
+                    <div></div>
+                    рецензий:
+                    <div class="title"> 2</div>
+                    <div class="hr"></div>
+                </div>
+                <div class="list__item">
+                    <div>
+                        Чисто человек 21 века (до н.э.) белого цвета. Не люблю больших кошек.
+                    </div>
+                </div>
+                <input type="button" class="button" value="редактировать"/>
+            </div>
+        </div>
+        <div class="profile__wall"></div>
+    </div>
+</fest:template>

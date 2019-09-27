@@ -2,10 +2,11 @@
 export default class View {
     /**
    * @param {object} eventBus
-   * @param {object} template
+   * @param {function} template
      * @param {object} root
    */
-    constructor(eventBus = {}, template = {}, root = {}) {
+    constructor(eventBus = {}, root = {}, template) {
+
         this.baseElement = root;
         this.eventBus = eventBus;
         this.template = template;
