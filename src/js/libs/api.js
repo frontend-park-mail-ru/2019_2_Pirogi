@@ -9,12 +9,8 @@ export default class Api {
         });
     }
 
-    static logout(data = {}) {
-        return Network.doDelete('/api/logout/', {
-            login: data.login,
-            password: data.password,
-        });
-    }
+    static logout() {}
+
     static register({login, password, nickname}) {
         return Network.doPost('/api/users/', {
             login,

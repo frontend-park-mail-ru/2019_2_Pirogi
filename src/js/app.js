@@ -38,7 +38,4 @@ document.addEventListener('DOMContentLoaded', () => {
     router.add('/actors', indexController.indexView);
 
     router.start();
-
-
-
 });

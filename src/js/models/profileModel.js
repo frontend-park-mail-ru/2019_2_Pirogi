@@ -10,7 +10,8 @@ export default class ProfileModel {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
 
-        this.localEventBus.addEventListener('onEditingProfile', this.onEditingProfile.bind(this));
+        this.localEventBus.addEventListener('onEditingProfile',
+            this.onEditingProfile.bind(this));
     }
 
     onEditingProfile(data = {}) {
@@ -22,7 +23,7 @@ export default class ProfileModel {
                 if (res.ok) {
                     this.localEventBus.dispatchEvent('editGood');
                 } else {
-                    res.json().then(data=>this.localEventBus.dispatchEvent('editFailed', data));
+                    res.json().then(data => this.localEventBus.dispatchEvent('editFailed', data));
                 }
             });
     }

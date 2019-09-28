@@ -20,9 +20,6 @@ export default class LoginModel {
    * @param {object} data
    */
     onAuthCheck(data) {
-        console.log('Checking login and password...');
-        console.log(data);
-
         // тут первичная валидация
 
         Api.login(data)
@@ -31,7 +28,7 @@ export default class LoginModel {
                     this.globalEventBus.dispatchEvent('authPassed');
                     this.localEventBus.dispatchEvent('authGood');
                 } else {
-                    res.json().then(data=>this.localEventBus.dispatchEvent('authFailed', data));
+                    res.json().then(data => this.localEventBus.dispatchEvent('authFailed', data));
                 }
             });
     }
@@ -40,16 +37,13 @@ export default class LoginModel {
    * @param {object} data
    */
     onRegisterCheck(data) {
-        console.log('Checking register form....');
-        console.log(data);
-
         // тут первичная валидация
 
         Api.register(data)
             .then((res) => {
                 if (res.ok) {
                     this.globalEventBus.dispatchEvent('authPassed');
-                    this.localEventBus.dispatchEvent('registerCompleted');
+                    this.localEventBus.dispatchEvent('authGood');
                 } else {
                     res.json().then(data => this.localEventBus.dispatchEvent('registerFailed', data));
                 }

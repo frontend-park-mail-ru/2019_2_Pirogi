@@ -7,8 +7,7 @@ export default class Network {
             method: 'GET',
             mode: 'cors',
             credentials: 'include',
-        }
-        );
+        });
     }
 
     static doPost(path = '/', body = {}) {
@@ -20,8 +19,7 @@ export default class Network {
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
-        }
-        );
+        });
     }
 
     static doPostFormData(path = '/', formData) {
@@ -30,8 +28,7 @@ export default class Network {
             mode: 'cors',
             credentials: 'include',
             body: formData,
-        }
-        );
+        });
     }
 
     static doDelete(path = '/') {
@@ -40,8 +37,7 @@ export default class Network {
             mode: 'cors',
             credentials: 'include',
 
-        }
-        );
+        });
     }
 
 
@@ -54,8 +50,7 @@ export default class Network {
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
-        }
-        );
+        });
     }
 
     static doPutFormData(path = '/', formData) {
@@ -64,8 +59,7 @@ export default class Network {
             mode: 'cors',
             credentials: 'include',
             body: formData,
-        }
-        );
+        });
     }
 }
 

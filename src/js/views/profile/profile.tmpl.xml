@@ -22,9 +22,9 @@
                         Чисто человек 21 века (до н.э.) белого цвета. Не люблю больших кошек.
                     </div>
                 </div>
-                <input type="button" class="button" value="редактировать"/>
+                <input type="button" class="button js-edit-button" value="редактировать"/>
             </div>
         </div>
-        <div class="profile__wall"></div>
+        <div class="profile__wall js-profile-wall"></div>
     </div>
 </fest:template>

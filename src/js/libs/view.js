@@ -17,7 +17,6 @@ export default class View {
    * @param {object} data
    */
     render(data = {}) {
-        console.log('render page...');
         this.openFlag = true;
         this.baseElement.innerHTML = this.template(data);
     }

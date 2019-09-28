@@ -27,7 +27,7 @@ export default class ProfileView extends View {
     }
 
     renderWall(template, data = {}) {
-        this.wall = document.getElementsByClassName('profile__wall')[0];
+        this.wall = document.querySelector('js-profile-wall');
 
         this.wall.innerHTML = template(data);
     }
@@ -36,7 +36,7 @@ export default class ProfileView extends View {
         this.editButton.disabled = true;
 
         this.renderWall(editTmpl);
-        this.saveButton = document.getElementById('profile-edit-button');
+        this.saveButton = document.querySelector('js-save-button');
         this.saveButton.addEventListener('click',
             this.localEventBus.dispatchEvent('saveButtonClicked'));
     }
@@ -44,18 +44,18 @@ export default class ProfileView extends View {
     onEdit() {
         console.log('edit profile info');
 
-        this.loginInput = document.getElementsByName('login')[0];
-        this.nicknameInput = document.getElementsByName('nickname')[0];
-        this.passwordInput = document.getElementsByName('password')[0];
-        this.descriptionInput = document.getElementsByName('description')[0];
-        this.avatarInput = document.getElementsByName('avatar')[0];
+        this.loginInput = document.querySelector('js-login-input');
+        this.nicknameInput = document.querySelector('js-nickname-input');
+        this.passwordInput = document.querySelector('js-password-input');
+        this.descriptionInput = document.querySelector('js-description-textarea');
+        this.avatarInput = document.querySelector('js-avatar-input');
 
         this.editData = {
-            nickname: this.nicknameInput.value,
-            login: this.loginInput.value,
-            password: this.passwordInput.value,
-            description: this.descriptionInput.value,
-            avatar: this.avatarInput.value,
+            nickname: this.nicknameInput.value || null,
+            login: this.loginInput.value || null,
+            password: this.passwordInput.value || null,
+            description: this.descriptionInput.value || null,
+            avatar: this.avatarInput.value || null,
         };
 
         this.localEventBus.dispatchEvent('onEditingProfile', this.editData);
@@ -76,10 +76,8 @@ export default class ProfileView extends View {
         super.render(data);
         this.renderWall(reviewsTmpl);
 
-        this.editButton = document.querySelector('input [type=button]');
+        this.editButton = document.querySelector('js-edit-button');
         this.editButton.addEventListener('click',
             this.localEventBus.dispatchEvent('editButtonClicked'));
-
-
     }
 }

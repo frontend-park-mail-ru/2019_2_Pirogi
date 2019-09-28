@@ -2,8 +2,6 @@ import EventBus from '../libs/eventBus.js';
 import LoginView from '../views/login/loginView.js';
 import LoginModel from '../models/loginModel.js';
 
-const MY_PATH = 'http://167.71.5.55';
-
 const loginEvents = [
     {key: 'myAuthEvent'},
     {key: 'authFailed'},
@@ -25,9 +23,7 @@ export default class LoginController {
         this.localEventBus = new EventBus(loginEvents);
 
         this.localEventBus.addEventListener('authGood',
-            () => {router.route(MY_PATH + '/');});
-        this.localEventBus.addEventListener('registerCompleted',
-            () => {router.route(MY_PATH + '/');});
+            () => {router.route('/');});
 
         this.loginView = new LoginView(this.localEventBus, globalEventBus, root);
         this.loginModel = new LoginModel(this.localEventBus, globalEventBus);
