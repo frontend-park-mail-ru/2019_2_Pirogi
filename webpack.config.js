@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HmtlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: ['@babel/polyfill', './src/index.js'],
+    entry: ['@babel/polyfill', './src/js/app.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/bundle.js'
@@ -17,10 +17,10 @@ module.exports = {
             filename: './css/bundle.css'
         }),
         // for html templates and page generations
-        new HmtlWebpackPlugin({
-            filename: 'index.html',
-            template: './src/assets/form.html'
-        })
+        /*new HmtlWebpackPlugin({
+                //     filename: 'index.html',
+                //     template: './src/assets/form.html'
+                // })*/
     ],
     module: {
         rules: [
