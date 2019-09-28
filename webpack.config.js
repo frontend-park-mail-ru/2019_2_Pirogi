@@ -17,6 +17,10 @@ module.exports = {
                 loader: 'url-loader?limit=100000',
             },
             {
+                test: /\.xml$/,
+                loader: 'fest-webpack-loader',
+            },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {

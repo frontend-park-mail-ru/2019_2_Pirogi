@@ -1,4 +1,5 @@
 import View from '../../libs/view.js';
+import template from './adminView.tmpl.xml';
 
 /** class*/
 export default class AdminView extends View {
@@ -8,7 +9,7 @@ export default class AdminView extends View {
    * @param {object} root
    */
     constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
-        super(localEventBus, root);
+        super(localEventBus, root, template);
 
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
@@ -48,7 +49,7 @@ export default class AdminView extends View {
     render(data = {}) {
         super.render(data);
 
-        this.adminFormButton = document.getElementById('admin-form__button');
+        this.adminFormButton = document.getElementsByClassName('admin-form__button')[0];
         this.adminFormButton.addEventListener('click',
             this.localEventBus.dispatchEvent('myFilmAddEvent'));
     }

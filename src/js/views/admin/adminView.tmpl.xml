@@ -1,0 +1,17 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
+    <div class="admin-form">
+        <div class="title title_center">Добавить новый фильм:</div>
+        <div class="hr"></div>
+        <form class="form">
+            <input class="input" type="text" name="genre" placeholder="Жанр"/>
+            <input class="input" type="text" name="year" placeholder="Год"/>
+            <input class="input" type="text" name="actors" placeholder="Актеры"/>
+            <textarea class="textarea" name="description" placeholder="Описание"></textarea>
+            <input class="input" type="file" name="picture"/>
+            <div class="hr"></div>
+            <div class="admin-form__button">
+                <input class="button" type="button" value="Отправить"/>
+            </div>
+        </form>
+    </div>
+</fest:template>

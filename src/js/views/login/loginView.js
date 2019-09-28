@@ -1,4 +1,5 @@
 import View from '../../libs/view.js';
+import template from './loginView.tmpl.xml';
 
 /** class*/
 export default class LoginView extends View {
@@ -8,7 +9,7 @@ export default class LoginView extends View {
    * @param {object} root
    */
     constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
-        super(localEventBus, root);
+        super(localEventBus, root, template);
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
         this.root = root;
@@ -69,9 +70,8 @@ export default class LoginView extends View {
         console.log('render login page');
         super.render(data);
 
-        this.loginBitton = document.getElementById('login-button');
-        this.loginBitton.addEventListener('click',
-            this.localEventBus.dispatchEvent('myAuthEvent').bind(this));
+        this.loginBitton = document.querySelector('.js-login');
+        this.loginBitton.addEventListener('click', () => this.localEventBus.dispatchEvent('myAuthEvent'));
         this.registerButton = document.getElementById('register-button');
         this.registerButton.addEventListener('click',
             this.localEventBus.dispatchEvent('myRegisterEvent').bind(this));

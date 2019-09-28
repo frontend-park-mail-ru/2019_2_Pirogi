@@ -1,4 +1,5 @@
 import View from '../../libs/view.js';
+import template from './navbarView.tmpl.xml';
 
 /** class*/
 export default class NavbarView extends View {
@@ -7,7 +8,7 @@ export default class NavbarView extends View {
      * @param {object} root
      */
     constructor(globalEventBus = {}, root = {}) {
-        super(globalEventBus, root);
+        super(globalEventBus, root, template);
 
         this.globalEvetBus = globalEventBus;
 
@@ -34,18 +35,19 @@ export default class NavbarView extends View {
     /**
      * @param {object} data
      */
-    render(data = {}) {
-        super.render(data);
+    render(data) {
+        const dataAuth = data || this.globalEvetBus.dispatchEvent('checkAuth');
+        super.render(dataAuth);
 
-        this.isAuth = true;
-        if (this.isAuth === false) {
-            this.signInButton = document.querySelector('<div class="button">');
-            this.signInButton.addEventListener('click',
-                this.globalEvetBus.dispatchEvent('onNavbarSingInClicked'));
-        } else {
-            this.profileButton = document.getElementsByClassName('profile-button')[0];
-            this.profileButton.addEventListener('click',
-                this.globalEvetBus.dispatchEvent('onNavbarProfileClicked'));
-        }
+        // this.isAuth = true;
+        // if (this.isAuth === false) {
+        //     this.signInButton = document.querySelector('<div class="button">');
+        //     this.signInButton.addEventListener('click',
+        //         this.globalEvetBus.dispatchEvent('onNavbarSingInClicked'));
+        // } else {
+        //     this.profileButton = document.getElementsByClassName('profile-button')[0];
+        //     this.profileButton.addEventListener('click',
+        //         this.globalEvetBus.dispatchEvent('onNavbarProfileClicked'));
+        // }
     }
 }

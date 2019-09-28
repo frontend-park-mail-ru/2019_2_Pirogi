@@ -1,27 +1,12 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>CINSEAR | Главная</title>
-</head>
-<header></header>
-<body>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
 <main class="main">
     <div class="index">
-        <div class="navbar">
-            <a class="logo" href="/">CINSEAR</a>
-            <input class="input navbar__input" type="text" placeholder="поиск">
-            <a href="/new" class="navbar__item navbar__item_current">новинки</a>
-            <a href="/films" class="navbar__item">фильмы</a>
-            <a href="/ratings" class="navbar__item">рейтинги</a>
-            <div class="button">войти</div>
-        </div>
         <div class="index__wall">
             <div class="title">Сейчас в кинотеатрах</div>
             <div class="films-bar">
                 <div class="film-bar__card">
                     <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card">
+                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
                         <div class="title">ВЕНОМ</div>
                     </div>
                     <div class="film-bar__info">
@@ -31,7 +16,7 @@
                 </div>
                 <div class="film-bar__card">
                     <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card">
+                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
                         <div class="title">ВЕНОМ</div>
                     </div>
                     <div class="film-bar__info">
@@ -42,7 +27,7 @@
 
                 <div class="film-bar__card">
                     <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card">
+                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
                         <div class="title">ВЕНОМ</div>
                     </div>
                     <div class="film-bar__info">
@@ -55,7 +40,7 @@
             <div class="films-bar">
                 <div class="film-bar__card">
                     <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card">
+                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
                         <div class="title">ВЕНОМ</div>
                     </div>
                     <div class="film-bar__info">
@@ -65,7 +50,7 @@
                 </div>
                 <div class="film-bar__card">
                     <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card">
+                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
                         <div class="title">ВЕНОМ</div>
                     </div>
                     <div class="film-bar__info">
@@ -75,7 +60,7 @@
                 </div>
                 <div class="film-bar__card">
                     <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card">
+                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
                         <div class="title">ВЕНОМ</div>
                     </div>
                     <div class="film-bar__info">
@@ -85,7 +70,7 @@
                 </div>
                 <div class="film-bar__card">
                     <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card">
+                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
                         <div class="title">ВЕНОМ</div>
                     </div>
                     <div class="film-bar__info">
@@ -131,6 +116,4 @@
         </div>
     </div>
 </main>
-</body>
-<script src="../../../dist/main.js"></script>
-</html>
+</fest:template>
