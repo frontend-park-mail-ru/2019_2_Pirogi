@@ -1,91 +1,93 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
-    <div class="film">
-        <div class="film__description">
-            <img class="film__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-        </div>
-        <div class="film__description">
-            <div class="title">Film title</div>
-            <div class="hr"></div>
-            <div class="list">
-                <div class="list__item">Genre</div>
-                <div class="list__item">Year</div>
-                <div class="list__item">Name Surname</div>
+    <main class="main">
+        <div class="film">
+            <div class="film__description">
+                <img class="film__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
             </div>
-            <div class="hr"></div>
-            <div>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-                rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-                ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-                elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                dolores et ea rebum.
-            </div>
-            <hr/>
-        </div>
-    </div>
-    <div class="rating">
-        <div class="rating__block">
-            <div class="title">Рейтинг фильма:
-                <div class="title_yellow"> 7.44</div>
-            </div>
-        </div>
-        <div class="rating__block">
-            <div class="title">Комментарии:
-                <div class="title_yellow">100</div>
-                <div class="vr"></div>
-                <div class="title_success"> 24</div>
-                <div class="vr"></div>
-                <div class="title_error"> 76</div>
-            </div>
-        </div>
-        <div class="rating__block">
-            <i class="fas fa-star fa-2x film__star"></i>
-            <i class="fas fa-star fa-2x film__star"></i>
-            <i class="fas fa-star fa-2x film__star"></i>
-            <i class="fas fa-star fa-2x film__star"></i>
-            <i class="fas fa-star fa-2x film__star"></i>
-        </div>
-    </div>
-    <div class="feedback-form">
-        <div class="hr"></div>
-        <div class="title">Расскажите что Вы думаете о фильме:</div>
-        <form class="form">
-            <input class="input" type="text" placeholder="Заголовок"/>
-            <textarea class="textarea" placeholder="Текст рецензии"></textarea>
-            <input class="button" type="button" value="Отправить"/>
-        </form>
-        <div class="hr"></div>
-    </div>
-    <div class="feedbacks">
-        <div class="title">Рецензии:</div>
-        <div class="profile__reviews">
-            <div class="review review__positive">
-                <div class="review__author-info">
-                    <img src="/src/images/avatar.jpg" alt="username" class="review__img"/>
-                    <a href="/user">AlmostCurrentPerson</a>
+            <div class="film__description">
+                <div class="title">Film title</div>
+                <div class="hr"></div>
+                <div class="list">
+                    <div class="list__item">Genre</div>
+                    <div class="list__item">Year</div>
+                    <div class="list__item">Name Surname</div>
                 </div>
-                <div class="title">Review's title</div>
+                <div class="hr"></div>
                 <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget sem at nulla malesuada pulvinar vitae
-                    non
-                    felis. Aenean vel tempor risus. Mauris congue, neque non imperdiet pharetra, tellus nulla molestie dui, non
-                    porttitor dolor nulla a turpis. Duis rhoncus erat vitae neque ullamcorper cursus. Morbi suscipit lectus
-                    metus,
-                    in iaculis nulla pretium in. Aliquam vestibulum hendrerit nisi posuere commodo. Praesent sed turpis mi.
-                    Proin
-                    mattis ipsum at arcu mattis, a accumsan est mollis. Aliquam quis metus sodales, auctor metus quis, pharetra
-                    libero. Cras laoreet rhoncus velit ac viverra. Integer laoreet sagittis nibh, at convallis leo ullamcorper
-                    id.
-                    Curabitur porta est purus, et interdum quam cursus vel. Fusce sodales molestie turpis id rutrum. Vivamus ut
-                    magna a neque viverra rutrum ut eu quam. Donec convallis nunc sed sem suscipit fringilla.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                    rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+                    ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+                    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                    dolores et ea rebum.
                 </div>
-                <div class="review__bar">
-                    <input class="button" type="button" value="Полезно"/>
-                    <input class="button" type="button" value="Вредно"/>
+                <hr/>
+            </div>
+        </div>
+        <div class="rating">
+            <div class="rating__block">
+                <div class="title">Рейтинг фильма:
+                    <div class="title_yellow"> 7.44</div>
+                </div>
+            </div>
+            <div class="rating__block">
+                <div class="title">Комментарии:
+                    <div class="title_yellow">100</div>
+                    <div class="vr"></div>
+                    <div class="title_success"> 24</div>
+                    <div class="vr"></div>
+                    <div class="title_error"> 76</div>
+                </div>
+            </div>
+            <div class="rating__block">
+                <i class="fas fa-star fa-2x film__star"></i>
+                <i class="fas fa-star fa-2x film__star"></i>
+                <i class="fas fa-star fa-2x film__star"></i>
+                <i class="fas fa-star fa-2x film__star"></i>
+                <i class="fas fa-star fa-2x film__star"></i>
+            </div>
+        </div>
+        <div class="feedback-form">
+            <div class="hr"></div>
+            <div class="title">Расскажите что Вы думаете о фильме:</div>
+            <form class="form">
+                <input class="input" type="text" placeholder="Заголовок"/>
+                <textarea class="textarea" placeholder="Текст рецензии"></textarea>
+                <input class="button" type="button" value="Отправить"/>
+            </form>
+            <div class="hr"></div>
+        </div>
+        <div class="feedbacks">
+            <div class="title">Рецензии:</div>
+            <div class="profile__reviews">
+                <div class="review review__positive">
+                    <div class="review__author-info">
+                        <img src="/src/images/avatar.jpg" alt="username" class="review__img"/>
+                        <a href="/user">AlmostCurrentPerson</a>
+                    </div>
+                    <div class="title">Review's title</div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget sem at nulla malesuada pulvinar vitae
+                        non
+                        felis. Aenean vel tempor risus. Mauris congue, neque non imperdiet pharetra, tellus nulla molestie dui, non
+                        porttitor dolor nulla a turpis. Duis rhoncus erat vitae neque ullamcorper cursus. Morbi suscipit lectus
+                        metus,
+                        in iaculis nulla pretium in. Aliquam vestibulum hendrerit nisi posuere commodo. Praesent sed turpis mi.
+                        Proin
+                        mattis ipsum at arcu mattis, a accumsan est mollis. Aliquam quis metus sodales, auctor metus quis, pharetra
+                        libero. Cras laoreet rhoncus velit ac viverra. Integer laoreet sagittis nibh, at convallis leo ullamcorper
+                        id.
+                        Curabitur porta est purus, et interdum quam cursus vel. Fusce sodales molestie turpis id rutrum. Vivamus ut
+                        magna a neque viverra rutrum ut eu quam. Donec convallis nunc sed sem suscipit fringilla.
+                    </div>
+                    <div class="review__bar">
+                        <input class="button" type="button" value="Полезно"/>
+                        <input class="button" type="button" value="Вредно"/>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 </fest:template>

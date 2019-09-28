@@ -24,6 +24,10 @@ export default class ProfileView extends View {
             this.editGood.bind(this));
         this.localEventBus.addEventListener('editFailed',
             this.editFailed.bind(this));
+        this.localEventBus.addEventListener('backButtonClicked',
+            this.onBackButtonClicked.bind(this));
+        this.localEventBus.addEventListener('avatarButtonClicked',
+            this.onEditAvatar.bind(this));
     }
 
     renderWall(template, data = {}) {
@@ -37,8 +41,26 @@ export default class ProfileView extends View {
 
         this.renderWall(editTmpl);
         this.saveButton = document.querySelector('.js-save-button');
-        this.saveButton.addEventListener('click',
-            this.localEventBus.dispatchEvent('saveButtonClicked'));
+        this.saveButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('saveButtonClicked');});
+
+        this.avatarButton = document.querySelector('.js-avatar-button');
+        this.avatarButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('avatarButtonClicked');});
+
+        this.backButton = document.querySelector('.js-back-button');
+        this.backButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('backButtonClicked');});
+    }
+
+    onBackButtonClicked() {
+        this.editButton.disabled = false;
+
+        this.renderWall(reviewsTmpl);
+    }
+
+    onEditAvatar() {
+
     }
 
     onEdit() {

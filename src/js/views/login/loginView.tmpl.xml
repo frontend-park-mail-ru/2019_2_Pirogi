@@ -9,9 +9,9 @@
                         <i class="fab fa-linkedin"></i>
                         <i class="fab fa-yandex"></i>
                     </div>
-                    <input class="input" type="email" placeholder="Введите почту"/>
-                    <input class="input" type="password" placeholder="Введите пароль"/>
-                    <div class="button js-login" type="button" value="войти"/>
+                    <input class="input js-email-login" type="email" placeholder="Введите почту"/>
+                    <input class="input js-password-login" type="password" placeholder="Введите пароль"/>
+                    <input class="button js-login" type="button" value="войти"/>
                 </div>
                 <div class="login__register">
                     <div class="title title_center">Регистрация</div>
@@ -20,11 +20,11 @@
                         <i class="fab fa-linkedin"></i>
                         <i class="fab fa-yandex"></i>
                     </div>
-                    <input class="input" type="text" placeholder="Введите имя"/>
-                    <input class="input" type="email" placeholder="Введите почту"/>
-                    <input class="input" type="password" placeholder="Введите пароль"/>
-                    <input class="input" type="password" placeholder="Повторите пароль"/>
-                    <input class="button" type="button" value="войти"/>
+                    <input class="input js-nickname-register" type="text" placeholder="Введите имя"/>
+                    <input class="input js-email-register" type="email" placeholder="Введите почту"/>
+                    <input class="input js-password-register" type="password" placeholder="Введите пароль"/>
+                    <input class="input js-repeat-register" type="password" placeholder="Повторите пароль"/>
+                    <input class="button js-register" type="button" value="войти"/>
                 </div>
 
             </div>

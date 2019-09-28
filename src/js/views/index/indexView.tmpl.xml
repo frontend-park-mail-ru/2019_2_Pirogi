@@ -7,7 +7,7 @@
                 <div class="film-bar__card">
                     <div class="film-bar__img">
                         <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title">ВЕНОМ</div>
+                        <div class="title"><a href="/film">ВЕНОМ</a></div>
                     </div>
                     <div class="film-bar__info">
                         <div>год: <a href="/year">2019</a></div>
@@ -17,7 +17,7 @@
                 <div class="film-bar__card">
                     <div class="film-bar__img">
                         <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title">ВЕНОМ</div>
+                        <div class="title"><a href="/film">ВЕНОМ</a></div>
                     </div>
                     <div class="film-bar__info">
                         <div>год: <a href="/year">2019</a></div>
@@ -28,7 +28,7 @@
                 <div class="film-bar__card">
                     <div class="film-bar__img">
                         <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title">ВЕНОМ</div>
+                        <div class="title"><a href="/film">ВЕНОМ</a></div>
                     </div>
                     <div class="film-bar__info">
                         <div>год: <a href="/year">2019</a></div>
@@ -41,7 +41,7 @@
                 <div class="film-bar__card">
                     <div class="film-bar__img">
                         <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title">ВЕНОМ</div>
+                        <div class="title"><a href="/film">ВЕНОМ</a></div>
                     </div>
                     <div class="film-bar__info">
                         <div>год: <a href="/year">2019</a></div>
@@ -51,7 +51,7 @@
                 <div class="film-bar__card">
                     <div class="film-bar__img">
                         <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title">ВЕНОМ</div>
+                        <div class="title"><a href="/film">ВЕНОМ</a></div>
                     </div>
                     <div class="film-bar__info">
                         <div>год: <a href="/year">2019</a></div>
@@ -61,7 +61,7 @@
                 <div class="film-bar__card">
                     <div class="film-bar__img">
                         <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title">ВЕНОМ</div>
+                        <div class="title"><a href="/film">ВЕНОМ</a></div>
                     </div>
                     <div class="film-bar__info">
                         <div>год: <a href="/year">2019</a></div>
@@ -71,7 +71,7 @@
                 <div class="film-bar__card">
                     <div class="film-bar__img">
                         <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title">ВЕНОМ</div>
+                        <div class="title"><a href="/film">ВЕНОМ</a></div>
                     </div>
                     <div class="film-bar__info">
                         <div>год: <a href="/year">2019</a></div>
