@@ -1,0 +1,36 @@
+/** class*/
+export default class View {
+    /**
+   * @param {object} eventBus
+   * @param {function} template
+   * @param {object} root
+   */
+    constructor(eventBus = {}, root = {}, template) {
+        this.baseElement = root;
+        this.eventBus = eventBus;
+        this.template = template;
+        this.openFlag = false;
+    }
+
+    /**
+   * @param {object} data
+   */
+    render(data = {}) {
+        this.openFlag = true;
+        this.baseElement.innerHTML = this.template(data);
+    }
+
+    /** function */
+    hide() {
+        this.baseElement.hidden = true;
+        this.baseElement.innerHTML = '';
+        console.log('hidding');
+    }
+
+    /** function */
+    close() {
+        if (this.openFlag) {
+            console.log('closing...');
+        }
+    }
+}

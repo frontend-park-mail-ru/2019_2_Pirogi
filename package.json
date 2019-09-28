@@ -3,19 +3,37 @@
   "version": "1.0.0",
   "description": "kinopoisk-spa",
   "scripts": {
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open --port 3000"
+    "dev-O": "webpack --mode development",
+    "build-O": "webpack --mode production",
+    "start-O": "webpack-dev-server --mode development --open --port 3000"
+    "build": "webpack",
+    "dev": "webpack --watch",
+    "start": "node app.js",
+    "lint": "./node_modules/.bin/eslint .",
+    "lint-fix": "./node_modules/.bin/eslint --fix ."
   },
   "keywords": [
     "spa",
     "kinopoisk"
   ],
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
   "devDependencies": {
+    "@babel/polyfill": "^7.6.0",
+    "babel-polyfill": "^6.26.0",
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
+    "eslint": "^6.4.0",
+    "eslint-config-google": "^0.14.0",
+    "husky": "^3.0.5",
     "css-loader": "^3.2.0",
     "cssnano": "^4.1.10",
     "file-loader": "^4.2.0",
@@ -29,9 +47,5 @@
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.0"
-  },
-  "dependencies": {
-    "@babel/polyfill": "^7.6.0",
-    "babel-polyfill": "^6.26.0"
   }
 }

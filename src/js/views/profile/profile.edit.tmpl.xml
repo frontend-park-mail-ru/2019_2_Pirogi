@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+    <form class="profile-edit-form">
+        <input class="input js-avatar-input" type="file" name="avatar"/>
+        <input class="input js-nickname-input" type="text" name="nickname" placeholder="Имя"/>
+        <input class="input js-login-input" type="text" name="login" placeholder="Почта"/>
+        <input class="input js-password-input" type="text" name="password" placeholder="Пароль"/>
+        <textarea class="textarea js-description-textarea" name="description" placeholder="О себе"></textarea>
+        <div class="hr"></div>
+        <div class="profile-edit-form__button">
+            <input class="button js-save-button" type="button" value="Сохранить"/>
+        </div>
+    </form>
+</fest:template>
