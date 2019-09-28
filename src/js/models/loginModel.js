@@ -1,3 +1,5 @@
+import Api from '../libs/api';
+
 /** class*/
 export default class LoginModel {
     /**
@@ -18,27 +20,33 @@ export default class LoginModel {
    * @param {object} data
    */
     onAuthCheck(data) {
-        console.log('Checking login and password...');
-        console.log(data);
-        this.isAuth = true;
-        if (this.isAuth) {
-            this.localEventBus.dispatchEvent('authGood');
-        } else {
-            this.localEventBus.dispatchEvent('authFailed');
-        }
+        // тут первичная валидация
+
+        Api.login(data)
+            .then((res) => {
+                if (res.ok) {
+                    this.globalEventBus.dispatchEvent('authPassed');
+                    this.localEventBus.dispatchEvent('authGood');
+                } else {
+                    res.json().then(data => this.localEventBus.dispatchEvent('authFailed', data));
+                }
+            });
     }
 
     /**
    * @param {object} data
    */
     onRegisterCheck(data) {
-        console.log('Checking register form....');
-        console.log(data);
-        this.isRegisterComplited = true;
-        if (this.isRegisterComplited) {
-            this.localEventBus.dispatchEvent('registerCompleted');
-        } else {
-            this.localEventBus.dispatchEvent('registerFailed');
-        }
+        // тут первичная валидация
+
+        Api.register(data)
+            .then((res) => {
+                if (res.ok) {
+                    this.globalEventBus.dispatchEvent('authPassed');
+                    this.localEventBus.dispatchEvent('authGood');
+                } else {
+                    res.json().then(data => this.localEventBus.dispatchEvent('registerFailed', data));
+                }
+            });
     }
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+</head>
+<body>
+<main class="main">
+    <div class="navbar">
+        <a class="logo" href="/">CINSEAR</a>
+        <input class="input navbar__input" type="text" placeholder="поиск">
+        <a href="/new" class="navbar__item navbar__item_current">новинки</a>
+        <a href="/films" class="navbar__item">фильмы</a>
+        <a href="/ratings" class="navbar__item">рейтинги</a>
+        <div class="button">войти</div>
+    </div>
+    <div class="profile-edit">
+        <div class="profile-edit__info"> <!-- to center this section or whatever -->
+            <img class="profile-edit__photo" alt="username" src="/src/images/avatar.jpg">
+            <div class="profile-edit__info-details list"> <!-- img -->
+                <div class="list__item">
+                    <div class="title">AlmostCurrentPerson</div>
+                </div>
+                <div class="list__item">
+                    <div class="hr"></div>
+                    <div>рейтинг на сайте:</div>
+                    <div class="title"> 18,12</div>
+                    <div class="hr"></div>
+                    <div></div>
+                    рецензий:
+                    <div class="title"> 2</div>
+                    <div class="hr"></div>
+                </div>
+                <div class="list__item">
+                    <div>
+                        Чисто человек 21 века (до н.э.) белого цвета. Не люблю больших кошек.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-edit__wall">
+            <form class="profile-edit-form">
+                <input class="input" type="file" name="avatar">
+                <input class="input" type="text" name="nickname" placeholder="Имя">
+                <input class="input" type="text" name="login" placeholder="Почта">
+                <input class="input" type="text" name="password" placeholder="Пароль">
+                <textarea class="textarea" name="description" placeholder="О себе"></textarea>
+                <div class="hr"></div>
+                <div class="profile-edit-form__button">
+                    <input class="button" type="button" id="profile-edit-button" value="Сохранить">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</main>
+<script src="../../../dist/main.js"></script>
+</body>
+</html>

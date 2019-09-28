@@ -15,6 +15,12 @@ export default class NavbarView extends View {
             this.onSignInClicked.bind(this));
         this.globalEvetBus.addEventListener('onNavbarProfileClicked',
             this.onProfileClicked.bind(this));
+        this.globalEvetBus.addEventListener('authPassed',
+            this.authPassed.bind(this));
+    }
+
+    authPassed() {
+        console.log('auth passed! lets change our navbar!');
     }
 
     onSignInClicked() {

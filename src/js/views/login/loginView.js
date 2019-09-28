@@ -17,24 +17,16 @@ export default class LoginView extends View {
             this.onAuth.bind(this));
         this.localEventBus.addEventListener('authFailed',
             this.onAuthReply.bind(this));
-        this.localEventBus.addEventListener('authGood',
-            this.goToMain.bind(this));
         this.localEventBus.addEventListener('myRegisterEvent',
             this.onRegister.bind(this));
         this.localEventBus.addEventListener('registerFailed',
             this.onRegisterReply.bind(this));
-        this.localEventBus.addEventListener('registerCompleted',
-            this.registrationOk.bind(this));
     }
 
     /** function */
-    goToMain() {
-        console.log('Auth is good, lets go to main page!');
-    }
-
-    /** function */
-    onAuthReply() {
+    onAuthReply(data = {}) {
         console.log('Bad auth!');
+        console.log(data);
     }
 
     /** function */
@@ -64,14 +56,11 @@ export default class LoginView extends View {
     }
 
     /** function */
-    onRegisterReply() {
+    onRegisterReply(data = {}) {
         console.log('Registration failed');
+        console.log(data);
     }
 
-    /** function */
-    registrationOk() {
-        console.log('Registration OK');
-    }
     /**
    * @param {object} data
    */

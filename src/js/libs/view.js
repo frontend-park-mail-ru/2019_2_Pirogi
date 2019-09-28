@@ -2,10 +2,10 @@
 export default class View {
     /**
    * @param {object} eventBus
-   * @param {object} template
-     * @param {object} root
+   * @param {function} template
+   * @param {object} root
    */
-    constructor(eventBus = {}, template = {}, root = {}) {
+    constructor(eventBus = {}, root = {}, template) {
         this.baseElement = root;
         this.eventBus = eventBus;
         this.template = template;
@@ -16,7 +16,6 @@ export default class View {
    * @param {object} data
    */
     render(data = {}) {
-        console.log('render page...');
         this.openFlag = true;
         this.baseElement.innerHTML = this.template(data);
     }
