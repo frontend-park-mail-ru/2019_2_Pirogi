@@ -10,12 +10,12 @@ module.exports = {
     },
     "rules": {
         "indent": [
-            "error",
+            "warn",
             4,
             { "SwitchCase": 1 }
         ],
         "linebreak-style": [
-            "error",
+            "warn",
             "unix"
         ],
         "quotes": [
@@ -23,7 +23,7 @@ module.exports = {
             "single"
         ],
         "semi": [
-            "error",
+            "warn",
             "always"
         ],
         "no-console": [
@@ -33,11 +33,10 @@ module.exports = {
             "off"
         ],
         "keyword-spacing": [
-            "error"
+            "warn"
         ],
-        "space-before-blocks":
-        [
-            "error"
+        "space-before-blocks": [
+            "warn"
         ]
     }
-}
+};
