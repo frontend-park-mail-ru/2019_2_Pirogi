@@ -15,7 +15,6 @@ export default class ProfileModel {
     }
 
     onEditingProfile(data = {}) {
-        console.log('lets check data for edit');
         // первичная валидация
 
         Api.editProfile(data)

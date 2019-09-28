@@ -23,7 +23,7 @@ export default class LoginController {
         this.localEventBus = new EventBus(loginEvents);
 
         this.localEventBus.addEventListener('authGood',
-            () => {router.route('/');});
+            () => router.route('/'));
 
         this.loginView = new LoginView(this.localEventBus, globalEventBus, root);
         this.loginModel = new LoginModel(this.localEventBus, globalEventBus);

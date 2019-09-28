@@ -36,7 +36,6 @@ export default class Network {
             method: 'DELETE',
             mode: 'cors',
             credentials: 'include',
-
         });
     }
 
