@@ -1,3 +1,4 @@
+import {validateEmail, validateName, validatePassword} from '../libs/formValidation';
 import Api from '../libs/api';
 
 /** class*/
@@ -20,7 +21,10 @@ export default class LoginModel {
    * @param {object} data
    */
     onAuthCheck(data) {
-        // тут первичная валидация
+        if (!validateEmail(data.email) || !validatePassword(data.password)) {
+            // render errors
+            return;
+        }
 
         Api.login(data)
             .then((res) => {
@@ -37,7 +41,13 @@ export default class LoginModel {
    * @param {object} data
    */
     onRegisterCheck(data) {
-        // тут первичная валидация
+        if (!validateEmail(data.email)
+            || !validatePassword(data.password1)
+            || (data.password1 !== data.password2)
+            || !validateName(data.name)) {
+            // render errors
+            return;
+        }
 
         Api.register(data)
             .then((res) => {

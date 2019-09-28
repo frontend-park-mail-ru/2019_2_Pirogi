@@ -21,7 +21,17 @@ export default class LoginView extends View {
             this.onRegister.bind(this));
         this.localEventBus.addEventListener('registerFailed',
             this.onRegisterReply.bind(this));
+        this.localEventBus.addEventListener('clearErrors',
+            this.clearErrors.bind(this));
     }
+
+    clearErrors(form) {
+        for (const item of Array.from(form.childNodes)) {
+            if (item.className === 'error') {
+                item.parentNode.removeChild(item);
+            }
+        }
+    };
 
     /** function */
     onAuthReply(data = {}) {
@@ -30,26 +40,21 @@ export default class LoginView extends View {
     }
 
     /** function */
-    onAuth() {
-        console.log('lets read our data');
-
-        this.authData = {
-            password: 'blablabla',
-            login: 'blabla@bla.ru',
+    onAuth(form) {
+        this.loginData = {
+            email: form.getElementById('login__email').value,
+            password: form.getElementById('login__password').value
         };
-
-        this.localEventBus.dispatchEvent('onAuthCheck', this.authData);
+        this.localEventBus.dispatchEvent('onAuthCheck', this.loginData);
     }
 
     /** function */
-    onRegister() {
-        console.log('lets see users data');
-
+    onRegister(form) {
         this.registerData = {
-            password: 'blablabla',
-            email: 'blabla@bla.ru',
-            nickname: 'vasyakrutoi',
-            repeatPassword: 'blablabla',
+            name: form.getElementById('sign-in__name').value,
+            email: form.getElementById('sign-in__email').value,
+            password1: form.getElementById('sign-in__password1').value,
+            password2: form.getElementById('sign-in__password2').value
         };
 
         this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);
@@ -69,11 +74,18 @@ export default class LoginView extends View {
         console.log('render login page');
         super.render(data);
 
-        this.loginBitton = document.getElementById('login-button');
-        this.loginBitton.addEventListener('click',
-            this.localEventBus.dispatchEvent('myAuthEvent').bind(this));
-        this.registerButton = document.getElementById('register-button');
-        this.registerButton.addEventListener('click',
-            this.localEventBus.dispatchEvent('myRegisterEvent').bind(this));
+        document.getElementById('login').addEventListener('submit',
+            event => {
+                event.preventDefault();
+                this.localEventBus.dispatchEvent('clearErrors', event.target).bind(this);
+                this.localEventBus.dispatchEvent('myAuthEvent', event.target).bind(this);
+            });
+
+        document.getElementById('sign-in').addEventListener('submit',
+            event => {
+                event.preventDefault();
+                this.localEventBus.dispatchEvent('clearErrors', event.target).bind(this);
+                this.localEventBus.dispatchEvent('myRegisterEvent', event.target).bind(this);
+            });
     }
 }

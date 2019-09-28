@@ -22,18 +22,3 @@ export const validateEmail = (email) => {
 export const validatePassword = (password) => {
     return validateField(password, regExpressions.password);
 };
-
-
-export const getForm = form => {
-    if (!form || form.nodeName !== 'FORM') {
-        console.log('Not a form');
-        return;
-    }
-    let theForm = {};
-    for (const item of form.elements) {
-        if (item.nodeName === 'INPUT' && item.type === 'text') {
-            theForm[item.name] = item.value;
-        }
-    }
-    return theForm;
-};
