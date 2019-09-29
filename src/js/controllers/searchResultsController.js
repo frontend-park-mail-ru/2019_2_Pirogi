@@ -3,12 +3,16 @@ import SearchResultsModel from '../models/searchResultsModel.js';
 import SearchResultsView from '../views/searchResults/searchResultsView.js';
 
 const searchEvents = [];
-/** class*/
+/**
+ * Класс Контроллер для страницы результатов поиска
+ * обеспечивает связь между моделью и представлением
+ */
 export default class SearchResultsController {
     /**
-   * @param {object} globalEventBus
-   * @param {object} root
-   */
+     * Создает контроллер
+     * @param {object} globalEventBus - обеспечивает связь с глобальными событиями
+     * @param {object} root - элемент, в который будет рендериться страницы
+     */
     constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(searchEvents);
 

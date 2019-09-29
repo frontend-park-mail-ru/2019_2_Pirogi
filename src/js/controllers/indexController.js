@@ -3,12 +3,16 @@ import IndexModel from '../models/indexModel.js';
 import IndexView from '../views/index/indexView.js';
 
 const indexEvents = [];
-/** class*/
+/**
+ * Класс контроллер для главной страницы
+ * обеспечивает связь между моделью и представлением
+ */
 export default class IndexController {
     /**
-   * @param {object} globalEventBus
-   * @param {object} root
-   */
+     * Создает контроллер
+     * @param {object} globalEventBus - обеспечивает связь с глобальными событиями
+     * @param {object} root - элемент, в который будет рендериться страницы
+     */
     constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(indexEvents);
 

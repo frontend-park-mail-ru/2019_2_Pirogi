@@ -13,12 +13,16 @@ const loginEvents = [
     {key: 'registerCompleted'},
 ];
 
-/** class*/
+/**
+ * Класс Контроллер для страницы входа
+ * обеспечивает связь между моделью и представлением
+ */
 export default class LoginController {
     /**
-   * @param {object} globalEventBus
-   * @param {object} root
-   */
+     * Создает контроллер
+     * @param {object} globalEventBus - обеспечивает связь с глобальными событиями
+     * @param {object} root - элемент, в который будет рендериться страницы
+     */
     constructor(globalEventBus = {}, root = {}, router) {
         this.localEventBus = new EventBus(loginEvents);
 
