@@ -43,12 +43,12 @@ export default class LoginView extends View {
         if (errors.hasOwnProperty('email')) {
             document.querySelector('.js-email-login')
                 .insertAdjacentHTML('afterend',
-                    markupError('Email isn\'t valid.'));
+                    this.markupError('Email isn\'t valid.'));
         }
         if (errors.hasOwnProperty('password')) {
             document.querySelector('.js-password-login')
                 .insertAdjacentHTML('afterend',
-                    markupError('Password isn\'t valid.'));
+                    this.markupError('Password isn\'t valid.'));
         }
     }
 
