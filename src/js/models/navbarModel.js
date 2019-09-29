@@ -15,9 +15,9 @@ export default class NavbarModel {
         Api.authCheck()
             .then((res) => {
                 if (res.ok) {
-                    res.json().then( data => this.globalEventBus.dispatchEvent('auth', data));
+                    res.json().then( data => this.globalEventBus.dispatchEvent('authGood', data));
                 } else {
-                    this.globalEventBus.dispatchEvent('notAuth');
+                    this.globalEventBus.dispatchEvent('logoutOk');
                 }
             });
     }

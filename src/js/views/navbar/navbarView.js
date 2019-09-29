@@ -16,21 +16,8 @@ export default class NavbarView extends View {
         this.globalEvetBus.addEventListener('authGood',
             this.authPassed.bind(this));
         this.globalEvetBus.addEventListener('logoutOk',
-            this.logoutOk.bind(this));
-        this.globalEvetBus.addEventListener('auth',
-            this.auth.bind(this));
-        this.globalEvetBus.addEventListener('notAuth',
             this.notAuth.bind(this));
 
-    }
-
-    auth(data = {}) {
-        this.dataAuth.isAuth = true;
-        this.dataAuth.userID = data.user_id;
-    }
-
-    notAuth() {
-        this.dataAuth.isAuth = false;
     }
 
     authPassed(data = {}) {
@@ -39,9 +26,13 @@ export default class NavbarView extends View {
         this.render(this.dataAuth);
     }
 
-    logoutOk() {
+    notAuth() {
         this.dataAuth.isAuth = false;
         this.render(this.dataAuth);
+
+        this.logoutButton = document.querySelector('.js-logout-button');
+        this.logoutButton.addEventListener('click',
+            () => this.globalEvetBus.dispatchEvent('onLogoutClicked'));
     }
 
 
@@ -49,13 +40,6 @@ export default class NavbarView extends View {
     render(data = {}) {
         if (data.isAuth === undefined) {
             this.globalEvetBus.dispatchEvent('checkAuth');
-        }
-        super.render(this.dataAuth);
-
-        if (this.dataAuth.isAuth) {
-            this.logoutButton = document.querySelector('.js-logout-button');
-            this.logoutButton.addEventListener('click',
-                () => this.globalEvetBus.dispatchEvent('onLogoutClicked'));
         }
     }
 }
