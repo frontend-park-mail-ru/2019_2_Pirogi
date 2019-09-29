@@ -31,7 +31,7 @@ export default class NavbarView extends View {
     /**
      * @param {object} data
      */
-    render(data = {}) {
+    render(data) {
         this.dataAuth = data || this.globalEvetBus.dispatchEvent('checkAuth');
         super.render(this.dataAuth);
 
