@@ -64,7 +64,7 @@ export default class LoginView extends View {
 
         const errors = this.localEventBus.dispatchEvent('onAuthCheck', this.authData);
         if (errors !== undefined) {
-            this.localEventBus.dispatchEvent('authFailed', errors).bind(this);
+            this.localEventBus.dispatchEvent('registerFailed', errors);
         }
     }
 
@@ -82,13 +82,34 @@ export default class LoginView extends View {
             repeatPassword: this.registerRepeatInput.value || null,
         };
 
-        this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);
+        const errors = this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);
+        if (errors !== undefined) {
+            this.localEventBus.dispatchEvent('authFailed', errors);
+        }
     }
 
     /** function */
-    onRegisterReply(data = {}) {
-        console.log('Registration failed');
-        console.log(data);
+    onRegisterReply(errors) {
+        if (errors.hasOwnProperty('name')) {
+            document.querySelector('.js-nickname-register')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Name isn\'t valid.'));
+        }
+        if (errors.hasOwnProperty('email')) {
+            document.querySelector('js-email-register')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Email isn\'t valid.'));
+        }
+        if (errors.hasOwnProperty('password')) {
+            document.querySelector('js-password-register')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Password isn\'t valid.'));
+        }
+        if (errors.hasOwnProperty('passwordsMatch')) {
+            document.querySelector('js-repeat-register')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Passwords don\'t match.'));
+        }
     }
 
     /**
@@ -106,6 +127,9 @@ export default class LoginView extends View {
 
         this.registerButton = document.querySelector('.js-register');
         this.registerButton.addEventListener('click',
-            () => this.localEventBus.dispatchEvent('myRegisterEvent'));
+            () => {
+                this.localEventBus.dispatchEvent('clearErrors', 'register');
+                this.localEventBus.dispatchEvent('myRegisterEvent');
+            });
     }
 }

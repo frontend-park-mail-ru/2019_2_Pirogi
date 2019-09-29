@@ -47,7 +47,22 @@ export default class LoginModel {
    * @param {object} data
    */
     onRegisterCheck(data) {
-        // тут первичная валидация
+        let errors = {};
+        if (!validateName(data.name)) {
+            errors.name = false;
+        }
+        if (!validateEmail(data.email)) {
+            errors.email = false;
+        }
+        if (!validatePassword(data.password)) {
+            errors.password = false;
+        }
+        if (data.password !== data.repeatPassword) {
+            errors.passwordsMatch = false;
+        }
+        if (Object.entries(errors).length !== 0) {
+            return errors;
+        }
 
         Api.register(data)
             .then((res) => {
