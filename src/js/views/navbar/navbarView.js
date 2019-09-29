@@ -24,15 +24,15 @@ export default class NavbarView extends View {
         this.dataAuth.isAuth = true;
         this.dataAuth.userID = data.user_id;
         super.render(this.dataAuth);
+
+        this.logoutButton = document.querySelector('.js-logout-button');
+        this.logoutButton.addEventListener('click',
+            () => this.globalEvetBus.dispatchEvent('onLogoutClicked'));
     }
 
     notAuth() {
         this.dataAuth.isAuth = false;
         super.render(this.dataAuth);
-
-        this.logoutButton = document.querySelector('.js-logout-button');
-        this.logoutButton.addEventListener('click',
-            () => this.globalEvetBus.dispatchEvent('onLogoutClicked'));
     }
 
 
