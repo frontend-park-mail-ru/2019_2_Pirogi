@@ -2,9 +2,9 @@ import Network from './network';
 
 export default class Api {
 
-    static login({login, password}) {
+    static login({email, password}) {
         return Network.doPost('/api/login/', {
-            login,
+            email,
             password,
         });
     }
@@ -17,11 +17,11 @@ export default class Api {
         return Network.doPost('/api/logout/', {});
     }
 
-    static register({login, password, nickname}) {
+    static register({email, password, name}) {
         return Network.doPost('/api/users/', {
-            login,
+            email,
             password,
-            nickname,
+            name,
         });
     }
 
@@ -31,11 +31,11 @@ export default class Api {
         return Network.doPutFormData(`/api/images/users/${userID}`, formData);
     }
     
-    static editProfile({login, password, nickname, description}) {
+    static editProfile({email, password, name, description}) {
         return Network.doPut('/api/users/', {
-            login,
+            email,
             password,
-            nickname,
+            name,
             description,
         });
     }

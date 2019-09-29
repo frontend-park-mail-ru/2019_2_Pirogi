@@ -66,7 +66,7 @@ export default class ProfileView extends View {
             avatar: this.avatarInput.value || null,
         };
 
-        this.localEventBus.dispatchEvent('onEditingAvatar');
+        this.localEventBus.dispatchEvent('onEditingAvatar', this.editAvatarData);
     }
 
     onEdit() {
@@ -78,8 +78,8 @@ export default class ProfileView extends View {
         this.descriptionInput = document.querySelector('.js-description-textarea');
 
         this.editData = {
-            nickname: this.nicknameInput.value || null,
-            login: this.loginInput.value || null,
+            name: this.nicknameInput.value || null,
+            email: this.loginInput.value || null,
             password: this.passwordInput.value || null,
             description: this.descriptionInput.value || null,
         };

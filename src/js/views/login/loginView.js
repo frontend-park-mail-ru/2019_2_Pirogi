@@ -37,7 +37,7 @@ export default class LoginView extends View {
 
         this.authData = {
             password: this.loginPasswordInput.value || null,
-            login: this.loginEmailInput.value || null,
+            email: this.loginEmailInput.value || null,
         };
 
         this.localEventBus.dispatchEvent('onAuthCheck', this.authData);
@@ -52,8 +52,8 @@ export default class LoginView extends View {
 
         this.registerData = {
             password: this.registerPasswordInput.value || null,
-            login: this.registerEmailInput.value || null,
-            nickname: this.registerNicknameInput.value || null,
+            email: this.registerEmailInput.value || null,
+            name: this.registerNicknameInput.value || null,
             repeatPassword: this.registerRepeatInput.value || null,
         };
 
