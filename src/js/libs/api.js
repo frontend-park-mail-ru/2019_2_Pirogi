@@ -42,8 +42,8 @@ export default class Api {
         });
     }
 
-    static getProfileInfo({userID}) {
-        return Network.doGet(`/api/users/${userID}`);
+    static getProfileInfo() {
+        return Network.doGet('/api/users/');
     }
 
     static getFilmInfo({filmID}) {

@@ -25,11 +25,8 @@ export default class LoginModel {
         Api.login(data)
             .then((res) => {
                 if (res.ok) {
-                    res.json()
-                        .then( data => {
-                            this.globalEventBus.dispatchEvent('authGood', data);
-                            this.localEventBus.dispatchEvent('authGood');
-                        });
+                    this.globalEventBus.dispatchEvent('authGood');
+                    this.localEventBus.dispatchEvent('authGood');
                 } else {
                     res.json().then(data => this.localEventBus.dispatchEvent('authFailed', data));
                 }

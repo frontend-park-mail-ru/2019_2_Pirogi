@@ -19,8 +19,8 @@ export default class ProfileModel {
             this.getProfile.bind(this));
     }
 
-    getProfile(data = {}) {
-        Api.getProfileInfo(data)
+    getProfile() {
+        Api.getProfileInfo()
             .then( (res) => {
                 if (res.ok) {
                     res.json().then(data => this.localEventBus.dispatchEvent('getInfoOk', data));

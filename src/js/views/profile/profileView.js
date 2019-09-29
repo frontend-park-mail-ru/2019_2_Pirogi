@@ -101,7 +101,7 @@ export default class ProfileView extends View {
    * @param {object} data
    */
     render(data = {}) {
-        this.localEventBus.dispatchEvent('getProfileInfo', data);
+        this.localEventBus.dispatchEvent('getProfileInfo');
 
         super.render(data);
         this.renderWall(reviewsTmpl);
