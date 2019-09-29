@@ -33,10 +33,22 @@ export default class LoginView extends View {
         }
     };
 
+    markupError(errorMsg) {
+        return `<div class="error">${errorMsg}</div>`;
+    };
+
     /** function */
-    onAuthReply(data = {}) {
-        console.log('Bad auth!');
-        console.log(data);
+    onAuthReply(form, errors) {
+        if (errors.hasOwnProperty('email')) {
+            form.getElementById('login__email')
+                .insertAdjacentHTML('afterend',
+                    markupError('Email isn\'t valid.'));
+        }
+        if (errors.hasOwnProperty('password')) {
+            form.getElementById('login__password')
+                .insertAdjacentHTML('afterend',
+                    markupError('Password isn\'t valid.'));
+        }
     }
 
     /** function */
@@ -45,7 +57,10 @@ export default class LoginView extends View {
             email: form.getElementById('login__email').value,
             password: form.getElementById('login__password').value
         };
-        this.localEventBus.dispatchEvent('onAuthCheck', this.loginData);
+        const errors = this.localEventBus.dispatchEvent('onAuthCheck', this.loginData);
+        if (errors !== undefined) {
+            this.localEventBus.dispatchEvent('authFailed', form, errors).bind(this);
+        }
     }
 
     /** function */
@@ -56,14 +71,34 @@ export default class LoginView extends View {
             password1: form.getElementById('sign-in__password1').value,
             password2: form.getElementById('sign-in__password2').value
         };
-
-        this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);
+        const errors = this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);
+        if (errors !== undefined) {
+            this.localEventBus.dispatchEvent('registerFailed', form, errors).bind(this);
+        }
     }
 
     /** function */
-    onRegisterReply(data = {}) {
-        console.log('Registration failed');
-        console.log(data);
+    onRegisterReply(form, errors) {
+        if (errors.hasOwnProperty('name')) {
+            form.getElementById('sign-in__name')
+                .insertAdjacentHTML('afterend',
+                    markupError('Name isn\'t valid.'));
+        }
+        if (errors.hasOwnProperty('email')) {
+            form.getElementById('sign-in__email')
+                .insertAdjacentHTML('afterend',
+                    markupError('Email isn\'t valid.'));
+        }
+        if (errors.hasOwnProperty('password')) {
+            form.getElementById('sign-in__password')
+                .insertAdjacentHTML('afterend',
+                    markupError('Password isn\'t valid.'));
+        }
+        if (errors.hasOwnProperty('password')) {
+            form.getElementById('sign-in__password')
+                .insertAdjacentHTML('afterend',
+                    markupError('Password isn\'t valid.'));
+        }
     }
 
     /**

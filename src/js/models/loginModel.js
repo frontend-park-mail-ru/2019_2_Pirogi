@@ -21,9 +21,15 @@ export default class LoginModel {
    * @param {object} data
    */
     onAuthCheck(data) {
-        if (!validateEmail(data.email) || !validatePassword(data.password)) {
-            // render errors
-            return;
+        let errors = {};
+        if (!validateEmail(data.email)) {
+            errors.email = false;
+        }
+        if (!validatePassword(data.password)) {
+            errors.password = false;
+        }
+        if (Object.entries(errors).length !== 0) {
+            return errors;
         }
 
         Api.login(data)
@@ -41,12 +47,21 @@ export default class LoginModel {
    * @param {object} data
    */
     onRegisterCheck(data) {
-        if (!validateEmail(data.email)
-            || !validatePassword(data.password1)
-            || (data.password1 !== data.password2)
-            || !validateName(data.name)) {
-            // render errors
-            return;
+        let errors = {};
+        if (!validateName(data.name)) {
+            errors.name = false;
+        }
+        if (!validateEmail(data.email)) {
+            errors.email = false;
+        }
+        if (!validatePassword(data.password1)) {
+            errors.password = false;
+        }
+        if (data.password1 !== data.password2) {
+            errors.passwordsMatch = false;
+        }
+        if (Object.entries(errors).length !== 0) {
+            return errors;
         }
 
         Api.register(data)

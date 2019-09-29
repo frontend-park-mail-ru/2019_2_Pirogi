@@ -17,7 +17,8 @@
     "kinopoisk"
   ],
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "fest": "^0.12.1"
   },
   "husky": {
     "hooks": {
