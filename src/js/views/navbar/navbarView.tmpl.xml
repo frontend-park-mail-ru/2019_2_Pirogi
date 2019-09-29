@@ -5,7 +5,14 @@
         <a href="/new" class="navbar__item navbar__item_current">новинки</a>
         <a href="/films" class="navbar__item">фильмы</a>
         <a href="/ratings" class="navbar__item">рейтинги</a>
-        <a href="/profile" class="navbar__item">Профиль</a>
-        <a href="/login" class="button">войти</a>
+        <fest:choose>
+            <fest:when test="param.isAuth">
+                <a href="/profile" class="button">профиль</a>
+                <input type="button" class="js-logout-button" value="выйти"></input>
+            </fest:when>
+            <fest:otherwise>
+                <a href="/login" class="button">войти</a>
+            </fest:otherwise>
+        </fest:choose>
     </div>
 </fest:template>

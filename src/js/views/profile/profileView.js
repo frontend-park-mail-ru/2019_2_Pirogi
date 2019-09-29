@@ -20,8 +20,8 @@ export default class ProfileView extends View {
             this.onEditButtonClicked.bind(this));
         this.localEventBus.addEventListener('saveButtonClicked',
             this.onEdit.bind(this));
-        this.localEventBus.addEventListener('editGood',
-            this.editGood.bind(this));
+        this.localEventBus.addEventListener('editOk',
+            this.editOk.bind(this));
         this.localEventBus.addEventListener('editFailed',
             this.editFailed.bind(this));
         this.localEventBus.addEventListener('backButtonClicked',
@@ -83,8 +83,8 @@ export default class ProfileView extends View {
         this.localEventBus.dispatchEvent('onEditingProfile', this.editData);
     }
 
-    editGood() {
-        console.log('edit good');
+    editOk() {
+        console.log('edit ok');
     }
 
     editFailed() {

@@ -9,7 +9,13 @@ export default class Api {
         });
     }
 
-    static logout() {}
+    static authCheck() {
+        return Network.doGet('/api/login/');
+    }
+
+    static logout() {
+        return Network.doPost('api/logout/', {});
+    }
 
     static register({login, password, nickname}) {
         return Network.doPost('/api/users/', {

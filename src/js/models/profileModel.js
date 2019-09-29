@@ -20,7 +20,7 @@ export default class ProfileModel {
         Api.editProfile(data)
             .then((res) => {
                 if (res.ok) {
-                    this.localEventBus.dispatchEvent('editGood');
+                    this.localEventBus.dispatchEvent('editOk');
                 } else {
                     res.json().then(data => this.localEventBus.dispatchEvent('editFailed', data));
                 }

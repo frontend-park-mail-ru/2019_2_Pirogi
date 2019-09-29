@@ -12,42 +12,33 @@ export default class NavbarView extends View {
 
         this.globalEvetBus = globalEventBus;
 
-        this.globalEvetBus.addEventListener('onNavbarSignInClicked',
-            this.onSignInClicked.bind(this));
-        this.globalEvetBus.addEventListener('onNavbarProfileClicked',
-            this.onProfileClicked.bind(this));
-        this.globalEvetBus.addEventListener('authPassed',
+        this.globalEvetBus.addEventListener('authGood',
             this.authPassed.bind(this));
+        this.globalEvetBus.addEventListener('logoutOk',
+            this.logoutOk.bind(this));
     }
 
     authPassed() {
-        console.log('auth passed! lets change our navbar!');
+        this.dataAuth.isAuth = true;
+        super.render(this.dataAuth);
     }
 
-    onSignInClicked() {
-        console.log('Go to login page');
-    }
-
-    onProfileClicked() {
-        console.log('go to profile page');
+    logoutOk() {
+        this.dataAuth.isAuth = false;
+        super.render(this.dataAuth);
     }
 
     /**
      * @param {object} data
      */
-    render(data) {
-        const dataAuth = data || this.globalEvetBus.dispatchEvent('checkAuth');
-        super.render(dataAuth);
+    render(data = {}) {
+        this.dataAuth = data || this.globalEvetBus.dispatchEvent('checkAuth');
+        super.render(this.dataAuth);
 
-        // this.isAuth = true;
-        // if (this.isAuth === false) {
-        //     this.signInButton = document.querySelector('<div class="button">');
-        //     this.signInButton.addEventListener('click',
-        //         this.globalEvetBus.dispatchEvent('onNavbarSingInClicked'));
-        // } else {
-        //     this.profileButton = document.getElementsByClassName('profile-button')[0];
-        //     this.profileButton.addEventListener('click',
-        //         this.globalEvetBus.dispatchEvent('onNavbarProfileClicked'));
-        // }
+        if (this.dataAuth.isAuth) {
+            this.logoutButton = document.querySelector('.js-logout-button');
+            this.logoutButton.addEventListener('click',
+                () => this.globalEvetBus.dispatchEvent('onLogoutClicked'));
+        }
     }
 }
