@@ -27,8 +27,10 @@ export default class Api {
 
     static editAvatar({avatar, userID}) {
         const formData = new FormData();
-        formData.append('image', avatar);
-        return Network.doPutFormData(`/api/images/users/${userID}`, formData);
+        formData.append('upload_file', avatar);
+        formData.append('target', 'user');
+        formData.append('user_id', userID);
+        return Network.doPutFormData('/api/images/', formData);
     }
     
     static editProfile({email, password, name, description}) {

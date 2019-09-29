@@ -16,6 +16,8 @@ export default class ProfileView extends View {
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
 
+        this.userData = {};
+
         this.localEventBus.addEventListener('editButtonClicked',
             this.onEditButtonClicked.bind(this));
         this.localEventBus.addEventListener('saveButtonClicked',
@@ -99,6 +101,8 @@ export default class ProfileView extends View {
    * @param {object} data
    */
     render(data = {}) {
+        this.localEventBus.dispatchEvent('getProfileInfo', data);
+
         super.render(data);
         this.renderWall(reviewsTmpl);
 

@@ -14,6 +14,20 @@ export default class ProfileModel {
             this.onEditingProfile.bind(this));
         this.localEventBus.addEventListener('onEditingAvatar',
             this.onEditingAvatar.bind(this));
+
+        this.localEventBus.addEventListener('getProfileInfo',
+            this.getProfile.bind(this));
+    }
+
+    getProfile(data = {}) {
+        Api.getProfileInfo(data)
+            .then( (res) => {
+                if (res.ok) {
+                    res.json().then(data => this.localEventBus.dispatchEvent('getInfoOk', data));
+                } else {
+                    this.localEventBus.dispatchEvent('getInfoFailed');
+                }
+            });
     }
 
     onEditingAvatar(data = {}) {
@@ -22,7 +36,7 @@ export default class ProfileModel {
                 if (res.ok) {
                     this.localEventBus.dispatchEvent('editOk');
                 } else {
-                    res.json().then(data => this.localEventBus.dispatchEvent('editFailed', data));
+                    this.localEventBus.dispatchEvent('editFailed', data);
                 }
             });
     }
