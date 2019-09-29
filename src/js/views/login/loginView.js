@@ -78,7 +78,7 @@ export default class LoginView extends View {
         this.registerData = {
             password: this.registerPasswordInput.value || null,
             email: this.registerEmailInput.value || null,
-            nickname: this.registerNicknameInput.value || null,
+            name: this.registerNicknameInput.value || null,
             repeatPassword: this.registerRepeatInput.value || null,
         };
 

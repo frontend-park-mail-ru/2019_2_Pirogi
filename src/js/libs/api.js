@@ -2,9 +2,9 @@ import Network from './network';
 
 export default class Api {
 
-    static login({login, password}) {
+    static login({email, password}) {
         return Network.doPost('/api/login/', {
-            login,
+            email,
             password,
         });
     }
@@ -14,29 +14,36 @@ export default class Api {
     }
 
     static logout() {
-        return Network.doPost('api/logout/', {});
+        return Network.doPost('/api/logout/', {});
     }
 
-    static register({login, password, nickname}) {
+    static register({email, password, name}) {
         return Network.doPost('/api/users/', {
-            login,
+            email,
             password,
-            nickname,
+            name,
         });
     }
-    static editProfile({login, password, nickname, avatar}) {
+
+    static editAvatar({avatar, userID}) {
         const formData = new FormData();
-
-        formData.append('login', login);
-        formData.append('password', password);
-        formData.append('nickname', nickname);
-        formData.append('avatar', avatar);
-
-        return Network.doPutFormData('/api/users/', formData);
+        formData.append('upload_file', avatar);
+        formData.append('target', 'user');
+        formData.append('user_id', userID);
+        return Network.doPutFormData('/api/images/', formData);
+    }
+    
+    static editProfile({email, password, name, description}) {
+        return Network.doPut('/api/users/', {
+            email,
+            password,
+            name,
+            description,
+        });
     }
 
-    static getProfileInfo({userID}) {
-        return Network.doGet(`/api/users/${userID}`);
+    static getProfileInfo() {
+        return Network.doGet('/api/users/');
     }
 
     static getFilmInfo({filmID}) {

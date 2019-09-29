@@ -8,7 +8,7 @@
         <fest:choose>
             <fest:when test="param.isAuth">
                 <a href="/profile" class="button">профиль</a>
-                <input type="button" class="js-logout-button" value="выйти"></input>
+                <input type="button" class="button js-logout-button" value="выйти"></input>
             </fest:when>
             <fest:otherwise>
                 <a href="/login" class="button">войти</a>
