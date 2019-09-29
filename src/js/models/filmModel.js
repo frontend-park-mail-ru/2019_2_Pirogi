@@ -1,3 +1,5 @@
+import Api from "../libs/api";
+
 /** class*/
 export default class FilmModel {
     /**
@@ -10,8 +12,21 @@ export default class FilmModel {
 
         this.localEventBus.addEventListener('reviewCheck',
             this.onReviewCheck.bind(this));
+
+        this.localEventBus.addEventListener('getFilmInfo',
+            this.getFilmInfo.bind(this));
     }
 
+    getFilmInfo(data = {}) {
+        Api.getFilmInfo(data)
+            .then((res) => {
+                if (res.ok) {
+                    res.json().then(data => this.localEventBus.dispatchEvent('filmInfoOk', data));
+                } else {
+                    this.localEventBus.dispatchEvent('filmInfoFailed');
+                }
+            });
+    }
     /**
    * @param {object} data
    */

@@ -1,6 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HmtlWebpackPlugin = require('html-webpack-plugin');
+//const HmtlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/js/app.js',
@@ -31,34 +31,7 @@ module.exports = {
                     loader: 'babel-loader'
                 }
             },
-            {
-                // Apply rule for .sass, .scss or .css files
-                test: /\.(sa|sc|c)ss$/,
 
-                // Set loaders to transform files.
-                // Loaders are applying from right to left(!)
-                // The first loader will be applied after others
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader
-                    },
-                    {
-                        // This loader resolves url() and @imports inside CSS
-                        loader: 'css-loader'
-                    },
-                    {
-                        // Then we apply postCSS fixes like autoprefixer and minifying
-                        loader: 'postcss-loader'
-                    },
-                    {
-                        // First we transform SASS to standard CSS
-                        loader: 'sass-loader',
-                        options: {
-                            implementation: require('sass')
-                        }
-                    }
-                ]
-            },
             {
                 // Now we apply rule for images
                 test: /\.(png|jpe?g|gif|svg)$/,
