@@ -16,6 +16,8 @@ export default class ProfileView extends View {
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
 
+        this.userData = {};
+
         this.localEventBus.addEventListener('editButtonClicked',
             this.onEditButtonClicked.bind(this));
         this.localEventBus.addEventListener('saveButtonClicked',
@@ -60,7 +62,13 @@ export default class ProfileView extends View {
     }
 
     onEditAvatar() {
+        this.avatarInput = document.querySelector('.js-avatar-input');
 
+        this.editAvatarData = {
+            avatar: this.avatarInput.value || null,
+        };
+
+        this.localEventBus.dispatchEvent('onEditingAvatar', this.editAvatarData);
     }
 
     onEdit() {
@@ -70,14 +78,12 @@ export default class ProfileView extends View {
         this.nicknameInput = document.querySelector('.js-nickname-input');
         this.passwordInput = document.querySelector('.js-password-input');
         this.descriptionInput = document.querySelector('.js-description-textarea');
-        this.avatarInput = document.querySelector('.js-avatar-input');
 
         this.editData = {
-            nickname: this.nicknameInput.value || null,
-            login: this.loginInput.value || null,
+            name: this.nicknameInput.value || null,
+            email: this.loginInput.value || null,
             password: this.passwordInput.value || null,
             description: this.descriptionInput.value || null,
-            avatar: this.avatarInput.value || null,
         };
 
         this.localEventBus.dispatchEvent('onEditingProfile', this.editData);
@@ -95,6 +101,8 @@ export default class ProfileView extends View {
    * @param {object} data
    */
     render(data = {}) {
+        this.localEventBus.dispatchEvent('getProfileInfo');
+
         super.render(data);
         this.renderWall(reviewsTmpl);
 
