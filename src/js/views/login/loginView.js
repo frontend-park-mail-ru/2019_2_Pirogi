@@ -58,13 +58,13 @@ export default class LoginView extends View {
         this.loginPasswordInput = document.querySelector('.js-password-login');
 
         this.authData = {
-            password: this.loginPasswordInput.value || null,
-            email: this.loginEmailInput.value || null,
+            password: this.loginPasswordInput.valuel,
+            email: this.loginEmailInput.value
         };
 
         const errors = this.localEventBus.dispatchEvent('onAuthCheck', this.authData);
         if (errors !== undefined) {
-            this.localEventBus.dispatchEvent('registerFailed', errors);
+            this.localEventBus.dispatchEvent('authFailed', errors);
         }
     }
 
@@ -76,15 +76,15 @@ export default class LoginView extends View {
         this.registerRepeatInput = document.querySelector('.js-repeat-register');
 
         this.registerData = {
-            password: this.registerPasswordInput.value || null,
-            email: this.registerEmailInput.value || null,
-            name: this.registerNicknameInput.value || null,
-            repeatPassword: this.registerRepeatInput.value || null,
+            password: this.registerPasswordInput.value,
+            email: this.registerEmailInput.value,
+            name: this.registerNicknameInput.value,
+            repeatPassword: this.registerRepeatInput.value
         };
 
         const errors = this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);
         if (errors !== undefined) {
-            this.localEventBus.dispatchEvent('authFailed', errors);
+            this.localEventBus.dispatchEvent('registerFailed', errors);
         }
     }
 
