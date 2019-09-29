@@ -58,7 +58,7 @@ export default class LoginView extends View {
         this.loginPasswordInput = document.querySelector('.js-password-login');
 
         this.authData = {
-            password: this.loginPasswordInput.valuel,
+            password: this.loginPasswordInput.value,
             email: this.loginEmailInput.value
         };
 
@@ -96,17 +96,17 @@ export default class LoginView extends View {
                     this.markupError('Name isn\'t valid.'));
         }
         if (errors.hasOwnProperty('email')) {
-            document.querySelector('js-email-register')
+            document.querySelector('.js-email-register')
                 .insertAdjacentHTML('afterend',
                     this.markupError('Email isn\'t valid.'));
         }
         if (errors.hasOwnProperty('password')) {
-            document.querySelector('js-password-register')
+            document.querySelector('.js-password-register')
                 .insertAdjacentHTML('afterend',
                     this.markupError('Password isn\'t valid.'));
         }
         if (errors.hasOwnProperty('passwordsMatch')) {
-            document.querySelector('js-repeat-register')
+            document.querySelector('.js-repeat-register')
                 .insertAdjacentHTML('afterend',
                     this.markupError('Passwords don\'t match.'));
         }
