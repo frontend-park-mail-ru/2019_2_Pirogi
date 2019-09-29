@@ -12,6 +12,19 @@ export default class ProfileModel {
 
         this.localEventBus.addEventListener('onEditingProfile',
             this.onEditingProfile.bind(this));
+        this.localEventBus.addEventListener('onEditingAvatar',
+            this.onEditingAvatar.bind(this));
+    }
+
+    onEditingAvatar(data = {}) {
+        Api.editAvatar(data)
+            .then((res) => {
+                if (res.ok) {
+                    this.localEventBus.dispatchEvent('editOk');
+                } else {
+                    res.json().then(data => this.localEventBus.dispatchEvent('editFailed', data));
+                }
+            });
     }
 
     onEditingProfile(data = {}) {

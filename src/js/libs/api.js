@@ -14,7 +14,7 @@ export default class Api {
     }
 
     static logout() {
-        return Network.doPost('api/logout/', {});
+        return Network.doPost('/api/logout/', {});
     }
 
     static register({login, password, nickname}) {
@@ -24,15 +24,20 @@ export default class Api {
             nickname,
         });
     }
-    static editProfile({login, password, nickname, avatar}) {
+
+    static editAvatar({avatar, userID}) {
         const formData = new FormData();
-
-        formData.append('login', login);
-        formData.append('password', password);
-        formData.append('nickname', nickname);
-        formData.append('avatar', avatar);
-
-        return Network.doPutFormData('/api/users/', formData);
+        formData.append('image', avatar);
+        return Network.doPutFormData(`/api/images/users/${userID}`, formData);
+    }
+    
+    static editProfile({login, password, nickname, description}) {
+        return Network.doPut('/api/users/', {
+            login,
+            password,
+            nickname,
+            description,
+        });
     }
 
     static getProfileInfo({userID}) {

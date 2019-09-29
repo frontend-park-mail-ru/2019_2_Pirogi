@@ -33,19 +33,20 @@ export default class NavbarView extends View {
 
     authPassed() {
         this.dataAuth.isAuth = true;
-        super.render(this.dataAuth);
+        this.render(this.dataAuth);
     }
 
     logoutOk() {
         this.dataAuth.isAuth = false;
-        super.render(this.dataAuth);
+        this.render(this.dataAuth);
     }
 
-    /**
-     * @param {object} data
-     */
-    render(data) {
-        this.dataAuth = data || this.globalEvetBus.dispatchEvent('checkAuth');
+
+    // eslint-disable-next-line no-unused-vars
+    render(data = {}) {
+        if (data.isAuth === undefined) {
+            this.globalEvetBus.dispatchEvent('checkAuth');
+        }
         super.render(this.dataAuth);
 
         if (this.dataAuth.isAuth) {
