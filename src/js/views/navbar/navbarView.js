@@ -1,4 +1,5 @@
 import View from '../../libs/view.js';
+import template from './navbarView.tmpl.xml';
 
 /** class*/
 export default class NavbarView extends View {
@@ -7,45 +8,38 @@ export default class NavbarView extends View {
      * @param {object} root
      */
     constructor(globalEventBus = {}, root = {}) {
-        super(globalEventBus, root);
+        super(globalEventBus, root, template);
 
         this.globalEvetBus = globalEventBus;
+        this.dataAuth = {};
 
-        this.globalEvetBus.addEventListener('onNavbarSignInClicked',
-            this.onSignInClicked.bind(this));
-        this.globalEvetBus.addEventListener('onNavbarProfileClicked',
-            this.onProfileClicked.bind(this));
-        this.globalEvetBus.addEventListener('authPassed',
+        this.globalEvetBus.addEventListener('authGood',
             this.authPassed.bind(this));
+        this.globalEvetBus.addEventListener('logoutOk',
+            this.notAuth.bind(this));
+
     }
 
-    authPassed() {
-        console.log('auth passed! lets change our navbar!');
+    authPassed(data = {}) {
+        this.dataAuth.isAuth = true;
+        this.dataAuth.userID = data.user_id;
+        super.render(this.dataAuth);
+
+        this.logoutButton = document.querySelector('.js-logout-button');
+        this.logoutButton.addEventListener('click',
+            () => this.globalEvetBus.dispatchEvent('onLogoutClicked'));
     }
 
-    onSignInClicked() {
-        console.log('Go to login page');
+    notAuth() {
+        this.dataAuth.isAuth = false;
+        super.render(this.dataAuth);
     }
 
-    onProfileClicked() {
-        console.log('go to profile page');
-    }
 
-    /**
-     * @param {object} data
-     */
+    // eslint-disable-next-line no-unused-vars
     render(data = {}) {
-        super.render(data);
-
-        this.isAuth = true;
-        if (this.isAuth === false) {
-            this.signInButton = document.querySelector('<div class="button">');
-            this.signInButton.addEventListener('click',
-                this.globalEvetBus.dispatchEvent('onNavbarSingInClicked'));
-        } else {
-            this.profileButton = document.getElementsByClassName('profile-button')[0];
-            this.profileButton.addEventListener('click',
-                this.globalEvetBus.dispatchEvent('onNavbarProfileClicked'));
+        if (data.isAuth === undefined) {
+            this.globalEvetBus.dispatchEvent('checkAuth');
         }
     }
 }

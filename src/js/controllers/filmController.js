@@ -16,7 +16,7 @@ export default class FilmController {
     constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(filmEvents);
 
-        this.filmModel = new FilmModel(this.localEventBus, globalEventBus, root);
-        this.filmView = new FilmView(this.localEventBus, globalEventBus);
+        this.filmModel = new FilmModel(this.localEventBus, globalEventBus);
+        this.filmView = new FilmView(this.localEventBus, globalEventBus, root);
     }
 }

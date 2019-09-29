@@ -1,4 +1,5 @@
 import View from '../../libs/view.js';
+import template from './loginView.tmpl.xml';
 
 /** class*/
 export default class LoginView extends View {
@@ -8,7 +9,7 @@ export default class LoginView extends View {
    * @param {object} root
    */
     constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
-        super(localEventBus, root);
+        super(localEventBus, root, template);
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
         this.root = root;
@@ -31,11 +32,12 @@ export default class LoginView extends View {
 
     /** function */
     onAuth() {
-        console.log('lets read our data');
+        this.loginEmailInput = document.querySelector('.js-email-login');
+        this.loginPasswordInput = document.querySelector('.js-password-login');
 
         this.authData = {
-            password: 'blablabla',
-            login: 'blabla@bla.ru',
+            password: this.loginPasswordInput.value || null,
+            email: this.loginEmailInput.value || null,
         };
 
         this.localEventBus.dispatchEvent('onAuthCheck', this.authData);
@@ -43,13 +45,16 @@ export default class LoginView extends View {
 
     /** function */
     onRegister() {
-        console.log('lets see users data');
+        this.registerEmailInput = document.querySelector('.js-email-register');
+        this.registerPasswordInput = document.querySelector('.js-password-register');
+        this.registerNicknameInput = document.querySelector('.js-nickname-register');
+        this.registerRepeatInput = document.querySelector('.js-repeat-register');
 
         this.registerData = {
-            password: 'blablabla',
-            email: 'blabla@bla.ru',
-            nickname: 'vasyakrutoi',
-            repeatPassword: 'blablabla',
+            password: this.registerPasswordInput.value || null,
+            email: this.registerEmailInput.value || null,
+            name: this.registerNicknameInput.value || null,
+            repeatPassword: this.registerRepeatInput.value || null,
         };
 
         this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);
@@ -65,15 +70,14 @@ export default class LoginView extends View {
    * @param {object} data
    */
     render(data = {}) {
-    // Render page
-        console.log('render login page');
         super.render(data);
 
-        this.loginBitton = document.getElementById('login-button');
+        this.loginBitton = document.querySelector('.js-login');
         this.loginBitton.addEventListener('click',
-            this.localEventBus.dispatchEvent('myAuthEvent').bind(this));
-        this.registerButton = document.getElementById('register-button');
+            () => this.localEventBus.dispatchEvent('myAuthEvent'));
+
+        this.registerButton = document.querySelector('.js-register');
         this.registerButton.addEventListener('click',
-            this.localEventBus.dispatchEvent('myRegisterEvent').bind(this));
+            () => this.localEventBus.dispatchEvent('myRegisterEvent'));
     }
 }

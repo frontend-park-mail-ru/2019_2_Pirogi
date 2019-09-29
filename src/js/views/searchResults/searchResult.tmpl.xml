@@ -1,27 +1,12 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Поиск</title>
-</head>
-<body>
-<main class="main">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
     <div class="search">
-        <div class="navbar">
-            <a class="logo" href="/">CINSEAR</a>
-            <input class="input navbar__input" type="text" placeholder="поиск">
-            <a href="/new" class="navbar__item navbar__item_current">новинки</a>
-            <a href="/films" class="navbar__item">фильмы</a>
-            <a href="/ratings" class="navbar__item">рейтинги</a>
-            <div class="button">войти</div>
-        </div>
         <div class="search-results">
             <div class="title">Вы искали: <a>ужасы</a>, <a>университет</a>
             </div>
             <div>666 результатов поиска</div>
             <div class="list">
                 <div class="list__item search-results__film">
-                    <img class="search-results__img" src="/src/images/tmp_film_card.jpg" alt="название фильма">
+                    <img class="search-results__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
                     <div class="search-results__film-card">
                         <a class="title">Moonlight</a>
                         <div class="hr"></div>
@@ -38,7 +23,7 @@
                     </div>
                 </div>
                 <div class="list__item search-results__film">
-                    <img class="search-results__img" src="/src/images/tmp_film_card.jpg" alt="название фильма">
+                    <img class="search-results__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
                     <div class="search-results__film-card">
                         <a class="title">Moonlight</a>
                         <div class="hr"></div>
@@ -97,7 +82,4 @@
         <div class="text paginator__item">...</div>
         <div class="text paginator__item">55</div>
     </div>
-</main>
-<script src="../../../dist/main.js"></script>
-</body>
-</html>
+</fest:template>

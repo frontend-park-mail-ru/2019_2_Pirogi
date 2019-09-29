@@ -1,4 +1,5 @@
 import View from '../../libs/view.js';
+import template from './filmView.tmpl.xml';
 
 /** class*/
 export default class FilmView extends View {
@@ -8,7 +9,7 @@ export default class FilmView extends View {
    * @param {object} root
    */
     constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
-        super(localEventBus, root);
+        super(localEventBus, root, template);
 
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
@@ -45,8 +46,8 @@ export default class FilmView extends View {
 
         super.render(data);
 
-        this.reviewSubmit = document.getElementById('review-submit');
-        this.reviewSubmit.addEventListener('click',
-            this.localEventBus.dispatchEvent('myReviewEvent'));
+        // this.reviewSubmit = document.getElementById('review-submit');
+        // this.reviewSubmit.addEventListener('click',
+        //     this.localEventBus.dispatchEvent('myReviewEvent'));
     }
 }

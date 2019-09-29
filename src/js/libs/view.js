@@ -22,8 +22,8 @@ export default class View {
 
     /** function */
     hide() {
-        this.baseElement.hidden = true;
-        this.baseElement.innerHTML = '';
+        // this.baseElement.hidden = true;
+        // this.baseElement.innerHTML = '';
         console.log('hidding');
     }
 
