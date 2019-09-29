@@ -22,12 +22,34 @@ export default class LoginView extends View {
             this.onRegister.bind(this));
         this.localEventBus.addEventListener('registerFailed',
             this.onRegisterReply.bind(this));
+        this.localEventBus.addEventListener('clearErrors',
+            this.clearErrors.bind(this));
     }
 
+    clearErrors(target) {
+        for (const item of Array.from(document.querySelector(`.login__${target}`).childNodes)) {
+            if (item.className === 'error') {
+                item.parentNode.removeChild(item);
+            }
+        }
+    };
+
+    markupError(errorMsg) {
+        return `<div class="error">${errorMsg}</div>`;
+    };
+
     /** function */
-    onAuthReply(data = {}) {
-        console.log('Bad auth!');
-        console.log(data);
+    onAuthReply(errors) {
+        if (errors.hasOwnProperty('email')) {
+            document.querySelector('.js-email-login')
+                .insertAdjacentHTML('afterend',
+                    markupError('Email isn\'t valid.'));
+        }
+        if (errors.hasOwnProperty('password')) {
+            document.querySelector('.js-password-login')
+                .insertAdjacentHTML('afterend',
+                    markupError('Password isn\'t valid.'));
+        }
     }
 
     /** function */
@@ -37,10 +59,13 @@ export default class LoginView extends View {
 
         this.authData = {
             password: this.loginPasswordInput.value || null,
-            login: this.loginEmailInput.value || null,
+            email: this.loginEmailInput.value || null,
         };
 
-        this.localEventBus.dispatchEvent('onAuthCheck', this.authData);
+        const errors = this.localEventBus.dispatchEvent('onAuthCheck', this.authData);
+        if (errors !== undefined) {
+            this.localEventBus.dispatchEvent('authFailed', errors).bind(this);
+        }
     }
 
     /** function */
@@ -72,9 +97,12 @@ export default class LoginView extends View {
     render(data = {}) {
         super.render(data);
 
-        this.loginBitton = document.querySelector('.js-login');
-        this.loginBitton.addEventListener('click',
-            () => this.localEventBus.dispatchEvent('myAuthEvent'));
+        this.loginButton = document.querySelector('.js-login');
+        this.loginButton.addEventListener('click',
+            () => {
+                this.localEventBus.dispatchEvent('clearErrors', 'auth');
+                this.localEventBus.dispatchEvent('myAuthEvent');
+            });
 
         this.registerButton = document.querySelector('.js-register');
         this.registerButton.addEventListener('click',
