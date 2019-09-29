@@ -21,18 +21,21 @@ export default class NavbarView extends View {
             this.auth.bind(this));
         this.globalEvetBus.addEventListener('notAuth',
             this.notAuth.bind(this));
+
     }
 
-    auth() {
+    auth(data = {}) {
         this.dataAuth.isAuth = true;
+        this.dataAuth.userID = data.user_id;
     }
 
     notAuth() {
         this.dataAuth.isAuth = false;
     }
 
-    authPassed() {
+    authPassed(data = {}) {
         this.dataAuth.isAuth = true;
+        this.dataAuth.userID = data.user_id;
         this.render(this.dataAuth);
     }
 
