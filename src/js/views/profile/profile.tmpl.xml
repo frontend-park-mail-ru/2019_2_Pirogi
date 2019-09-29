@@ -1,30 +1,32 @@
 <?xml version="1.0"?>
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
-    <div class="profile">
-        <div class="profile__info"> <!-- to center this section or whatever -->
-            <img class="profile__photo" alt="username" src="/src/images/avatar.jpg"/>
-            <div class="profile__info-details list"> <!-- img -->
-                <div class="list__item">
-                    <div class="title">AlmostCurrentPerson</div>
-                </div>
-                <div class="list__item">
-                    <div class="hr"></div>
-                    <div>рейтинг на сайте:</div>
-                    <div class="title"> 18,12</div>
-                    <div class="hr"></div>
-                    <div></div>
-                    рецензий:
-                    <div class="title"> 2</div>
-                    <div class="hr"></div>
-                </div>
-                <div class="list__item">
-                    <div>
-                        Чисто человек 21 века (до н.э.) белого цвета. Не люблю больших кошек.
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
+    <main class="main">
+        <div class="profile">
+            <div class="profile__info"> <!-- to center this section or whatever -->
+                <img class="profile__photo" alt="username" src="/src/images/users/{params.avatar_link}"/>
+                <div class="profile__info-details list"> <!-- img -->
+                    <div class="list__item">
+                        <div class="title"><fest:value>params.name</fest:value></div>
                     </div>
+                    <div class="list__item">
+                        <div class="hr"></div>
+                        <div>рейтинг на сайте:</div>
+                        <div class="title"> <fest:value>params.rating</fest:value></div>
+                        <div class="hr"></div>
+                        <div></div>
+                        рецензий:
+                        <div class="title">2</div>
+                        <div class="hr"></div>
+                    </div>
+                    <div class="list__item">
+                        <div>
+                            <fest:value>params.description</fest:value>
+                        </div>
+                    </div>
+                    <input type="button" class="button js-edit-button" value="редактировать"/>
                 </div>
-                <input type="button" class="button js-edit-button" value="редактировать"/>
             </div>
+            <div class="profile__wall js-profile-wall"></div>
         </div>
-        <div class="profile__wall js-profile-wall"></div>
-    </div>
+    </main>
 </fest:template>

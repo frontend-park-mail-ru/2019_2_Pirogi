@@ -12,8 +12,9 @@ import Router from './libs/router.js';
 document.addEventListener('DOMContentLoaded', () => {
     const globalEventBus = new EventBus([{}]);
     const header = document.querySelector('header');
-    const body = document.querySelector('body');
-    const router = new Router(body);
+    const body = document.querySelector('.js-append-tmpl');
+    const bodyForRouter = document.querySelector('body');
+    const router = new Router(bodyForRouter);
 
     // eslint-disable-next-line
     const navbarController = new NavbarController(globalEventBus, header);
@@ -23,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchResultsController = new SearchResultsController(globalEventBus, body);
     const indexController = new IndexController(globalEventBus, body);
     const adminController = new AdminController(globalEventBus, body);
+
+    navbarController.navbarView.render();
 
     router.add('/login', loginController.loginView);
     router.add('/profile', profileController.profileView);

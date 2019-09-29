@@ -1,4 +1,5 @@
 import View from '../../libs/view.js';
+import template from './loginView.tmpl.xml';
 
 /** class*/
 export default class LoginView extends View {
@@ -8,7 +9,7 @@ export default class LoginView extends View {
    * @param {object} root
    */
     constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
-        super(localEventBus, root);
+        super(localEventBus, root, template);
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
         this.root = root;
@@ -21,6 +22,7 @@ export default class LoginView extends View {
             this.onRegister.bind(this));
         this.localEventBus.addEventListener('registerFailed',
             this.onRegisterReply.bind(this));
+<<<<<<< HEAD
         this.localEventBus.addEventListener('clearErrors',
             this.clearErrors.bind(this));
     }
@@ -99,12 +101,57 @@ export default class LoginView extends View {
                 .insertAdjacentHTML('afterend',
                     markupError('Password isn\'t valid.'));
         }
+=======
+    }
+
+    /** function */
+    onAuthReply(data = {}) {
+        console.log('Bad auth!');
+        console.log(data);
+    }
+
+    /** function */
+    onAuth() {
+        this.loginEmailInput = document.querySelector('.js-email-login');
+        this.loginPasswordInput = document.querySelector('.js-password-login');
+
+        this.authData = {
+            password: this.loginPasswordInput.value || null,
+            email: this.loginEmailInput.value || null,
+        };
+
+        this.localEventBus.dispatchEvent('onAuthCheck', this.authData);
+    }
+
+    /** function */
+    onRegister() {
+        this.registerEmailInput = document.querySelector('.js-email-register');
+        this.registerPasswordInput = document.querySelector('.js-password-register');
+        this.registerNicknameInput = document.querySelector('.js-nickname-register');
+        this.registerRepeatInput = document.querySelector('.js-repeat-register');
+
+        this.registerData = {
+            password: this.registerPasswordInput.value || null,
+            email: this.registerEmailInput.value || null,
+            name: this.registerNicknameInput.value || null,
+            repeatPassword: this.registerRepeatInput.value || null,
+        };
+
+        this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);
+    }
+
+    /** function */
+    onRegisterReply(data = {}) {
+        console.log('Registration failed');
+        console.log(data);
+>>>>>>> dev
     }
 
     /**
    * @param {object} data
    */
     render(data = {}) {
+<<<<<<< HEAD
     // Render page
         console.log('render login page');
         super.render(data);
@@ -122,5 +169,16 @@ export default class LoginView extends View {
                 this.localEventBus.dispatchEvent('clearErrors', event.target).bind(this);
                 this.localEventBus.dispatchEvent('myRegisterEvent', event.target).bind(this);
             });
+=======
+        super.render(data);
+
+        this.loginBitton = document.querySelector('.js-login');
+        this.loginBitton.addEventListener('click',
+            () => this.localEventBus.dispatchEvent('myAuthEvent'));
+
+        this.registerButton = document.querySelector('.js-register');
+        this.registerButton.addEventListener('click',
+            () => this.localEventBus.dispatchEvent('myRegisterEvent'));
+>>>>>>> dev
     }
 }
