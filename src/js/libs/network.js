@@ -1,7 +1,17 @@
 const MY_PATH = 'http://167.71.5.55';
-
+/**
+ * Creates a new Network object
+ * @class
+ * @type {Network}
+ */
 export default class Network {
 
+    /**
+     * GET request
+     * @static
+     * @param {string} path
+     * @returns {Promise<Response>}
+     */
     static doGet(path = '/') {
         return fetch(MY_PATH + path, {
             method: 'GET',
@@ -10,6 +20,13 @@ export default class Network {
         });
     }
 
+    /**
+     * POST request
+     * @static
+     * @param {string} path
+     * @param {Object} body
+     * @returns {Promise<Response>}
+     */
     static doPost(path = '/', body = {}) {
         return fetch(MY_PATH + path, {
             method: 'POST',
@@ -22,6 +39,13 @@ export default class Network {
         });
     }
 
+    /**
+     * POST form-data request
+     * @param {string} path
+     * @static
+     * @param {Object} formData
+     * @returns {Promise<Response>}
+     */
     static doPostFormData(path = '/', formData) {
         return fetch(MY_PATH + path, {
             method: 'POST',
@@ -31,6 +55,12 @@ export default class Network {
         });
     }
 
+    /**
+     * DELETE request
+     * @static
+     * @param {string} path
+     * @returns {Promise<Response>}
+     */
     static doDelete(path = '/') {
         return fetch(MY_PATH + path, {
             method: 'DELETE',
@@ -40,6 +70,13 @@ export default class Network {
     }
 
 
+    /**
+     * PUT request
+     * @static
+     * @param {string} path
+     * @param {Object} body
+     * @returns {Promise<Response>}
+     */
     static doPut(path = '/', body = {}) {
         return fetch(MY_PATH + path, {
             method: 'PUT',
@@ -52,6 +89,12 @@ export default class Network {
         });
     }
 
+    /**
+     * PUT form-data request
+     * @param {string} path
+     * @param {Object} formData
+     * @returns {Promise<Response>}
+     */
     static doPutFormData(path = '/', formData) {
         return fetch(MY_PATH + path, {
             method: 'PUT',

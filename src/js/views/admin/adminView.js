@@ -1,14 +1,22 @@
 import View from '../../libs/view.js';
 import template from './adminView.tmpl.xml';
+import EventBus from '../../libs/eventBus';
 
-/** class*/
+/**
+ * Creates a new Admin view
+ * @class
+ * @type {AdminView}
+ * @listens 'filmAdded'
+ * @listens 'myFilmAddEvent'
+ * @listens 'filmAddFailed'
+ */
 export default class AdminView extends View {
     /**
-   * @param {object} localEventBus
-   * @param {object} globalEventBus
-   * @param {object} root
-   */
-    constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
+     * @param {EventBus} localEventBus
+     * @param {EventBus} globalEventBus
+     * @param {Object} root
+     */
+    constructor(localEventBus = EventBus, globalEventBus = EventBus, root = {}) {
         super(localEventBus, root, template);
 
         this.localEventBus = localEventBus;
@@ -22,17 +30,25 @@ export default class AdminView extends View {
             this.addFilmFailed.bind(this));
     }
 
-    /** function */
+    /**
+     * Adds new film
+     * @method
+     */
     addNewFilm() {
         console.log('new film added');
     }
 
-    /** function */
+    /**
+     * Failed while adding film
+     * @method
+     */
     addFilmFailed() {
         console.log('Film adding failed');
     }
 
-    /** function */
+    /**
+     * @method
+     */
     onFilmAdd() {
         console.log('on adding film');
 
@@ -43,9 +59,12 @@ export default class AdminView extends View {
 
         this.localEventBus.dispatchEvent('addFilmCheck', this.filmInfo);
     }
+
     /**
-   * @param {object} data
-   */
+     * Render the view
+     * @method
+     * @param {Object} data
+     */
     render(data = {}) {
         super.render(data);
 

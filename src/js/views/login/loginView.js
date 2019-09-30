@@ -91,6 +91,7 @@ export default class LoginView extends View {
     }
 
     /** function */
+<<<<<<< HEAD
     onRegisterReply(errors) {
         if (errors.hasOwnProperty('name')) {
             document.querySelector('.js-nickname-register')
@@ -124,7 +125,6 @@ export default class LoginView extends View {
    */
     render(data = {}) {
         super.render(data);
-
         this.loginButton = document.querySelector('.js-login');
         this.loginButton.addEventListener('click',
             () => {

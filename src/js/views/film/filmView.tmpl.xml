@@ -1,27 +1,20 @@
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="film">
     <main class="main">
         <div class="film">
             <div class="film__description">
-                <img class="film__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                <img class="film__img" src="/src/images/films/{film.image_path}.jpg" alt="название фильма"/>
             </div>
             <div class="film__description">
-                <div class="title">Film title</div>
+                <div class="title"><fest:value>film.title</fest:value></div>
                 <div class="hr"></div>
                 <div class="list">
                     <div class="list__item">Genre</div>
-                    <div class="list__item">Year</div>
+                    <div class="list__item">Date: <fest:value>film.date</fest:value></div>
                     <div class="list__item">Name Surname</div>
                 </div>
                 <div class="hr"></div>
                 <div>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-                    rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-                    ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-                    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                    aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                    dolores et ea rebum.
+                    <fest:value>film.description</fest:value>
                 </div>
                 <hr/>
             </div>

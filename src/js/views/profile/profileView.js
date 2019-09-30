@@ -3,13 +3,24 @@ import template from './profile.tmpl.xml';
 import reviewsTmpl from './profile.reviews.tmpl.xml';
 import editTmpl from './profile.edit.tmpl.xml';
 
-/** class*/
+
+/**
+ * Creates a new Profile view
+ * @class
+ * @type {ProfileView}
+ * @listens 'editButtonClicked'
+ * @listens 'saveButtonClicked'
+ * @listens 'editOk'
+ * @listens 'backButtonClicked'
+ * @listens 'avatarButtonClicked'
+ */
 export default class ProfileView extends View {
     /**
-   * @param {object} localEventBus
-   * @param {object} globalEventBus
-   * @param {object} root
-   */
+     * @constructor
+     * @param {Object} localEventBus
+     * @param {Object} globalEventBus
+     * @param {Object} root
+     */
     constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
         super(localEventBus, root, template);
 
@@ -68,12 +79,22 @@ export default class ProfileView extends View {
         return `<div class="error">${errorMsg}</div>`;
     };
 
+    /**
+     * Render the profile wall
+     * @method
+     * @param {function} template
+     * @param {Object} data
+     */
     renderWall(template, data = {}) {
         this.wall = document.querySelector('.js-profile-wall');
 
         this.wall.innerHTML = template(data);
     }
 
+    /**
+     * On event
+     * @method
+     */
     onEditButtonClicked() {
         this.editButton.disabled = true;
 
@@ -86,19 +107,29 @@ export default class ProfileView extends View {
 
         this.avatarButton = document.querySelector('.js-avatar-button');
         this.avatarButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('avatarButtonClicked');});
+            this.localEventBus.dispatchEvent('avatarButtonClicked');
+        });
 
         this.backButton = document.querySelector('.js-back-button');
         this.backButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('backButtonClicked');});
+            this.localEventBus.dispatchEvent('backButtonClicked');
+        });
     }
 
+    /**
+     * On event
+     * @method
+     */
     onBackButtonClicked() {
         this.editButton.disabled = false;
 
         this.renderWall(reviewsTmpl);
     }
 
+    /**
+     * On event
+     * @method
+     */
     onEditAvatar() {
         this.avatarInput = document.querySelector('.js-avatar-input');
 
@@ -109,6 +140,10 @@ export default class ProfileView extends View {
         this.localEventBus.dispatchEvent('onEditingAvatar', this.editAvatarData, this.userData);
     }
 
+    /**
+     * On event
+     * @method
+     */
     onEdit() {
         console.log('edit profile info');
 
@@ -127,6 +162,10 @@ export default class ProfileView extends View {
         this.localEventBus.dispatchEvent('onEditingProfile', this.editData);
     }
 
+    /**
+     * On event
+     * @method
+     */
     editOk() {
         this.localEventBus.dispatchEvent('getProfileInfo');
     }
@@ -152,11 +191,12 @@ export default class ProfileView extends View {
                 .insertAdjacentHTML('afterend',
                     this.markupError(errors.error));
         }
-    }
 
     /**
-   * @param {object} data
-   */
+     * Render the Profile
+     * @method
+     * @param {Object} data
+     */
     render(data = {}) {
         this.localEventBus.dispatchEvent('getProfileInfo');
     }

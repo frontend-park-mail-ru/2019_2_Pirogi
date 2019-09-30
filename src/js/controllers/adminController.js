@@ -10,11 +10,19 @@ const adminEvents = [
 ];
 
 
-/** class*/
+/**
+ * Creates a new Admin controller
+ * Класс контроллер для страницы администрирования
+ * обеспечивает связь между моделью и представлением
+ * @class
+ * @type {AdminController}
+ */
 export default class AdminController {
     /**
-     * @param {object} globalEventBus
-     * @param {object} root
+     * Создает контроллер
+     * @constructor
+     * @param {object} globalEventBus - обеспечивает связь с глобальными событиями
+     * @param {object} root - элемент, в который будет рендериться страницы
      */
     constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(adminEvents);
