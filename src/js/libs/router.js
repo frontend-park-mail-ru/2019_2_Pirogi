@@ -1,12 +1,27 @@
 const Logger = require('./logger');
 
+/**
+ * Creates a new Router
+ * @class
+ * @type {Router}
+ */
 export default class Router {
+    /**
+     * @constructor
+     * @param {Element} root
+     */
     constructor(root) {
         this.root = root;
         this.routes = new Map();
         this.currentPath = null;
     }
 
+    /**
+     * Starts the router
+     * @method
+     * @listens onclick
+     * @listens onpopstate
+     */
     start() {
         window.addEventListener('popstate', () => {
             this.route(window.location.pathname);
@@ -22,10 +37,23 @@ export default class Router {
         this.route(window.location.pathname);
     }
 
+
+    /**
+     * Add new route to router
+     * @method
+     * @param {string} path
+     * @param {View} view
+     * @param {Object} data
+     */
     add(path, view, data = {}) {
         this.routes.set(path, { view: view, data: data });
     }
 
+    /**
+     * Goes to route
+     * @method
+     * @param {string} path
+     */
     route(path) {
         if (!this.routes.has(path)) {
             const log = new Logger();

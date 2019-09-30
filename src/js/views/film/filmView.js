@@ -1,13 +1,20 @@
 import View from '../../libs/view.js';
 import template from './filmView.tmpl.xml';
 
-/** class*/
+
+/**
+ * Creates a new Film view
+ * @class
+ * @listens 'addMyReview'
+ * @listens 'onReview'
+ */
 export default class FilmView extends View {
     /**
-   * @param {object} localEventBus
-   * @param {object} globalEventBus
-   * @param {object} root
-   */
+     * @constructor
+     * @param {Object} localEventBus
+     * @param {Object} globalEventBus
+     * @param {Object} root
+     */
     constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
         super(localEventBus, root, template);
 
@@ -21,14 +28,20 @@ export default class FilmView extends View {
     }
 
     /**
-   * @param {object} reviewData
-   */
+     * Add review
+     * @method
+     * @param {Object} reviewData
+     */
     addMyReview(reviewData) {
         console.log('add new review');
         console.log(reviewData);
     }
 
-    /** function */
+
+    /**
+     * On review adding
+     * @method
+     */
     onReview() {
         console.log('read data for review');
 
@@ -38,9 +51,11 @@ export default class FilmView extends View {
         };
         this.localEventBus.dispatchEvent('reviewCheck', this.reviewData);
     }
+
     /**
-   * @param {object} data
-   */
+     * Render the film page
+     * @param {Object} data
+     */
     render(data = {}) {
         console.log('render film page');
 

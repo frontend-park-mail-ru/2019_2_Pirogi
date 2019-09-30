@@ -2,17 +2,21 @@ import EventBus from '../libs/eventBus.js';
 import SearchResultsModel from '../models/searchResultsModel.js';
 import SearchResultsView from '../views/searchResults/searchResultsView.js';
 
+/**
+ * List of all search events
+ * @type {Array|string}
+ */
 const searchEvents = [];
 /**
- * Класс Контроллер для страницы результатов поиска
- * обеспечивает связь между моделью и представлением
+ * Create a new Search Results controller
+ * @class
+ * @type {SearchResultsController}
  */
 export default class SearchResultsController {
     /**
-     * Создает контроллер
-     * @param {object} globalEventBus - обеспечивает связь с глобальными событиями
-     * @param {object} root - элемент, в который будет рендериться страницы
-     */
+     * @param {EventBus} globalEventBus
+     * @param {Element} root
+   */
     constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(searchEvents);
 

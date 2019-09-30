@@ -6,7 +6,7 @@ const app = express();
 
 const log = new Logger();
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/src/index.html', (e) => {
+    res.sendFile(__dirname + '/src/index.html', () => {
         // if (e) {
         //     log.logError(404, req.url);
         //     return res.sendFile(__dirname + '/src/pages/error/error.html');
@@ -16,7 +16,7 @@ app.get('/', function(req, res) {
 });
 
 app.get(/^\/[A-Za-z0-9]+$/, function(req, res) {
-    res.sendFile(__dirname + `/src/pages/${req.url}/${req.url}.html`, (e) => {
+    res.sendFile(__dirname + `/src/pages/${req.url}/${req.url}.html`, () => {
         // if (e) {
         //     log.logError(404, req.url);
         //     return res.sendFile(__dirname + '/src/pages/error/error.html');

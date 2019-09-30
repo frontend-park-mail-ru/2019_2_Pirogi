@@ -1,14 +1,19 @@
 import Network from './network';
 
 /**
+ * Creates a new API object
  * Класс реализует взаимодействие Api c бекендом
+ * @class
+ * @type {Api}
  */
 export default class Api {
 
     /**
-     * Отправляет запрос на вход
-     * @param {string} email - email пользователя
-     * @param {string} password - пароль пользователя
+     * API Logging-in
+     * POST /api/login/
+     * @static
+     * @param {string} email
+     * @param {string} password
      * @returns {Promise<Response>}
      */
     static login({email, password}) {
@@ -19,7 +24,9 @@ export default class Api {
     }
 
     /**
-     * Отправляет запрос на проверку аунтификации пользователя
+     * API Check auth
+     * GET /api/login/
+     * @static
      * @returns {Promise<Response>}
      */
     static authCheck() {
@@ -27,7 +34,9 @@ export default class Api {
     }
 
     /**
-     * Отправляет запрос на выход из сессии
+     * API Logout
+     * POST /api/logout/
+     * @static
      * @returns {Promise<Response>}
      */
     static logout() {
@@ -35,10 +44,12 @@ export default class Api {
     }
 
     /**
-     * Отправляет запрос на регистрацию
-     * @param {string} email - email пользователя
-     * @param {string} password - пароль пользователя
-     * @param {string} name - имя пользователя
+     * API Registration
+     * POST /api/users/
+     * @static
+     * @param {string} email
+     * @param {string} password
+     * @param {string} name
      * @returns {Promise<Response>}
      */
     static register({email, password, name}) {
@@ -50,9 +61,11 @@ export default class Api {
     }
 
     /**
-     * Отправляет запрос на изменение аватарки
-     * @param avatar - новое изображение
-     * @param userID - идентификатор пользователя
+     * API Edit avatar
+     * POST /api/images/
+     * @static
+     * @param {string} avatar - новое изображение
+     * @param {string} userID
      * @returns {Promise<Response>}
      */
     static editAvatar({avatar, userID}) {
@@ -60,15 +73,17 @@ export default class Api {
         formData.append('upload_file', avatar);
         formData.append('target', 'user');
         formData.append('user_id', userID);
-        return Network.doPutFormData('/api/images/', formData);
+        return Network.doPostFormData('/api/images/', formData);
     }
 
     /**
-     * Отправляет запрос на изменение данных профиля
-     * @param {string} email - email пользователя
-     * @param {string} password - пароль пользователя
-     * @param {string} name - имя пользователя
-     * @param {string} description - о себе
+     * API Edit profile
+     * PUT /api/users/
+     * @static
+     * @param {string} email
+     * @param {string} password
+     * @param {string} name
+     * @param {string} description
      * @returns {Promise<Response>}
      */
     static editProfile({email, password, name, description}) {
@@ -81,7 +96,10 @@ export default class Api {
     }
 
     /**
+     * API Get profile info
      * Отправляет запрос на получение информации о пользователе
+     * GET /api/users/
+     * @static
      * @returns {Promise<Response>}
      */
     static getProfileInfo() {
@@ -89,7 +107,10 @@ export default class Api {
     }
 
     /**
-     * Отправляет запрос на получение информации о фильме
+     * API Get film info
+     * Отправляет запрос на получение информации о фильме 
+     * GET /api/films/{film_id}/
+     * @static
      * @param {string} filmID
      * @returns {Promise<Response>}
      */
@@ -98,14 +119,17 @@ export default class Api {
     }
 
     /**
+     * API Add new film
      * Отправляет запрос на добавление нового фильма
-     * @param {string} title - название
-     * @param {string} description - описание
-     * @param {slice} genres - жанры
-     * @param {string} date - дата
-     * @param {slice} actors - актеры
-     * @param {slice} directors - режиссеры
-     * @param {number} rating - рейтинг
+     * POST /api/films/
+     * @static
+     * @param {string} title
+     * @param {string} description
+     * @param {Array} genres
+     * @param {string} date
+     * @param {Array} actors
+     * @param {Array} directors
+     * @param {number} rating
      * @returns {Promise<Response>}
      */
     static addNewFilm({title, description, genres, date, actors, directors, rating}) {
@@ -121,11 +145,14 @@ export default class Api {
     }
 
     /**
+     * API Send review
+     * POST /api/review/
      * Отправляет запрос на добавление новой рецензии
-     * @param {string} filmID - идентификатор фильма
-     * @param {string} userID - идентифекатор пользователя
-     * @param {string} title - название
-     * @param {string} description - содержание
+     * @static
+     * @param {int} filmID
+     * @param {int} userID
+     * @param {string} title
+     * @param {string} description
      * @returns {Promise<Response>}
      */
     static sendReview({filmID, userID, title, description}) {

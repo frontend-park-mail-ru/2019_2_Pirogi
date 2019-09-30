@@ -8,18 +8,18 @@ const filmEvents = [
     {key: 'reviewCheck'},
 ];
 /**
- * Класс Контроллер для страницы фильма
- * обеспечивает связь между моделью и представлением
+ * Creates a new Film controller
+ * @class
+ * @type {FilmController}
  */
 export default class FilmController {
     /**
-   * Создает контроллер
-   * @param {object} globalEventBus - обеспечивает связь с глобальными событиями
-   * @param {object} root - элемент, в который будет рендериться страницы
-   */
+     * @constructor
+     * @param {EventBus} globalEventBus
+     * @param {Element} root
+     */
     constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(filmEvents);
-
         this.filmModel = new FilmModel(this.localEventBus, globalEventBus);
         this.filmView = new FilmView(this.localEventBus, globalEventBus, root);
     }

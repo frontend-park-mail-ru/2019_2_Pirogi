@@ -2,6 +2,12 @@ import EventBus from '../libs/eventBus.js';
 import LoginView from '../views/login/loginView.js';
 import LoginModel from '../models/loginModel.js';
 
+/**
+ * Login events
+ * @type {*[]}
+ * @typedef {string} key
+ * @typedef {string} event
+ */
 const loginEvents = [
     {key: 'myAuthEvent'},
     {key: 'authFailed'},
@@ -14,14 +20,17 @@ const loginEvents = [
 ];
 
 /**
- * Класс Контроллер для страницы входа
- * обеспечивает связь между моделью и представлением
+ * Creates a new Login controller
+ * @class
+ * @type {LoginController}
  */
 export default class LoginController {
     /**
-     * Создает контроллер
-     * @param {object} globalEventBus - обеспечивает связь с глобальными событиями
-     * @param {object} root - элемент, в который будет рендериться страницы
+     * @constructor
+     * @param {object} globalEventBus
+     * @param {object} root
+     * @param {Router} router
+     * @listens 'authGood'
      */
     constructor(globalEventBus = {}, root = {}, router) {
         this.localEventBus = new EventBus(loginEvents);

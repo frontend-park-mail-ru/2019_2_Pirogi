@@ -1,13 +1,16 @@
 /**
+ * Creates a new EventBus
  * Класс реализует событийную модель
- * предоставляет возьможность добавить новое событие и функцию
+ * предоставляет возможность добавить новое событие и функцию
  * которая будет выполняться для этого события
+ * @class
+ * @type {EventBus}
  */
 export default class EventBus {
     /**
-     * Создает объект класса Eventbus
-   * @param {array} events - события
-   */
+     * @constructor
+     * @param {Array} events
+     */
     constructor(events = [{}]) {
         this.eventsMap = new Map();
         events.forEach((item) => {

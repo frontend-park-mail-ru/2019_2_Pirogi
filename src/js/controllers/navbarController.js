@@ -2,14 +2,15 @@ import NavbarModel from '../models/navbarModel.js';
 import NavbarView from '../views/navbar/navbarView.js';
 
 /**
- * Класс Контроллер для элемента navbar
- * обеспечивает связь между моделью и представлением
+ * Creates a new navbar controller
+ * @class
+ * @type {NavbarController}
  */
 export default class NavbarController {
     /**
-     * Создает контроллер
-     * @param {object} globalEventBus - обеспечивает связь с глобальными событиями
-     * @param {object} root - элемент, в который будет рендериться страницы
+     * @constructor
+     * @param {EventBus} globalEventBus
+     * @param {object} root
      */
     constructor(globalEventBus = {}, root = {}) {
         this.navbarView = new NavbarView(globalEventBus, root);

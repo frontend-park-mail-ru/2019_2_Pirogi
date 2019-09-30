@@ -22,7 +22,6 @@ export default class LoginView extends View {
             this.onRegister.bind(this));
         this.localEventBus.addEventListener('registerFailed',
             this.onRegisterReply.bind(this));
-<<<<<<< HEAD
         this.localEventBus.addEventListener('clearErrors',
             this.clearErrors.bind(this));
     }
@@ -101,7 +100,6 @@ export default class LoginView extends View {
                 .insertAdjacentHTML('afterend',
                     markupError('Password isn\'t valid.'));
         }
-=======
     }
 
     /** function */
@@ -144,14 +142,12 @@ export default class LoginView extends View {
     onRegisterReply(data = {}) {
         console.log('Registration failed');
         console.log(data);
->>>>>>> dev
     }
 
     /**
    * @param {object} data
    */
     render(data = {}) {
-<<<<<<< HEAD
     // Render page
         console.log('render login page');
         super.render(data);
@@ -169,7 +165,6 @@ export default class LoginView extends View {
                 this.localEventBus.dispatchEvent('clearErrors', event.target).bind(this);
                 this.localEventBus.dispatchEvent('myRegisterEvent', event.target).bind(this);
             });
-=======
         super.render(data);
 
         this.loginBitton = document.querySelector('.js-login');
@@ -179,6 +174,5 @@ export default class LoginView extends View {
         this.registerButton = document.querySelector('.js-register');
         this.registerButton.addEventListener('click',
             () => this.localEventBus.dispatchEvent('myRegisterEvent'));
->>>>>>> dev
     }
 }
