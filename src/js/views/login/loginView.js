@@ -50,6 +50,11 @@ export default class LoginView extends View {
                 .insertAdjacentHTML('afterend',
                     this.markupError('Password isn\'t valid.'));
         }
+        if (errors.hasOwnProperty('error')) {
+            document.querySelector('.js-email-login')
+                .insertAdjacentHTML('afterend',
+                    this.markupError(errors.error));
+        }
     }
 
     /** function */
@@ -62,10 +67,7 @@ export default class LoginView extends View {
             email: this.loginEmailInput.value
         };
 
-        const errors = this.localEventBus.dispatchEvent('onAuthCheck', this.authData);
-        if (errors !== undefined) {
-            this.localEventBus.dispatchEvent('authFailed', errors);
-        }
+        this.localEventBus.dispatchEvent('onAuthCheck', this.authData);
     }
 
     /** function */
@@ -109,6 +111,11 @@ export default class LoginView extends View {
             document.querySelector('.js-repeat-register')
                 .insertAdjacentHTML('afterend',
                     this.markupError('Passwords don\'t match.'));
+        }
+        if (errors.hasOwnProperty('error')) {
+            document.querySelector('.js-email-register')
+                .insertAdjacentHTML('afterend',
+                    this.markupError(errors.error));
         }
     }
 

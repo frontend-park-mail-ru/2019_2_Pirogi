@@ -29,7 +29,7 @@ export default class LoginModel {
             errors.password = false;
         }
         if (Object.entries(errors).length !== 0) {
-            return errors;
+            this.localEventBus.dispatchEvent('authFailed', errors);
         }
 
         Api.login(data)
@@ -61,7 +61,7 @@ export default class LoginModel {
             errors.passwordsMatch = false;
         }
         if (Object.entries(errors).length !== 0) {
-            return errors;
+            this.localEventBus.dispatchEvent('registerFailed', errors);
         }
 
         Api.register(data)
