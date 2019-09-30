@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const bodyForRouter = document.querySelector('body');
     const router = new Router(bodyForRouter);
 
-    // eslint-disable-next-line
     const navbarController = new NavbarController(globalEventBus, header);
     const loginController = new LoginController(globalEventBus, body, router);
     const profileController = new ProfileController(globalEventBus, body);
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     router.add('/login', loginController.loginView);
     router.add('/profile', profileController.profileView);
-    router.add('/film', filmController.filmView);
+    router.add('/film/1', filmController.filmView, { filmID: 1 });
     router.add('/search', searchResultsController.searchResultsView);
     router.add('/admin', adminController.adminView);
     router.add('/', indexController.indexView);
