@@ -1,4 +1,4 @@
-import Api from "../libs/api";
+import Api from '../libs/api';
 
 /** class*/
 export default class FilmModel {

@@ -1,5 +1,5 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+//const path = require('path');
+//const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 //const HmtlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
