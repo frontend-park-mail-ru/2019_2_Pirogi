@@ -7,15 +7,20 @@ const filmEvents = [
     {key: 'addMyNewReview'},
     {key: 'reviewCheck'},
 ];
-/** class*/
+
+/**
+ * Creates a new Film controller
+ * @class
+ * @type {FilmController}
+ */
 export default class FilmController {
     /**
-   * @param {object} globalEventBus
-   * @param {object} root
-   */
+     * @constructor
+     * @param {EventBus} globalEventBus
+     * @param {Element} root
+     */
     constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(filmEvents);
-
         this.filmModel = new FilmModel(this.localEventBus, globalEventBus);
         this.filmView = new FilmView(this.localEventBus, globalEventBus, root);
     }

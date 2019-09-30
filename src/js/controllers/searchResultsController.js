@@ -2,12 +2,21 @@ import EventBus from '../libs/eventBus.js';
 import SearchResultsModel from '../models/searchResultsModel.js';
 import SearchResultsView from '../views/searchResults/searchResultsView.js';
 
+/**
+ * List of all search events
+ * @type {Array|string}
+ */
 const searchEvents = [];
-/** class*/
+
+/**
+ * Create a new Search Results controller
+ * @class
+ * @type {SearchResultsController}
+ */
 export default class SearchResultsController {
     /**
-   * @param {object} globalEventBus
-   * @param {object} root
+     * @param {EventBus} globalEventBus
+     * @param {Element} root
    */
     constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(searchEvents);

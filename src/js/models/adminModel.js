@@ -1,4 +1,8 @@
-/** class*/
+/**
+ * Creates a new Admin model
+ * @class
+ * @type {AdminModel}
+ */
 export default class AdminModel {
     /**
    * @param {object} localEventBus

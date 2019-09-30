@@ -1,9 +1,13 @@
-/** class*/
+/**
+ * Creates a new Index model
+ * @type {IndexModel}
+ */
 export default class IndexModel {
     /**
-   * @param {object} localEventBus
-   * @param {object} globalEventBus
-   */
+     * @constructor
+     * @param {EventBus} localEventBus
+     * @param {EventBus} globalEventBus
+     */
     constructor(localEventBus = {}, globalEventBus = {}) {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;

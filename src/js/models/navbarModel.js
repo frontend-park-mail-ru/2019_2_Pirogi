@@ -1,8 +1,17 @@
 import Api from '../libs/api';
-/** class*/
+
+/**
+ *  Creates a new navbar model
+ *  @class
+ *  @type {NavbarModel}
+ */
 export default class NavbarModel {
     /**
-     * @param {object} globalEventBus
+     * Creates local and global EventBuses. Handle Events
+     * @constructor
+     * @param {EventBus} globalEventBus
+     * @listens checkAuth
+     * @listens logout
      */
     constructor(globalEventBus = {}) {
         this.globalEventBus = globalEventBus;
@@ -11,6 +20,12 @@ export default class NavbarModel {
         this.globalEventBus.addEventListener('onLogoutClicked', this.logout.bind(this));
     }
 
+
+    /**
+     * Обработчик проверки авторизации
+     * @static
+     * @method
+     */
     checkAuth() {
         Api.authCheck()
             .then((res) => {
@@ -22,6 +37,11 @@ export default class NavbarModel {
             });
     }
 
+    /**
+     * Обработчик выхода из системы
+     * @static
+     * @method
+     */
     logout() {
         Api.logout()
             .then((res) => {

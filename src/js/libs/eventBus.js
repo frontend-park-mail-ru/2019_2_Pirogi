@@ -1,9 +1,13 @@
-
-/** class*/
+/**
+ * Creates a new EventBus
+ * @class
+ * @type {EventBus}
+ */
 export default class EventBus {
     /**
-   * @param {array} events
-   */
+     * @constructor
+     * @param {Array} events
+     */
     constructor(events = [{}]) {
         this.eventsMap = new Map();
         events.forEach((item) => {
@@ -27,9 +31,10 @@ export default class EventBus {
     }
 
     /**
-   * @param {string} event
-   * @param {function} func
-   */
+     * Creates a new listener
+     * @param {string} event
+     * @param {function} func
+     */
     addEventListener(event, func) {
         if (event === undefined) {
             console.log('No event value ');
@@ -50,10 +55,11 @@ export default class EventBus {
     }
 
     /**
-   * @param {string} event
-   * @param {object} args
-   * @return {*} blabla
-   */
+     * Dispatch event if it is existed
+     * @param {string} event
+     * @param {object} args
+     * @return {*}
+     */
     dispatchEvent(event, ...args) {
         if (event === undefined) {
             console.log('No event value');

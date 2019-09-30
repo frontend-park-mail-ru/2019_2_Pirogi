@@ -1,10 +1,15 @@
 import NavbarModel from '../models/navbarModel.js';
 import NavbarView from '../views/navbar/navbarView.js';
 
-/** class*/
+/**
+ * Creates a new navbar controller
+ * @class
+ * @type {NavbarController}
+ */
 export default class NavbarController {
     /**
-     * @param {object} globalEventBus
+     * @constructor
+     * @param {EventBus} globalEventBus
      * @param {object} root
      */
     constructor(globalEventBus = {}, root = {}) {

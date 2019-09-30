@@ -10,11 +10,16 @@ const adminEvents = [
 ];
 
 
-/** class*/
+/**
+ * Creates a new Admin controller
+ * @class
+ * @type {AdminController}
+ */
 export default class AdminController {
     /**
-     * @param {object} globalEventBus
-     * @param {object} root
+     * Администраторский контроллер
+     * @param {EventBus} globalEventBus
+     * @param {Element} root
      */
     constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(adminEvents);
