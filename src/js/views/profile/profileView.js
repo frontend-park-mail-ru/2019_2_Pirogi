@@ -41,6 +41,7 @@ export default class ProfileView extends View {
 
     getInfoOk(data) {
         console.log(data);
+        this.userData = data;
 
         super.render(data);
         this.renderWall(reviewsTmpl);
@@ -105,7 +106,7 @@ export default class ProfileView extends View {
             avatar: this.avatarInput.value || null,
         };
 
-        this.localEventBus.dispatchEvent('onEditingAvatar', this.editAvatarData);
+        this.localEventBus.dispatchEvent('onEditingAvatar', this.editAvatarData, this.userData);
     }
 
     onEdit() {

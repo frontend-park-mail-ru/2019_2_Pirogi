@@ -30,8 +30,8 @@ export default class ProfileModel {
             });
     }
 
-    onEditingAvatar(data = {}) {
-        Api.editAvatar(data)
+    onEditingAvatar(data = {}, userData) {
+        Api.editAvatar({avatar: data, userID: userData.user_id})
             .then((res) => {
                 if (res.ok) {
                     this.localEventBus.dispatchEvent('editOk');
