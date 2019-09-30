@@ -135,7 +135,7 @@ export default class ProfileView extends View {
         this.avatarInput = document.querySelector('.js-avatar-input');
 
         this.editAvatarData = {
-            avatar: this.avatarInput.value || null,
+            avatar: this.avatarInput.files[0] || null,
         };
 
         this.localEventBus.dispatchEvent('onEditingAvatar', this.editAvatarData, this.userData);
