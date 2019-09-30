@@ -1,10 +1,15 @@
-/** class*/
+/**
+ * Creates a new View model. Used for extension other views.
+ * @class
+ * @type {View}
+ */
 export default class View {
     /**
-   * @param {object} eventBus
-   * @param {function} template
-   * @param {object} root
-   */
+     * @constructor
+     * @param {object} eventBus
+     * @param {function} template
+     * @param {object} root
+     */
     constructor(eventBus = {}, root = {}, template) {
         this.baseElement = root;
         this.eventBus = eventBus;
@@ -13,21 +18,29 @@ export default class View {
     }
 
     /**
-   * @param {object} data
-   */
+     * Renders the template
+     * @param {object} data
+     */
     render(data = {}) {
         this.openFlag = true;
         this.baseElement.innerHTML = this.template(data);
     }
 
-    /** function */
+    /**
+     * Hides the rendered page
+     * @method
+     * @static
+     */
     hide() {
         // this.baseElement.hidden = true;
         // this.baseElement.innerHTML = '';
         console.log('hidding');
     }
 
-    /** function */
+    /**
+     * Close smth idk
+     * @method
+     */
     close() {
         if (this.openFlag) {
             console.log('closing...');

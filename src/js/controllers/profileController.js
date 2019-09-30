@@ -2,14 +2,23 @@ import EventBus from '../libs/eventBus.js';
 import ProfileView from '../views/profile/profileView.js';
 import ProfileModel from '../models/profileModel.js';
 
+/**
+ * List of profile events
+ * @type {Array|string}
+ */
 const profileEvents = [];
 
-/** class*/
+/**
+ * Creates a new Profile controller
+ * @class
+ * @type {ProfileController}
+ */
 export default class ProfileController {
     /**
-   * @param {object} globalEventBus
-   * @param {object} root
-   */
+     * @constructor
+     * @param {EventBus} globalEventBus
+     * @param {Element} root
+     */
     constructor(globalEventBus = {}, root = {}) {
         this.localEventBus = new EventBus(profileEvents);
 

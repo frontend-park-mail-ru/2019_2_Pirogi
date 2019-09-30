@@ -1,11 +1,21 @@
 import Api from '../libs/api';
 
-/** class*/
+
+/**
+ * Create a Profile model
+ * @class
+ * @type {ProfileModel}
+ */
 export default class ProfileModel {
     /**
-   * @param {object} localEventBus
-   * @param {object} globalEventBus
-   */
+     * Контроллер профиля
+     * @constructor
+     * @param {object} localEventBus
+     * @param {object} globalEventBus
+     * @listens onEditingProfile
+     * @listens onEditingAvatar
+     * @listens getProfile
+     */
     constructor(localEventBus = {}, globalEventBus = {}) {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
@@ -19,9 +29,14 @@ export default class ProfileModel {
             this.getProfile.bind(this));
     }
 
+    /**
+     * Profile request
+     * @method
+     * @static
+     */
     getProfile() {
         Api.getProfileInfo()
-            .then( (res) => {
+            .then((res) => {
                 if (res.ok) {
                     res.json().then(data => this.localEventBus.dispatchEvent('getInfoOk', data));
                 } else {
@@ -30,6 +45,11 @@ export default class ProfileModel {
             });
     }
 
+    /**
+     * Avatar handler
+     * @method
+     * @param {object} data
+     */
     onEditingAvatar(data = {}) {
         Api.editAvatar(data)
             .then((res) => {
@@ -41,9 +61,12 @@ export default class ProfileModel {
             });
     }
 
+    /**
+     * Profile handler
+     * @method
+     * @param {object} data
+     */
     onEditingProfile(data = {}) {
-        // первичная валидация
-
         Api.editProfile(data)
             .then((res) => {
                 if (res.ok) {

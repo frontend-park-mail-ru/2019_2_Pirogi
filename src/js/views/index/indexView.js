@@ -1,21 +1,29 @@
 import View from '../../libs/view.js';
 import template from './indexView.tmpl.xml';
+import EventBus from '../../libs/eventBus';
 
-/** class*/
+
+/**
+ * Creates a new Index view
+ * @class
+ * @type {IndexView}
+ */
 export default class IndexView extends View {
     /**
-   * @param {object} localEventBus
-   * @param {object} globalEventBus
-   * @param {object} root
+     * @constructor
+     * @param {EventBus} localEventBus
+     * @param {EventBus} globalEventBus
+     * @param {Object} root
    */
-    constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
+    constructor(localEventBus = EventBus, globalEventBus = EventBus, root = {}) {
         super(localEventBus, root, template);
 
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
     }
     /**
-   * @param {object} data
+     * Render the Index view
+     * @param {Object} data
    */
     render(data = {}) {
         super.render(data);
