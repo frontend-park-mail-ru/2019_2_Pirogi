@@ -1,9 +1,16 @@
-
-/** class*/
+/**
+ * Creates a new EventBus
+ * Класс реализует событийную модель
+ * предоставляет возможность добавить новое событие и функцию
+ * которая будет выполняться для этого события
+ * @class
+ * @type {EventBus}
+ */
 export default class EventBus {
     /**
-   * @param {array} events
-   */
+     * @constructor
+     * @param {Array} events
+     */
     constructor(events = [{}]) {
         this.eventsMap = new Map();
         events.forEach((item) => {
@@ -27,8 +34,9 @@ export default class EventBus {
     }
 
     /**
-   * @param {string} event
-   * @param {function} func
+     * Добавляет новый обработчик события
+   * @param {string} event - событие
+   * @param {function} func - функция
    */
     addEventListener(event, func) {
         if (event === undefined) {
@@ -50,9 +58,10 @@ export default class EventBus {
     }
 
     /**
-   * @param {string} event
-   * @param {object} args
-   * @return {*} blabla
+     * Вызывает функцию по событию
+   * @param {string} event - событие
+   * @param {object} args - аргументы
+   * @return {*}
    */
     dispatchEvent(event, ...args) {
         if (event === undefined) {

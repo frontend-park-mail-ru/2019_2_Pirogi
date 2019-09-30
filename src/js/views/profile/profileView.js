@@ -3,13 +3,24 @@ import template from './profile.tmpl.xml';
 import reviewsTmpl from './profile.reviews.tmpl.xml';
 import editTmpl from './profile.edit.tmpl.xml';
 
-/** class*/
+
+/**
+ * Creates a new Profile view
+ * @class
+ * @type {ProfileView}
+ * @listens 'editButtonClicked'
+ * @listens 'saveButtonClicked'
+ * @listens 'editOk'
+ * @listens 'backButtonClicked'
+ * @listens 'avatarButtonClicked'
+ */
 export default class ProfileView extends View {
     /**
-   * @param {object} localEventBus
-   * @param {object} globalEventBus
-   * @param {object} root
-   */
+     * @constructor
+     * @param {Object} localEventBus
+     * @param {Object} globalEventBus
+     * @param {Object} root
+     */
     constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
         super(localEventBus, root, template);
 
@@ -32,35 +43,56 @@ export default class ProfileView extends View {
             this.onEditAvatar.bind(this));
     }
 
+    /**
+     * Render the profile wall
+     * @method
+     * @param {function} template
+     * @param {Object} data
+     */
     renderWall(template, data = {}) {
         this.wall = document.querySelector('.js-profile-wall');
 
         this.wall.innerHTML = template(data);
     }
 
+    /**
+     * On event
+     * @method
+     */
     onEditButtonClicked() {
         this.editButton.disabled = true;
 
         this.renderWall(editTmpl);
         this.saveButton = document.querySelector('.js-save-button');
         this.saveButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('saveButtonClicked');});
+            this.localEventBus.dispatchEvent('saveButtonClicked');
+        });
 
         this.avatarButton = document.querySelector('.js-avatar-button');
         this.avatarButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('avatarButtonClicked');});
+            this.localEventBus.dispatchEvent('avatarButtonClicked');
+        });
 
         this.backButton = document.querySelector('.js-back-button');
         this.backButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('backButtonClicked');});
+            this.localEventBus.dispatchEvent('backButtonClicked');
+        });
     }
 
+    /**
+     * On event
+     * @method
+     */
     onBackButtonClicked() {
         this.editButton.disabled = false;
 
         this.renderWall(reviewsTmpl);
     }
 
+    /**
+     * On event
+     * @method
+     */
     onEditAvatar() {
         this.avatarInput = document.querySelector('.js-avatar-input');
 
@@ -71,6 +103,10 @@ export default class ProfileView extends View {
         this.localEventBus.dispatchEvent('onEditingAvatar', this.editAvatarData);
     }
 
+    /**
+     * On event
+     * @method
+     */
     onEdit() {
         console.log('edit profile info');
 
@@ -89,17 +125,27 @@ export default class ProfileView extends View {
         this.localEventBus.dispatchEvent('onEditingProfile', this.editData);
     }
 
+    /**
+     * On event
+     * @method
+     */
     editOk() {
         console.log('edit ok');
     }
 
+    /**
+     * On edit
+     * @method
+     */
     editFailed() {
         console.log('edit failed');
     }
 
     /**
-   * @param {object} data
-   */
+     * Render the Profile
+     * @method
+     * @param {Object} data
+     */
     render(data = {}) {
         this.localEventBus.dispatchEvent('getProfileInfo');
 

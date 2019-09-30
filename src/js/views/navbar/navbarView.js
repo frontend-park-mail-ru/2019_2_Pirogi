@@ -1,13 +1,22 @@
 import View from '../../libs/view.js';
 import template from './navbarView.tmpl.xml';
+import EventBus from '../../libs/eventBus';
 
-/** class*/
+
+/**
+ * Creates a new Navbar view
+ * @class
+ * @type {NavbarView}
+ * @listens 'authGood'
+ * @listens 'logoutOk'
+ */
 export default class NavbarView extends View {
     /**
-     * @param {object} globalEventBus
+     * @constructor
+     * @param {EventBus} globalEventBus
      * @param {object} root
      */
-    constructor(globalEventBus = {}, root = {}) {
+    constructor(globalEventBus = EventBus, root = {}) {
         super(globalEventBus, root, template);
 
         this.globalEvetBus = globalEventBus;
@@ -20,6 +29,11 @@ export default class NavbarView extends View {
 
     }
 
+    /**
+     * If auth is successful
+     * @method
+     * @param {Object} data
+     */
     authPassed(data = {}) {
         this.dataAuth.isAuth = true;
         this.dataAuth.userID = data.user_id;
@@ -30,13 +44,20 @@ export default class NavbarView extends View {
             () => this.globalEvetBus.dispatchEvent('onLogoutClicked'));
     }
 
+    /**
+     * If auth is unsuccessful
+     * @method
+     */
     notAuth() {
         this.dataAuth.isAuth = false;
         super.render(this.dataAuth);
     }
 
 
-    // eslint-disable-next-line no-unused-vars
+    /**
+     * Render the navbar
+     * @param {Object} data
+     */
     render(data = {}) {
         if (data.isAuth === undefined) {
             this.globalEvetBus.dispatchEvent('checkAuth');

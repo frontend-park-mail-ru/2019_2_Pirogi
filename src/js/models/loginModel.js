@@ -1,12 +1,19 @@
 import {validateEmail, validateName, validatePassword} from '../libs/formValidation';
 import Api from '../libs/api';
 
-/** class*/
+/**
+ * Create a Login model
+ * @class
+ * @type {LoginModel}
+ */
 export default class LoginModel {
     /**
-   * @param {object} localEventBus
-   * @param {object} globalEventBus
-   */
+     * @constructor
+     * @param {object} localEventBus
+     * @param {object} globalEventBus
+     * @listens onAuthCheck
+     * @listens onRegisterCheck
+     */
     constructor(localEventBus = {}, globalEventBus = {}) {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
@@ -18,8 +25,10 @@ export default class LoginModel {
     }
 
     /**
-   * @param {object} data
-   */
+     * Handles auth checking
+     * @method
+     * @param {object} data
+     */
     onAuthCheck(data) {
         let errors = {};
         if (!validateEmail(data.email)) {
@@ -44,8 +53,10 @@ export default class LoginModel {
     }
 
     /**
-   * @param {object} data
-   */
+     * Handles register checking
+     * @param {object} data
+     * @method
+     */
     onRegisterCheck(data) {
         let errors = {};
         if (!validateName(data.name)) {
