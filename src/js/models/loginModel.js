@@ -30,6 +30,7 @@ export default class LoginModel {
         }
         if (Object.entries(errors).length !== 0) {
             this.localEventBus.dispatchEvent('authFailed', errors);
+            return;
         }
 
         Api.login(data)
@@ -62,6 +63,7 @@ export default class LoginModel {
         }
         if (Object.entries(errors).length !== 0) {
             this.localEventBus.dispatchEvent('registerFailed', errors);
+            return;
         }
 
         Api.register(data)

@@ -1,4 +1,5 @@
 import Api from '../libs/api';
+import {validateEmail, validateName, validatePassword} from "../libs/formValidation";
 
 /** class*/
 export default class ProfileModel {
@@ -14,7 +15,6 @@ export default class ProfileModel {
             this.onEditingProfile.bind(this));
         this.localEventBus.addEventListener('onEditingAvatar',
             this.onEditingAvatar.bind(this));
-
         this.localEventBus.addEventListener('getProfileInfo',
             this.getProfile.bind(this));
     }
@@ -42,7 +42,20 @@ export default class ProfileModel {
     }
 
     onEditingProfile(data = {}) {
-        // первичная валидация
+        let errors = {};
+        if (!validateName(data.name)) {
+            errors.name = false;
+        }
+        if (!validateEmail(data.email)) {
+            errors.email = false;
+        }
+        if (!validatePassword(data.password)) {
+            errors.password = false;
+        }
+        if (Object.entries(errors).length !== 0) {
+            this.localEventBus.dispatchEvent('editFailed', errors);
+            return;
+        }
 
         Api.editProfile(data)
             .then((res) => {

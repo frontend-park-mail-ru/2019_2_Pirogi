@@ -30,7 +30,42 @@ export default class ProfileView extends View {
             this.onBackButtonClicked.bind(this));
         this.localEventBus.addEventListener('avatarButtonClicked',
             this.onEditAvatar.bind(this));
+        this.localEventBus.addEventListener('clearErrors',
+            this.clearErrors.bind(this));
+
+        this.localEventBus.addEventListener('getInfoOk',
+            this.getInfoOk.bind(this));
+        this.localEventBus.addEventListener('getInfoFailed',
+            this.getInfoFailed.bind(this));
     }
+
+    getInfoOk(data) {
+        console.log(data);
+
+        super.render(data);
+        this.renderWall(reviewsTmpl);
+
+        this.editButton = document.querySelector('.js-edit-button');
+        this.editButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('editButtonClicked');
+        });
+    }
+
+    getInfoFailed(data) {
+        console.log('failed to load');
+    }
+
+    clearErrors() {
+        for (const item of Array.from(document.querySelector(`.profile-edit-form`).childNodes)) {
+            if (item.className === 'error') {
+                item.parentNode.removeChild(item);
+            }
+        }
+    };
+
+    markupError(errorMsg) {
+        return `<div class="error">${errorMsg}</div>`;
+    };
 
     renderWall(template, data = {}) {
         this.wall = document.querySelector('.js-profile-wall');
@@ -44,7 +79,9 @@ export default class ProfileView extends View {
         this.renderWall(editTmpl);
         this.saveButton = document.querySelector('.js-save-button');
         this.saveButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('saveButtonClicked');});
+            this.localEventBus.dispatchEvent('clearErrors');
+            this.localEventBus.dispatchEvent('saveButtonClicked');
+        });
 
         this.avatarButton = document.querySelector('.js-avatar-button');
         this.avatarButton.addEventListener('click', () => {
@@ -80,10 +117,10 @@ export default class ProfileView extends View {
         this.descriptionInput = document.querySelector('.js-description-textarea');
 
         this.editData = {
-            name: this.nicknameInput.value || null,
-            email: this.loginInput.value || null,
-            password: this.passwordInput.value || null,
-            description: this.descriptionInput.value || null,
+            name: this.nicknameInput.value,
+            email: this.loginInput.value,
+            password: this.passwordInput.value,
+            description: this.descriptionInput.value,
         };
 
         this.localEventBus.dispatchEvent('onEditingProfile', this.editData);
@@ -93,8 +130,27 @@ export default class ProfileView extends View {
         console.log('edit ok');
     }
 
-    editFailed() {
-        console.log('edit failed');
+    editFailed(errors) {
+        if (errors.hasOwnProperty('name')) {
+            document.querySelector('.js-nickname-input')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Name isn\'t valid.'));
+        }
+        if (errors.hasOwnProperty('email')) {
+            document.querySelector('.js-login-input')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Email isn\'t valid.'));
+        }
+        if (errors.hasOwnProperty('password')) {
+            document.querySelector('.js-password-input')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Password isn\'t valid.'));
+        }
+        if (errors.hasOwnProperty('error')) {
+            document.querySelector('.js-email-register')
+                .insertAdjacentHTML('afterend',
+                    this.markupError(errors.error));
+        }
     }
 
     /**
@@ -102,13 +158,5 @@ export default class ProfileView extends View {
    */
     render(data = {}) {
         this.localEventBus.dispatchEvent('getProfileInfo');
-
-        super.render(data);
-        this.renderWall(reviewsTmpl);
-
-        this.editButton = document.querySelector('.js-edit-button');
-        this.editButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('editButtonClicked');
-        });
     }
 }
