@@ -38,7 +38,11 @@ export default class ProfileModel {
         Api.getProfileInfo()
             .then((res) => {
                 if (res.ok) {
-                    res.json().then(data => this.localEventBus.dispatchEvent('getInfoOk', data));
+                    res.json().then(data => {
+                        if (/jpeg/.test(data.avatar_link) {
+                            data.avatar_link = data.avatar_link.replace(/jpeg/, 'jpg');
+                        }
+                        this.localEventBus.dispatchEvent('getInfoOk', data);});
                 } else {
                     this.localEventBus.dispatchEvent('getInfoFailed');
                 }
