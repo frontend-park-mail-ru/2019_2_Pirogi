@@ -30,7 +30,7 @@ export default class Api {
         formData.append('upload_file', avatar);
         formData.append('target', 'user');
         formData.append('user_id', userID);
-        return Network.doPutFormData('/api/images/', formData);
+        return Network.doPostFormData('/api/images/', formData);
     }
     
     static editProfile({email, password, name, description}) {
