@@ -2,7 +2,7 @@
     <main class="main">
         <div class="film">
             <div class="film__description">
-                <img class="film__img" src="/src/images/film/{film.image_link}" alt="название фильма"/>
+                <img class="film__img" src="/src/images/films/{film.image_path}.jpg" alt="название фильма"/>
             </div>
             <div class="film__description">
                 <div class="title"><fest:value>film.title</fest:value></div>
