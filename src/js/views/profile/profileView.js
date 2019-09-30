@@ -191,8 +191,8 @@ export default class ProfileView extends View {
                 .insertAdjacentHTML('afterend',
                     this.markupError(errors.error));
         }
-
-    /**
+    }
+      /**
      * Render the Profile
      * @method
      * @param {Object} data
