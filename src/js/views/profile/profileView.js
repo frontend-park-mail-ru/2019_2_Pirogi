@@ -127,7 +127,7 @@ export default class ProfileView extends View {
     }
 
     editOk() {
-        console.log('edit ok');
+        this.localEventBus.dispatchEvent('getProfileInfo');
     }
 
     editFailed(errors) {
