@@ -1,0 +1,47 @@
+@import '../../../css/variables'
+.index
+  display: flex
+
+  margin-top: 10*$indent
+  .top
+    margin-left: 2*$indent
+    margin-bottom: 2*$indent
+  .navbar
+    z-index: 100
+
+.index__banner
+  background: url("/src/images/banner.jpeg") no-repeat
+  background-size: cover
+  width: 100%
+  min-height: 20vh
+  +shadow-dark
+
+.index__wall
+  width: 80%
+  justify-content: space-evenly
+  flex-direction: column
+
+.films-bar
+  justify-content: space-between
+  margin: 2*$indent 0
+  display: flex
+  .film-bar__card
+    width: 100%
+    margin-right: 2*$indent
+    text-align: center
+    +shadow-dark
+    &:last-of-type
+      margin-right: 0
+
+  .film-bar__info
+    padding: 2*$indent
+  .film-bar__img
+    position: relative
+    img
+      width: 100%
+    .title
+      padding: $indent 0
+      position: absolute
+      bottom: 0
+      margin: auto
+      background-color: $color-light-90

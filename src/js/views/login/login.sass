@@ -1,0 +1,74 @@
+@import "../../../css/variables"
+
+.login
+  width: 100%
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  background-image: url("/src/images/poster.jpg")
+  background-size: cover
+
+.login__form
+  display: flex
+  justify-content: center
+  width: 60%
+  .button
+    margin-top: 4*$indent
+
+.login__auth
+  flex: 1
+  +shadow-dark
+  width: 100%
+  align-items: center
+  justify-content: center
+  background-color: $color-darkest
+  display: flex
+  flex-direction: column
+  padding: 2*$indent
+  border-top-left-radius: 2*$indent
+  border-bottom-left-radius: 2*$indent
+  .input:focus
+    +shadow-light
+  *
+    margin: $indent 0
+  .title
+    margin: 2*$indent 0
+    color: $color-light
+
+.login__register
+  flex: 2
+  +shadow-dark
+  padding: 2*$indent
+  align-items: center
+  justify-content: center
+  background-color: $color-light
+  display: flex
+  flex-direction: column
+  border-top-right-radius: 2*$indent
+  border-bottom-right-radius: 2*$indent
+  *
+    margin: $indent 0
+
+
+  .title
+    margin: 2*$indent 0
+
+
+.login__iconbar
+  display: flex
+  width: 15vw
+  justify-content: space-around
+  i
+    font-size: $font-size-large
+
+.login__iconbar_light
+  i
+    color: $color-light
+
+.login__iconbar_dark
+  i
+    color: $color-darkest
+
+.error
+  color: red

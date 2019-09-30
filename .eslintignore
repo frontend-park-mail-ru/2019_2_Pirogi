@@ -1,0 +1,7 @@
+dist/
+.git/
+.idea/
+node_modules/
+package-lock.json
+*.tmpl.js
+*.tmpl.xml

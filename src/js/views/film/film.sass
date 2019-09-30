@@ -1,0 +1,65 @@
+@import "../../../css/variables"
+
+.film
+  display: flex
+  align-items: center
+  flex-direction: row
+  text-align: center
+  padding-top: 10*$indent
+  width: 60%
+
+.film *
+  margin-top: $indent/2
+  margin-bottom: $indent/2
+
+.film__img
+  height: 45vh
+  +shadow-dark
+
+.film__description
+  margin: 0 2*$indent
+  display: flex
+  flex-direction: column
+
+.rating
+  +shadow-dark
+  margin: 2*$indent 0
+  align-items: center
+  justify-content: space-evenly
+  min-height: 75px
+  background-color: $color-darkest
+  display: flex
+  width: 100%
+
+.rating__block .title
+  font-size: $font-size-medium
+  color: $color-light
+
+  display: flex
+
+.title *
+  margin: 0 $indent
+
+.film__star
+  color: $color-dark
+  +transition(0.5s)
+
+
+  &:hover
+    +transition(0.5s)
+    color: $color-yellow
+
+
+.feedback-form
+  text-align: center
+  width: 60%
+
+.feedback-form *
+  margin: 2*$indent 0
+
+.feedbacks
+  text-align: center
+  width: 60%
+
+.feedbacks *
+  margin: 2*$indent 0
