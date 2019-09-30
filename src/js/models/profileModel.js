@@ -39,7 +39,7 @@ export default class ProfileModel {
             .then((res) => {
                 if (res.ok) {
                     res.json().then(data => {
-                        if (/jpeg/.test(data.avatar_link) {
+                        if (/jpeg/.test(data.avatar_link)) {
                             data.avatar_link = data.avatar_link.replace(/jpeg/, 'jpg');
                         }
                         this.localEventBus.dispatchEvent('getInfoOk', data);});
