@@ -7,7 +7,6 @@ const filmEvents = [
     {key: 'addMyNewReview'},
     {key: 'reviewCheck'},
 ];
-
 /**
  * Creates a new Film controller
  * @class

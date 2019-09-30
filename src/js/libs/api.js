@@ -2,6 +2,7 @@ import Network from './network';
 
 /**
  * Creates a new API object
+ * Класс реализует взаимодействие Api c бекендом
  * @class
  * @type {Api}
  */
@@ -63,7 +64,7 @@ export default class Api {
      * API Edit avatar
      * POST /api/images/
      * @static
-     * @param {string} avatar
+     * @param {string} avatar - новое изображение
      * @param {string} userID
      * @returns {Promise<Response>}
      */
@@ -96,6 +97,7 @@ export default class Api {
 
     /**
      * API Get profile info
+     * Отправляет запрос на получение информации о пользователе
      * GET /api/users/
      * @static
      * @returns {Promise<Response>}
@@ -106,6 +108,7 @@ export default class Api {
 
     /**
      * API Get film info
+     * Отправляет запрос на получение информации о фильме 
      * GET /api/films/{film_id}/
      * @static
      * @param {string} filmID
@@ -117,6 +120,7 @@ export default class Api {
 
     /**
      * API Add new film
+     * Отправляет запрос на добавление нового фильма
      * POST /api/films/
      * @static
      * @param {string} title
@@ -143,6 +147,7 @@ export default class Api {
     /**
      * API Send review
      * POST /api/review/
+     * Отправляет запрос на добавление новой рецензии
      * @static
      * @param {int} filmID
      * @param {int} userID
@@ -157,11 +162,5 @@ export default class Api {
             title,
             description,
         });
-    }
-
-    getReviews() {
-    }
-
-    getFilmList() {
     }
 }

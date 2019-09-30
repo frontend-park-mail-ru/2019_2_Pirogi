@@ -7,7 +7,6 @@ import SearchResultsView from '../views/searchResults/searchResultsView.js';
  * @type {Array|string}
  */
 const searchEvents = [];
-
 /**
  * Create a new Search Results controller
  * @class

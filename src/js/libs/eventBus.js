@@ -1,5 +1,8 @@
 /**
  * Creates a new EventBus
+ * Класс реализует событийную модель
+ * предоставляет возможность добавить новое событие и функцию
+ * которая будет выполняться для этого события
  * @class
  * @type {EventBus}
  */
@@ -31,10 +34,10 @@ export default class EventBus {
     }
 
     /**
-     * Creates a new listener
-     * @param {string} event
-     * @param {function} func
-     */
+     * Добавляет новый обработчик события
+   * @param {string} event - событие
+   * @param {function} func - функция
+   */
     addEventListener(event, func) {
         if (event === undefined) {
             console.log('No event value ');
@@ -55,11 +58,11 @@ export default class EventBus {
     }
 
     /**
-     * Dispatch event if it is existed
-     * @param {string} event
-     * @param {object} args
-     * @return {*}
-     */
+     * Вызывает функцию по событию
+   * @param {string} event - событие
+   * @param {object} args - аргументы
+   * @return {*}
+   */
     dispatchEvent(event, ...args) {
         if (event === undefined) {
             console.log('No event value');

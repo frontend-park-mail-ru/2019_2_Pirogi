@@ -7,7 +7,6 @@ import IndexView from '../views/index/indexView.js';
  * @type {Array|string}
  */
 const indexEvents = [];
-
 /**
  *Creates a new Index controller
  * @class
