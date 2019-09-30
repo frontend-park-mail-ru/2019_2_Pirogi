@@ -41,6 +41,43 @@ export default class ProfileView extends View {
             this.onBackButtonClicked.bind(this));
         this.localEventBus.addEventListener('avatarButtonClicked',
             this.onEditAvatar.bind(this));
+        this.localEventBus.addEventListener('clearErrors',
+            this.clearErrors.bind(this));
+
+        this.localEventBus.addEventListener('getInfoOk',
+            this.getInfoOk.bind(this));
+        this.localEventBus.addEventListener('getInfoFailed',
+            this.getInfoFailed.bind(this));
+    }
+
+    getInfoOk(data) {
+        console.log(data);
+        this.userData = data;
+
+        super.render(data);
+        this.renderWall(reviewsTmpl);
+
+        this.editButton = document.querySelector('.js-edit-button');
+        this.editButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('editButtonClicked');
+        });
+    }
+
+    getInfoFailed(data) {
+        console.log('failed to load');
+        console.log(data);
+    }
+
+    clearErrors() {
+        for (const item of Array.from(document.querySelector('.profile-edit-form').childNodes)) {
+            if (item.className === 'error') {
+                item.parentNode.removeChild(item);
+            }
+        }
+    }
+
+    markupError(errorMsg) {
+        return `<div class="error">${errorMsg}</div>`;
     }
 
     /**
@@ -65,6 +102,7 @@ export default class ProfileView extends View {
         this.renderWall(editTmpl);
         this.saveButton = document.querySelector('.js-save-button');
         this.saveButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('clearErrors');
             this.localEventBus.dispatchEvent('saveButtonClicked');
         });
 
@@ -97,10 +135,10 @@ export default class ProfileView extends View {
         this.avatarInput = document.querySelector('.js-avatar-input');
 
         this.editAvatarData = {
-            avatar: this.avatarInput.value || null,
+            avatar: this.avatarInput.files[0] || null,
         };
 
-        this.localEventBus.dispatchEvent('onEditingAvatar', this.editAvatarData);
+        this.localEventBus.dispatchEvent('onEditingAvatar', this.editAvatarData, this.userData);
     }
 
     /**
@@ -116,10 +154,10 @@ export default class ProfileView extends View {
         this.descriptionInput = document.querySelector('.js-description-textarea');
 
         this.editData = {
-            name: this.nicknameInput.value || null,
-            email: this.loginInput.value || null,
-            password: this.passwordInput.value || null,
-            description: this.descriptionInput.value || null,
+            name: this.nicknameInput.value,
+            email: this.loginInput.value,
+            password: this.passwordInput.value,
+            description: this.descriptionInput.value,
         };
 
         this.localEventBus.dispatchEvent('onEditingProfile', this.editData);
@@ -130,31 +168,38 @@ export default class ProfileView extends View {
      * @method
      */
     editOk() {
-        console.log('edit ok');
+        this.localEventBus.dispatchEvent('getProfileInfo');
     }
 
-    /**
-     * On edit
-     * @method
-     */
-    editFailed() {
-        console.log('edit failed');
+    editFailed(errors) {
+        if (Object.prototype.hasOwnProperty.call(errors,'name')) {
+            document.querySelector('.js-nickname-input')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Name isn\'t valid.'));
+        }
+        if (Object.prototype.hasOwnProperty.call(errors,'email')) {
+            document.querySelector('.js-login-input')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Email isn\'t valid.'));
+        }
+        if (Object.prototype.hasOwnProperty.call(errors,'password')) {
+            document.querySelector('.js-password-input')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Password isn\'t valid.'));
+        }
+        if (Object.prototype.hasOwnProperty.call(errors,'error')) {
+            document.querySelector('.js-email-register')
+                .insertAdjacentHTML('afterend',
+                    this.markupError(errors.error));
+        }
     }
-
     /**
      * Render the Profile
      * @method
      * @param {Object} data
      */
+    // eslint-disable-next-line no-unused-vars
     render(data = {}) {
         this.localEventBus.dispatchEvent('getProfileInfo');
-
-        super.render(data);
-        this.renderWall(reviewsTmpl);
-
-        this.editButton = document.querySelector('.js-edit-button');
-        this.editButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('editButtonClicked');
-        });
     }
 }
