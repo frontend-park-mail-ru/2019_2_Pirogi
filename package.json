@@ -25,6 +25,8 @@
     "@babel/core": "^7.6.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
+    "eslint": "^6.5.0",
+    "eslint-config-google": "^0.14.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "fest": "^0.12.1",
     "fest-webpack-loader": "^2.0.0",

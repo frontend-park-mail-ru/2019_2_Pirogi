@@ -32,25 +32,25 @@ export default class LoginView extends View {
                 item.parentNode.removeChild(item);
             }
         }
-    };
+    }
 
     markupError(errorMsg) {
         return `<div class="error">${errorMsg}</div>`;
-    };
+    }
 
     /** function */
     onAuthReply(errors) {
-        if (errors.hasOwnProperty('email')) {
+        if (Object.prototype.hasOwnProperty.call(errors,'email')) {
             document.querySelector('.js-email-login')
                 .insertAdjacentHTML('afterend',
                     this.markupError('Email isn\'t valid.'));
         }
-        if (errors.hasOwnProperty('password')) {
+        if (Object.prototype.hasOwnProperty.call(errors,'password')) {
             document.querySelector('.js-password-login')
                 .insertAdjacentHTML('afterend',
                     this.markupError('Password isn\'t valid.'));
         }
-        if (errors.hasOwnProperty('error')) {
+        if (Object.prototype.hasOwnProperty.call(errors,'error')) {
             document.querySelector('.js-email-login')
                 .insertAdjacentHTML('afterend',
                     this.markupError(errors.error));
@@ -92,27 +92,27 @@ export default class LoginView extends View {
 
     /** function */
     onRegisterReply(errors) {
-        if (errors.hasOwnProperty('name')) {
+        if (Object.prototype.hasOwnProperty.call(errors,'name')) {
             document.querySelector('.js-nickname-register')
                 .insertAdjacentHTML('afterend',
                     this.markupError('Name isn\'t valid.'));
         }
-        if (errors.hasOwnProperty('email')) {
+        if (Object.prototype.hasOwnProperty.call(errors,'email')) {
             document.querySelector('.js-email-register')
                 .insertAdjacentHTML('afterend',
                     this.markupError('Email isn\'t valid.'));
         }
-        if (errors.hasOwnProperty('password')) {
+        if (Object.prototype.hasOwnProperty.call(errors,'password')) {
             document.querySelector('.js-password-register')
                 .insertAdjacentHTML('afterend',
                     this.markupError('Password isn\'t valid.'));
         }
-        if (errors.hasOwnProperty('passwordsMatch')) {
+        if (Object.prototype.hasOwnProperty.call(errors,'passwordsMatch')) {
             document.querySelector('.js-repeat-register')
                 .insertAdjacentHTML('afterend',
                     this.markupError('Passwords don\'t match.'));
         }
-        if (errors.hasOwnProperty('error')) {
+        if (Object.prototype.hasOwnProperty.call(errors,'error')) {
             document.querySelector('.js-email-register')
                 .insertAdjacentHTML('afterend',
                     this.markupError(errors.error));

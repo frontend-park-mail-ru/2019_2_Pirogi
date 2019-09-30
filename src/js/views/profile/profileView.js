@@ -65,19 +65,20 @@ export default class ProfileView extends View {
 
     getInfoFailed(data) {
         console.log('failed to load');
+        console.log(data);
     }
 
     clearErrors() {
-        for (const item of Array.from(document.querySelector(`.profile-edit-form`).childNodes)) {
+        for (const item of Array.from(document.querySelector('.profile-edit-form').childNodes)) {
             if (item.className === 'error') {
                 item.parentNode.removeChild(item);
             }
         }
-    };
+    }
 
     markupError(errorMsg) {
         return `<div class="error">${errorMsg}</div>`;
-    };
+    }
 
     /**
      * Render the profile wall
@@ -171,32 +172,33 @@ export default class ProfileView extends View {
     }
 
     editFailed(errors) {
-        if (errors.hasOwnProperty('name')) {
+        if (Object.prototype.hasOwnProperty.call(errors,'name')) {
             document.querySelector('.js-nickname-input')
                 .insertAdjacentHTML('afterend',
                     this.markupError('Name isn\'t valid.'));
         }
-        if (errors.hasOwnProperty('email')) {
+        if (Object.prototype.hasOwnProperty.call(errors,'email')) {
             document.querySelector('.js-login-input')
                 .insertAdjacentHTML('afterend',
                     this.markupError('Email isn\'t valid.'));
         }
-        if (errors.hasOwnProperty('password')) {
+        if (Object.prototype.hasOwnProperty.call(errors,'password')) {
             document.querySelector('.js-password-input')
                 .insertAdjacentHTML('afterend',
                     this.markupError('Password isn\'t valid.'));
         }
-        if (errors.hasOwnProperty('error')) {
+        if (Object.prototype.hasOwnProperty.call(errors,'error')) {
             document.querySelector('.js-email-register')
                 .insertAdjacentHTML('afterend',
                     this.markupError(errors.error));
         }
     }
-      /**
+    /**
      * Render the Profile
      * @method
      * @param {Object} data
      */
+    // eslint-disable-next-line no-unused-vars
     render(data = {}) {
         this.localEventBus.dispatchEvent('getProfileInfo');
     }
