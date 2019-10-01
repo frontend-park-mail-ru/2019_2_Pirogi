@@ -70,7 +70,7 @@ export default class Api {
      */
     static editAvatar({avatar}) {
         const formData = new FormData();
-        formData.append('image', avatar.avatar);
+        formData.append('file', avatar.avatar);
         return Network.doPostFormData('/api/users/images/', formData);
     }
 
