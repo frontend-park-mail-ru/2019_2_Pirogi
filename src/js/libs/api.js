@@ -52,11 +52,11 @@ export default class Api {
      * @param {string} name
      * @returns {Promise<Response>}
      */
-    static register({email, password, name}) {
+    static register({email, password, username}) {
         return Network.doPost('/api/users/', {
             email,
             password,
-            name,
+            username,
         });
     }
 
@@ -70,7 +70,7 @@ export default class Api {
      */
     static editAvatar({avatar}) {
         const formData = new FormData();
-        formData.append('file', avatar.avatar);
+        formData.append('image', avatar.avatar);
         return Network.doPostFormData('/api/users/images/', formData);
     }
 
@@ -84,11 +84,11 @@ export default class Api {
      * @param {string} description
      * @returns {Promise<Response>}
      */
-    static editProfile({email, password, name, description}) {
+    static editProfile({email, password, username, description}) {
         return Network.doPut('/api/users/', {
             email,
             password,
-            name,
+            username,
             description,
         });
     }
