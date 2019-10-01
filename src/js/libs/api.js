@@ -113,7 +113,7 @@ export default class Api {
      * @returns {Promise<Response>}
      */
     static getFilmInfo({filmID}) {
-        return Network.doGet(`/api/films/${filmID}`);
+        return Network.doGet(`/api/films/${filmID}/`);
     }
 
     /**
