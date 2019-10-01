@@ -22,12 +22,39 @@ export default class LoginView extends View {
             this.onRegister.bind(this));
         this.localEventBus.addEventListener('registerFailed',
             this.onRegisterReply.bind(this));
+        this.localEventBus.addEventListener('clearErrors',
+            this.clearErrors.bind(this));
+    }
+
+    clearErrors(target) {
+        for (const item of Array.from(document.querySelector(`.login__${target}`).childNodes)) {
+            if (item.className === 'error') {
+                item.parentNode.removeChild(item);
+            }
+        }
+    }
+
+    markupError(errorMsg) {
+        return `<div class="error">${errorMsg}</div>`;
     }
 
     /** function */
-    onAuthReply(data = {}) {
-        console.log('Bad auth!');
-        console.log(data);
+    onAuthReply(errors) {
+        if (Object.prototype.hasOwnProperty.call(errors,'email')) {
+            document.querySelector('.js-email-login')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Email isn\'t valid.'));
+        }
+        if (Object.prototype.hasOwnProperty.call(errors,'password')) {
+            document.querySelector('.js-password-login')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Password isn\'t valid.'));
+        }
+        if (Object.prototype.hasOwnProperty.call(errors,'error')) {
+            document.querySelector('.js-email-login')
+                .insertAdjacentHTML('afterend',
+                    this.markupError(errors.error));
+        }
     }
 
     /** function */
@@ -36,8 +63,8 @@ export default class LoginView extends View {
         this.loginPasswordInput = document.querySelector('.js-password-login');
 
         this.authData = {
-            password: this.loginPasswordInput.value || null,
-            email: this.loginEmailInput.value || null,
+            password: this.loginPasswordInput.value,
+            email: this.loginEmailInput.value
         };
 
         this.localEventBus.dispatchEvent('onAuthCheck', this.authData);
@@ -57,13 +84,39 @@ export default class LoginView extends View {
             repeatPassword: this.registerRepeatInput.value || null,
         };
 
-        this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);
+        const errors = this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);
+        if (errors !== undefined) {
+            this.localEventBus.dispatchEvent('registerFailed', errors);
+        }
     }
 
     /** function */
-    onRegisterReply(data = {}) {
-        console.log('Registration failed');
-        console.log(data);
+    onRegisterReply(errors) {
+        if (Object.prototype.hasOwnProperty.call(errors,'name')) {
+            document.querySelector('.js-nickname-register')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Name isn\'t valid.'));
+        }
+        if (Object.prototype.hasOwnProperty.call(errors,'email')) {
+            document.querySelector('.js-email-register')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Email isn\'t valid.'));
+        }
+        if (Object.prototype.hasOwnProperty.call(errors,'password')) {
+            document.querySelector('.js-password-register')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Password isn\'t valid.'));
+        }
+        if (Object.prototype.hasOwnProperty.call(errors,'passwordsMatch')) {
+            document.querySelector('.js-repeat-register')
+                .insertAdjacentHTML('afterend',
+                    this.markupError('Passwords don\'t match.'));
+        }
+        if (Object.prototype.hasOwnProperty.call(errors,'error')) {
+            document.querySelector('.js-email-register')
+                .insertAdjacentHTML('afterend',
+                    this.markupError(errors.error));
+        }
     }
 
     /**
@@ -71,13 +124,18 @@ export default class LoginView extends View {
    */
     render(data = {}) {
         super.render(data);
-
-        this.loginBitton = document.querySelector('.js-login');
-        this.loginBitton.addEventListener('click',
-            () => this.localEventBus.dispatchEvent('myAuthEvent'));
+        this.loginButton = document.querySelector('.js-login');
+        this.loginButton.addEventListener('click',
+            () => {
+                this.localEventBus.dispatchEvent('clearErrors', 'auth');
+                this.localEventBus.dispatchEvent('myAuthEvent');
+            });
 
         this.registerButton = document.querySelector('.js-register');
         this.registerButton.addEventListener('click',
-            () => this.localEventBus.dispatchEvent('myRegisterEvent'));
+            () => {
+                this.localEventBus.dispatchEvent('clearErrors', 'register');
+                this.localEventBus.dispatchEvent('myRegisterEvent');
+            });
     }
 }

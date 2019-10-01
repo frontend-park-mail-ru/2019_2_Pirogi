@@ -38,7 +38,8 @@ export default class LoginModel {
             errors.password = false;
         }
         if (Object.entries(errors).length !== 0) {
-            return errors;
+            this.localEventBus.dispatchEvent('authFailed', errors);
+            return;
         }
 
         Api.login(data)
@@ -65,14 +66,15 @@ export default class LoginModel {
         if (!validateEmail(data.email)) {
             errors.email = false;
         }
-        if (!validatePassword(data.password1)) {
+        if (!validatePassword(data.password)) {
             errors.password = false;
         }
-        if (data.password1 !== data.password2) {
+        if (data.password !== data.repeatPassword) {
             errors.passwordsMatch = false;
         }
         if (Object.entries(errors).length !== 0) {
-            return errors;
+            this.localEventBus.dispatchEvent('registerFailed', errors);
+            return;
         }
 
         Api.register(data)
