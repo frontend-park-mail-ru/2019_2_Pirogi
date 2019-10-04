@@ -47,9 +47,9 @@ export default class LoginView extends View {
 
         // error events
         this.localEventBus.addEventListener('clearError',
-            this.clearError.bind(this));
+            clearError.bind(this));
         this.localEventBus.addEventListener('renderError',
-            this.renderError.bind(this));
+            renderError.bind(this));
     }
 
     /** function */
