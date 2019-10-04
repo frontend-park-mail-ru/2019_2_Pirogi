@@ -1,4 +1,5 @@
-import {validateEmail, validateName, validatePassword} from '../libs/formValidation';
+import {validators} from '../libs/formValidation';
+import {errorMessages} from "../libs/errorMessages";
 import Api from '../libs/api';
 
 /**
@@ -11,17 +12,72 @@ export default class LoginModel {
      * @constructor
      * @param {object} localEventBus
      * @param {object} globalEventBus
-     * @listens onAuthCheck
-     * @listens onRegisterCheck
+     * @listens loginCheck
+     * @listens registrationCheck
      */
     constructor(localEventBus = {}, globalEventBus = {}) {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
 
-        this.localEventBus.addEventListener('onAuthCheck',
-            this.onAuthCheck.bind(this));
-        this.localEventBus.addEventListener('onRegisterCheck',
-            this.onRegisterCheck.bind(this));
+        this.registrationData = {
+            name: null,
+            email: null,
+            password: null
+        };
+        this.loginData = {
+            email: null,
+            password: null
+        };
+
+        this.localEventBus.addEventListener('fieldCheck',
+            this.fieldCheck.bind(this));
+        this.localEventBus.addEventListener('passwordsCheck',
+            this.passwordsCheck.bind(this));
+
+        this.localEventBus.addEventListener('modifyLoginData',
+            this.modifyLoginData.bind(this));
+        this.localEventBus.addEventListener('modifyRegistrationData',
+            this.modifyRegistrationData.bind(this));
+
+        this.localEventBus.addEventListener('loginCheck',
+            this.loginCheck.bind(this));
+        this.localEventBus.addEventListener('registrationCheck',
+            this.registrationCheck.bind(this));
+    }
+
+    fieldCheck(field) {
+        if (!validators[field.name](field.value)) {
+            this.localEventBus.dispatchEvent('renderError', field.id, errorMessages[field.name]);
+            return false;
+        }
+        this.localEventBus.dispatchEvent('clearError', field.id);
+        return true;
+    }
+
+    passwordsCheck(fields) {
+        const password = fields.password;
+        const passwordClone = fields.passwordClone;
+        if (!validators[password.name](password.value)) {
+            this.localEventBus.dispatchEvent('renderError',
+                password.id, errorMessages[password.name]);
+            return false;
+        }
+        this.localEventBus.dispatchEvent('clearError', password.id);
+        if (password.value !== passwordClone.value) {
+            this.localEventBus.dispatchEvent('renderError',
+                passwordClone.id, errorMessages.passwordMatch);
+            return false;
+        }
+        this.localEventBus.dispatchEvent('clearError', passwordClone.id);
+        return true;
+    }
+
+    modifyLoginData(target, value) {
+        this.loginData[target] = value;
+    }
+
+    modifyRegistrationData(target, value) {
+        this.registrationData[target] = value;
     }
 
     /**
@@ -29,26 +85,19 @@ export default class LoginModel {
      * @method
      * @param {object} data
      */
-    onAuthCheck(data) {
-        let errors = {};
-        if (!validateEmail(data.email)) {
-            errors.email = false;
-        }
-        if (!validatePassword(data.password)) {
-            errors.password = false;
-        }
-        if (Object.entries(errors).length !== 0) {
-            this.localEventBus.dispatchEvent('authFailed', errors);
+    loginCheck() {
+        if (!this.dataCheck(this.loginData)) {
+            this.localEventBus.dispatchEvent('loginFailed',
+                {error: 'Please correct fucked up fields.'});
             return;
         }
-
-        Api.login(data)
+        Api.login(this.loginData)
             .then((res) => {
                 if (res.ok) {
-                    this.globalEventBus.dispatchEvent('authGood');
-                    this.localEventBus.dispatchEvent('authGood');
+                    this.globalEventBus.dispatchEvent('authorizationSuccessful');
+                    this.localEventBus.dispatchEvent('authorizationSuccessful');
                 } else {
-                    res.json().then(data => this.localEventBus.dispatchEvent('authFailed', data));
+                    res.json().then(data => this.localEventBus.dispatchEvent('loginFailed', data));
                 }
             });
     }
@@ -58,33 +107,30 @@ export default class LoginModel {
      * @param {object} data
      * @method
      */
-    onRegisterCheck(data) {
-        let errors = {};
-        if (!validateName(data.name)) {
-            errors.name = false;
-        }
-        if (!validateEmail(data.email)) {
-            errors.email = false;
-        }
-        if (!validatePassword(data.password)) {
-            errors.password = false;
-        }
-        if (data.password !== data.repeatPassword) {
-            errors.passwordsMatch = false;
-        }
-        if (Object.entries(errors).length !== 0) {
-            this.localEventBus.dispatchEvent('registerFailed', errors);
+    registrationCheck() {
+        if (!this.dataCheck(this.registrationData)) {
+            this.localEventBus.dispatchEvent('registrationFailed',
+                {error: 'Please correct fucked up fields.'});
             return;
         }
-
-        Api.register(data)
+        Api.register(this.registrationData)
             .then((res) => {
                 if (res.ok) {
-                    this.globalEventBus.dispatchEvent('authGood');
-                    this.localEventBus.dispatchEvent('authGood');
+                    this.globalEventBus.dispatchEvent('authorizationSuccessful');
+                    this.localEventBus.dispatchEvent('authorizationSuccessful');
                 } else {
-                    res.json().then(data => this.localEventBus.dispatchEvent('registerFailed', data));
+                    res.json().then(data => this.localEventBus.dispatchEvent('registrationFailed', data));
                 }
             });
+    }
+
+    dataCheck(data) {
+        for (const property in data) {
+            if (Object.prototype.hasOwnProperty.call(data, property)
+                && !data[property]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
