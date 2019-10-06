@@ -47,7 +47,7 @@ export default class Api {
      * API Registration
      * POST /api/users/
      * @static
-     * @param {string} email
+     * @param {string} em
      * @param {string} password
      * @param {string} name
      * @returns {Promise<Response>}
@@ -103,6 +103,17 @@ export default class Api {
     static getProfileInfo() {
         return Network.doGet('/api/users/');
     }
+    /**
+     * API Get another user info
+     * Отправляет запрос на получение информации о пользователе
+     * GET /api/users/{user_id}
+     * @static
+     * @returns {Promise<Response>}
+     */
+    static getAnotherUserInfo({userID}) {
+        return Network.doGet(`/api/users/${userID}`);
+    }
+
 
     /**
      * API Get film info

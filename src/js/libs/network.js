@@ -1,4 +1,4 @@
-const MY_PATH = 'http://167.71.5.55';
+const MY_PATH = 'https://cinsear.online';
 /**
  * Creates a new Network object
  * @class
