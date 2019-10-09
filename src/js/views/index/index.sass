@@ -4,6 +4,13 @@
   flex-direction: column
   margin-top: 10*$indent
   width: 100%
+  ::-webkit-scrollbar
+    -webkit-appearance: none
+    width: 1px
+  ::-webkit-scrollbar-thumb
+    border-radius: 2px
+    background-color: rgba(0,0,0,.5)
+    -webkit-box-shadow: 0 0 0.5px rgba(255,255,255,.5)
   .navbar
     z-index: 100
 
@@ -20,27 +27,29 @@
 
 .films-bar
   justify-content: space-between
-  margin: 2*$indent 0
+  margin: $indent 0
   display: flex
+  flex-direction: row
+  overflow-x: scroll
+  overflow-y: hidden
+  white-space: nowrap
+  height: 250px
+  padding-bottom: $indent
+
   .film-bar__card
-    width: 100%
     margin-right: 3*$indent
     text-align: center
+    height: 100%
     +shadow-dark
+    .film-bar__img
+      height: 100%
     &:last-of-type
       margin-right: 0
 
   .film-bar__info
     padding: 2*$indent
-  .film-bar__img
-    img
-      width: 100%
-      
-    .title
-      padding: $indent 0
-      bottom: 0
-      margin: auto
-      background-color: $color-light-90
+
+
 
 .news-bar
   padding:  4*$indent
@@ -51,7 +60,7 @@
   justify-content: space-between
   margin: 2*$indent 0
   display: flex
-  .atricle-bar__card
+  .article-bar__card
     width: 100%
     margin-right: 3*$indent
   .article-bar__title
