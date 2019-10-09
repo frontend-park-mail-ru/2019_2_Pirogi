@@ -1,24 +1,21 @@
 @import '../../../css/variables'
 .index
   display: flex
-
+  flex-direction: column
   margin-top: 10*$indent
-  .top
-    margin-left: 2*$indent
-    margin-bottom: 2*$indent
+  width: 100%
   .navbar
     z-index: 100
 
-.index__banner
-  background: url("/src/images/banner.jpeg") no-repeat
-  background-size: cover
-  width: 100%
-  min-height: 20vh
-  +shadow-dark
+.rec-films-bar
+  padding: 4*$indent
+  display: flex
+  flex-direction: column
 
-.index__wall
-  width: 80%
-  justify-content: space-evenly
+.new-films-bar
+  background-color: $color-accent
+  padding: 4*$indent
+  display: flex
   flex-direction: column
 
 .films-bar
@@ -27,7 +24,7 @@
   display: flex
   .film-bar__card
     width: 100%
-    margin-right: 2*$indent
+    margin-right: 3*$indent
     text-align: center
     +shadow-dark
     &:last-of-type
@@ -36,12 +33,59 @@
   .film-bar__info
     padding: 2*$indent
   .film-bar__img
-    position: relative
     img
       width: 100%
+      
     .title
       padding: $indent 0
-      position: absolute
       bottom: 0
       margin: auto
       background-color: $color-light-90
+
+.news-bar
+  padding:  4*$indent
+  display: flex
+  flex-direction: column
+
+.article-bar
+  justify-content: space-between
+  margin: 2*$indent 0
+  display: flex
+  .atricle-bar__card
+    width: 100%
+    margin-right: 3*$indent
+  .article-bar__title
+    font-size: $font-size-medium
+    margin: $indent 0
+  .article-bar__img
+    img
+      width: 100%
+      +shadow-dark
+
+.trailers-bar
+  margin: 4*$indent
+  display: flex
+  +shadow-dark
+  .trailers-bar__trailer
+    width: 100%
+    background-color: $color-accent
+  .trailers-bar__list
+    width: 20%
+    text-align: center
+    display: flex
+    flex-direction: column
+    .title
+      width: 100%
+      background-color: $color-darkest
+      padding: 2*$indent 0
+      color: $color-lightest
+    .button
+      width: 100%
+      padding: 2*$indent 0
+      border-radius: 0
+      border: 0
+      &:hover
+        background-color: $color-accent
+        color: $color-lightest
+  
+
