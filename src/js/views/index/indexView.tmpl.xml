@@ -93,7 +93,28 @@
                 <div class="film-bar__card">
                     <div class="film-bar__img">
                         <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        
+                    </div>
+                </div>
+
+                <div class="film-bar__card">
+                    <div class="film-bar__img">
+                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                    </div>
+                </div>
+
+                <div class="film-bar__card">
+                    <div class="film-bar__img">
+                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                    </div>
+                </div>
+                <div class="film-bar__card">
+                    <div class="film-bar__img">
+                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                    </div>
+                </div>
+                <div class="film-bar__card">
+                    <div class="film-bar__img">
+                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                 </div>
                 

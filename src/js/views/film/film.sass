@@ -6,36 +6,60 @@
   flex-direction: row
   text-align: center
   padding-top: 10*$indent
-  width: 60%
+  background-color: $color-light
 
 .film *
   margin-top: $indent/2
   margin-bottom: $indent/2
 
+.posters
+  width: 60vh  
+  margin: 2*$indent 0
+  .posters__img
+    width: 30vh
+    height: 45vh
+    +shadow-dark
+
 .film__img
   height: 45vh
   +shadow-dark
 
+.film__title
+  color: $color-accent
+  text-align: left
+
 .film__description
+  width: 60%
   margin: 0 2*$indent
   display: flex
   flex-direction: column
+  text-align: left
+  .film__decription_main
+    font-family: $font-medium
 
 .rating
   +shadow-dark
-  margin: 2*$indent 0
   align-items: center
   justify-content: space-evenly
   min-height: 75px
   background-color: $color-darkest
   display: flex
   width: 100%
+  .raiting__button
+    background-color: $color-accent
+    color: $color-lightest
 
 .rating__block .title
   font-size: $font-size-medium
-  color: $color-light
+  color: $color-lightest
 
   display: flex
+
+.feedback-block
+  display: flex
+  flex-direction: column
+  .feedback-block__title
+    text-align: center
 
 .title *
   margin: 0 $indent
@@ -51,15 +75,69 @@
 
 
 .feedback-form
-  text-align: center
-  width: 60%
+  width: 70%
+  .feedback-form__title
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: space-between
+  .feedback-form__elem
+    width: 50%
+    margin: 0 0
 
 .feedback-form *
   margin: 2*$indent 0
 
-.feedbacks
-  text-align: center
-  width: 60%
+.feedback
+  width: 100%
+  display: flex
+  margin: 2*$indent 0
+  +shadow-dark
+  .feedback__img
+    width: 17vh
+    height: 20vh
+  .feedback__mark
+    width: 15%
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+  .feedback__text
+    width: 70%
+    margin: $indent 0
+    display: flex
+    flex-direction: column
+    font-size: $font-size-small
+    .feedback__text_main
+      font-family: $font-medium
+  .feedback__raiting
+    width: 15%
+
+.radio-form
+  margin: 0 0
+  display: flex
+  justify-content: space-around
+  .radio-form__button
+    display: flex
+    margin: 0 2*$indent
+    input
+      margin: 0 0 
+    div 
+      margin: 0 2* $indent
+
+
+.user-raiting
+  background-color: $color-darkest
+  color: $color-lightest
+  display: flex
+  flex-direction: column
+  justify-content: center
+  .user-raiting__text
+    color: $color-lightest
+    margin: $indent 0
+    text-align: center
+
+
 
 .feedbacks *
   margin: 2*$indent 0
