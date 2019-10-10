@@ -1,206 +1,207 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
-<main class="main">
-    <div class="index">
-        <div class="rec-films-bar">
-            <div class="title">Рекомендации для вас</div>
-            <div class="films-bar">  
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title"><a href="/film/1">ВЕНОМ</a></div>
+    <main class="main">
+        <div class="index">
+            <div class="rec-films-bar">
+                <div class="title">Рекомендации для вас</div>
+                <div class="films-bar">
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                            <div class="title">
+                                <a href="/film/1">ВЕНОМ</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title"><a href="/film/1">ВЕНОМ</a></div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                            <div class="title">
+                                <a href="/film/1">ВЕНОМ</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title"><a href="/film/1">ВЕНОМ</a></div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                            <div class="title">
+                                <a href="/film/1">ВЕНОМ</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title"><a href="/film/1">ВЕНОМ</a></div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                            <div class="title">
+                                <a href="/film/1">ВЕНОМ</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title"><a href="/film/1">ВЕНОМ</a></div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="new-films-bar">
-            <div class="title"> Новинки</div>
-            <div class="films-bar">  
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        
+            <div class="new-films-bar">
+                <div class="title">Новинки</div>
+                <div class="films-bar">
+                    
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
                     </div>
-                </div>
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        
-                    </div>
-                </div>
 
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
                     </div>
-                </div>
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        
-                    </div>
-                </div>
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        
-                    </div>
-                </div>
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        
-                    </div>
-                </div>
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        
-                    </div>
-                </div>
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        
-                    </div>
-                </div>
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                    </div>
-                </div>
 
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
                     </div>
-                </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
 
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                     <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
                     </div>
-                </div>
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
                     </div>
-                </div>
-                <div class="film-bar__card">
-                    <div class="film-bar__img">
-                        <img src="/src/images/film-card.jpeg" alt="film-card"/>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
                     </div>
-                </div>
-                
-            </div>
-        </div>
-            
-           
-        <div class="news-bar">
-            <div class="title">Статьи и новости</div>
-            <div class="article-bar">
-                 <div class="atricle-bar__card">
-                    <div class="article-bar__img">
-                        <img src="/src/images/poster.jpg" alt="film-card"/>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
                     </div>
-                    <div class="article-bar__title"><a href="">Как доделать проект?</a></div>
-                    <div> Все очень просто! Берешь и делаешь... 
-                    Сидишь днями и ночами. Тратишь кучу времени,
-                    пытаешься понять что происходит, но не понимаешь.
-                    постарайся. Все получится
-                    </div>
-                </div>
-                <div class="atricle-bar__card">
-                    <div class="article-bar__img">
-                        <img src="/src/images/poster.jpg" alt="film-card"/>
-                    </div>
-                    <div class="article-bar__title"><a href="">Как доделать проект?</a></div>
-                    <div> Все очень просто! Берешь и делаешь... 
-                    Сидишь днями и ночами. Тратишь кучу времени,
-                    пытаешься понять что происходит, но не понимаешь.
-                    постарайся. Все получится
-                    </div>
-                </div>
-                
-                <div class="atricle-bar__card">
-                    <div class="article-bar__img">
-                        <img src="/src/images/poster.jpg" alt="film-card"/>
-                    </div>
-                    <div class="article-bar__title"><a href="">Как доделать проект?</a></div>
-                    <div> Все очень просто! Берешь и делаешь... 
-                    Сидишь днями и ночами. Тратишь кучу времени,
-                    пытаешься понять что происходит, но не понимаешь.
-                    постарайся. Все получится
-                    </div>
-                </div>
-                
-                <div class="atricle-bar__card">
-                    <div class="article-bar__img">
-                        <img src="/src/images/poster.jpg" alt="film-card"/>
-                    </div>
-                    <div class="article-bar__title"><a href="">Как доделать проект?</a></div>
-                    <div> Все очень просто! Берешь и делаешь... 
-                    Сидишь днями и ночами. Тратишь кучу времени,
-                    пытаешься понять что происходит, но не понимаешь.
-                    постарайся. ничего не получится
-                    </div>
-                </div>
-                
-                <div class="atricle-bar__card">
-                    <div class="article-bar__img">
-                        <img src="/src/images/poster.jpg" alt="film-card"/>
-                    </div>
-                    <div class="article-bar__title"><a href="">Как доделать проект?</a></div>
-                    <div> Все очень просто! Берешь и делаешь... 
-                    Сидишь днями и ночами. Тратишь кучу времени,
-                    пытаешься понять что происходит, но не понимаешь.
-                    постарайся. Все получится
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="trailers-bar">
-            <div class="trailers-bar__list">
-                <div class="title"> Топ трейлеров </div>
-                <div class="button">Инсургент</div>
-                <div class="button">Голодные игры</div>
-                <div class="button">Матрица</div>
-                <div class="button">Властелин колец</div>
-                <div class="button">Дети шпионов</div>
-                <div class="button">Железный человек</div>
-                <div class="button">Назад в будущее</div>
-                <div class="button">Оно</div>
-                <div class="button">Привидение</div>
+
+            <div class="news-bar">
+                <div class="title">Статьи и новости</div>
+                <div class="article-bar">
+                    <div class="article-bar__card">
+                        <div class="article-bar__img">
+                            <img src="/src/images/poster.jpg" alt="film-card"/>
+                        </div>
+                        <div class="article-bar__title">
+                            <a href="">Как доделать проект?</a>
+                        </div>
+                        <div>Все очень просто! Берешь и делаешь...
+                            Сидишь днями и ночами. Тратишь кучу времени,
+                            пытаешься понять что происходит, но не понимаешь.
+                            постарайся. Все получится
+                        </div>
+                    </div>
+                    <div class="article-bar__card">
+                        <div class="article-bar__img">
+                            <img src="/src/images/poster.jpg" alt="film-card"/>
+                        </div>
+                        <div class="article-bar__title">
+                            <a href="">Как доделать проект?</a>
+                        </div>
+                        <div>Все очень просто! Берешь и делаешь...
+                            Сидишь днями и ночами. Тратишь кучу времени,
+                            пытаешься понять что происходит, но не понимаешь.
+                            постарайся. Все получится
+                        </div>
+                    </div>
+
+                    <div class="article-bar__card">
+                        <div class="article-bar__img">
+                            <img src="/src/images/poster.jpg" alt="film-card"/>
+                        </div>
+                        <div class="article-bar__title">
+                            <a href="">Как доделать проект?</a>
+                        </div>
+                        <div>Все очень просто! Берешь и делаешь...
+                            Сидишь днями и ночами. Тратишь кучу времени,
+                            пытаешься понять что происходит, но не понимаешь.
+                            постарайся. Все получится
+                        </div>
+                    </div>
+
+                    <div class="article-bar__card">
+                        <div class="article-bar__img">
+                            <img src="/src/images/poster.jpg" alt="film-card"/>
+                        </div>
+                        <div class="article-bar__title">
+                            <a href="">Как доделать проект?</a>
+                        </div>
+                        <div>Все очень просто! Берешь и делаешь...
+                            Сидишь днями и ночами. Тратишь кучу времени,
+                            пытаешься понять что происходит, но не понимаешь.
+                            постарайся. ничего не получится
+                        </div>
+                    </div>
+
+                    <div class="article-bar__card">
+                        <div class="article-bar__img">
+                            <img src="/src/images/poster.jpg" alt="film-card"/>
+                        </div>
+                        <div class="article-bar__title">
+                            <a href="">Как доделать проект?</a>
+                        </div>
+                        <div>Все очень просто! Берешь и делаешь...
+                            Сидишь днями и ночами. Тратишь кучу времени,
+                            пытаешься понять что происходит, но не понимаешь.
+                            постарайся. Все получится
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="trailers-bar__trailer"> </div>
+
+            <div class="trailers-bar">
+                <div class="trailers-bar__list">
+                    <div class="title">Топ трейлеров</div>
+                    <div class="button">Инсургент</div>
+                    <div class="button">Голодные игры</div>
+                    <div class="button">Матрица</div>
+                    <div class="button">Властелин колец</div>
+                    <div class="button">Дети шпионов</div>
+                    <div class="button">Железный человек</div>
+                    <div class="button">Назад в будущее</div>
+                    <div class="button">Оно</div>
+                    <div class="button">Привидение</div>
+                </div>
+                <div class="trailers-bar__trailer"></div>
+            </div>
         </div>
-    </div>
-</main>
+    </main>
 </fest:template>
