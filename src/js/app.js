@@ -8,6 +8,8 @@ import IndexController from './controllers/indexController.js';
 import AdminController from './controllers/adminController.js';
 import NavbarController from './controllers/navbarController.js';
 import Router from './libs/router.js';
+import GenresController from "./controllers/genresController";
+import RatingsController from "./controllers/ratingsController";
 
 document.addEventListener('DOMContentLoaded', () => {
     const globalEventBus = new EventBus([{}]);
@@ -23,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchResultsController = new SearchResultsController(globalEventBus, body);
     const indexController = new IndexController(globalEventBus, body);
     const adminController = new AdminController(globalEventBus, body);
+    const genresController = new GenresController(globalEventBus, body);
+    const ratingsController = new RatingsController(globalEventBus, body);
 
     navbarController.navbarView.render();
 
@@ -38,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
     router.add('/year', indexController.indexView);
     router.add('/genre', indexController.indexView);
     router.add('/actors', indexController.indexView);
+    router.add('/films', genresController.genresView);
+    router.add('/ratings', ratingsController.ratingsView);
 
     router.start();
 });

@@ -1,0 +1,29 @@
+@import '../../../css/variables'
+.genre-films-bar
+  padding: 4*$indent
+  display: flex
+  flex-direction: column
+.genre-films-bar_light
+    background-color: $color-lightest
+.genre-films-bar_accent
+    background-color: $color-accent
+.films-bar
+  justify-content: space-between
+  margin: $indent 0
+  display: flex
+  flex-direction: row
+  overflow-x: scroll
+  overflow-y: hidden
+  white-space: nowrap
+  height: 250px
+  padding-bottom: $indent
+
+  .film-bar__card
+    margin-right: 3*$indent
+    text-align: center
+    height: 100%
+    +shadow-dark
+    .film-bar__img
+      height: 100%
+    &:last-of-type
+      margin-right: 0

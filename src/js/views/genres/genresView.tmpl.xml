@@ -1,0 +1,248 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
+    <main class="main">
+        <div class="index">
+            <div class="genre-films-bar">
+                <div class="title">Лучшие фильмы в жанре <a>Триллер</a></div>
+                <div class="films-bar">
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="genre-films-bar genre-films-bar_accent">
+                <div class="title">Лучшие фильмы в жанре <a>Фантастика</a></div>
+                <div class="films-bar">
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="genre-films-bar">
+                <div class="title">Лучшие фильмы в жанре <a>Ужасы</a></div>
+                <div class="films-bar">
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="genre-films-bar genre-films-bar_accent">
+                <div class="title">Лучшие фильмы в жанре <a>Романтика</a></div>
+                <div class="films-bar">
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                    <div class="film-bar__card">
+                        <div class="film-bar__img">
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</fest:template>
