@@ -78,10 +78,10 @@ export default class LoginView extends View {
         this.registerRepeatInput = document.querySelector('.js-repeat-register');
 
         this.registerData = {
-            password: this.registerPasswordInput.value,
-            email: this.registerEmailInput.value,
-            name: this.registerNicknameInput.value,
-            repeatPassword: this.registerRepeatInput.value
+            password: this.registerPasswordInput.value || null,
+            email: this.registerEmailInput.value || null,
+            username: this.registerNicknameInput.value || null,
+            repeatPassword: this.registerRepeatInput.value || null,
         };
 
         const errors = this.localEventBus.dispatchEvent('onRegisterCheck', this.registerData);

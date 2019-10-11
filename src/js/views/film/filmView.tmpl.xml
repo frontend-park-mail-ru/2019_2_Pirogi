@@ -1,9 +1,8 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="film">
     <main class="main">
         <div class="film">
-            <div class="posters">
-                <!--<img class="posters__img" src="/images/films/{film.image_path}.jpg" alt="название фильма"/>-->
-                <img class="posters__img" src="/src/images/film-card.jpeg" alt="название фильма"/>
+            <div class="film__description">
+                <img class="film__img" src="/images/films/{film.image}" alt="название фильма"/>
             </div>
             <div class="film__description">
                 <!--<div class="title"><fest:value>film.title</fest:value></div>-->
