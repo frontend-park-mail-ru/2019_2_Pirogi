@@ -8,8 +8,8 @@ import IndexController from './controllers/indexController.js';
 import AdminController from './controllers/adminController.js';
 import NavbarController from './controllers/navbarController.js';
 import Router from './libs/router.js';
-import GenresController from "./controllers/genresController";
-import RatingsController from "./controllers/ratingsController";
+import GenresController from './controllers/genresController';
+import RatingsController from './controllers/ratingsController';
 
 document.addEventListener('DOMContentLoaded', () => {
     const globalEventBus = new EventBus([{}]);

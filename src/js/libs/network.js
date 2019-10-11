@@ -15,7 +15,8 @@ export default class Network {
     static doGet(path = '/') {
         return fetch(MY_PATH + path, {
             method: 'GET',
-
+            mode: 'cors',
+            credentials: 'include',
         });
     }
 
@@ -29,6 +30,8 @@ export default class Network {
     static doPost(path = '/', body = {}) {
         return fetch(MY_PATH + path, {
             method: 'POST',
+            mode: 'cors',
+            credentials: 'include',
             body: JSON.stringify(body),
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -46,7 +49,8 @@ export default class Network {
     static doPostFormData(path = '/', formData) {
         return fetch(MY_PATH + path, {
             method: 'POST',
-
+            mode: 'cors',
+            credentials: 'include',
             body: formData,
         });
     }
@@ -60,7 +64,8 @@ export default class Network {
     static doDelete(path = '/') {
         return fetch(MY_PATH + path, {
             method: 'DELETE',
-
+            mode: 'cors',
+            credentials: 'include',
         });
     }
 
@@ -76,7 +81,7 @@ export default class Network {
         return fetch(MY_PATH + path, {
             method: 'PUT',
             mode: 'cors',
-
+            credentials: 'include',
             body: JSON.stringify(body),
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
