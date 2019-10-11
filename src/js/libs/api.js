@@ -10,14 +10,14 @@ export default class Api {
 
     /**
      * API Logging-in
-     * POST /api/login/
+     * POST /api/sessions/
      * @static
      * @param {string} email
      * @param {string} password
      * @returns {Promise<Response>}
      */
     static login({email, password}) {
-        return Network.doPost('/api/login/', {
+        return Network.doPost('/api/sessions/', {
             email,
             password,
         });
@@ -25,38 +25,38 @@ export default class Api {
 
     /**
      * API Check auth
-     * GET /api/login/
+     * GET /api/sessions/
      * @static
      * @returns {Promise<Response>}
      */
     static authCheck() {
-        return Network.doGet('/api/login/');
+        return Network.doGet('/api/sessions/');
     }
 
     /**
      * API Logout
-     * POST /api/logout/
+     * delete /api/sessions/
      * @static
      * @returns {Promise<Response>}
      */
     static logout() {
-        return Network.doPost('/api/logout/', {});
+        return Network.doDelete('/api/sessions/');
     }
 
     /**
      * API Registration
      * POST /api/users/
      * @static
-     * @param {string} email
+     * @param {string} em
      * @param {string} password
      * @param {string} name
      * @returns {Promise<Response>}
      */
-    static register({email, password, name}) {
+    static register({email, password, username}) {
         return Network.doPost('/api/users/', {
             email,
             password,
-            name,
+            username,
         });
     }
 
@@ -68,12 +68,10 @@ export default class Api {
      * @param {string} userID
      * @returns {Promise<Response>}
      */
-    static editAvatar({avatar, userID}) {
+    static editAvatar({avatar}) {
         const formData = new FormData();
-        formData.append('upload_file', avatar.avatar);
-        formData.append('target', 'user');
-        formData.append('id', userID);
-        return Network.doPostFormData('/api/images/', formData);
+        formData.append('file', avatar.avatar);
+        return Network.doPostFormData('/api/users/images/', formData);
     }
 
     /**
@@ -86,11 +84,11 @@ export default class Api {
      * @param {string} description
      * @returns {Promise<Response>}
      */
-    static editProfile({email, password, name, description}) {
+    static editProfile({email, password, username, description}) {
         return Network.doPut('/api/users/', {
             email,
             password,
-            name,
+            username,
             description,
         });
     }
@@ -105,17 +103,28 @@ export default class Api {
     static getProfileInfo() {
         return Network.doGet('/api/users/');
     }
+    /**
+     * API Get another user info
+     * Отправляет запрос на получение информации о пользователе
+     * GET /api/users/{user_id}
+     * @static
+     * @returns {Promise<Response>}
+     */
+    static getAnotherUserInfo({userID}) {
+        return Network.doGet(`/api/users/${userID}`);
+    }
+
 
     /**
      * API Get film info
-     * Отправляет запрос на получение информации о фильме 
+     * Отправляет запрос на получение информации о фильме
      * GET /api/films/{film_id}/
      * @static
      * @param {string} filmID
      * @returns {Promise<Response>}
      */
     static getFilmInfo({filmID}) {
-        return Network.doGet(`/api/films/${filmID}`);
+        return Network.doGet(`/api/films/${filmID}/`);
     }
 
     /**

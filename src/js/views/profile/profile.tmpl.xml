@@ -3,7 +3,7 @@
     <main class="main">
         <div class="profile">
             <div class="profile__info"> <!-- to center this section or whatever -->
-                <img class="profile__photo" alt="username" src="/images/users/{params.avatar_link}"/>
+                <img class="profile__photo" alt="username" src="/images/users/{params.image}"/>
                 <div class="profile__info-details list"> <!-- img -->
                     <div class="list__item">
                         <div class="title"><fest:value>params.name</fest:value></div>
