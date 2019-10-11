@@ -1,28 +1,50 @@
 @import "../../../css/variables"
 
+.film-index
+  padding-top: 7.5*$indent
+  display: flex
+  flex-direction: column
+  align-items: center
+  background-color: $color-light-50
+
 .film
   display: flex
   align-items: center
   flex-direction: row
   text-align: center
-  padding-top: 10*$indent
+  padding: 4*$indent
   background-color: $color-light
+  justify-content: space-around
 
 .film *
   margin-top: $indent/2
   margin-bottom: $indent/2
 
 .posters
-  width: 60vh  
+  width: 45vh
   margin: 2*$indent 0
+  height: 50vh
+  position: relative
   .posters__img
-    width: 30vh
-    height: 45vh
+    position: absolute
     +shadow-dark
-
-.film__img
-  height: 45vh
-  +shadow-dark
+  .posters__img_left
+      opacity: 0.5
+      left: 0
+      width: 25vh
+      height: 40vh
+  .posters__img_right
+      opacity: 0.5
+      right: 0
+      width: 25vh
+      height: 40vh
+  .posters__img_active
+      top: 50%
+      left: 50%
+      z-index: 70
+      width: 30vh
+      height: 45vh
+      transform: translate(-50%, -50%)
 
 .film__title
   color: $color-accent
@@ -37,7 +59,7 @@
   .film__decription_main
     font-family: $font-medium
 
-.rating
+.user-block
   +shadow-dark
   align-items: center
   justify-content: space-evenly
@@ -45,15 +67,9 @@
   background-color: $color-darkest
   display: flex
   width: 100%
-  .raiting__button
+  .user-block__button
     background-color: $color-accent
     color: $color-lightest
-
-.rating__block .title
-  font-size: $font-size-medium
-  color: $color-lightest
-
-  display: flex
 
 .feedback-block
   display: flex
@@ -67,21 +83,19 @@
 .film__star
   color: $color-dark
   +transition(0.5s)
-
-
   &:hover
     +transition(0.5s)
     color: $color-yellow
 
 
 .feedback-form
-  width: 70%
-  .feedback-form__title
+  width: 60%
+  .feedback-form__top
     width: 100%
     display: flex
     align-items: center
     justify-content: space-between
-  .feedback-form__elem
+  .feedback-form__title
     width: 50%
     margin: 0 0
 
@@ -102,6 +116,7 @@
     flex-direction: column
     justify-content: center
     align-items: center
+    padding: $indent 0
   .feedback__text
     width: 70%
     margin: $indent 0
@@ -110,7 +125,7 @@
     font-size: $font-size-small
     .feedback__text_main
       font-family: $font-medium
-  .feedback__raiting
+  .feedback__rating
     width: 15%
 
 .radio-form
@@ -126,18 +141,13 @@
       margin: 0 2* $indent
 
 
-.user-raiting
+.user-rating
   background-color: $color-darkest
   color: $color-lightest
   display: flex
   flex-direction: column
   justify-content: center
-  .user-raiting__text
+  .user-rating__text
     color: $color-lightest
     margin: $indent 0
     text-align: center
-
-
-
-.feedbacks *
-  margin: 2*$indent 0

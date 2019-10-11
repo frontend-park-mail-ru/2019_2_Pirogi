@@ -3,48 +3,45 @@
         <div class="index">
             <div class="rec-films-bar">
                 <div class="title">Рекомендации для вас</div>
-                <div class="films-bar">
-                    <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                            <div class="title">
+                <div class="rec-films-bar__bar">
+                    <div class="film-card">
+                        <div class="film-card__img">
+                            <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                            <div class="title film-card__info">
                                 <a href="/film/1">ВЕНОМ</a>
                             </div>
                         </div>
                     </div>
-                    <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                            <div class="title">
+                    <div class="film-card">
+                        <div class="film-card__img">
+                            <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                            <div class="title film-card__info">
                                 <a href="/film/1">ВЕНОМ</a>
                             </div>
                         </div>
                     </div>
-
-                    <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                            <div class="title">
+                    <div class="film-card">
+                        <div class="film-card__img">
+                            <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                            <div class="title film-card__info">
                                 <a href="/film/1">ВЕНОМ</a>
                             </div>
                         </div>
                     </div>
-                    <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                            <div class="title">
+                    <div class="film-card">
+                        <div class="film-card__img">
+                            <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                            <div class="title film-card__info">
                                 <a href="/film/1">ВЕНОМ</a>
                             </div>
                         </div>
                     </div>
-                    <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        </div>
-                    </div>
-                    <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
+                    <div class="film-card">
+                        <div class="film-card__img">
+                            <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                            <div class="title film-card__info">
+                                <a href="/film/1">ВЕНОМ</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -53,61 +50,38 @@
             <div class="new-films-bar">
                 <div class="title">Новинки</div>
                 <div class="films-bar">
-                    
                     <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        </div>
-                    </div>
-
-                    <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        </div>
-                    </div>
-
-                    <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        </div>
+                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
                     </div>
                     <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        </div>
+                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
                     </div>
                     <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        </div>
-                    </div>
-
-                     <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        </div>
-                    </div>
-
-                    <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        </div>
-                    </div>
-
-                    <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        </div>
+                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
                     </div>
                     <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        </div>
+                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
                     </div>
                     <div class="film-bar__card">
-                        <div class="film-bar__img">
-                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
-                        </div>
+                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                    </div>
+                    <div class="film-bar__card">
+                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                    </div>
+                    <div class="film-bar__card">
+                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                    </div>
+                    <div class="film-bar__card">
+                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                    </div>
+                    <div class="film-bar__card">
+                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                    </div>
+                    <div class="film-bar__card">
+                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                    </div>
+                    <div class="film-bar__card">
+                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
                     </div>
                 </div>
             </div>
@@ -118,7 +92,7 @@
                 <div class="article-bar">
                     <div class="article-bar__card">
                         <div class="article-bar__img">
-                            <img src="/src/images/poster.jpg" alt="film-card"/>
+                            <a href="/article/1"><img src="/src/images/poster.jpg" alt="film-card"/></a>
                         </div>
                         <div class="article-bar__title">
                             <a href="">Как доделать проект?</a>
@@ -131,7 +105,7 @@
                     </div>
                     <div class="article-bar__card">
                         <div class="article-bar__img">
-                            <img src="/src/images/poster.jpg" alt="film-card"/>
+                            <a href="/article/1"><img src="/src/images/poster.jpg" alt="film-card"/></a>
                         </div>
                         <div class="article-bar__title">
                             <a href="">Как доделать проект?</a>
@@ -142,10 +116,9 @@
                             постарайся. Все получится
                         </div>
                     </div>
-
                     <div class="article-bar__card">
                         <div class="article-bar__img">
-                            <img src="/src/images/poster.jpg" alt="film-card"/>
+                            <a href="/article/1"><img src="/src/images/poster.jpg" alt="film-card"/></a>
                         </div>
                         <div class="article-bar__title">
                             <a href="">Как доделать проект?</a>
@@ -156,10 +129,9 @@
                             постарайся. Все получится
                         </div>
                     </div>
-
                     <div class="article-bar__card">
                         <div class="article-bar__img">
-                            <img src="/src/images/poster.jpg" alt="film-card"/>
+                            <a href="/article/1"><img src="/src/images/poster.jpg" alt="film-card"/></a>
                         </div>
                         <div class="article-bar__title">
                             <a href="">Как доделать проект?</a>
@@ -167,13 +139,12 @@
                         <div>Все очень просто! Берешь и делаешь...
                             Сидишь днями и ночами. Тратишь кучу времени,
                             пытаешься понять что происходит, но не понимаешь.
-                            постарайся. ничего не получится
+                            постарайся. Все получится
                         </div>
                     </div>
-
                     <div class="article-bar__card">
                         <div class="article-bar__img">
-                            <img src="/src/images/poster.jpg" alt="film-card"/>
+                            <a href="/article/1"><img src="/src/images/poster.jpg" alt="film-card"/></a>
                         </div>
                         <div class="article-bar__title">
                             <a href="">Как доделать проект?</a>
@@ -198,6 +169,8 @@
                     <div class="button">Железный человек</div>
                     <div class="button">Назад в будущее</div>
                     <div class="button">Оно</div>
+                    <div class="button">Привидение</div>
+                    <div class="button">Привидение</div>
                     <div class="button">Привидение</div>
                 </div>
                 <div class="trailers-bar__trailer"></div>
