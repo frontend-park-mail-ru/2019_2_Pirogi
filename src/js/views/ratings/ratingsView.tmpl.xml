@@ -1,0 +1,5 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
+    <div class="index">
+        <div class="title"> ТУТ БУДУТ РЕЙТИНГИ!Ы</div>
+    </div>
+</fest:template>
