@@ -6,44 +6,50 @@
                 <div class="rec-films-bar__bar">
                     <div class="film-card">
                         <div class="film-card__img">
-                            <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                            <a href="/film/?filmID=1">  a  </a>
+                            <img src="/src/images/film-card.jpeg" alt="film-card"/>
                             <div class="title film-card__info">
-                                <a href="/film/1">ВЕНОМ</a>
+                                ВЕНОМ
                             </div>
                         </div>
                     </div>
                     <div class="film-card">
                         <div class="film-card__img">
-                            <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                            <a href="/film/?filmID=1">  a  </a>
+                            <img    src="/src/images/film-card.jpeg" alt="film-card"/>
                             <div class="title film-card__info">
-                                <a href="/film/1">ВЕНОМ</a>
+                                ВЕНОМ
                             </div>
                         </div>
                     </div>
                     <div class="film-card">
                         <div class="film-card__img">
-                            <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                            <a href="/film/?filmID=1">  a  </a>
+                            <img    src="/src/images/film-card.jpeg" alt="film-card"/>
                             <div class="title film-card__info">
-                                <a href="/film/1">ВЕНОМ</a>
+                                ВЕНОМ
                             </div>
                         </div>
                     </div>
                     <div class="film-card">
                         <div class="film-card__img">
-                            <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                            <a href="/film/?filmID=1">  a  </a>
+                            <img    src="/src/images/film-card.jpeg" alt="film-card"/>
                             <div class="title film-card__info">
-                                <a href="/film/1">ВЕНОМ</a>
+                                ВЕНОМ
                             </div>
                         </div>
                     </div>
                     <div class="film-card">
-                        <div class="film-card__img">
-                            <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
-                            <div class="title film-card__info">
-                                <a href="/film/1">ВЕНОМ</a>
-                            </div>
+                    <div class="film-card__img">
+                        <a href="/film/?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
                         </div>
                     </div>
+                </div>
+
                 </div>
             </div>
 
@@ -51,38 +57,37 @@
                 <div class="title">Новинки</div>
                 <div class="films-bar">
                     <div class="film-bar__card">
-                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
+                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
-                    <div class="film-bar__card">
-                        <a href="/film/1"><img src="/src/images/film-card.jpeg" alt="film-card"/></a>
-                    </div>
+
+
                 </div>
             </div>
 
@@ -92,69 +97,82 @@
                 <div class="article-bar">
                     <div class="article-bar__card">
                         <div class="article-bar__img">
-                            <a href="/article/1"><img src="/src/images/poster.jpg" alt="film-card"/></a>
+                            <a href="/article/1"></a><img src="/src/images/poster.jpg" alt="film-card"/>
                         </div>
                         <div class="article-bar__title">
                             <a href="">Как доделать проект?</a>
                         </div>
-                        <div>Все очень просто! Берешь и делаешь...
-                            Сидишь днями и ночами. Тратишь кучу времени,
-                            пытаешься понять что происходит, но не понимаешь.
-                            постарайся. Все получится
+                        <div> Школьные проекты бывают различных типов,
+                            а точный рецепт успешного выполнения задачи будет зависеть от конкретных целей и требований.
+                            Мы же хотим поделиться с вами рядом общих правил и лучших наработок,
+                            которые почти наверняка помогу вам преуспеть.
+                            Выбирайте тему и составляйте план работы. Далее переходите к изучению информации.
+                            Наконец, объедините все имеющиеся данные, чтобы придать проекту законченный вид.
                         </div>
                     </div>
                     <div class="article-bar__card">
                         <div class="article-bar__img">
-                            <a href="/article/1"><img src="/src/images/poster.jpg" alt="film-card"/></a>
+                            <a href="/article/1"></a><img src="/src/images/poster.jpg" alt="film-card"/>
                         </div>
                         <div class="article-bar__title">
                             <a href="">Как доделать проект?</a>
                         </div>
-                        <div>Все очень просто! Берешь и делаешь...
-                            Сидишь днями и ночами. Тратишь кучу времени,
-                            пытаешься понять что происходит, но не понимаешь.
-                            постарайся. Все получится
+                        <div> Школьные проекты бывают различных типов,
+                            а точный рецепт успешного выполнения задачи будет зависеть от конкретных целей и требований.
+                            Мы же хотим поделиться с вами рядом общих правил и лучших наработок,
+                            которые почти наверняка помогу вам преуспеть.
+                            Выбирайте тему и составляйте план работы. Далее переходите к изучению информации.
+                            Наконец, объедините все имеющиеся данные, чтобы придать проекту законченный вид.
                         </div>
                     </div>
                     <div class="article-bar__card">
                         <div class="article-bar__img">
-                            <a href="/article/1"><img src="/src/images/poster.jpg" alt="film-card"/></a>
+                            <a href="/article/1"></a><img src="/src/images/poster.jpg" alt="film-card"/>
                         </div>
                         <div class="article-bar__title">
                             <a href="">Как доделать проект?</a>
                         </div>
-                        <div>Все очень просто! Берешь и делаешь...
-                            Сидишь днями и ночами. Тратишь кучу времени,
-                            пытаешься понять что происходит, но не понимаешь.
-                            постарайся. Все получится
+                        <div> Школьные проекты бывают различных типов,
+                            а точный рецепт успешного выполнения задачи будет зависеть от конкретных целей и требований.
+                            Мы же хотим поделиться с вами рядом общих правил и лучших наработок,
+                            которые почти наверняка помогу вам преуспеть.
+                            Выбирайте тему и составляйте план работы. Далее переходите к изучению информации.
+                            Наконец, объедините все имеющиеся данные, чтобы придать проекту законченный вид.
                         </div>
                     </div>
                     <div class="article-bar__card">
-                        <div class="article-bar__img">
-                            <a href="/article/1"><img src="/src/images/poster.jpg" alt="film-card"/></a>
-                        </div>
-                        <div class="article-bar__title">
-                            <a href="">Как доделать проект?</a>
-                        </div>
-                        <div>Все очень просто! Берешь и делаешь...
-                            Сидишь днями и ночами. Тратишь кучу времени,
-                            пытаешься понять что происходит, но не понимаешь.
-                            постарайся. Все получится
-                        </div>
+                    <div class="article-bar__img">
+                        <a href="/article/1"></a><img src="/src/images/poster.jpg" alt="film-card"/>
                     </div>
+                    <div class="article-bar__title">
+                        <a href="">Как доделать проект?</a>
+                    </div>
+                    <div> Школьные проекты бывают различных типов,
+                        а точный рецепт успешного выполнения задачи будет зависеть от конкретных целей и требований.
+                        Мы же хотим поделиться с вами рядом общих правил и лучших наработок,
+                        которые почти наверняка помогу вам преуспеть.
+                        Выбирайте тему и составляйте план работы. Далее переходите к изучению информации.
+                        Наконец, объедините все имеющиеся данные, чтобы придать проекту законченный вид.
+                    </div>
+                </div>
                     <div class="article-bar__card">
-                        <div class="article-bar__img">
-                            <a href="/article/1"><img src="/src/images/poster.jpg" alt="film-card"/></a>
-                        </div>
-                        <div class="article-bar__title">
-                            <a href="">Как доделать проект?</a>
-                        </div>
-                        <div>Все очень просто! Берешь и делаешь...
-                            Сидишь днями и ночами. Тратишь кучу времени,
-                            пытаешься понять что происходит, но не понимаешь.
-                            постарайся. Все получится
-                        </div>
+                    <div class="article-bar__img">
+                        <a href="/article/1"></a><img src="/src/images/poster.jpg" alt="film-card"/>
                     </div>
+                    <div class="article-bar__title">
+                        <a href="">Как доделать проект?</a>
+                    </div>
+                    <div> Школьные проекты бывают различных типов,
+                        а точный рецепт успешного выполнения задачи будет зависеть от конкретных целей и требований.
+                        Мы же хотим поделиться с вами рядом общих правил и лучших наработок,
+                        которые почти наверняка помогу вам преуспеть.
+                        Выбирайте тему и составляйте план работы. Далее переходите к изучению информации.
+                        Наконец, объедините все имеющиеся данные, чтобы придать проекту законченный вид.
+                    </div>
+                </div>
+
+
+
                 </div>
             </div>
 

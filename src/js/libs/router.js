@@ -28,9 +28,10 @@ export default class Router {
         });
 
         this.root.addEventListener('click', (event) => {
-            if (event.target.tagName === 'A' && event.target.hostname === location.hostname) {
+            if ((event.target.tagName === 'A') && event.target.hostname === location.hostname ) {
                 event.preventDefault();
-                this.route(event.target.pathname);
+                const url = new URL(event.target);
+                this.route(event.target.pathname, url.searchParams);
             }
         });
 
@@ -54,7 +55,7 @@ export default class Router {
      * @method
      * @param {string} path
      */
-    route(path) {
+    route(path, searchParams = {}) {
         if (!this.routes.has(path)) {
             const log = new Logger();
             log.logError(404, path);
@@ -74,6 +75,13 @@ export default class Router {
 
         if (window.location.pathname !== path) {
             window.history.pushState(null, null, path);
+        }
+
+        if (path === '/film/') {
+            const route = this.routes.get(path);
+            this.currentPath = path;
+            route.view.render({filmID: searchParams.get('filmID')});
+            return;
         }
 
         const route = this.routes.get(path);

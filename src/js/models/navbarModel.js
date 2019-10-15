@@ -34,7 +34,8 @@ export default class NavbarModel {
                 } else {
                     this.globalEventBus.dispatchEvent('logoutOk');
                 }
-            });
+            })
+            .catch(() => { this.globalEventBus.dispatchEvent('logoutOk');} );
     }
 
     /**
