@@ -1,10 +1,10 @@
 
 export const errorMessages = {
-    email: 'Email isn\'t a valid one.',
-    name: 'You can use a-z, 0-9 and underscores. Minimum length is 5 characters.',
-    password: 'Minimum of 8 ASCII characters required.',
-    passwordMatch: 'Passwords don\'t match.',
-    unknown: 'Unknown error.'
+    email: 'Некорректный email',
+    name: 'Имя может состоять из букв a-z и цифр. Минимальная длина 5 символов.',
+    password: 'Пароль должен состоять не менее чем из 8 символов.',
+    passwordMatch: 'Пароли не совпадают!',
+    unknown: 'Неизвестная ошибка.'
 };
 
 export const clearError = (targetId) => {

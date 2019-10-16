@@ -71,20 +71,6 @@ export default class ProfileModel {
      * @param {object} data
      */
     onEditingProfile(data = {}) {
-        let errors = {};
-        if (!validateName(data.name)) {
-            errors.name = false;
-        }
-        if (!validateEmail(data.email)) {
-            errors.email = false;
-        }
-        if (!validatePassword(data.password)) {
-            errors.password = false;
-        }
-        if (Object.entries(errors).length !== 0) {
-            this.localEventBus.dispatchEvent('editFailed', errors);
-            return;
-        }
 
         Api.editProfile(data)
             .then((res) => {

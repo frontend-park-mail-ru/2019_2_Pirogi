@@ -88,13 +88,13 @@ export default class LoginModel {
     loginCheck() {
         if (!this.dataCheck(this.loginData)) {
             this.localEventBus.dispatchEvent('loginFailed',
-                {error: 'Please correct fields.'});
+                {error: 'Пожалуйста, заполните поля корректно и повторите отправку формы.'});
             return;
         }
         Api.login(this.loginData)
             .then((res) => {
                 if (res.ok) {
-                    this.globalEventBus.dispatchEvent('authorizationSuccessful');
+                    this.globalEventBus.dispatchEvent('authGood');
                     this.localEventBus.dispatchEvent('authorizationSuccessful');
                 } else {
                     res.json().then(data => this.localEventBus.dispatchEvent('loginFailed', data));
@@ -110,13 +110,13 @@ export default class LoginModel {
     registrationCheck() {
         if (!this.dataCheck(this.registrationData)) {
             this.localEventBus.dispatchEvent('registrationFailed',
-                {error: 'Please correct fields.'});
+                {error: 'Пожалуйста, заполните поля корректно и повторите отправку формы.'});
             return;
         }
         Api.register(this.registrationData)
             .then((res) => {
                 if (res.ok) {
-                    this.globalEventBus.dispatchEvent('authorizationSuccessful');
+                    this.globalEventBus.dispatchEvent('authGood');
                     this.localEventBus.dispatchEvent('authorizationSuccessful');
                 } else {
                     res.json().then(data => this.localEventBus.dispatchEvent('registrationFailed', data));

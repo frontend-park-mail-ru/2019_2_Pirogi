@@ -86,8 +86,6 @@ export default class Api {
      */
     static editProfile({email, password, username, description}) {
         return Network.doPut('/api/users/', {
-            email,
-            password,
             username,
             description,
         });
