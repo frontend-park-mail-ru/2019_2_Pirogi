@@ -1,6 +1,6 @@
 import View from '../../libs/view.js';
 import template from './loginView.tmpl.xml';
-import { clearError, renderError, errorMessages } from "../../libs/errorMessages";
+import { clearError, renderError, errorMessages } from '../../libs/errorMessages';
 
 /** class*/
 export default class LoginView extends View {
@@ -17,7 +17,7 @@ export default class LoginView extends View {
 
         this.submitsIds = {
             loginSubmit: 'js-login',
-            registrationSubmit: 'registration'
+            registrationSubmit: 'js-register'
         };
 
         this.loginIds = {
@@ -89,11 +89,13 @@ export default class LoginView extends View {
     setEventListenersForFields(target, eventCheck, eventCallBack) {
         for (const property in target) {
             if (Object.prototype.hasOwnProperty.call(target, property)) {
+                console.log(document.getElementById(target[property]));
                 document.getElementById(target[property]).addEventListener('focusout',
                     (field) => {
+                        console.log('click');
                         if (this.localEventBus.dispatchEvent(eventCheck, field)) {
                             this.localEventBus.dispatchEvent(eventCallBack,
-                                field.name, field.value);
+                                field.target.name, field.target.value);
                         }
                     });
             }
@@ -113,7 +115,7 @@ export default class LoginView extends View {
                         }
                         if (this.localEventBus.dispatchEvent(eventCheck, fields)) {
                             this.localEventBus.dispatchEvent(eventCallBack,
-                                resultField, field.value);
+                                resultField, field.target.value);
                         }
                     });
             }
@@ -130,7 +132,7 @@ export default class LoginView extends View {
         this.setEventListenersForFields(this.loginIds,
             'checkField', 'modifyLoginData');
         // login submit
-        document.getElementById('js-login').addEventListener('click',
+        document.getElementById('js-login').addEventListener('click', () =>
             this.localEventBus.dispatchEvent('login'));
 
         // registration fields
@@ -140,7 +142,7 @@ export default class LoginView extends View {
         this.setEventListenersForDependentFields(this.registrationPasswordsIds,
             'passwordsCheck', 'modifyRegistrationData', 'password');
         // registration submit
-        document.getElementById(this.registrationIds.submit).addEventListener('click',
+        document.getElementById(this.submitsIds.registrationSubmit).addEventListener('click', () =>
             this.localEventBus.dispatchEvent('registration'));
     }
 }

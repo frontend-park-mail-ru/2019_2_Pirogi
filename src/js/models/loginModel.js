@@ -1,5 +1,5 @@
 import {validators} from '../libs/formValidation';
-import {errorMessages} from "../libs/errorMessages";
+import {errorMessages} from '../libs/errorMessages';
 import Api from '../libs/api';
 
 /**
@@ -29,7 +29,7 @@ export default class LoginModel {
             password: null
         };
 
-        this.localEventBus.addEventListener('fieldCheck',
+        this.localEventBus.addEventListener('checkField',
             this.fieldCheck.bind(this));
         this.localEventBus.addEventListener('passwordsCheck',
             this.passwordsCheck.bind(this));
@@ -46,11 +46,11 @@ export default class LoginModel {
     }
 
     fieldCheck(field) {
-        if (!validators[field.name](field.value)) {
-            this.localEventBus.dispatchEvent('renderError', field.id, errorMessages[field.name]);
+        if (!validators[field.target.name](field.target.value)) {
+            this.localEventBus.dispatchEvent('renderError', field.target.id, errorMessages[field.target.name]);
             return false;
         }
-        this.localEventBus.dispatchEvent('clearError', field.id);
+        this.localEventBus.dispatchEvent('clearError', field.target.id);
         return true;
     }
 
@@ -88,7 +88,7 @@ export default class LoginModel {
     loginCheck() {
         if (!this.dataCheck(this.loginData)) {
             this.localEventBus.dispatchEvent('loginFailed',
-                {error: 'Please correct fucked up fields.'});
+                {error: 'Please correct fields.'});
             return;
         }
         Api.login(this.loginData)
@@ -110,7 +110,7 @@ export default class LoginModel {
     registrationCheck() {
         if (!this.dataCheck(this.registrationData)) {
             this.localEventBus.dispatchEvent('registrationFailed',
-                {error: 'Please correct fucked up fields.'});
+                {error: 'Please correct fields.'});
             return;
         }
         Api.register(this.registrationData)

@@ -9,14 +9,17 @@ export const errorMessages = {
 
 export const clearError = (targetId) => {
     const element = document.getElementById(`error-${targetId}`);
-    element.parentNode.removeChild(element);
+    if (element !== null) {
+        element.parentNode.removeChild(element);
+    }
 };
 
 export const renderError = (targetId, errorMessage) => {
-  document.getElementById(`${targetId}`)
-      .insertAdjacentHTML('afterend', markupError(targetId, errorMessage));
+    clearError(targetId);
+    document.getElementById(`${targetId}`)
+        .insertAdjacentHTML('afterend', markupError(targetId, errorMessage));
 };
 
 const markupError = (targetId, errorMessage) => {
-    return `<div class="error" id="${targetId}">${errorMessage}</div>`;
+    return `<div class="error" id="\error-${targetId}\">${errorMessage}</div>`;
 };
