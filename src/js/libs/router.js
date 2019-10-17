@@ -28,7 +28,7 @@ export default class Router {
         });
 
         this.root.addEventListener('click', (event) => {
-            if ((event.target.tagName === 'A') && event.target.hostname === location.hostname ) {
+            if (event.target.tagName === 'A' && event.target.hostname === location.hostname) {
                 event.preventDefault();
                 const url = new URL(event.target);
                 this.route(event.target.pathname, url.searchParams);

@@ -29,12 +29,11 @@ export default class FilmModel {
                 if (res.ok) {
                     res.json().then(data => this.localEventBus.dispatchEvent('filmInfoOk', data));
                 } else {
-                    //TODO: правильно обработать ошибки
-                    this.localEventBus.dispatchEvent('filmInfoOk', {});
+                    this.localEventBus.dispatchEvent('filmInfoFailed');
                 }
             })
             //TODO: правильно обработать ошибки
-            .catch(() => this.localEventBus.dispatchEvent('filmInfoOk', {}) );
+            .catch(() => { console.log('Get Film Info Failed');} );
     }
     /**
      * Checks the review
