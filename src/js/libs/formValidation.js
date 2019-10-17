@@ -23,7 +23,6 @@ const validateField = (field, regExp) => {
     return regExp.test(String(field));
 };
 
-// todo: delete rest
 /**
  * Validates the username
  * @function

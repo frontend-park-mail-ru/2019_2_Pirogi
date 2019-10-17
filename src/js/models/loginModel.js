@@ -1,5 +1,5 @@
 import {validators} from '../libs/formValidation';
-import {errorMessages} from '../libs/errorMessages';
+import {errorMessages} from '../libs/constants';
 import Api from '../libs/api';
 
 /**
@@ -45,6 +45,12 @@ export default class LoginModel {
             this.registrationCheck.bind(this));
     }
 
+    /**
+     * Check fields
+     * @method
+     * @param field
+     * @returns {boolean}
+     */
     fieldCheck(field) {
         if (!validators[field.target.name](field.target.value)) {
             this.localEventBus.dispatchEvent('renderError', field.target.id, errorMessages[field.target.name]);
@@ -54,6 +60,12 @@ export default class LoginModel {
         return true;
     }
 
+    /**
+     * Check password fields
+     * @method
+     * @param fields
+     * @returns {boolean}
+     */
     passwordsCheck(fields) {
         const password = fields.password;
         const passwordClone = fields.passwordClone;
@@ -72,10 +84,22 @@ export default class LoginModel {
         return true;
     }
 
+    /**
+     * Modify current Login data
+     * @method
+     * @param target
+     * @param value
+     */
     modifyLoginData(target, value) {
         this.loginData[target] = value;
     }
 
+    /**
+     * Modify current registration value
+     * @method
+     * @param target
+     * @param value
+     */
     modifyRegistrationData(target, value) {
         this.registrationData[target] = value;
     }
@@ -83,12 +107,11 @@ export default class LoginModel {
     /**
      * Handles auth checking
      * @method
-     * @param {object} data
      */
     loginCheck() {
         if (!this.dataCheck(this.loginData)) {
             this.localEventBus.dispatchEvent('loginFailed',
-                {error: 'Пожалуйста, заполните поля корректно и повторите отправку формы.'});
+                {error: errorMessages.form});
             return;
         }
         Api.login(this.loginData)
@@ -104,13 +127,12 @@ export default class LoginModel {
 
     /**
      * Handles register checking
-     * @param {object} data
      * @method
      */
     registrationCheck() {
         if (!this.dataCheck(this.registrationData)) {
             this.localEventBus.dispatchEvent('registrationFailed',
-                {error: 'Пожалуйста, заполните поля корректно и повторите отправку формы.'});
+                {error: errorMessages.form});
             return;
         }
         Api.register(this.registrationData)
@@ -124,10 +146,15 @@ export default class LoginModel {
             });
     }
 
+    /**
+     * Check all fields to be right
+     * @method
+     * @param data
+     * @returns {boolean}
+     */
     dataCheck(data) {
         for (const property in data) {
-            if (Object.prototype.hasOwnProperty.call(data, property)
-                && !data[property]) {
+            if (!data[property]) {
                 return false;
             }
         }

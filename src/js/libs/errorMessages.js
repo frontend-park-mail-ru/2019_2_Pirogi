@@ -1,12 +1,7 @@
-
-export const errorMessages = {
-    email: 'Некорректный email',
-    name: 'Имя может состоять из букв a-z и цифр. Минимальная длина 5 символов.',
-    password: 'Пароль должен состоять не менее чем из 8 символов.',
-    passwordMatch: 'Пароли не совпадают!',
-    unknown: 'Неизвестная ошибка.'
-};
-
+/**
+ * Clear errors messages
+ * @param targetId
+ */
 export const clearError = (targetId) => {
     const element = document.getElementById(`error-${targetId}`);
     if (element !== null) {
@@ -14,12 +9,23 @@ export const clearError = (targetId) => {
     }
 };
 
+/**
+ * Render error message
+ * @param targetId
+ * @param errorMessage
+ */
 export const renderError = (targetId, errorMessage) => {
     clearError(targetId);
     document.getElementById(`${targetId}`)
         .insertAdjacentHTML('afterend', markupError(targetId, errorMessage));
 };
 
+/**
+ * Create error message element
+ * @param targetId
+ * @param errorMessage
+ * @returns {string}
+ */
 const markupError = (targetId, errorMessage) => {
     return `<div class="error" id="\error-${targetId}\">${errorMessage}</div>`;
 };

@@ -1,10 +1,16 @@
 import View from '../../libs/view.js';
 import template from './loginView.tmpl.xml';
-import { clearError, renderError, errorMessages } from '../../libs/errorMessages';
+import { clearError, renderError} from '../../libs/errorMessages';
+import {errorMessages} from '../../libs/constants';
 
-/** class*/
+/**
+ * Create a Login view
+ * @class
+ * @type {LoginView}
+ */
 export default class LoginView extends View {
     /**
+   * @constructor
    * @param {object} localEventBus
    * @param {object} globalEventBus
    * @param {object} root
@@ -52,12 +58,16 @@ export default class LoginView extends View {
             renderError.bind(this));
     }
 
-    /** function */
+    /**
+     * Handle login event
+     */
     login() {
         this.localEventBus.dispatchEvent('loginCheck');
     }
 
-    /** function */
+    /**
+     * Handle login errors event
+     */
     loginFailed(errors) {
         this.localEventBus.dispatchEvent('clearError', this.submitsIds.loginSubmit);
         if (Object.prototype.hasOwnProperty.call(errors,'error')) {
@@ -69,12 +79,18 @@ export default class LoginView extends View {
         }
     }
 
-    /** function */
+    /**
+     * Handle registration event
+     * @method
+     */
     registration() {
         this.localEventBus.dispatchEvent('registrationCheck');
     }
 
-    /** function */
+    /**
+     * Handle registration error event
+     * @method
+     */
     registrationFailed(errors) {
         this.localEventBus.dispatchEvent('clearError', this.submitsIds.registrationSubmit);
         if (Object.prototype.hasOwnProperty.call(errors,'error')) {
@@ -86,43 +102,52 @@ export default class LoginView extends View {
         }
     }
 
+    /**
+     * Set event listeners for fields
+     * @method
+     * @param target
+     * @param eventCheck
+     * @param eventCallBack
+     */
     setEventListenersForFields(target, eventCheck, eventCallBack) {
         for (const property in target) {
-            if (Object.prototype.hasOwnProperty.call(target, property)) {
-                console.log(document.getElementById(target[property]));
-                document.getElementById(target[property]).addEventListener('focusout',
-                    (field) => {
-                        console.log('click');
-                        if (this.localEventBus.dispatchEvent(eventCheck, field)) {
-                            this.localEventBus.dispatchEvent(eventCallBack,
-                                field.target.name, field.target.value);
-                        }
-                    });
-            }
-        }
-    }
-
-    setEventListenersForDependentFields(target, eventCheck, eventCallBack, resultField) {
-        for (const property in target) {
-            if (Object.prototype.hasOwnProperty.call(target, property)) {
-                document.getElementById(target[property]).addEventListener('focusout',
-                    (field) => {
-                        let fields = {};
-                        for (const property in target) {
-                            if (Object.prototype.hasOwnProperty.call(target, property)) {
-                                fields[property] = document.getElementById(target[property]);
-                            }
-                        }
-                        if (this.localEventBus.dispatchEvent(eventCheck, fields)) {
-                            this.localEventBus.dispatchEvent(eventCallBack,
-                                resultField, field.target.value);
-                        }
-                    });
-            }
+            document.getElementById(target[property]).addEventListener('focusout', (field) => {
+                if (this.localEventBus.dispatchEvent(eventCheck, field)) {
+                    this.localEventBus.dispatchEvent(eventCallBack,
+                        field.target.name, field.target.value);
+                }
+            });
         }
     }
 
     /**
+     * Set event listeners fir depended fields
+     * @method
+     * @param target
+     * @param eventCheck
+     * @param eventCallBack
+     * @param resultField
+     */
+    setEventListenersForDependentFields(target, eventCheck, eventCallBack, resultField) {
+        for (const property in target) {
+            document.getElementById(target[property]).addEventListener('focusout', (field) => {
+                let fields = {};
+                for (const property in target) {
+                    if (Object.prototype.hasOwnProperty.call(target, property)) {
+                        fields[property] = document.getElementById(target[property]);
+                    }
+                }
+                if (this.localEventBus.dispatchEvent(eventCheck, fields)) {
+                    this.localEventBus.dispatchEvent(eventCallBack,
+                        resultField, field.target.value);
+                }
+            });
+        }
+    }
+
+    /**
+     * Rendering login page
+     * @method
    * @param {object} data
    */
     render(data = {}) {

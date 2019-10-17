@@ -1,5 +1,5 @@
 import Api from '../libs/api';
-import {validateEmail, validateName, validatePassword} from '../libs/formValidation';
+
 
 
 /**
