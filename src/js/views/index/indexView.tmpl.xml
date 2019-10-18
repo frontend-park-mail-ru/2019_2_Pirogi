@@ -6,7 +6,7 @@
                 <div class="rec-films-bar__bar">
                     <div class="film-card">
                         <div class="film-card__img">
-                            <a href="/film/?filmID=1">  a  </a>
+                            <a href="/film?filmID=1">  a  </a>
                             <img src="/src/images/film-card.jpeg" alt="film-card"/>
                             <div class="title film-card__info">
                                 ВЕНОМ
@@ -15,7 +15,7 @@
                     </div>
                     <div class="film-card">
                         <div class="film-card__img">
-                            <a href="/film/?filmID=1">  a  </a>
+                            <a href="/film?filmID=1">  a  </a>
                             <img    src="/src/images/film-card.jpeg" alt="film-card"/>
                             <div class="title film-card__info">
                                 ВЕНОМ
@@ -24,7 +24,7 @@
                     </div>
                     <div class="film-card">
                         <div class="film-card__img">
-                            <a href="/film/?filmID=1">  a  </a>
+                            <a href="/film?filmID=1">  a  </a>
                             <img    src="/src/images/film-card.jpeg" alt="film-card"/>
                             <div class="title film-card__info">
                                 ВЕНОМ
@@ -33,7 +33,7 @@
                     </div>
                     <div class="film-card">
                         <div class="film-card__img">
-                            <a href="/film/?filmID=1">  a  </a>
+                            <a href="/film?filmID=1">  a  </a>
                             <img    src="/src/images/film-card.jpeg" alt="film-card"/>
                             <div class="title film-card__info">
                                 ВЕНОМ
@@ -42,7 +42,7 @@
                     </div>
                     <div class="film-card">
                     <div class="film-card__img">
-                        <a href="/film/?filmID=1">  a  </a>
+                        <a href="/film?filmID=1">  a  </a>
                         <img    src="/src/images/film-card.jpeg" alt="film-card"/>
                         <div class="title film-card__info">
                             ВЕНОМ
@@ -57,34 +57,34 @@
                 <div class="title">Новинки</div>
                 <div class="films-bar">
                     <div class="film-bar__card">
-                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <a href="/film?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <a href="/film?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <a href="/film?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <a href="/film?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <a href="/film?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <a href="/film?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <a href="/film?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <a href="/film?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <a href="/film?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
                     <div class="film-bar__card">
-                        <a href="/film/?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <a href="/film?filmID=1"></a><img src="/src/images/film-card.jpeg" alt="film-card"/>
                     </div>
 
 

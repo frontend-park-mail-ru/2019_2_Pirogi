@@ -1,7 +1,7 @@
 import View from '../../libs/view.js';
 import template from './searchResult.tmpl.xml';
-import genrestmpl from './genresView.tmpl.xml'
-import ratingtml from './ratingsView.tmpl.xml'
+import genrestmpl from './genresView.tmpl.xml';
+import ratingtml from './ratingsView.tmpl.xml';
 import EventBus from '../../libs/eventBus';
 
 

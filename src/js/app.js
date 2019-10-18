@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     router.add('/login', loginController.loginView);
     router.add('/profile', profileController.profileView);
-    router.add('/film/', filmController.filmView);
+    router.add('/film', filmController.filmView);
     router.add('/search', searchResultsController.searchResultsView);
     router.add('/admin', adminController.adminView);
     router.add('/', indexController.indexView);

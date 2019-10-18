@@ -85,15 +85,6 @@ export default class Router {
             });
         }
 
-        /*if (path === '/film/') {
-            const route = this.routes.get(path);
-            this.currentPath = path;
-            route.view.render({filmID: searchParams.get('filmID')});
-            return;
-        }*/
-
-        debugger
-
         this.currentPath = path + searchParams;
         route.view.render(route.data);
     }
