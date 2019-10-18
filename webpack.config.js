@@ -1,7 +1,14 @@
+const path = require('path');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 
 module.exports = {
     entry: './src/js/app.js',
     mode: 'development',
+    plugins: [
+        new ServiceWorkerWebpackPlugin({
+            entry: path.join(__dirname, 'src/js/sw.js'),
+        }),
+    ],
     module: {
         rules: [
             {
