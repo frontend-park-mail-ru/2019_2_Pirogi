@@ -5,33 +5,27 @@
             <div class="posters">
                 <!--<img class="film__img" src="/images/films/{film.image}" alt="название фильма"/>-->
                 <img class="posters__img posters__img_left" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                <img class="posters__img posters__img_active" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                <img class="posters__img posters__img_active" src="/src/images/{film.image}" alt="название фильма"/>
                 <img class="posters__img posters__img_right" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
             </div>
             <div class="film__description">
                 <!--<div class="title"></div>-->
                 <div class="title film__title"><fest:value>film.title</fest:value></div>
                 <div>
-                    <div class="film__decription_main">Рейтинг: 4.72</div>
-                    <div class="film__decription_main">Жанр: драма</div>
-                    <div class="film__decription_main">Год: 2019<fest:value>film.date</fest:value></div>
+                    <div class="film__decription_main">Рейтинг: <fest:value>film.title</fest:value></div>
+                    <div class="film__decription_main">Жанры: драма</div>
+                    <div class="film__decription_main"><fest:value>film.date</fest:value></div>
                     <div class="film__decription_main">Актеры: Том Круз, Артем Бакулев, Вася Пупкин, Данила Козловский</div>
                     <div class="film__decription_main">Режиссеры: Том Круз, Артем Бакулев, Вася Пупкин, Данила Козловский</div>
                 </div>
                 <div>
-                    очень крутой фильм, всем советую
-                    прям вообще огонь 
-                    оваыв ылдвофы ыфдводц воааыурук явспявяврау рсваыу рвпяяы вяруку швчл яоывыоы
-                    ывшв 
-                    привет привет привет привет это прям крутой фильм очень крутой прям вообще прям офигенный Да
-                    такой же офигенный как этот текст 
                     <fest:value>film.description</fest:value>
                 </div>
                 <hr/>
             </div>
         </div>
         <div class="user-block">
-            <div class="button user-block__button">Купить билет</div>
+            <div disabled="true" class="button user-block__button">Купить билет</div>
             <div class="button user-block__button">В список</div>
             <div class="button user-block__button">
                 stars

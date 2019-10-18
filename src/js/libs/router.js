@@ -24,7 +24,7 @@ export default class Router {
      */
     start() {
         window.addEventListener('popstate', () => {
-            this.route(window.location.pathname);
+            this.route(window.location.pathname, window.location.search);
         });
 
         this.root.addEventListener('click', (event) => {
@@ -34,7 +34,7 @@ export default class Router {
             }
         });
 
-        this.route(window.location.pathname);
+        this.route(window.location.pathname, window.location.search);
     }
 
 
@@ -62,7 +62,7 @@ export default class Router {
             return;
         }
 
-        if (this.currentPath === path) {
+        if (this.currentPath === path + searchParams) {
             return;
         }
 
@@ -72,12 +72,13 @@ export default class Router {
             currentData.view.hide();
         }
 
-        if (window.location.pathname !== path) {
-            window.history.pushState(null, null, path);
+        if (window.location.href !== path + searchParams) {
+            window.history.pushState(null, null, path + searchParams);
         }
 
         const route = this.routes.get(path);
         if (searchParams !== '') {
+            route.data = {};
             const urlSearchRarams = new URLSearchParams(searchParams);
             urlSearchRarams.forEach((value, name) => {
                 route.data[name] = value;

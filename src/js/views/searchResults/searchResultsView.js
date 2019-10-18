@@ -1,5 +1,7 @@
 import View from '../../libs/view.js';
 import template from './searchResult.tmpl.xml';
+import genrestmpl from './genresView.tmpl.xml'
+import ratingtml from './ratingsView.tmpl.xml'
 import EventBus from '../../libs/eventBus';
 
 
@@ -29,6 +31,13 @@ export default class SearchResultsView extends View {
      */
     render(data = {}) {
         console.log('rendering searchResults page');
+        if (data['films'] === '') {
+            super.template = genrestmpl;
+        } else if (data['ratings'] === '') {
+            super.template = ratingtml;
+        } else {
+            super.template = template;
+        }
         super.render(data);
     }
 }
