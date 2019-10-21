@@ -6,6 +6,12 @@ const regExpressions = {
     password: /[!-~]{8,}/
 };
 
+export const validators = {
+    email: (email) => validateField(email, regExpressions.email),
+    name: (name) => validateField(name, regExpressions.name),
+    password: (password) => validateField(password, regExpressions.password)
+};
+
 /**
  * Validates the chosen field
  * @function
@@ -16,7 +22,6 @@ const regExpressions = {
 const validateField = (field, regExp) => {
     return regExp.test(String(field));
 };
-
 
 /**
  * Validates the username
