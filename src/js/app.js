@@ -11,6 +11,18 @@ import Router from './libs/router.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Проверим, что эта технология доступна в браузере
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./dist/sw.js')
+            .then((reg) => {
+                // регистрация сработала
+                console.log('Registration succeeded. Scope is ' + reg.scope);
+            }).catch((error) => {
+                // регистрация прошла неудачно
+                console.log('Registration failed with ' + error);
+            });
+    }
+
     const globalEventBus = new EventBus([{}]);
     const header = document.querySelector('header');
     const body = document.querySelector('.js-append-tmpl');
