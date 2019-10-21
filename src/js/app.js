@@ -9,6 +9,7 @@ import AdminController from './controllers/adminController.js';
 import NavbarController from './controllers/navbarController.js';
 import Router from './libs/router.js';
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const globalEventBus = new EventBus([{}]);
     const header = document.querySelector('header');
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     router.add('/login', loginController.loginView);
     router.add('/profile', profileController.profileView);
-    router.add('/film/1', filmController.filmView, { filmID: 1 });
+    router.add('/film', filmController.filmView);
     router.add('/search', searchResultsController.searchResultsView);
     router.add('/admin', adminController.adminView);
     router.add('/', indexController.indexView);

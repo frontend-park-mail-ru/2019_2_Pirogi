@@ -1,0 +1,343 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
+    <main class="main">
+    <div class="genres">
+        <div class="nav-block">
+            <div class="title"> Выбрать жанр </div>
+            <input class="input" type="text" placeholder="жанр не выбран"/>
+            <div class="nav-block__list">
+                <a href="/search" class="button">ужасы</a>
+                <a href="/search" class="button">триллеры</a>
+                <a href="/search" class="button">фантастика</a>
+                <a href="/search" class="button">трагедия</a>
+                <a href="/search" class="button">фентези</a>
+                <a href="/search" class="button">документальный</a>
+                <a href="/search" class="button">ужасы</a>
+                <a href="/search" class="button">триллеры</a>
+                <a href="/search" class="button">фантастика</a>
+                <a href="/search" class="button">трагедия</a>
+                <a href="/search" class="button">фентези</a>
+                <a href="/search" class="button">документальный</a>
+                <a href="/search" class="button">ужасы</a>
+                <a href="/search" class="button">триллеры</a>
+                <a href="/search" class="button">фантастика</a>
+                <a href="/search" class="button">трагедия</a>
+                <a href="/search" class="button">фентези</a>
+                <a href="/search" class="button">документальный</a>
+                <a href="/search" class="button">ужасы</a>
+                <a href="/search" class="button">триллеры</a>
+                <a href="/search" class="button">фантастика</a>
+                <a href="/search" class="button">трагедия</a>
+                <a href="/search" class="button">фентези</a>
+                <a href="/search" class="button">документальный</a>
+            </div>
+        </div>
+
+        <div class="genres-index">
+            <div class="genre-films-bar">
+                <div class="title"><a>Триллер</a></div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="genre-films-bar genre-films-bar_accent">
+                <div class="title"><a>Фантастика</a></div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="genre-films-bar">
+                <div class="title"><a>Ужасы</a></div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="genre-films-bar genre-films-bar_accent">
+                <div class="title"><a>Романтика</a></div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <div class="film-card__img">
+                        <a href=" /film?filmID=1">  a  </a>
+                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
+                        <div class="title film-card__info">
+                            ВЕНОМ
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </main>
+</fest:template>

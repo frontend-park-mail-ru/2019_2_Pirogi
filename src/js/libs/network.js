@@ -1,4 +1,5 @@
 const MY_PATH = 'https://cinsear.online';
+//const MY_PATH = '127.0.0.1:8000';
 /**
  * Creates a new Network object
  * @class

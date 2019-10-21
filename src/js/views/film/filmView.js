@@ -27,8 +27,14 @@ export default class FilmView extends View {
             this.addMyReview.bind(this));
         this.localEventBus.addEventListener('filmInfoOk',
             this.filmInfoOk.bind(this));
+        this.localEventBus.addEventListener('filmInfoFailed',
+            this.filmInfoFailed.bind(this));
     }
 
+    filmInfoFailed() {
+        console.log('film info failed');
+    }
+    
     filmInfoOk(data = {}) {
         super.render(data);
     }
