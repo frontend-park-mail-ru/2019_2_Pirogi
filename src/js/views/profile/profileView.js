@@ -148,15 +148,11 @@ export default class ProfileView extends View {
     onEdit() {
         console.log('edit profile info');
 
-        this.loginInput = document.querySelector('.js-login-input');
         this.nicknameInput = document.querySelector('.js-nickname-input');
-        this.passwordInput = document.querySelector('.js-password-input');
         this.descriptionInput = document.querySelector('.js-description-textarea');
 
         this.editData = {
-            name: this.nicknameInput.value,
-            email: this.loginInput.value,
-            password: this.passwordInput.value,
+            username: this.nicknameInput.value,
             description: this.descriptionInput.value,
         };
 

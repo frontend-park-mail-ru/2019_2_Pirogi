@@ -79,15 +79,11 @@ export default class Api {
      * PUT /api/users/
      * @static
      * @param {string} email
-     * @param {string} password
-     * @param {string} name
      * @param {string} description
      * @returns {Promise<Response>}
      */
-    static editProfile({email, password, username, description}) {
+    static editProfile({username, description}) {
         return Network.doPut('/api/users/', {
-            email,
-            password,
             username,
             description,
         });
