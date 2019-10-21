@@ -77,8 +77,8 @@ export default class Router {
         }
 
         const route = this.routes.get(path);
+        route.data = {};
         if (searchParams !== '') {
-            route.data = {};
             const urlSearchRarams = new URLSearchParams(searchParams);
             urlSearchRarams.forEach((value, name) => {
                 route.data[name] = value;
