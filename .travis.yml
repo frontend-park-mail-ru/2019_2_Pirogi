@@ -5,9 +5,9 @@ before_script:
 - npm install
 script:
 - npm run build
-- chmod 600 ./2019_2_Pirogi.pem
 - ssh-keyscan -H 167.71.5.55 >> ~/.ssh/known_hosts
-- scp -i ./2019_2_Pirogi.pem -r ./dist/* root@167.71.5.55:/cinsear/frontend/dist
+- chmod 600 ~/2019_2_Pirogi.pem
+- scp -i ~/2019_2_Pirogi.pem -r ./dist/* root@167.71.5.55:/cinsear/frontend/dist
 before_install:
 - openssl aes-256-cbc -K $encrypted_89768e0cd405_key -iv $encrypted_89768e0cd405_iv
-  -in 2019_2_Pirogi.pem.enc -out ./2019_2_Pirogi.pem -d
+  -in 2019_2_Pirogi.pem.enc -out ~/2019_2_Pirogi.pem -d
