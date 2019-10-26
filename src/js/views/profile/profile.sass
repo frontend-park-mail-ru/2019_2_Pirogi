@@ -21,10 +21,27 @@
   display: flex
   align-items: center
   flex-direction: column
-  width: 50%
+  +shadow-dark
+  width: 60%
 
-.profile__reviews .review
-  margin-top: 2*$indent
+.profile__reviews
+  .review
+    padding: 0
+    border-radius: 0
+    display: flex
+    border: 2px solid $color-lightest
+    .review__text
+      width: 80%
+      padding: 2*$indent
+    .review__likes
+      width: 20%
+      background-color: $color-accent
+      color: $color-lightest
+      display: flex
+      justify-content: center
+      align-items: center
+    &:hover
+      border: 2px solid $color-accent
 
 .profile-edit-form
   display: flex
@@ -40,3 +57,23 @@
 .profile__button
   margin-top: $indent
   margin-bottom: $indent
+
+.profile__bar
+  width: 100%
+  display: flex
+
+  .button
+    width: 50%
+    padding: 2*$indent 0
+    border-radius: 0
+    color: $color-darkest
+    background-color: $color-light-90
+    border: 0
+    &:hover
+      background-color: $color-accent
+      color: $color-lightest
+  .button_active
+    color: $color-darkest
+    background-color: $color-lightest
+    box-shadow: 0 -5px $color-accent
+    opacity: 1

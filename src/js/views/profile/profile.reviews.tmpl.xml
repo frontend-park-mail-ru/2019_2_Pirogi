@@ -1,70 +1,85 @@
 <?xml version="1.0"?>
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
     <div class="profile__bar">
-        <input type="button" class="button button_active" value="рецензии"/>
-        <input type="button" class="button" value="оценки"/>
+        <input type="button" disabled="true" class="button button_active " value="рецензии"/>
         <input type="button" class="button" value="списки"/>
     </div>
     <div class="profile__reviews">
         <div class="profile__reviews">
             <div class="review review__positive">
-                <a href="/film">Побег из Шоушенка</a>
-                <div class="title">Review's title</div>
-                <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget sem at nulla malesuada pulvinar vitae
-                    non
-                    felis. Aenean vel tempor risus. Mauris congue, neque non imperdiet pharetra, tellus nulla molestie dui, non
-                    porttitor dolor nulla a turpis. Duis rhoncus erat vitae neque ullamcorper cursus. Morbi suscipit lectus
-                    metus,
-                    in iaculis nulla pretium in. Aliquam vestibulum hendrerit nisi posuere commodo. Praesent sed turpis mi.
-                    Proin
-                    mattis ipsum at arcu mattis, a accumsan est mollis. Aliquam quis metus sodales, auctor metus quis, pharetra
-                    libero. Cras laoreet rhoncus velit ac viverra. Integer laoreet sagittis nibh, at convallis leo ullamcorper
-                    id.
-                    Curabitur porta est purus, et interdum quam cursus vel. Fusce sodales molestie turpis id rutrum. Vivamus ut
-                    magna a neque viverra rutrum ut eu quam. Donec convallis nunc sed sem suscipit fringilla.
+                <div class="review__text">
+                    <div> К фильму: <a href="/film">Побег из Шоушенка</a></div>
+                    <div class="title">Review's title</div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget sem at nulla malesuada pulvinar vitae
+                        non
+                        felis. Aenean vel tempor risus. Mauris congue, neque non imperdiet pharetra, tellus nulla molestie dui, non
+                        porttitor dolor nulla a turpis. Duis rhoncus erat vitae neque ullamcorper cursus. Morbi suscipit lectus
+                        metus,
+                        in iaculis nulla pretium in. Aliquam vestibulum hendrerit nisi posuere commodo. Praesent sed turpis mi.
+                        Proin
+                        mattis ipsum at arcu mattis, a accumsan est mollis. Aliquam quis metus sodales, auctor metus quis, pharetra
+                        libero. Cras laoreet rhoncus velit ac viverra. Integer laoreet sagittis nibh, at convallis leo ullamcorper
+                        id.
+                        Curabitur porta est purus, et interdum quam cursus vel. Fusce sodales molestie turpis id rutrum. Vivamus ut
+                        magna a neque viverra rutrum ut eu quam. Donec convallis nunc sed sem suscipit fringilla.
+                    </div>
+                </div>
+                <div class="review__likes">
+                    199 likes
                 </div>
             </div>
         </div>
         <div class="profile__reviews">
             <div class="review review__positive">
-                <a href="/film">Побег из Шоушенка</a>
-                <div class="title">Review's title</div>
-                <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget sem at nulla malesuada pulvinar vitae
-                    non
-                    felis. Aenean vel tempor risus. Mauris congue, neque non imperdiet pharetra, tellus nulla molestie dui, non
-                    porttitor dolor nulla a turpis. Duis rhoncus erat vitae neque ullamcorper cursus. Morbi suscipit lectus
-                    metus,
-                    in iaculis nulla pretium in. Aliquam vestibulum hendrerit nisi posuere commodo. Praesent sed turpis mi.
-                    Proin
-                    mattis ipsum at arcu mattis, a accumsan est mollis. Aliquam quis metus sodales, auctor metus quis, pharetra
-                    libero. Cras laoreet rhoncus velit ac viverra. Integer laoreet sagittis nibh, at convallis leo ullamcorper
-                    id.
-                    Curabitur porta est purus, et interdum quam cursus vel. Fusce sodales molestie turpis id rutrum. Vivamus ut
-                    magna a neque viverra rutrum ut eu quam. Donec convallis nunc sed sem suscipit fringilla.
+                <div class="review__text">
+                    <div> К фильму: <a href="/film">Побег из Шоушенка</a></div>
+                    <div class="title">Review's title</div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget sem at nulla malesuada pulvinar vitae
+                        non
+                        felis. Aenean vel tempor risus. Mauris congue, neque non imperdiet pharetra, tellus nulla molestie dui, non
+                        porttitor dolor nulla a turpis. Duis rhoncus erat vitae neque ullamcorper cursus. Morbi suscipit lectus
+                        metus,
+                        in iaculis nulla pretium in. Aliquam vestibulum hendrerit nisi posuere commodo. Praesent sed turpis mi.
+                        Proin
+                        mattis ipsum at arcu mattis, a accumsan est mollis. Aliquam quis metus sodales, auctor metus quis, pharetra
+                        libero. Cras laoreet rhoncus velit ac viverra. Integer laoreet sagittis nibh, at convallis leo ullamcorper
+                        id.
+                        Curabitur porta est purus, et interdum quam cursus vel. Fusce sodales molestie turpis id rutrum. Vivamus ut
+                        magna a neque viverra rutrum ut eu quam. Donec convallis nunc sed sem suscipit fringilla.
+                    </div>
+                </div>
+                <div class="review__likes">
+                    199 likes
                 </div>
             </div>
         </div>
         <div class="profile__reviews">
             <div class="review review__positive">
-                <a href="/film">Побег из Шоушенка</a>
-                <div class="title">Review's title</div>
-                <div>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget sem at nulla malesuada pulvinar vitae
-                    non
-                    felis. Aenean vel tempor risus. Mauris congue, neque non imperdiet pharetra, tellus nulla molestie dui, non
-                    porttitor dolor nulla a turpis. Duis rhoncus erat vitae neque ullamcorper cursus. Morbi suscipit lectus
-                    metus,
-                    in iaculis nulla pretium in. Aliquam vestibulum hendrerit nisi posuere commodo. Praesent sed turpis mi.
-                    Proin
-                    mattis ipsum at arcu mattis, a accumsan est mollis. Aliquam quis metus sodales, auctor metus quis, pharetra
-                    libero. Cras laoreet rhoncus velit ac viverra. Integer laoreet sagittis nibh, at convallis leo ullamcorper
-                    id.
-                    Curabitur porta est purus, et interdum quam cursus vel. Fusce sodales molestie turpis id rutrum. Vivamus ut
-                    magna a neque viverra rutrum ut eu quam. Donec convallis nunc sed sem suscipit fringilla.
+                <div class="review__text">
+                    <div> К фильму: <a href="/film">Побег из Шоушенка</a></div>
+                    <div class="title">Review's title</div>
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget sem at nulla malesuada pulvinar vitae
+                        non
+                        felis. Aenean vel tempor risus. Mauris congue, neque non imperdiet pharetra, tellus nulla molestie dui, non
+                        porttitor dolor nulla a turpis. Duis rhoncus erat vitae neque ullamcorper cursus. Morbi suscipit lectus
+                        metus,
+                        in iaculis nulla pretium in. Aliquam vestibulum hendrerit nisi posuere commodo. Praesent sed turpis mi.
+                        Proin
+                        mattis ipsum at arcu mattis, a accumsan est mollis. Aliquam quis metus sodales, auctor metus quis, pharetra
+                        libero. Cras laoreet rhoncus velit ac viverra. Integer laoreet sagittis nibh, at convallis leo ullamcorper
+                        id.
+                        Curabitur porta est purus, et interdum quam cursus vel. Fusce sodales molestie turpis id rutrum. Vivamus ut
+                        magna a neque viverra rutrum ut eu quam. Donec convallis nunc sed sem suscipit fringilla.
+                    </div>
+                </div>
+                <div class="review__likes">
+                    199 likes
                 </div>
             </div>
         </div>
+
     </div>
 </fest:template>
