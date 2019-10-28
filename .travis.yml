@@ -9,7 +9,7 @@ script:
 - npm run build
 - ls
 - pwd
-- scp -i ~/2019_2_Pirogi.pem -r ./dist/* root@167.71.5.55:/cinsear/frontend/dist
+- scp -v -i ~/2019_2_Pirogi.pem -r ./dist/* root@167.71.5.55:/cinsear/frontend/dist
 before_install:
 - openssl aes-256-cbc -K $encrypted_89768e0cd405_key -iv $encrypted_89768e0cd405_iv
   -in 2019_2_Pirogi.pem.enc -out ~/2019_2_Pirogi.pem -d
