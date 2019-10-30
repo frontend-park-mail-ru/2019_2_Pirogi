@@ -126,8 +126,12 @@ export default class ProfileView extends View {
     }
 
     onListButtonClicked() {
-
         this.renderWall(listTmpl);
+        this.saveButton = document.querySelector('.js-reviews-button');
+        this.saveButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('backButtonClicked');
+        });
+
     }
 
     /**
@@ -138,6 +142,14 @@ export default class ProfileView extends View {
         this.editButton.disabled = false;
 
         this.renderWall(reviewsTmpl);
+        this.editButton = document.querySelector('.js-edit-button');
+        this.editButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('editButtonClicked');
+        });
+        this.listButton = document.querySelector('.js-list-button');
+        this.listButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('listButtonClicked');
+        });
     }
 
     /**

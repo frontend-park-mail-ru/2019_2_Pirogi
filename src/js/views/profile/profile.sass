@@ -9,11 +9,12 @@
 
 // TODO: Что-то сделать с аватаркой, резать на стороне сервера?
 .profile__photo
-  width: 100%
+  width: 30vh
+  height: 40vh
   border-radius: 2*$indent
 
 .profile__info
-  max-width: 20%
+  max-width: 25%
   text-align: center
 
 .profile__wall
@@ -22,7 +23,7 @@
   align-items: center
   flex-direction: column
   +shadow-dark
-  width: 60%
+  width: 65%
 
 .profile__reviews
   .review
@@ -48,13 +49,18 @@
   flex-direction: column
   align-items: center
   text-align: center
+  font-size: $font-size-medium
   padding: 2*$indent
   +available
+  .profile-edit-form__avatar
+    display: flex
+  .profile-edit-form__text
+    font-family: $font-medium
 
 .profile-edit-form  *
   +available
   margin: $indent
-  display: flex
+
 
 .profile__button
   margin-top: $indent
@@ -98,10 +104,8 @@
     padding:  $indent
     font-size: $font-size-medium
   .film-list__item_rose
-    background-color: $color-accent-25
-  .hr
-    height: 3px
-    background-color: $color-accent-50
+    background-color: $color-accent-10
+
 
 
 

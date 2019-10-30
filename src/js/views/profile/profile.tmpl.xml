@@ -3,19 +3,25 @@
     <main class="main">
         <div class="profile">
             <div class="profile__info"> <!-- to center this section or whatever -->
-                <img class="profile__photo" alt="username" src="/images/users/{params.image}"/>
+                <!--<img class="profile__photo" alt="username" src="/images/users/{params.image}"/>-->
+                <img class="profile__photo" alt="username" src="src/images/guy.jpeg"/>
                 <div class="profile__info-details list"> <!-- img -->
                     <div class="list__item">
-                        <div class="title"><fest:value>params.username</fest:value></div>
+                        <div class="title">Vasya<fest:value>params.username</fest:value></div>
+                        <div>
+                            Самый модный чел на районе
+                            <fest:value>params.description</fest:value>
+                        </div>
                     </div>
                     <div class="list__item">
                         <div class="hr"></div>
                         <div>рейтинг на сайте:</div>
-                        <div class="title"> <fest:value>params.rating</fest:value></div>
+                        <div class="title"> 4.5 <fest:value>params.rating</fest:value></div>
                         <div class="hr"></div>
-                        <div></div>
-                        рецензий:
+                        <div> рецензий:</div>
                         <div class="title">2</div>
+                        <div> зарегестрирован:</div>
+                        <div class="title">20.01.2012</div>
                         <div class="hr"></div>
                     </div>
                     <div class="list__item">
