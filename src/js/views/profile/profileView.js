@@ -2,6 +2,7 @@ import View from '../../libs/view.js';
 import template from './profile.tmpl.xml';
 import reviewsTmpl from './profile.reviews.tmpl.xml';
 import editTmpl from './profile.edit.tmpl.xml';
+import listTmpl from './profile.list.tmpl.xml';
 
 
 /**
@@ -31,6 +32,8 @@ export default class ProfileView extends View {
 
         this.localEventBus.addEventListener('editButtonClicked',
             this.onEditButtonClicked.bind(this));
+        this.localEventBus.addEventListener('listButtonClicked',
+            this.onListButtonClicked.bind(this));
         this.localEventBus.addEventListener('saveButtonClicked',
             this.onEdit.bind(this));
         this.localEventBus.addEventListener('editOk',
@@ -61,6 +64,11 @@ export default class ProfileView extends View {
         this.editButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('editButtonClicked');
         });
+        this.listButton = document.querySelector('.js-list-button');
+        this.listButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('listButtonClicked');
+        });
+
     }
 
     getInfoFailed(data) {
@@ -115,6 +123,11 @@ export default class ProfileView extends View {
         this.backButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('backButtonClicked');
         });
+    }
+
+    onListButtonClicked() {
+
+        this.renderWall(listTmpl);
     }
 
     /**

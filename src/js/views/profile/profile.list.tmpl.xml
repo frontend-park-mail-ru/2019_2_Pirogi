@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+    <div class="profile__bar">
+        <input type="button" class="button" value="рецензии"/>
+        <input type="button" disabled="true" class="button button_active" value="списки"/>
+    </div>
+    <div class="profile__lists">
+        <div class="film-list">
+            <div class="title film-list__title">
+                Хочу посмотреть
+            </div>
+
+            <div class="film-list__item film-list__item_rose"> Веном </div>
+            <div class="film-list__item"> Матрица </div>
+            <div class="film-list__item film-list__item_rose"> Матрица </div>
+            <div class="film-list__item"> Матрица </div>
+            <div class="film-list__item film-list__item_rose"> Матрица </div>
+            <div class="film-list__item"> Инсургент </div>
+            <div class="hr"></div>
+        </div>
+        <div class="film-list">
+            <div class="title film-list__title">
+                Посмотрел
+            </div>
+
+            <div class="film-list__item film-list__item_rose"> Веном </div>
+            <div class="film-list__item"> Матрица </div>
+            <div class="film-list__item film-list__item_rose"> Матрица </div>
+            <div class="hr"></div>
+        </div>
+        <div class="film-list">
+            <div class="title film-list__title">
+                Понравилось
+            </div>
+
+            <div class="film-list__item film-list__item_rose"> Веном </div>
+            <div class="film-list__item"> Матрица </div>
+            <div class="film-list__item film-list__item_rose"> Матрица </div>
+            <div class="film-list__item"> Матрица </div>
+            <div class="hr"></div>
+        </div>
+        <div class="film-list">
+            <div class="title film-list__title">
+                Мой личный топ
+            </div>
+
+            <div class="film-list__item film-list__item_rose"> Веном </div>
+            <div class="film-list__item"> Матрица </div>
+            <div class="hr"></div>
+        </div>
+    </div>
+</fest:template>

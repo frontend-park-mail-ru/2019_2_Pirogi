@@ -2,11 +2,13 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
     <form class="profile-edit-form">
         <div>Изменить аватарку: </div>
-        <div class="hr"></div>
+        <div class="profile-edit-form__avatar">
         <input class="input js-avatar-input" type="file" name="avatar"/>
         <div class="profile__button">
             <input class="button js-avatar-button" type="button" value="Изменить аватар"/>
         </div>
+        </div>
+        <div class="hr"></div>
         <div>Редактировать профиль: </div>
         <div class="hr"></div>
         <input class="input js-nickname-input" type="text" name="nickname" placeholder="Имя"/>

@@ -48,11 +48,13 @@
   flex-direction: column
   align-items: center
   text-align: center
-  width: 75%
+  padding: 2*$indent
+  +available
 
 .profile-edit-form  *
-  width: 100%
-  margin-top: $indent
+  +available
+  margin: $indent
+  display: flex
 
 .profile__button
   margin-top: $indent
@@ -77,3 +79,29 @@
     background-color: $color-lightest
     box-shadow: 0 -5px $color-accent
     opacity: 1
+
+.profile__lists
+  display: flex
+  width: 100%
+  flex-direction: column
+
+.film-list
+  margin: 2*$indent $indent
+  display: flex
+  flex-direction: column
+  .film-list__title
+    text-align: center
+    margin: $indent 0
+    padding: $indent 0
+    box-shadow: 0 -3px $color-accent-50
+  .film-list__item
+    padding:  $indent
+    font-size: $font-size-medium
+  .film-list__item_rose
+    background-color: $color-accent-25
+  .hr
+    height: 3px
+    background-color: $color-accent-50
+
+
+

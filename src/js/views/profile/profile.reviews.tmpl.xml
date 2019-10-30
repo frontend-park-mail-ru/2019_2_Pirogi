@@ -2,7 +2,7 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
     <div class="profile__bar">
         <input type="button" disabled="true" class="button button_active " value="рецензии"/>
-        <input type="button" class="button" value="списки"/>
+        <input type="button" class="button js-list-button" value="списки"/>
     </div>
     <div class="profile__reviews">
         <div class="profile__reviews">
