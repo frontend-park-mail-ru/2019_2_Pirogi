@@ -13,7 +13,7 @@ import Router from './libs/router.js';
 document.addEventListener('DOMContentLoaded', () => {
     // Проверим, что эта технология доступна в браузере
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./dist/sw.js')
+        navigator.serviceWorker.register('./sw.js')
             .then((reg) => {
                 // регистрация сработала
                 console.log('Registration succeeded. Scope is ' + reg.scope);
