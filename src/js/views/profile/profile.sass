@@ -9,8 +9,8 @@
 
 // TODO: Что-то сделать с аватаркой, резать на стороне сервера?
 .profile__photo
-  width: 30vh
-  height: 40vh
+  width: 20vw
+  height: 25vw
   border-radius: 2*$indent
 
 .profile__info
@@ -24,25 +24,6 @@
   flex-direction: column
   +shadow-dark
   width: 65%
-
-.profile__reviews
-  .review
-    padding: 0
-    border-radius: 0
-    display: flex
-    border: 2px solid $color-lightest
-    .review__text
-      width: 80%
-      padding: 2*$indent
-    .review__likes
-      width: 20%
-      background-color: $color-accent
-      color: $color-lightest
-      display: flex
-      justify-content: center
-      align-items: center
-    &:hover
-      border: 2px solid $color-accent
 
 .profile-edit-form
   display: flex
