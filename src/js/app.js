@@ -9,7 +9,7 @@ import AdminController from './controllers/adminController.js';
 import NavbarController from './controllers/navbarController.js';
 import Router from './libs/router.js';
 import ErrorView from './views/error/errorView';
-import ActorController from "./controllers/actorController";
+import ActorController from './controllers/actorController';
 
 
 document.addEventListener('DOMContentLoaded', () => {
