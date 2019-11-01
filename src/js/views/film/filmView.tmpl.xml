@@ -28,7 +28,6 @@
             <div disabled="true" class="button user-block__button">Купить билет</div>
             <div class="button user-block__button">В список</div>
             <div class="button user-block__button">
-                stars
                 <i class="fas fa-star fa-2x film__star"></i>
                 <i class="fas fa-star fa-2x film__star"></i>
                 <i class="fas fa-star fa-2x film__star"></i>
@@ -83,7 +82,13 @@
                 </div>
                 <div class="feedback__rating user-rating">
                     <div class="user-rating__text">Этот пользователь поставил:</div>
-                    <div class="user-rating__text"> 3 звезды! </div>
+                    <div class="user-rating__text">
+                        <i class="fas fa-star fa-2x film__star"></i>
+                    <i class="fas fa-star fa-2x film__star"></i>
+                    <i class="fas fa-star fa-2x film__star"></i>
+                    <i class="fas fa-star fa-2x film__star"></i>
+                    <i class="fas fa-star fa-2x film__star"></i>
+                    </div>
                 </div>
             </div>
             <div class="feedback">
@@ -139,7 +144,11 @@
                 </div>
                 <div class="feedback__rating user-rating">
                     <div class="user-rating__text">Этот пользователь поставил:</div>
-                    <div class="user-rating__text"> 3 звезды! </div>
+                    <div class="user-rating__text"> <i class="fas fa-star fa-2x film__star"></i>
+                        <i class="fas fa-star fa-2x film__star"></i>
+                        <i class="fas fa-star fa-2x film__star"></i>
+                        <i class="fas fa-star fa-2x film__star"></i>
+                        <i class="fas fa-star fa-2x film__star"></i> </div>
                 </div>
             </div>
             <div class="feedback">
@@ -167,7 +176,11 @@
                 </div>
                 <div class="feedback__rating user-rating">
                     <div class="user-rating__text">Этот пользователь поставил:</div>
-                    <div class="user-rating__text"> 3 звезды! </div>
+                    <div class="user-rating__text"> <i class="fas fa-star fa-2x film__star"></i>
+                        <i class="fas fa-star fa-2x film__star"></i>
+                        <i class="fas fa-star fa-2x film__star"></i>
+                        <i class="fas fa-star fa-2x film__star"></i>
+                        <i class="fas fa-star fa-2x film__star"></i> </div>
                 </div>
             </div>
             <div class="feedback">
@@ -195,7 +208,11 @@
                 </div>
                 <div class="feedback__rating user-rating">
                     <div class="user-rating__text">Этот пользователь поставил:</div>
-                    <div class="user-rating__text"> 3 звезды! </div>
+                    <div class="user-rating__text"> <i class="fas fa-star fa-2x film__star"></i>
+                        <i class="fas fa-star fa-2x film__star"></i>
+                        <i class="fas fa-star fa-2x film__star"></i>
+                        <i class="fas fa-star fa-2x film__star"></i>
+                        <i class="fas fa-star fa-2x film__star"></i> </div>
                 </div>
             </div>
         </div>

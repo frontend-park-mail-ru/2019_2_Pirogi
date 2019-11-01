@@ -12,24 +12,24 @@
         </div>
         <div class="hr"></div>
         <div class="profile-edit-form__text">Редактировать информацию о себе: </div>
-        <input class="input js-nickname-input" type="text" name="nickname" placeholder="Имя"/>
-        <textarea class="textarea js-description-textarea" name="description" placeholder="О себе"></textarea>
+        <input class="input" id="js-username-input" type="text" name="name" placeholder="Имя"/>
+        <textarea class="textarea" id="js-description-textarea" name="description" placeholder="О себе"> </textarea>
         <div class="profile__button">
-            <input class="button js-save-button" type="button" value="Сохранить"/>
+            <input class="button" id="js-save-button" type="button" value="Сохранить"/>
         </div>
         <div class="hr"></div>
         <div class="profile-edit-form__text">Редактировать email:</div>
-        <input class="input js-nickname-input" type="text" name="login" placeholder="Email"/>
+        <input class="input" id="js-email-input" type="text" name="email" placeholder="Email"/>
         <div class="profile__button">
-            <input class="button js-save-login-button" type="button" value="Сохранить"/>
+            <input class="button" id="js-save-login-button" type="button" value="Сохранить"/>
         </div>
         <div class="hr"></div>
         <div class="profile-edit-form__text">Редактировать пароль:</div>
-        <input class="input js-nickname-input" type="text" name="old-password" placeholder="Старый пароль"/>
-        <input class="input js-nickname-input" type="text" name="password" placeholder="Новый пароль"/>
-        <input class="input js-nickname-input" type="text" name="password-rep" placeholder="Повторите пароль"/>
+        <input class="input" id="js-oldpassword-input" type="text" name="old-password" placeholder="Старый пароль"/>
+        <input class="input" id="js-password-input" type="text" name="password" placeholder="Новый пароль"/>
+        <input class="input" id="js-password-rep-input" type="text" name="password" placeholder="Повторите пароль"/>
         <div class="profile__button">
-            <input class="button js-save-login-button" type="button" value="Сохранить"/>
+            <input class="button" id="js-save-password-button" type="button" value="Сохранить"/>
         </div>
         <div class="hr"></div>
     </form>

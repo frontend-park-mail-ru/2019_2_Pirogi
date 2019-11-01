@@ -3,7 +3,8 @@ import template from './profile.tmpl.xml';
 import reviewsTmpl from './profile.reviews.tmpl.xml';
 import editTmpl from './profile.edit.tmpl.xml';
 import listTmpl from './profile.list.tmpl.xml';
-
+import { clearError, renderError} from '../../libs/errorMessages';
+import {errorMessages} from '../../libs/constants';
 
 /**
  * Creates a new Profile view
@@ -28,7 +29,32 @@ export default class ProfileView extends View {
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
 
+        this.localTmpl = reviewsTmpl;
+
         this.userData = {};
+
+        this.submitsIds = {
+            loginSubmit: 'js-save-login-button',
+            passwordSubmit: 'js-save-password-button',
+            infoSubmit: 'js-save-button',
+        };
+
+        this.infoIds = {
+            username: 'js-username-input',
+        };
+
+        this.loginIds = {
+            email: 'js-email-input'
+        };
+
+        this.oldPasswordIds = {
+            oldPassword: 'js-oldpassword-input',
+        };
+
+        this.passwordsIds = {
+            password: 'js-password-input',
+            passwordClone: 'js-password-rep-input'
+        };
 
         this.localEventBus.addEventListener('editButtonClicked',
             this.onEditButtonClicked.bind(this));
@@ -44,13 +70,17 @@ export default class ProfileView extends View {
             this.onBackButtonClicked.bind(this));
         this.localEventBus.addEventListener('avatarButtonClicked',
             this.onEditAvatar.bind(this));
-        this.localEventBus.addEventListener('clearErrors',
-            this.clearErrors.bind(this));
 
         this.localEventBus.addEventListener('getInfoOk',
             this.getInfoOk.bind(this));
         this.localEventBus.addEventListener('getInfoFailed',
             this.getInfoFailed.bind(this));
+
+        // error events
+        this.localEventBus.addEventListener('clearError',
+            clearError.bind(this));
+        this.localEventBus.addEventListener('renderError',
+            renderError.bind(this));
     }
 
     getInfoOk(data) {
@@ -58,7 +88,11 @@ export default class ProfileView extends View {
         this.userData = data;
 
         super.render(data);
-        this.renderWall(reviewsTmpl);
+        this.renderWall(this.localTmpl);
+
+        if (this.localTmpl === editTmpl) {
+            this.addEventListenersForEdit();
+        }
 
         this.editButton = document.querySelector('.js-edit-button');
         this.editButton.addEventListener('click', () => {
@@ -74,18 +108,6 @@ export default class ProfileView extends View {
     getInfoFailed(data) {
         console.log('failed to load');
         console.log(data);
-    }
-
-    clearErrors() {
-        for (const item of Array.from(document.querySelector('.profile-edit-form').childNodes)) {
-            if (item.className === 'error') {
-                item.parentNode.removeChild(item);
-            }
-        }
-    }
-
-    markupError(errorMsg) {
-        return `<div class="error">${errorMsg}</div>`;
     }
 
     /**
@@ -108,21 +130,7 @@ export default class ProfileView extends View {
         this.editButton.disabled = true;
 
         this.renderWall(editTmpl);
-        this.saveButton = document.querySelector('.js-save-button');
-        this.saveButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('clearErrors');
-            this.localEventBus.dispatchEvent('saveButtonClicked');
-        });
-
-        this.avatarButton = document.querySelector('.js-avatar-button');
-        this.avatarButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('avatarButtonClicked');
-        });
-
-        this.backButton = document.querySelector('.js-back-button');
-        this.backButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('backButtonClicked');
-        });
+        this.addEventListenersForEdit();
     }
 
     onListButtonClicked() {
@@ -193,27 +201,95 @@ export default class ProfileView extends View {
     }
 
     editFailed(errors) {
-        if (Object.prototype.hasOwnProperty.call(errors,'name')) {
-            document.querySelector('.js-nickname-input')
-                .insertAdjacentHTML('afterend',
-                    this.markupError('Name isn\'t valid.'));
-        }
-        if (Object.prototype.hasOwnProperty.call(errors,'email')) {
-            document.querySelector('.js-login-input')
-                .insertAdjacentHTML('afterend',
-                    this.markupError('Email isn\'t valid.'));
-        }
-        if (Object.prototype.hasOwnProperty.call(errors,'password')) {
-            document.querySelector('.js-password-input')
-                .insertAdjacentHTML('afterend',
-                    this.markupError('Password isn\'t valid.'));
-        }
+        this.localEventBus.dispatchEvent('clearError', this.submitsIds.infoSubmit);
         if (Object.prototype.hasOwnProperty.call(errors,'error')) {
-            document.querySelector('.js-email-register')
-                .insertAdjacentHTML('afterend',
-                    this.markupError(errors.error));
+            this.localEventBus.dispatchEvent('renderError',
+                this.submitsIds.loginSubmit, errors.error);
+        } else {
+            this.localEventBus.dispatchEvent('renderError',
+                this.submitsIds.loginSubmit, errorMessages.unknown);
         }
     }
+
+
+    /**
+     * Set event listeners for fields
+     * @method
+     * @param target
+     * @param eventCheck
+     * @param eventCallBack
+     */
+    setEventListenersForFields(target, eventCheck, eventCallBack) {
+        for (const property in target) {
+            document.getElementById(target[property]).addEventListener('focusout', (field) => {
+                if (this.localEventBus.dispatchEvent(eventCheck, field)) {
+                    this.localEventBus.dispatchEvent(eventCallBack,
+                        field.target.name, field.target.value);
+                }
+            });
+        }
+    }
+
+    /**
+     * Set event listeners fir depended fields
+     * @method
+     * @param target
+     * @param eventCheck
+     * @param eventCallBack
+     * @param resultField
+     */
+    setEventListenersForDependentFields(target, eventCheck, eventCallBack, resultField) {
+        for (const property in target) {
+            document.getElementById(target[property]).addEventListener('focusout', (field) => {
+                let fields = {};
+                for (const property in target) {
+                    if (Object.prototype.hasOwnProperty.call(target, property)) {
+                        fields[property] = document.getElementById(target[property]);
+                    }
+                }
+                if (this.localEventBus.dispatchEvent(eventCheck, fields)) {
+                    this.localEventBus.dispatchEvent(eventCallBack,
+                        resultField, field.target.value);
+                }
+            });
+        }
+    }
+
+    addEventListenersForEdit() {
+        this.setEventListenersForFields(this.infoIds,
+            'checkField', 'modifyInfoData');
+        this.setEventListenersForFields(this.loginIds,
+            'checkField', 'modifyLoginData');
+        this.setEventListenersForFields(this.oldPasswordIds,
+            'checkField', 'modifyPasswordData');
+        this.setEventListenersForDependentFields(this.passwordsIds,
+            'passwordsCheck', 'modifyPasswordData', 'password');
+
+        this.saveButton = document.getElementById('js-save-button');
+        this.saveButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('saveButtonClicked');
+        });
+
+        this.saveButton = document.getElementById('js-save-login-button');
+        this.saveButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('saveLoginClicked');
+        });
+        this.saveButton = document.getElementById('js-save-password-button');
+        this.saveButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('savePasswordClicked');
+        });
+
+        this.avatarButton = document.querySelector('.js-avatar-button');
+        this.avatarButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('avatarButtonClicked');
+        });
+
+        this.backButton = document.querySelector('.js-back-button');
+        this.backButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('backButtonClicked');
+        });
+    }
+
     /**
      * Render the Profile
      * @method
@@ -221,6 +297,16 @@ export default class ProfileView extends View {
      */
     // eslint-disable-next-line no-unused-vars
     render(data = {}) {
+        if (data['reviews'] === '') {
+            this.localTmpl = reviewsTmpl;
+        } else if (data['lists'] === '') {
+            this.localTmpl = listTmpl;
+        } else if (data['edit'] === '') {
+            this.localTmpl = editTmpl;
+        } else {
+            this.localTmpl = reviewsTmpl;
+        }
+
         this.localEventBus.dispatchEvent('getProfileInfo');
     }
 }
