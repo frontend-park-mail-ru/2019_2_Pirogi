@@ -9,6 +9,7 @@ import AdminController from './controllers/adminController.js';
 import NavbarController from './controllers/navbarController.js';
 import Router from './libs/router.js';
 import ErrorView from './views/error/errorView';
+import ActorController from "./controllers/actorController";
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchResultsController = new SearchResultsController(globalEventBus, body);
     const indexController = new IndexController(globalEventBus, body);
     const adminController = new AdminController(globalEventBus, body);
+    const actorController = new ActorController(globalEventBus,body);
     const errorView = new ErrorView();
 
     navbarController.navbarView.render();
@@ -51,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     router.add('/genre', indexController.indexView);
     router.add('/actors', indexController.indexView);
     router.add('/404', errorView);
+    router.add('/actor', actorController.actorView);
 
     router.start();
 });
