@@ -5,18 +5,24 @@
             <div class="posters">
                 <!--<img class="film__img" src="/images/films/{film.image}" alt="название фильма"/>-->
                 <img class="posters__img posters__img_left" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                <img class="posters__img posters__img_active" src="/src/images/{film.image}" alt="название фильма"/>
+                <img class="posters__img posters__img_active" src="/images/{film.image}" alt="название фильма"/>
                 <img class="posters__img posters__img_right" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
             </div>
             <div class="film__description">
                 <!--<div class="title"></div>-->
                 <div class="title film__title"><fest:value>film.title</fest:value></div>
                 <div>
-                    <div class="film__decription_main">Рейтинг: <fest:value>film.title</fest:value></div>
-                    <div class="film__decription_main">Жанры: драма</div>
+                    <div class="film__decription_main">Рейтинг: <fest:value>film.rating</fest:value></div>
+                    <div class="film__decription_main">Жанры: <fest:for iterate="film.genres" index="i" value="v">
+                        <fest:value>v</fest:value>, <!-- abc -->
+                    </fest:for></div>
                     <div class="film__decription_main"><fest:value>film.date</fest:value></div>
-                    <div class="film__decription_main">Актеры: Том Круз, Артем Бакулев, Вася Пупкин, Данила Козловский</div>
-                    <div class="film__decription_main">Режиссеры: Том Круз, Артем Бакулев, Вася Пупкин, Данила Козловский</div>
+                    <div class="film__decription_main">Актеры:  <fest:for iterate="film.actors" index="i" value="v">
+                        <fest:value>v</fest:value>, <!-- abc -->
+                    </fest:for></div>
+                    <div class="film__decription_main">Режиссеры:  <fest:for iterate="film.directors" index="i" value="v">
+                        <fest:value>v</fest:value>, <!-- abc -->
+                    </fest:for></div>
                 </div>
                 <div>
                     <fest:value>film.description</fest:value>
@@ -40,7 +46,7 @@
             <div class="title">Расскажите что Вы думаете о фильме:</div>
             <form class="form">
                 <div class="feedback-form__top">
-                    <input class="input feedback-form__title" type="text" placeholder="Заголовок"/>
+                    <input class="input feedback-form__title js-title-input" type="text" placeholder="Заголовок"/>
                     <div class="radio-form">
                         <div class="radio-form__button">
                             <input  type="radio"/><div>Понравилось</div>
@@ -50,8 +56,8 @@
                         </div>
                     </div>
                 </div>
-                <textarea class="textarea" placeholder="Текст рецензии"></textarea>
-                <input class="button" type="button" value="Отправить"/>
+                <textarea class="textarea js-text-input" placeholder="Текст рецензии"></textarea>
+                <input class="button js-review-button" type="button" value="Отправить"/>
             </form>
             <div class="hr"></div>
         </div>

@@ -2,7 +2,7 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
 
     <form class="profile-edit-form">
-        <input class="button profile__button js-back-button " type="button" value="Назад"/>
+        <input class="button profile__button profile__button_accent js-back-button " type="button" value="Назад"/>
         <div class="profile-edit-form__text">Изменить аватарку: </div>
         <div class="profile-edit-form__avatar">
         <input class="input js-avatar-input" type="file" name="avatar"/>

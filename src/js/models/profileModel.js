@@ -118,7 +118,6 @@ export default class ProfileModel {
      * @param {object} data
      */
     onEditingProfile(data = {}) {
-
         Api.editProfile(data)
             .then((res) => {
                 if (res.ok) {

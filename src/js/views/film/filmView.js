@@ -21,22 +21,21 @@ export default class FilmView extends View {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
 
-        this.localEventBus.addEventListener('myReviewEvent',
+        this.localEventBus.addEventListener('reviewEvent',
             this.onReview.bind(this));
         this.localEventBus.addEventListener('addMyNewReview',
             this.addMyReview.bind(this));
         this.localEventBus.addEventListener('filmInfoOk',
             this.filmInfoOk.bind(this));
-        this.localEventBus.addEventListener('filmInfoFailed',
-            this.filmInfoFailed.bind(this));
     }
 
-    filmInfoFailed() {
-        console.log('film info failed');
-    }
     
     filmInfoOk(data = {}) {
         super.render(data);
+
+        this.reviewButton = document.querySelector('.js-review-button');
+        this.reviewButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('reviewEvent');});
     }
 
     /**
@@ -55,12 +54,14 @@ export default class FilmView extends View {
      * @method
      */
     onReview() {
-        console.log('read data for review');
+        this.titleInput = document.querySelector('.js-title-input');
+        this.textInput = document.querySelector('.js-text-input');
 
         this.reviewData = {
-            title: 'blablabla',
-            body: 'blablablablablabla',
+            title: this.textInput.value || null,
+            description: this.textInput.value || null,
         };
+
         this.localEventBus.dispatchEvent('reviewCheck', this.reviewData);
     }
 
@@ -69,10 +70,6 @@ export default class FilmView extends View {
      * @param {Object} data
      */
     render(data = {}) {
-        console.log(data);
-        console.log('render film page');
         this.localEventBus.dispatchEvent('getFilmInfo', data);
-
-        //super.render(data);
     }
 }

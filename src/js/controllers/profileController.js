@@ -19,8 +19,11 @@ export default class ProfileController {
      * @param {EventBus} globalEventBus
      * @param {Element} root
      */
-    constructor(globalEventBus = {}, root = {}) {
+    constructor(globalEventBus = {}, root = {}, router) {
         this.localEventBus = new EventBus(profileEvents);
+
+        this.localEventBus.addEventListener('getInfoFailed',
+            () => router.route('/404'));
 
         this.profileView = new ProfileView(this.localEventBus, globalEventBus, root);
         this.profileModel = new ProfileModel(this.localEventBus, globalEventBus);

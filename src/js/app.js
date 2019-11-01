@@ -8,6 +8,7 @@ import IndexController from './controllers/indexController.js';
 import AdminController from './controllers/adminController.js';
 import NavbarController from './controllers/navbarController.js';
 import Router from './libs/router.js';
+import ErrorView from './views/error/errorView';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,26 +32,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const navbarController = new NavbarController(globalEventBus, header);
     const loginController = new LoginController(globalEventBus, body, router);
-    const profileController = new ProfileController(globalEventBus, body);
+    const profileController = new ProfileController(globalEventBus, body, router);
     const filmController = new FilmController(globalEventBus, body);
     const searchResultsController = new SearchResultsController(globalEventBus, body);
     const indexController = new IndexController(globalEventBus, body);
     const adminController = new AdminController(globalEventBus, body);
+    const errorView = new ErrorView();
 
     navbarController.navbarView.render();
 
     router.add('/login', loginController.loginView);
     router.add('/profile', profileController.profileView);
-    router.add('/film', filmController.filmView);
+    router.add('/film', filmController.filmView,router);
     router.add('/search', searchResultsController.searchResultsView);
     router.add('/admin', adminController.adminView);
     router.add('/', indexController.indexView);
-    router.add('/new', indexController.indexView);
-    router.add('/films', indexController.indexView);
-    router.add('/ratings', indexController.indexView);
     router.add('/year', indexController.indexView);
     router.add('/genre', indexController.indexView);
     router.add('/actors', indexController.indexView);
+    router.add('/404', errorView);
 
     router.start();
 });
