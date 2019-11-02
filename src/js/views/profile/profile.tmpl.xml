@@ -7,7 +7,7 @@
                 <img class="profile__photo" alt="username" src="/images/users/{params.image}"/>
                 </div>
                 <!--<img class="profile__photo" alt="username" src="src/images/guy.jpeg"/>-->
-                <div class="profile__info list"> <!-- img -->
+                <div class="list"> <!-- img -->
                     <div class="list__item">
                         <div class="title"><fest:value>params.username</fest:value></div>
                         <div>
