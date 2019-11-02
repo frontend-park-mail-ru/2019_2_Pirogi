@@ -1,0 +1,78 @@
+@import "../../../css/variables"
+.actor
+  display: flex
+  flex-direction: row
+  width: 80%
+  margin-top: 10*$indent
+  justify-content: center
+
+.actor__photo
+  width: 20vw
+  border-radius: 2*$indent
+  +shadow-dark
+
+.actor__info
+  width: 25%
+  text-align: center
+
+.actor__wall
+  margin: 0 2*$indent
+  display: flex
+  align-items: center
+  flex-direction: column
+  +shadow-dark
+  width: 65%
+
+.actor__bar
+  display: flex
+  .button
+    padding: 2*$indent 0
+    border-radius: 0
+    color: $color-darkest
+    background-color: $color-light-90
+    border: 0
+    &:hover
+      background-color: $color-accent
+      color: $color-lightest
+  .button_active
+    color: $color-darkest
+    background-color: $color-lightest
+    box-shadow: 0 -5px $color-accent
+    opacity: 1
+
+.actor__film
+  margin: 2*$indent 0
+  display: flex
+  align-items: center
+  box-shadow: 0 3px 0 0 $color-accent-50
+  img
+    max-width: 10vw
+    margin: 0
+
+.actor__film-card
+  padding: 2*$indent
+
+.actor__film-card *
+  margin: $indent 0
+
+.actor__photo-list
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+  img
+    height: 15vw
+    margin: $indent
+.actor__awards-list
+  width: 100%
+  margin: $indent 0
+
+.award
+  display: flex
+  justify-content: space-between
+  img
+    height: 10vw
+  .award__desc
+    padding: $indent*2
+    *
+      margin: $indent
+

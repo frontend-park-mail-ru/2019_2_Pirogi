@@ -17,8 +17,8 @@
                         <fest:value>v</fest:value>, <!-- abc -->
                     </fest:for></div>
                     <div class="film__decription_main"><fest:value>film.date</fest:value></div>
-                    <div class="film__decription_main">Актеры:  <fest:for iterate="film.actors" index="i" value="v">
-                        <fest:value>v</fest:value>, <!-- abc -->
+                    <div class="film__decription_main">Актеры:  <a href="/actor">Вася Пупкин</a><fest:for iterate="film.actors" index="i" value="v">
+                        <a href="/actor"><fest:value>v</fest:value></a>, <!-- abc -->
                     </fest:for></div>
                     <div class="film__decription_main">Режиссеры:  <fest:for iterate="film.directors" index="i" value="v">
                         <fest:value>v</fest:value>, <!-- abc -->

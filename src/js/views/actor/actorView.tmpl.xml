@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
     <main class="main">
-        <div class="profile">
-            <div class="profile__info"> <!-- to center this section or whatever -->
-                <div class="profile__photo">
-                    <img class="profile__photo" alt="username" src="/images/users/{params.image}"/>
+        <div class="actor">
+            <div class="actor__info"> <!-- to center this section or whatever -->
+                <div>
+                    <!--<img class="actor__photo" alt="username" src="/images/users/{params.image}"/>-->
+                    <img class="actor__photo" alt="username" src="src/images/guy.jpeg"/>
                 </div>
-                <div class="profile__info-details list"> <!-- img -->
+                <div class="list"> <!-- img -->
                     <div class="list__item">
                         <div class="title"><fest:value>params.username</fest:value></div>
                         <div>
@@ -25,11 +26,18 @@
                     <input type="button" class="button js-edit-button" value="редактировать"/>
                 </div>
             </div>
-            <div class="profile__wall js-profile-wall">
+            <div class="actor__wall js-actor-wall">
+                <div class="profile__bar">
+                    <!--<a disabled="true" class="button button_active "  >Рецензии</a>
+                    <a href="/profile?lists" class="button"> списки </a>-->
+                    <a disabled="true" class="button  button_active" >фильмы</a>
+                    <a  href="/actor?photo" class="button js-photo-button">фотографии </a>
+                    <a  href="/actor?awards" class="button js-awards-button" >награды</a>
+                </div>
                 <div class="list">
-                    <div class="list__item search-results__film">
-                        <img class="search-results__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                        <div class="search-results__film-card">
+                    <div class="list__item actor__film">
+                        <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                        <div class="actor__film-card">
                             <a class="title">Moonlight</a>
 
                             <div>жанр: <a href="/horrors">ужасы</a></div>
@@ -43,9 +51,9 @@
 
                         </div>
                     </div>
-                    <div class="list__item search-results__film">
-                        <img class="search-results__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                        <div class="search-results__film-card">
+                    <div class="list__item actor__film">
+                        <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                        <div class="actor__film-card">
                             <a class="title">Moonlight</a>
 
                             <div>жанр: <a href="/horrors">ужасы</a></div>
@@ -59,9 +67,25 @@
 
                         </div>
                     </div>
-                    <div class="list__item search-results__film">
-                        <img class="search-results__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                        <div class="search-results__film-card">
+                    <div class="list__item actor__film">
+                        <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                        <div class="actor__film-card">
+                            <a class="title">Moonlight</a>
+
+                            <div>жанр: <a href="/horrors">ужасы</a></div>
+                            <div>год: <a href="/2019">2019</a></div>
+                            <div>актеры: <a href="/actors">Бакулев Артем</a></div>
+                            <div>
+                                Многосерийный фильм с открытой концовкой. Заставляет задуматься о смысле жизни и
+                                переосмыслить ценности. Aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                                justo duo.
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="list__item actor__film">
+                        <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                        <div class="actor__film-card">
                             <a class="title">Moonlight</a>
 
                             <div>жанр: <a href="/horrors">ужасы</a></div>

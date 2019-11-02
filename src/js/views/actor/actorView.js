@@ -1,6 +1,9 @@
 import View from '../../libs/view.js';
 import template from './actorView.tmpl.xml';
 import EventBus from '../../libs/eventBus';
+import filmsTMPL from './actorView.tmpl.xml';
+import photoTMPL from './actor.photo.tmpl.xml';
+import awardsTMPL from './actor.awards.tmpl.xml';
 
 
 /**
@@ -26,6 +29,15 @@ export default class ActorView extends View {
      * @param {Object} data
      */
     render(data = {}) {
+        if (data['films'] === '') {
+            super.template = filmsTMPL;
+        } else if (data['photo'] === '') {
+            super.template = photoTMPL;
+        } else if (data['awards'] === '') {
+            super.template = awardsTMPL;
+        } else {
+            super.template = filmsTMPL;
+        }
         super.render(data);
     }
 }

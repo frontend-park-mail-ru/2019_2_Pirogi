@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
+    <main class="main">
+        <div class="actor">
+            <div class="actor__info"> <!-- to center this section or whatever -->
+                <div>
+                    <!--<img class="actor__photo" alt="username" src="/images/users/{params.image}"/>-->
+                    <img class="actor__photo" alt="username" src="src/images/guy.jpeg"/>
+                </div>
+                <div class="list"> <!-- img -->
+                    <div class="list__item">
+                        <div class="title"><fest:value>params.username</fest:value></div>
+                        <div>
+                            <fest:value>params.description</fest:value>
+                        </div>
+                    </div>
+                    <div class="list__item">
+                        <div class="hr"></div>
+                        <div>рейтинг на сайте:</div>
+                        <div class="title"><fest:value>params.rating</fest:value></div>
+                        <div class="hr"></div>
+                        <div> Дата рождения:</div>
+                        <div class="title"><fest:value>params.date</fest:value></div>
+                        <div class="hr"></div>
+                    </div>
+                    <input type="button" class="button js-edit-button" value="редактировать"/>
+                </div>
+            </div>
+            <div class="actor__wall js-actor-wall">
+                <div class="profile__bar">
+                    <a  href="/actor?films" class="button js-films-button" >фильмы</a>
+                    <a  href="/actor?photo" class="button js-photo-button">фотографии </a>
+                    <a  disabled="true" class="button  button_active" >награды</a>
+                    <!--<input type="button" class="button js-films-button" value="фильмы"/>
+                    <input type="button" disabled="true" class="button  button_active" value="фотографии"/>
+                    <input type="button" class="button js-awards-button" value="Награды"/>-->
+                </div>
+                <div class="actor__awards-list">
+                    <div class="award">
+                        <div class="award__desc">
+                            <div class="title"> ОСКАР </div>
+                            <div>2019</div>
+                            <div>Лучшая мужская роль</div>
+                        </div>
+                        <img src="/src/images/avatar.jpg" alt="фото"/>
+
+                    </div>
+                </div>
+                <div class="hr"/>
+                <div class="actor__awards-list">
+                    <div class="award">
+                        <div class="award__desc">
+                            <div class="title"> ОСКАР </div>
+                            <div>2019</div>
+                            <div>Лучшая мужская роль</div>
+                        </div>
+                        <img src="/src/images/avatar.jpg" alt="фото"/>
+
+                    </div>
+                </div>
+                <div class="hr"/>
+                <div class="actor__awards-list">
+                    <div class="award">
+                        <div class="award__desc">
+                            <div class="title"> ОСКАР </div>
+                            <div>2019</div>
+                            <div>Лучшая мужская роль</div>
+                        </div>
+                        <img src="/src/images/avatar.jpg" alt="фото"/>
+
+                    </div>
+                </div>
+                <div class="hr"/>
+
+
+            </div>
+        </div>
+    </main>
+</fest:template>
