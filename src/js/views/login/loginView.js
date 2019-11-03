@@ -32,7 +32,7 @@ export default class LoginView extends View {
         };
 
         this.registrationIds = {
-            name: 'js-nickname-register',
+            username: 'js-nickname-register',
             email: 'js-email-register'
         };
 
@@ -62,7 +62,15 @@ export default class LoginView extends View {
      * Handle login event
      */
     login() {
-        this.localEventBus.dispatchEvent('loginCheck');
+        const emailInput = document.getElementById('js-email-login');
+        const passwordInput = document.getElementById('js-password-login');
+
+        const loginData = {
+            email: emailInput.value || null,
+            password: passwordInput.value || null,
+        };
+
+        this.localEventBus.dispatchEvent('loginCheck', loginData);
     }
 
     /**
@@ -84,7 +92,17 @@ export default class LoginView extends View {
      * @method
      */
     registration() {
-        this.localEventBus.dispatchEvent('registrationCheck');
+
+        const usernameInput = document.getElementById('js-nickname-register');
+        const emailInput = document.getElementById('js-email-register');
+        const passwordInput = document.getElementById('js-password-register');
+
+        const regData = {
+            username: usernameInput.value || null,
+            email: emailInput.value || null,
+            password: passwordInput.value || null
+        };
+        this.localEventBus.dispatchEvent('registrationCheck', regData);
     }
 
     /**

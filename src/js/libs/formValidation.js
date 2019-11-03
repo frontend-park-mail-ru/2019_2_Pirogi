@@ -1,14 +1,14 @@
 const regExpressions = {
     // https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
     email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    name: /^[a-zA-Z0-9_]{5,}$/,
+    username: /^[a-zA-Z0-9_]{5,}$/,
     // ASCII chars from ! to ~
     password: /[!-~]{8,}/
 };
 
 export const validators = {
     email: (email) => validateField(email, regExpressions.email),
-    name: (name) => validateField(name, regExpressions.name),
+    username: (username) => validateField(username, regExpressions.username),
     password: (password) => validateField(password, regExpressions.password)
 };
 
@@ -30,7 +30,7 @@ const validateField = (field, regExp) => {
  * @returns {boolean}
  */
 export const validateName = (name) => {
-    return validateField(name, regExpressions.name);
+    return validateField(name, regExpressions.username);
 };
 
 /**

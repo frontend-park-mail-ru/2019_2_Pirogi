@@ -20,7 +20,7 @@ export default class LoginModel {
         this.globalEventBus = globalEventBus;
 
         this.registrationData = {
-            name: null,
+            username: null,
             email: null,
             password: null
         };
