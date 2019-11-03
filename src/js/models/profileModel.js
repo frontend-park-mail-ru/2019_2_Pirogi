@@ -34,7 +34,52 @@ export default class ProfileModel {
             this.fieldCheck.bind(this));
         this.localEventBus.addEventListener('passwordsCheck',
             this.passwordsCheck.bind(this));
+
+        this.passwordData = {
+            oldPassword: null,
+            password: null,
+        };
+        this.loginData = {
+            email: null,
+        };
+
+        this.infoData = {
+            username: null,
+            description: null,
+        };
+
+        this.localEventBus.addEventListener('modifyLoginData',
+            this.modifyLoginData.bind(this));
+        this.localEventBus.addEventListener('modifyInfoData',
+            this.modifyInfoData.bind(this));
+        this.localEventBus.addEventListener('modifyPasswordData',
+            this.modifyPasswordData.bind(this));
     }
+
+    /**
+     * Modify current Login data
+     * @method
+     * @param target
+     * @param value
+     */
+    modifyLoginData(target, value) {
+        this.loginData[target] = value;
+    }
+
+    modifyInfoData(target, value) {
+        this.infoData[target] = value;
+    }
+
+    /**
+     * Modify current registration value
+     * @method
+     * @param target
+     * @param value
+     */
+    modifyPasswordData(target, value) {
+        this.passwordData[target] = value;
+    }
+
 
     /**
      * Check fields
@@ -60,9 +105,7 @@ export default class ProfileModel {
      * @param fields
      * @returns {boolean}
      */
-    passwordsCheck(fields) {
-        const password = fields.password;
-        const passwordClone = fields.passwordClone;
+    passwordsCheck({password, passwordClone}) {
         if (!validators[password.name](password.value)) {
             this.localEventBus.dispatchEvent('renderError',
                 password.id, errorMessages[password.name]);
@@ -93,7 +136,8 @@ export default class ProfileModel {
                 } else {
                     this.localEventBus.dispatchEvent('getInfoFailed');
                 }
-            });
+            })
+            .catch(() => this.localEventBus.dispatchEvent('getInfoOk'));
     }
 
     /**
@@ -102,7 +146,7 @@ export default class ProfileModel {
      * @param {object} data
      */
     onEditingAvatar(data = {}) {
-        Api.editAvatar({avatar: data.avatar})
+        Api.editAvatar({avatar: data})
             .then((res) => {
                 if (res.ok) {
                     this.localEventBus.dispatchEvent('editOk');
@@ -118,6 +162,12 @@ export default class ProfileModel {
      * @param {object} data
      */
     onEditingProfile(data = {}) {
+        console.log(this.infoData);
+        console.log(this.loginData);
+        if (!this.infoData.username && !this.infoData.description) {
+            this.localEventBus.dispatchEvent('editFailed', {error: errorMessages.form});
+            return;
+        }
         Api.editProfile(data)
             .then((res) => {
                 if (res.ok) {
@@ -127,4 +177,21 @@ export default class ProfileModel {
                 }
             });
     }
+
+
+    /**
+     * Check all fields to be right
+     * @method
+     * @param data
+     * @returns {boolean}
+     */
+    dataCheck(data) {
+        for (const property in data) {
+            if (!data[property]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
