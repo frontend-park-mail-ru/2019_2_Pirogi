@@ -31,7 +31,7 @@ export default class ActorView extends View {
     }
 
     filmListOk(data) {
-        this.actorData.films = data;
+        this.actorData.filmsarray = data;
         super.render(this.actorData);
     }
     actorInfoOk(data = {}) {
