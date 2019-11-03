@@ -17,13 +17,10 @@
                     <div class="list__item">
                         <div class="hr"></div>
                         <div>рейтинг на сайте:</div>
-                        <div class="title"><fest:value>params.rating</fest:value></div>
+                        <div class="title"><fest:value>params.mark</fest:value></div>
                         <div class="hr"></div>
                         <div> рецензий:</div>
                         <div class="title">2</div>
-                        <div class="hr"></div>
-                        <div> зарегестрирован:</div>
-                        <div class="title"><fest:value>params.date</fest:value></div>
                         <div class="hr"></div>
                     </div>
                     <input type="button" class="button js-edit-button" value="редактировать"/>

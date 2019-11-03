@@ -5,24 +5,33 @@
             <div class="posters">
                 <!--<img class="film__img" src="/images/films/{film.image}" alt="название фильма"/>-->
                 <img class="posters__img posters__img_left" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                <img class="posters__img posters__img_active" src="/images/{film.image}" alt="название фильма"/>
+                <img class="posters__img posters__img_active" src="/images/{film.images[0]}" alt="название фильма"/>
                 <img class="posters__img posters__img_right" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
             </div>
             <div class="film__description">
                 <!--<div class="title"></div>-->
                 <div class="title film__title"><fest:value>film.title</fest:value></div>
                 <div>
-                    <div class="film__decription_main">Рейтинг: <fest:value>film.rating</fest:value></div>
-                    <div class="film__decription_main">Жанры: <fest:for iterate="film.genres" index="i" value="v">
+                    <div class="film__decription_main">Рейтинг: <fest:value>film.mark</fest:value></div>
+                    <div class="film__decription_main">Жанры:
+                        <fest:for iterate="film.genres" index="i" value="v">
                         <fest:value>v</fest:value>, <!-- abc -->
-                    </fest:for></div>
+                        </fest:for>
+                    </div>
+                    <div class="film__decription_main">Страны:
+                        <fest:for iterate="film.countries" index="i" value="v">
+                            <fest:value>v</fest:value>, <!-- abc -->
+                        </fest:for>
+                    </div>
                     <div class="film__decription_main"><fest:value>film.date</fest:value></div>
                     <div class="film__decription_main">Актеры: <br/>
                         <a href="/actor?actorID=1">Вася Пупкин</a>, <br/>
                         <fest:for iterate="film.persons" index="i" value="v">
-                        <a href="/actor?actorID={v.id}"><fest:value>v.name</fest:value></a>,<br/> abc -->
-                    </fest:for></div>
-
+                        <a href="/actor?actorID={v.id}">
+                            <fest:value>v.name</fest:value>
+                        </a>,<br/>
+                        </fest:for>
+                    </div>
                 </div>
                 <div>
                     <fest:value>film.description</fest:value>
