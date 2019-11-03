@@ -27,9 +27,9 @@
             </div>
             <div class="actor__wall js-actor-wall">
                 <div class="profile__bar">
-                    <a  href="/actor?films&id={film.id}" class="button js-films-button" >фильмы</a>
+                    <a  href="/actor?films&id={params.id}" class="button js-films-button" >фильмы</a>
                     <a  disabled="true" class="button  button_active">фотографии </a>
-                    <a  href="/actor?awards&id={film.id}" class="button js-awards-button" >награды</a>
+                    <a  href="/actor?awards&id={params.id}" class="button js-awards-button" >награды</a>
                     <!--<input type="button" class="button js-films-button" value="фильмы"/>
                     <input type="button" disabled="true" class="button  button_active" value="фотографии"/>
                     <input type="button" class="button js-awards-button" value="Награды"/>-->
