@@ -12,7 +12,7 @@
         </div>
         <div class="hr"></div>
         <div class="profile-edit-form__text">Редактировать информацию о себе: </div>
-        <input class="input" id="js-username-input" type="text" name="name" placeholder="Имя"/>
+        <input class="input" id="js-username-input" type="text" name="username" placeholder="Имя"/>
         <textarea class="textarea" id="js-description-textarea" name="description" placeholder="О себе"> </textarea>
         <div class="profile__button">
             <input class="button" id="js-save-button" type="button" value="Сохранить"/>

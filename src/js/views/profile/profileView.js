@@ -3,7 +3,7 @@ import template from './profile.tmpl.xml';
 import reviewsTmpl from './profile.reviews.tmpl.xml';
 import editTmpl from './profile.edit.tmpl.xml';
 import listTmpl from './profile.list.tmpl.xml';
-import { clearError, renderError} from '../../libs/errorMessages';
+import {clearError, renderError} from '../../libs/errorMessages';
 import {errorMessages} from '../../libs/constants';
 
 /**
@@ -31,8 +31,6 @@ export default class ProfileView extends View {
 
         this.localTmpl = reviewsTmpl;
 
-        this.userData = {};
-
         this.submitsIds = {
             loginSubmit: 'js-save-login-button',
             passwordSubmit: 'js-save-password-button',
@@ -41,10 +39,11 @@ export default class ProfileView extends View {
 
         this.infoIds = {
             username: 'js-username-input',
+            description: 'js-description-textarea',
         };
 
         this.loginIds = {
-            email: 'js-email-input'
+            email: 'js-email-input',
         };
 
         this.oldPasswordIds = {
@@ -53,27 +52,24 @@ export default class ProfileView extends View {
 
         this.passwordsIds = {
             password: 'js-password-input',
-            passwordClone: 'js-password-rep-input'
+            passwordClone: 'js-password-rep-input',
         };
 
         this.localEventBus.addEventListener('editButtonClicked',
             this.onEditButtonClicked.bind(this));
         this.localEventBus.addEventListener('listButtonClicked',
             this.onListButtonClicked.bind(this));
-        this.localEventBus.addEventListener('saveButtonClicked',
-            this.onEdit.bind(this));
-        this.localEventBus.addEventListener('saveLoginClicked',
-            this.onEditLogin.bind(this));
-        this.localEventBus.addEventListener('savePasswordClicked',
-            this.onEditPassword.bind(this));
+        this.localEventBus.addEventListener('backButtonClicked',
+            this.onBackButtonClicked.bind(this));
+
+        this.localEventBus.addEventListener('avatarButtonClicked',
+            this.onEditAvatar.bind(this));
+
         this.localEventBus.addEventListener('editOk',
             this.editOk.bind(this));
         this.localEventBus.addEventListener('editFailed',
             this.editFailed.bind(this));
-        this.localEventBus.addEventListener('backButtonClicked',
-            this.onBackButtonClicked.bind(this));
-        this.localEventBus.addEventListener('avatarButtonClicked',
-            this.onEditAvatar.bind(this));
+
         this.localEventBus.addEventListener('getInfoOk',
             this.getInfoOk.bind(this));
 
@@ -133,8 +129,8 @@ export default class ProfileView extends View {
         this.editButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('editButtonClicked');
         });
-        this.saveButton = document.querySelector('.js-reviews-button');
-        this.saveButton.addEventListener('click', () => {
+        const reviewsButton = document.querySelector('.js-reviews-button');
+        reviewsButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('backButtonClicked');
         });
     }
@@ -152,8 +148,8 @@ export default class ProfileView extends View {
         });
 
         this.editButton.disabled = false;
-        this.listButton = document.querySelector('.js-list-button');
-        this.listButton.addEventListener('click', () => {
+        const listButton = document.querySelector('.js-list-button');
+        listButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('listButtonClicked');
         });
     }
@@ -191,7 +187,7 @@ export default class ProfileView extends View {
             document.getElementById(target[property]).addEventListener('focusout', (field) => {
                 let fields = {};
                 for (const property in target) {
-                    if (Object.prototype.hasOwnProperty.call(target, property)) {
+                    if (target[property]) {
                         fields[property] = document.getElementById(target[property]);
                     }
                 }
@@ -215,12 +211,12 @@ export default class ProfileView extends View {
 
     editFailed(errors) {
         this.localEventBus.dispatchEvent('clearError', this.submitsIds.infoSubmit);
-        if (Object.prototype.hasOwnProperty.call(errors,'error')) {
+        if (errors.error) {
             this.localEventBus.dispatchEvent('renderError',
-                this.submitsIds.loginSubmit, errors.error);
+                this.submitsIds.infoSubmit, errors.error);
         } else {
             this.localEventBus.dispatchEvent('renderError',
-                this.submitsIds.loginSubmit, errorMessages.unknown);
+                this.submitsIds.infoSubmit, errorMessages.unknown);
         }
     }
 
@@ -228,47 +224,16 @@ export default class ProfileView extends View {
      * On event
      * @method
      */
-    onEdit() {
-        console.log('edit profile info');
-
-        this.nicknameInput = document.querySelector('.js-nickname-input');
-        this.descriptionInput = document.querySelector('.js-description-textarea');
-
-        this.editData = {
-            username: this.nicknameInput.value,
-            description: this.descriptionInput.value,
-        };
-
-        this.localEventBus.dispatchEvent('onEditingProfile', this.editData);
-    }
-
-    /**
-     * On event
-     * @method
-     */
     onEditAvatar() {
-        this.avatarInput = document.querySelector('.js-avatar-input');
+        const avatarInput = document.querySelector('.js-avatar-input');
 
-        this.editAvatarData = {
-            avatar: this.avatarInput.files[0] || null,
+        const editAvatarData = {
+            avatar: avatarInput.files[0] || null,
         };
 
-        this.localEventBus.dispatchEvent('onEditingAvatar', this.editAvatarData, this.userData);
+        this.localEventBus.dispatchEvent('onEditingAvatar', editAvatarData);
     }
 
-    onEditLogin() {
-        this.loginInput = document.getElementById('js-login-input');
-        this.editLoginData = {
-            email: this.loginInput.value || null,
-        };
-        this.localEventBus.dispatchEvent('onEditingProfile', this.editLoginData);
-    }
-
-    onEditPassword() {
-        this.passwordOld  = document.getElementById('js-oldpassword-input');
-        this.passwordInput = document.getElementById('js-password-input');
-        this.passwordCopy = document.getElementById('js-password-rep-input');
-    }
 
     addEventListenersForEdit() {
         this.setEventListenersForFields(this.infoIds,
@@ -280,29 +245,27 @@ export default class ProfileView extends View {
         this.setEventListenersForDependentFields(this.passwordsIds,
             'passwordsCheck', 'modifyPasswordData', 'password');
 
-        //done
-        this.saveButton = document.getElementById('js-save-button');
-        this.saveButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('saveButtonClicked');
+        const saveButton = document.getElementById('js-save-button');
+        saveButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('onEditingProfile');
         });
 
-        this.saveButton = document.getElementById('js-save-login-button');
-        this.saveButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('saveLoginClicked');
+        const saveLoginButton = document.getElementById('js-save-login-button');
+        saveLoginButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('onEditingProfile');
         });
-        this.saveButton = document.getElementById('js-save-password-button');
-        this.saveButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('savePasswordClicked');
+        const savePasswordButton = document.getElementById('js-save-password-button');
+        savePasswordButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('onEditingPassword');
         });
 
-        //done
-        this.avatarButton = document.querySelector('.js-avatar-button');
-        this.avatarButton.addEventListener('click', () => {
+        const avatarButton = document.querySelector('.js-avatar-button');
+        avatarButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('avatarButtonClicked');
         });
 
-        this.backButton = document.querySelector('.js-back-button');
-        this.backButton.addEventListener('click', () => {
+        const backButton = document.querySelector('.js-back-button');
+        backButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('backButtonClicked');
         });
     }
@@ -312,18 +275,16 @@ export default class ProfileView extends View {
      * @method
      * @param {Object} data
      */
-    // eslint-disable-next-line no-unused-vars
     render(data = {}) {
-        if (data['reviews'] === '') {
+        if (data.reviews === 'reviews') {
             this.localTmpl = reviewsTmpl;
-        } else if (data['lists'] === '') {
+        } else if (data.lists === 'lists') {
             this.localTmpl = listTmpl;
-        } else if (data['edit'] === '') {
+        } else if (data.edit === 'edit') {
             this.localTmpl = editTmpl;
         } else {
             this.localTmpl = reviewsTmpl;
         }
-
         this.localEventBus.dispatchEvent('getProfileInfo');
     }
 }
