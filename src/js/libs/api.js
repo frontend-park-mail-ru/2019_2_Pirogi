@@ -168,15 +168,15 @@ export default class Api {
         });
     }
 
-    static getPersonInfo({personID}) {
-        return Network.doGet(`/api/persons/${personID}/`);
+    static getPersonInfo({id}) {
+        return Network.doGet(`/api/persons/${id}/`);
     }
 
-    static getReviews({filmID}) {
-        return Network.doGet(`/api/review/${filmID}/`);
+    static getReviews({filmID, limit, offset}) {
+        return Network.doGet(`/api/review/${filmID}?limit=${limit}&offset=${offset}`);
     }
 
-    static getList() {
-        return Network.doGet('/api/lists');
+    static getList({limit, offset}) {
+        return Network.doGet(`/api/lists?limit=${limit}&offset=${offset}`);
     }
 }

@@ -26,16 +26,28 @@ export default class ActorView extends View {
 
         this.localEventBus.addEventListener('ActorInfoOk',
             this.actorInfoOk.bind(this));
+        this.localEventBus.addEventListener('filmListOk',
+            this.filmListOk.bind(this));
     }
 
+    filmListOk(data) {
+        this.actorData.films = data;
+        super.render(this.actorData);
+    }
     actorInfoOk(data = {}) {
         super.render(data);
+        if (this.actorData.films === 'films') {
+            this.localEventBus.dispatchEvent('getFilmList',{limit:1, offset: 0});
+        }
+
+        this.actorData = data;
     }
     /**
      * Render the Index view
      * @param {Object} data
      */
     render(data = {}) {
+        this.actorData = data;
         if (data.films === 'films') {
             super.template = filmsTMPL;
         } else if (data.photo === 'photo') {

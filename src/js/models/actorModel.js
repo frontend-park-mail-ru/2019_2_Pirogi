@@ -15,6 +15,19 @@ export default class ActorModel {
 
         this.localEventBus.addEventListener('getActorInfo',
             this.getActorInfo.bind(this));
+        this.localEventBus.addEventListener('getFilmList',
+            this.getFilmList.bind(this));
+    }
+
+    getFilmList(data = {}) {
+        Api.getList(data)
+            .then( (res) => {
+                if (res.ok) {
+                    res.json().then(data => this.localEventBus.dispatchEvent('filmListOk', data));
+                } else {
+                    this.localEventBus.dispatchEvent('filmListFailed');
+                }
+            });
     }
 
     getActorInfo(data = {}) {
