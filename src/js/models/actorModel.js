@@ -31,7 +31,7 @@ export default class ActorModel {
     }
 
     getActorInfo(data = {}) {
-        Api.getPersonInfo({personID: data.actorID})
+        Api.getPersonInfo(data)
             .then((res) => {
                 if (res.ok) {
                     res.json().then(data => this.localEventBus.dispatchEvent('ActorInfoOk', data));
