@@ -160,12 +160,23 @@ export default class Api {
      * @param {string} description
      * @returns {Promise<Response>}
      */
-    static sendReview({filmID, userID, title, description}) {
+    static sendReview({filmID, title, description}) {
         return Network.doPost('/api/reviews/', {
             film_id: filmID,
-            user_id: userID,
             title,
-            description,
+            body: description,
         });
+    }
+
+    static getPersonInfo({personID}) {
+        return Network.doGet(`/api/persons/${personID}/`);
+    }
+
+    static getReviews({filmID}) {
+        return Network.doGet(`/api/review/${filmID}/`);
+    }
+
+    static getList() {
+        return Network.doGet('/api/lists');
     }
 }

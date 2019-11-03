@@ -87,8 +87,7 @@ export default class ProfileView extends View {
         super.render(data);
         this.editButton = document.querySelector('.js-edit-button');
 
-        if (this.localTmpl === editTmpl)
-        {
+        if (this.localTmpl === editTmpl) {
             this.onEditButtonClicked();
         } else if (this.localTmpl === reviewsTmpl) {
             this.onBackButtonClicked();

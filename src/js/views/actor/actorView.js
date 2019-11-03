@@ -23,6 +23,13 @@ export default class ActorView extends View {
 
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
+
+        this.localEventBus.addEventListener('ActorInfoOk',
+            this.actorInfoOk.bind(this));
+    }
+
+    actorInfoOk(data = {}){
+        super.render(data);
     }
     /**
      * Render the Index view
@@ -39,5 +46,7 @@ export default class ActorView extends View {
             super.template = filmsTMPL;
         }
         super.render(data);
+
+        this.localEventBus.dispatchEvent('getActorInfo', data);
     }
 }
