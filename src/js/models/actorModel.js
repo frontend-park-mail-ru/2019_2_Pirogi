@@ -17,7 +17,7 @@ export default class ActorModel {
             this.getActorInfo.bind(this));
     }
 
-    getActorInfo(data = {}){
+    getActorInfo(data = {}) {
         Api.getPersonInfo({personID: data.actorID})
             .then((res) => {
                 if (res.ok) {

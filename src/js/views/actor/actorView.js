@@ -28,7 +28,7 @@ export default class ActorView extends View {
             this.actorInfoOk.bind(this));
     }
 
-    actorInfoOk(data = {}){
+    actorInfoOk(data = {}) {
         super.render(data);
     }
     /**
