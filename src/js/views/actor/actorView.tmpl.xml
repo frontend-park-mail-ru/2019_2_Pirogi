@@ -23,7 +23,6 @@
                         <div class="title"><fest:value>params.date</fest:value></div>
                         <div class="hr"></div>
                     </div>
-                    <input type="button" class="button js-edit-button" value="редактировать"/>
                 </div>
             </div>
             <div class="actor__wall js-actor-wall">

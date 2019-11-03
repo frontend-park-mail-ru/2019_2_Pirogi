@@ -81,7 +81,7 @@ export default class Router {
         if (searchParams !== '') {
             const urlSearchRarams = new URLSearchParams(searchParams);
             urlSearchRarams.forEach((value, name) => {
-                route.data[name] = value;
+                route.data[name] = value || name;
             });
         }
 

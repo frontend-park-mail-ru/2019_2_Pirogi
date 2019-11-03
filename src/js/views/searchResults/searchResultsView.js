@@ -31,10 +31,12 @@ export default class SearchResultsView extends View {
      */
     render(data = {}) {
         console.log('rendering searchResults page');
-        if (data['films'] === '') {
+        if (data.films === 'films') {
             super.template = genrestmpl;
-        } else if (data['ratings'] === '') {
+        } else if (data.ratings === 'ratings') {
             super.template = ratingtml;
+        } else if (data.news === 'news') {
+            super.template = template;
         } else {
             super.template = template;
         }

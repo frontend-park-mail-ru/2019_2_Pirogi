@@ -29,11 +29,11 @@ export default class ActorView extends View {
      * @param {Object} data
      */
     render(data = {}) {
-        if (data['films'] === '') {
+        if (data.films === 'films') {
             super.template = filmsTMPL;
-        } else if (data['photo'] === '') {
+        } else if (data.photo === 'photo') {
             super.template = photoTMPL;
-        } else if (data['awards'] === '') {
+        } else if (data.awards === 'awards') {
             super.template = awardsTMPL;
         } else {
             super.template = filmsTMPL;

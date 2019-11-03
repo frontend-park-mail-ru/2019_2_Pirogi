@@ -62,15 +62,7 @@ export default class LoginView extends View {
      * Handle login event
      */
     login() {
-        const emailInput = document.getElementById('js-email-login');
-        const passwordInput = document.getElementById('js-password-login');
-
-        const loginData = {
-            email: emailInput.value || null,
-            password: passwordInput.value || null,
-        };
-
-        this.localEventBus.dispatchEvent('loginCheck', loginData);
+        this.localEventBus.dispatchEvent('loginCheck');
     }
 
     /**
@@ -92,17 +84,7 @@ export default class LoginView extends View {
      * @method
      */
     registration() {
-
-        const usernameInput = document.getElementById('js-nickname-register');
-        const emailInput = document.getElementById('js-email-register');
-        const passwordInput = document.getElementById('js-password-register');
-
-        const regData = {
-            username: usernameInput.value || null,
-            email: emailInput.value || null,
-            password: passwordInput.value || null
-        };
-        this.localEventBus.dispatchEvent('registrationCheck', regData);
+        this.localEventBus.dispatchEvent('registrationCheck');
     }
 
     /**
