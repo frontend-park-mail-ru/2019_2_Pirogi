@@ -40,14 +40,14 @@
                             <div class="actor__film-card">
                                 <a class="title"><fest:value>film.title</fest:value></a>
                                 <div>Жанры:
-                                    <fest:for iterate="film.genres" index="i" value="v">
+                                    <fest:for iterate="film.genres" index="j" value="v">
                                         <fest:value>v</fest:value>, <!-- abc -->
                                     </fest:for>
                                 </div>
                                 <div>год: <a><fest:value>film.year</fest:value></a></div>
                                 <div>Актеры: <br/>
                                     <a href="/actor?id=1">Вася Пупкин</a>, <br/>
-                                    <fest:for iterate="film.persons" index="i" value="v">
+                                    <fest:for iterate="film.persons" index="j" value="v">
                                         <a href="/actor?id={v.id}">
                                             <fest:value>v.name</fest:value>
                                         </a>,<br/>
