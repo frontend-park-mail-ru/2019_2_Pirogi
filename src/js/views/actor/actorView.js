@@ -37,7 +37,7 @@ export default class ActorView extends View {
     actorInfoOk(data = {}) {
         super.render(data);
         if (this.actorData.films === 'films') {
-            this.localEventBus.dispatchEvent('getFilmList',{limit:1, offset: 0});
+            this.localEventBus.dispatchEvent('getFilmList',{limit:10, offset: 0});
         }
 
         this.actorData = data;
