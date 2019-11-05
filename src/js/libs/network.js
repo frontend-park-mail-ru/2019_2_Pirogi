@@ -38,7 +38,7 @@ export default class Network {
                 body: JSON.stringify(body),
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',
-                    'X-CSRF-TOKEN': csrfCookie
+                    'X-CSRF-TOKEN': csrfCookie[0]
                 },
             });
         }
