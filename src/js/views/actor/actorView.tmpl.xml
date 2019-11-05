@@ -36,21 +36,24 @@
                 <div class="list">
                     <fest:for iterate="params.filmsarray" index="i" value="film">
                         <div class="list__item actor__film">
-                            <img src="/images/films/{film.images[0]}" alt="название фильма"/>
+                            <div>
+                                <a href=" /film?filmID={film.id}"></a>
+                                <img  src="/images/films/{film.images[0]}" alt="название фильма"/>
+                            </div>
                             <div class="actor__film-card">
-                                <a class="title"><fest:value>film.title</fest:value></a>
+                                <a href="/film?filmID={film.id}" class="title"><fest:value>film.title</fest:value></a>
                                 <div>Жанры:
                                     <fest:for iterate="film.genres" index="j" value="v">
-                                        <fest:value>v</fest:value>, <!-- abc -->
+                                        <a href="/search?genre={v}"><fest:value>v</fest:value></a>,
                                     </fest:for>
                                 </div>
-                                <div>год: <a><fest:value>film.year</fest:value></a></div>
-                                <div>Актеры: <br/>
-                                    <a href="/actor?id=1">Вася Пупкин</a>, <br/>
+                                <div>год: <a href="search?year={film.year}"><fest:value>film.year</fest:value></a></div>
+                                <div>Актеры:
+                                    <a href="/actor?id=1">Вася Пупкин</a>,
                                     <fest:for iterate="film.persons" index="j" value="v">
                                         <a href="/actor?id={v.id}">
                                             <fest:value>v.name</fest:value>
-                                        </a>,<br/>
+                                        </a>,
                                     </fest:for>
                                 </div>
                                 <div>

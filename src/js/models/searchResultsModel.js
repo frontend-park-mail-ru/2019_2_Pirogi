@@ -1,4 +1,4 @@
-import Api from "../libs/api";
+import Api from '../libs/api';
 
 /**
  * Creates a new Search Results model
