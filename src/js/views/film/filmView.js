@@ -1,5 +1,7 @@
 import View from '../../libs/view.js';
 import template from './filmView.tmpl.xml';
+import {errorMessages} from '../../libs/constants';
+import {clearError, renderError} from '../../libs/errorMessages';
 
 
 /**
@@ -31,6 +33,23 @@ export default class FilmView extends View {
             this.filmInfoOk.bind(this));
         this.localEventBus.addEventListener('getReviewsOK',
             this.reviewsOk.bind(this));
+        this.localEventBus.addEventListener('addReviewFail',
+            this.addReviewFail.bind(this));
+        this.localEventBus.addEventListener('clearError',
+            clearError.bind(this));
+        this.localEventBus.addEventListener('renderError',
+            renderError.bind(this));
+    }
+
+    addReviewFail(errors = {}) {
+        this.localEventBus.dispatchEvent('clearError', 'js-review-button');
+        if (errors.error) {
+            this.localEventBus.dispatchEvent('renderError',
+                'js-review-button', errors.error);
+        } else {
+            this.localEventBus.dispatchEvent('renderError',
+                'js-review-button', errorMessages.unknown);
+        }
     }
 
     reviewsOk(data = {}) {

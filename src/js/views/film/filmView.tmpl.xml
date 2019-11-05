@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <textarea class="textarea js-text-input" placeholder="Текст рецензии"></textarea>
-                <input class="button js-review-button" type="button" value="Отправить"/>
+                <input class="button js-review-button" id="js-review-button" type="button" value="Отправить"/>
             </form>
             <div class="hr"></div>
         </div>

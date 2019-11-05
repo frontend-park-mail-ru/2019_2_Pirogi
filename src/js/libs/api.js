@@ -173,7 +173,7 @@ export default class Api {
     }
 
     static getReviews({filmID, limit, offset}) {
-        return Network.doGet(`/api/review/${filmID}?limit=${limit}&offset=${offset}`);
+        return Network.doGet(`/api/reviews/${filmID}?limit=${limit}&offset=${offset}`);
     }
 
     static getList({limit, offset}) {

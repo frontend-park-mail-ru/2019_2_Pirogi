@@ -54,8 +54,14 @@ export default class FilmModel {
      * Checks the review
      * @param {object} data
      */
-    onReviewCheck(data) {
-        console.log('checking review');
-        this.localEventBus.dispatchEvent('addMyNewReview', data);
+    onReviewCheck(data = {}) {
+        Api.sendReview(data)
+            .then((res) => {
+                if (res.ok) {
+                    res.json().then(data => this.localEventBus.dispatchEvent('addMyNewReview', data));
+                } else {
+                    this.localEventBus.dispatchEvent('addReviewFail');
+                }
+            });
     }
 }
