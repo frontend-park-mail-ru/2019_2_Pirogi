@@ -50,7 +50,7 @@ export default class FilmView extends View {
             this.localEventBus.dispatchEvent('reviewEvent');});
 
         this.localEventBus.dispatchEvent('getReviews', {
-            filmID: this.filmData.filmID,
+            filmID: this.filmData.id,
             limit: 10,
             offset: 0,
         });
