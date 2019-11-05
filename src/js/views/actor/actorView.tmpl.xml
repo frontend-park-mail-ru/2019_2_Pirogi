@@ -36,7 +36,7 @@
                 <div class="list">
                     <fest:for iterate="params.filmsarray" index="i" value="film">
                         <div class="list__item actor__film">
-                            <div>
+                            <div class="actor__film-img">
                                 <a href=" /film?filmID={film.id}"></a>
                                 <img  src="/images/films/{film.images[0]}" alt="название фильма"/>
                             </div>
