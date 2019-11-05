@@ -55,7 +55,7 @@ export default class FilmView extends View {
     reviewsOk(data = {}) {
         this.filmData.reviewarray = data;
 
-        super.render(data);
+        super.render(this.filmData);
     }
 
     
@@ -83,6 +83,8 @@ export default class FilmView extends View {
     addMyReview(reviewData) {
         console.log('add new review');
         console.log(reviewData);
+
+        this.localEventBus.dispatchEvent('getFilmInfo', this.filmData);
     }
 
 
