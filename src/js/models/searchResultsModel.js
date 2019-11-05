@@ -20,6 +20,7 @@ export default class SearchResultsModel {
             this.getResults.bind(this));
     }
 
+
     getResults(data = {}) {
         Api.getList(data)
             .then((res) => {

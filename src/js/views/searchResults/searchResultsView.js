@@ -27,7 +27,6 @@ export default class SearchResultsView extends View {
 
         this.localEventBus.addEventListener('getResultsOK',
             this.resultsOK.bind(this));
-
     }
 
     resultsOK(data = {}) {
@@ -49,16 +48,20 @@ export default class SearchResultsView extends View {
             super.template = genrestmpl;
         } else if (data.ratings === 'ratings') {
             super.template = ratingtml;
+            this.localEventBus.dispatchEvent('getRatings', data);
         } else if (data.news === 'news') {
             super.template = template;
         } else {
             super.template = template;
+
         }
-        super.render(data);
 
         data.limit = 10;
         data.offset = 0;
         this.localEventBus.dispatchEvent('getResults', data);
         this.searchData = data;
+        super.render(data);
+
+
     }
 }

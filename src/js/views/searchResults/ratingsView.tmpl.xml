@@ -1,110 +1,38 @@
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
     <div class="rating-page">
     <div class="rating">
         <div class="title"> Выберите источник </div>
         <input class="input" type="text" placeholder="Рейтинг Cinsear"/>
         <div class="list">
-            <div class="list__item rating__film">
-                <div class="rating__place">1</div>
-                <div class="rating__img">
-                    <a href=" /film?filmID=1"> </a>
-                    <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                </div>
+            <fest:for iterate="params.filmsArray" index="i" value="film">
+                <div class="list__item rating__film">
+                    <div class="rating__place"><fest:value>i+1</fest:value></div>
+                    <div class="rating__img">
+                        <a href=" /film?filmID={film.id}"></a>
+                        <img  src="/images/films/{film.images[0]}" alt="{film.title}"/>
+                    </div>
 
-                <div class="rating__film-card">
-                    <a  href=" /film?filmID=1" class="title">Moonlight</a>
-                    <div>жанр: <a href="/horrors">ужасы</a></div>
-                    <div>год: <a href="/2019">2019</a></div>
-                    <div>актеры: <a href="/actors">Бакулев Артем</a></div>
-                    <div>
-                            Многосерийный фильм с открытой концовкой. Заставляет задуматься о смысле жизни и
-                            переосмыслить ценности. Aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                            justo duo.
+                    <div class="rating__film-card">
+                        <a href="/film?filmID={film.id}" class="title"><fest:value>film.title</fest:value></a>
+                        <div>Жанры:
+                            <fest:for iterate="film.genres" index="j" value="v">
+                                <a href="/search?genre={v}"><fest:value>v</fest:value></a>,
+                            </fest:for>
+                        </div>
+                        <div>год: <a href="search?year={film.year}"><fest:value>film.year</fest:value></a></div>
+                        <div>Актеры:
+                            <fest:for iterate="film.persons" index="j" value="v">
+                                <a href="/actor?id={v.id}">
+                                    <fest:value>v.name</fest:value>
+                                </a>,
+                            </fest:for>
+                        </div>
+                        <div>
+                            <fest:value>film.description</fest:value>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="list">
-            <div class="list__item rating__film">
-                <div class="rating__place">2</div>
-                <div class="rating__img">
-                    <a href=" /film?filmID=1">  a  </a>
-                     <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                </div>
-                <div class="rating__film-card">
-                    <a  href=" /film?filmID=1" class="title">Moonlight</a>
-                    <div>жанр: <a href="/horrors">ужасы</a></div>
-                    <div>год: <a href="/2019">2019</a></div>
-                    <div>актеры: <a href="/actors">Бакулев Артем</a></div>
-                    <div>
-                        Многосерийный фильм с открытой концовкой. Заставляет задуматься о смысле жизни и
-                        переосмыслить ценности. Aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                        justo duo.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="list">
-            <div class="list__item rating__film">
-                <div class="rating__place">3</div>
-                <div class="rating__img">
-                    <a href=" /film?filmID=1">  a  </a>
-                    <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                </div>
-                <div class="rating__film-card">
-                    <a  href=" /film?filmID=1" class="title">Moonlight</a>
-                    <div>жанр: <a href="/horrors">ужасы</a></div>
-                    <div>год: <a href="/2019">2019</a></div>
-                    <div>актеры: <a href="/actors">Бакулев Артем</a></div>
-                    <div>
-                        Многосерийный фильм с открытой концовкой. Заставляет задуматься о смысле жизни и
-                        переосмыслить ценности. Aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                        justo duo.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="list">
-            <div class="list__item rating__film">
-                <div class="rating__place">4</div>
-                <div class="rating__img">
-                    <a href=" /film?filmID=1">  a  </a>
-                    <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                </div>
-
-                <div class="rating__film-card">
-                    <a  href=" /film?filmID=1" class="title">Moonlight</a>
-                    <div>жанр: <a href="/horrors">ужасы</a></div>
-                    <div>год: <a href="/2019">2019</a></div>
-                    <div>актеры: <a href="/actors">Бакулев Артем</a></div>
-                    <div>
-                        Многосерийный фильм с открытой концовкой. Заставляет задуматься о смысле жизни и
-                        переосмыслить ценности. Aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                        justo duo.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="list">
-            <div class="list__item rating__film">
-                <div class="rating__place">5</div>
-                <div class="rating__img">
-                    <a href=" /film?filmID=1">  a  </a>
-                    <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                </div>
-
-                <div class="rating__film-card">
-                    <a   href=" /film?filmID=1" class="title">Moonlight</a>
-                    <div>жанр: <a href="/horrors">ужасы</a></div>
-                    <div>год: <a href="/2019">2019</a></div>
-                    <div>актеры: <a href="/actors">Бакулев Артем</a></div>
-                    <div>
-                        Многосерийный фильм с открытой концовкой. Заставляет задуматься о смысле жизни и
-                        переосмыслить ценности. Aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                        justo duo.
-                    </div>
-                </div>
-            </div>
+            </fest:for>
         </div>
 
     </div>

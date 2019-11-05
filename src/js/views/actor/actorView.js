@@ -55,6 +55,7 @@ export default class ActorView extends View {
         } else if (data.awards === 'awards') {
             super.template = awardsTMPL;
         } else {
+            data.films = 'films';
             super.template = filmsTMPL;
         }
         super.render(data);

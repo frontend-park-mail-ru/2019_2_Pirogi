@@ -20,7 +20,6 @@
                             </div>
                             <div>год: <a href="search?year={film.year}"><fest:value>film.year</fest:value></a></div>
                             <div>Актеры:
-                                <a href="/actor?id=1">Вася Пупкин</a>,
                                 <fest:for iterate="film.persons" index="j" value="v">
                                     <a href="/actor?id={v.id}">
                                         <fest:value>v.name</fest:value>
