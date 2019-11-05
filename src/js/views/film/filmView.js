@@ -21,21 +21,39 @@ export default class FilmView extends View {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
 
+        this.filmData = {};
+
         this.localEventBus.addEventListener('reviewEvent',
             this.onReview.bind(this));
         this.localEventBus.addEventListener('addMyNewReview',
             this.addMyReview.bind(this));
         this.localEventBus.addEventListener('filmInfoOk',
             this.filmInfoOk.bind(this));
+        this.localEventBus.addEventListener('getReviewsOK',
+            this.reviewsOk.bind(this));
+    }
+
+    reviewsOk(data = {}) {
+        this.filmData.reviewarray = data;
+
+        super.render(data);
     }
 
     
     filmInfoOk(data = {}) {
         super.render(data);
 
+        this.filmData = data;
+
         this.reviewButton = document.querySelector('.js-review-button');
         this.reviewButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('reviewEvent');});
+
+        this.localEventBus.dispatchEvent('getReviews', {
+            filmID: this.filmData.filmID,
+            limit: 10,
+            offset: 0,
+        });
     }
 
     /**
