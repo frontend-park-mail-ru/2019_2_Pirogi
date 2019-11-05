@@ -4,7 +4,7 @@
         <div class="actor">
             <div class="actor__info"> <!-- to center this section or whatever -->
                 <div>
-                    <img class="actor__photo" alt="username" src="/images/users/{params.images[0]}"/>
+                    <img class="actor__photo" alt="username" src="/images/persons/{params.images[0]}"/>
                     <!--<img class="actor__photo" alt="username" src="src/images/guy.jpeg"/>-->
                 </div>
                 <div class="list"> <!-- img -->
