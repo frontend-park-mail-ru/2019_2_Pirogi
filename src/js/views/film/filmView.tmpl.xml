@@ -5,7 +5,7 @@
             <div class="posters">
                 <!--<img class="film__img" src="/images/films/{film.image}" alt="название фильма"/>-->
                 <img class="posters__img posters__img_left" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                <img class="posters__img posters__img_active" src="/images/{film.images[0]}" alt="название фильма"/>
+                <img class="posters__img posters__img_active" src="/images/films/{film.images[0]}" alt="название фильма"/>
                 <img class="posters__img posters__img_right" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
             </div>
             <div class="film__description">
