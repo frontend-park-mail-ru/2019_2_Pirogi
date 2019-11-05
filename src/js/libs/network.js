@@ -29,7 +29,7 @@ export default class Network {
      * @returns {Promise<Response>}
      */
     static doPost(path = '/', body = {}) {
-        const csrfCookie = document.cookie.match(/_csrf=([\w-]+)/);
+        const csrfCookie = document.cookie.match(/_csrf=(\w+)/);
         if (csrfCookie) {
             return fetch(MY_PATH + path, {
                 method: 'POST',
