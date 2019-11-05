@@ -22,7 +22,21 @@ export default class SearchResultsView extends View {
 
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
+
+        this.searchData = {};
+
+        this.localEventBus.addEventListener('getResultsOK',
+            this.resultsOK.bind(this));
+
     }
+
+    resultsOK(data = {}) {
+        this.searchData.filmsArray = data;
+
+        super.render(this.searchData);
+    }
+
+
 
     /**
      * Renders the search results
@@ -41,5 +55,10 @@ export default class SearchResultsView extends View {
             super.template = template;
         }
         super.render(data);
+
+        data.limit = 10;
+        data.offset = 0;
+        this.localEventBus.dispatchEvent('getResults', data);
+        this.searchData = data;
     }
 }

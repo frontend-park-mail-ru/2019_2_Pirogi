@@ -6,9 +6,13 @@
         <div class="list">
             <div class="list__item rating__film">
                 <div class="rating__place">1</div>
-                <img class="rating__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                <div class="rating__img">
+                    <a href=" /film?filmID=1"> </a>
+                    <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                </div>
+
                 <div class="rating__film-card">
-                    <a class="title">Moonlight</a>
+                    <a  href=" /film?filmID=1" class="title">Moonlight</a>
                     <div>жанр: <a href="/horrors">ужасы</a></div>
                     <div>год: <a href="/2019">2019</a></div>
                     <div>актеры: <a href="/actors">Бакулев Артем</a></div>
@@ -23,9 +27,12 @@
         <div class="list">
             <div class="list__item rating__film">
                 <div class="rating__place">2</div>
-                <img class="rating__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                <div class="rating__img">
+                    <a href=" /film?filmID=1">  a  </a>
+                     <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                </div>
                 <div class="rating__film-card">
-                    <a class="title">Moonlight</a>
+                    <a  href=" /film?filmID=1" class="title">Moonlight</a>
                     <div>жанр: <a href="/horrors">ужасы</a></div>
                     <div>год: <a href="/2019">2019</a></div>
                     <div>актеры: <a href="/actors">Бакулев Артем</a></div>
@@ -40,9 +47,12 @@
         <div class="list">
             <div class="list__item rating__film">
                 <div class="rating__place">3</div>
-                <img class="rating__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                <div class="rating__img">
+                    <a href=" /film?filmID=1">  a  </a>
+                    <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                </div>
                 <div class="rating__film-card">
-                    <a class="title">Moonlight</a>
+                    <a  href=" /film?filmID=1" class="title">Moonlight</a>
                     <div>жанр: <a href="/horrors">ужасы</a></div>
                     <div>год: <a href="/2019">2019</a></div>
                     <div>актеры: <a href="/actors">Бакулев Артем</a></div>
@@ -57,9 +67,13 @@
         <div class="list">
             <div class="list__item rating__film">
                 <div class="rating__place">4</div>
-                <img class="rating__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                <div class="rating__img">
+                    <a href=" /film?filmID=1">  a  </a>
+                    <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                </div>
+
                 <div class="rating__film-card">
-                    <a class="title">Moonlight</a>
+                    <a  href=" /film?filmID=1" class="title">Moonlight</a>
                     <div>жанр: <a href="/horrors">ужасы</a></div>
                     <div>год: <a href="/2019">2019</a></div>
                     <div>актеры: <a href="/actors">Бакулев Артем</a></div>
@@ -74,9 +88,13 @@
         <div class="list">
             <div class="list__item rating__film">
                 <div class="rating__place">5</div>
-                <img class="rating__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                <div class="rating__img">
+                    <a href=" /film?filmID=1">  a  </a>
+                    <img src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                </div>
+
                 <div class="rating__film-card">
-                    <a class="title">Moonlight</a>
+                    <a   href=" /film?filmID=1" class="title">Moonlight</a>
                     <div>жанр: <a href="/horrors">ужасы</a></div>
                     <div>год: <a href="/2019">2019</a></div>
                     <div>актеры: <a href="/actors">Бакулев Артем</a></div>

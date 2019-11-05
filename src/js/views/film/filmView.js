@@ -56,6 +56,8 @@ export default class FilmView extends View {
         this.filmData.reviewarray = data;
 
         super.render(this.filmData);
+        this.reviewButton.addEventListener('click', () => {
+            this.localEventBus.dispatchEvent('reviewEvent');});
     }
 
     

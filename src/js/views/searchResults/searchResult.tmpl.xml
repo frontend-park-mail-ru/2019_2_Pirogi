@@ -1,14 +1,46 @@
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
     <div class="search">
         <div class="search-results">
             <div class="title">Вы искали: <a>ужасы</a>, <a>университет</a>
             </div>
             <div>666 результатов поиска</div>
             <div class="list">
+                <fest:for iterate="params.filmsArray" index="i" value="film">
+                    <div class="list__item search-results__film">
+                        <div class="search-results__img">
+                            <a href=" /film?filmID={film.id}"></a>
+                            <img  src="/images/films/{film.images[0]}" alt="название фильма"/>
+                        </div>
+                        <div class="search-results__film-card">
+                            <a href=" /film?filmID={film.id}" class="title"><fest:value>film.title</fest:value></a>
+                            <div>Жанры:
+                                <fest:for iterate="film.genres" index="j" value="v">
+                                    <fest:value>v</fest:value>,
+                                </fest:for>
+                            </div>
+                            <div>год: <a><fest:value>film.year</fest:value></a></div>
+                            <div>Актеры: <br/>
+                                <a href="/actor?id=1">Вася Пупкин</a>, <br/>
+                                <fest:for iterate="film.persons" index="j" value="v">
+                                    <a href="/actor?id={v.id}">
+                                        <fest:value>v.name</fest:value>
+                                    </a>,<br/>
+                                </fest:for>
+                            </div>
+                            <div>
+                                <fest:value>film.description</fest:value>
+                            </div>
+                        </div>
+                    </div>
+                </fest:for>
+
                 <div class="list__item search-results__film">
-                    <img class="search-results__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                    <div class="search-results__img">
+                        <a href=" /film?filmID=1"></a>
+                        <img  src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                    </div>
                     <div class="search-results__film-card">
-                        <a class="title">Moonlight</a>
+                        <a href=" /film?filmID=1" class="title">Moonlight</a>
 
                         <div>жанр: <a href="/horrors">ужасы</a></div>
                         <div>год: <a href="/2019">2019</a></div>
@@ -22,38 +54,7 @@
 
                     </div>
                 </div>
-                <div class="list__item search-results__film">
-                    <img class="search-results__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                    <div class="search-results__film-card">
-                        <a class="title">Moonlight</a>
 
-                        <div>жанр: <a href="/horrors">ужасы</a></div>
-                        <div>год: <a href="/2019">2019</a></div>
-                        <div>актеры: <a href="/actors">Бакулев Артем</a></div>
-                        <div>
-                            Многосерийный фильм с открытой концовкой. Заставляет задуматься о смысле жизни и
-                            переосмыслить ценности. Aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                            justo duo.
-                        </div>
-
-                    </div>
-                </div>
-                <div class="list__item search-results__film">
-                    <img class="search-results__img" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                    <div class="search-results__film-card">
-                        <a class="title">Moonlight</a>
-
-                        <div>жанр: <a href="/horrors">ужасы</a></div>
-                        <div>год: <a href="/2019">2019</a></div>
-                        <div>актеры: <a href="/actors">Бакулев Артем</a></div>
-                        <div>
-                            Многосерийный фильм с открытой концовкой. Заставляет задуматься о смысле жизни и
-                            переосмыслить ценности. Aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                            justo duo.
-                        </div>
-
-                    </div>
-                </div>
 
             </div>
         </div>
