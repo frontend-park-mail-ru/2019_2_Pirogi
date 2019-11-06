@@ -22,7 +22,7 @@
                         <div>год: <a href="search?year={film.year}"><fest:value>film.year</fest:value></a></div>
                         <div>Актеры:
                             <fest:for iterate="film.persons" index="j" value="v">
-                                <a href="/actor?id={v.id}">
+                                <a href="/actor?films&id={v.id}">
                                     <fest:value>v.name</fest:value>
                                 </a>,
                             </fest:for>
