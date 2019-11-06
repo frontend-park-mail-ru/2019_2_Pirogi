@@ -100,7 +100,8 @@ export default class FilmView extends View {
         this.textInput = document.querySelector('.js-text-input');
 
         this.reviewData = {
-            title: this.textInput.value || null,
+            filmID: this.filmData.id,
+            title: this.titleInput.value || null,
             description: this.textInput.value || null,
         };
 
