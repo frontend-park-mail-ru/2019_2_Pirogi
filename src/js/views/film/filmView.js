@@ -87,7 +87,7 @@ export default class FilmView extends View {
         console.log('add new review');
         console.log(reviewData);
 
-        this.localEventBus.dispatchEvent('getFilmInfo', this.filmData);
+        this.localEventBus.dispatchEvent('getFilmInfo', {filmID: this.filmData.id});
     }
 
 
