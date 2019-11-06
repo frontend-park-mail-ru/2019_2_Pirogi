@@ -75,11 +75,11 @@
             <fest:for iterate="film.reviewarray" index="i" value="r">
                 <div class="feedback">
                     <div class="feedback__mark">
-                        <img class="feedback__img" src="/src/images/guy.jpeg" alt="название фильма"/>
+                        <img class="feedback__img" src="/images/users/{r.author.image}" alt="название фильма"/>
                         <div>Фильм понравился</div>
                     </div>
                     <div class="feedback__text">
-                        <a href="/user"><fest:value>r.author_id</fest:value>AlmostCurrentPerson</a>
+                        <a href="/user"><fest:value>r.author.username</fest:value></a>
                         <div class="title"><fest:value>r.title</fest:value></div>
                         <div>
                             <fest:value>r.body</fest:value>
@@ -88,6 +88,7 @@
                     <div class="feedback__rating user-rating">
                         <div class="user-rating__text">Этот пользователь поставил:</div>
                         <div class="user-rating__text">
+                            <fest:value>r.mark</fest:value>
                             <i class="fas fa-star fa-2x film__star"></i>
                             <i class="fas fa-star fa-2x film__star"></i>
                             <i class="fas fa-star fa-2x film__star"></i>
