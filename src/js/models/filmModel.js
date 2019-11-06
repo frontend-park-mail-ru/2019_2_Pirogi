@@ -58,9 +58,9 @@ export default class FilmModel {
         Api.sendReview(data)
             .then((res) => {
                 if (res.ok) {
-                    res.json().then(data => this.localEventBus.dispatchEvent('addMyNewReview', data));
+                    this.localEventBus.dispatchEvent('addMyNewReview');
                 } else {
-                    this.localEventBus.dispatchEvent('addReviewFail');
+                    res.json().then(data => this.localEventBus.dispatchEvent('addReviewFail', data));
                 }
             });
     }
