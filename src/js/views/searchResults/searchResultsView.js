@@ -44,11 +44,13 @@ export default class SearchResultsView extends View {
      */
     render(data = {}) {
         console.log('rendering searchResults page');
+        data.limit = 10;
+        data.offset = 0;
         if (data.films === 'films') {
+            data.limit = 8;
             super.template = genrestmpl;
         } else if (data.ratings === 'ratings') {
             super.template = ratingtml;
-            this.localEventBus.dispatchEvent('getRatings', data);
         } else if (data.news === 'news') {
             super.template = template;
         } else {
@@ -56,12 +58,8 @@ export default class SearchResultsView extends View {
 
         }
 
-        data.limit = 10;
-        data.offset = 0;
         this.localEventBus.dispatchEvent('getResults', data);
         this.searchData = data;
         super.render(data);
-
-
     }
 }

@@ -1,4 +1,4 @@
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
     <main class="main">
     <div class="genres">
         <div class="nav-block">
@@ -35,79 +35,17 @@
         <div class="genres-index">
             <div class="genre-films-bar">
                 <div class="title"><a>Триллер</a></div>
-                <div class="film-card">
-                    <div class="film-card__img">
-                        <a href=" /film?filmID=1">  a  </a>
-                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title film-card__info">
-                            ВЕНОМ
+                <fest:for iterate="params.filmsArray" index="i" value="film">
+                    <div class="film-card">
+                        <div class="film-card__img">
+                            <a href=" /film?filmID={film.id}"></a>
+                            <img  src="/images/films/{film.images[0]}" alt="{film.title}"/>
+                            <div class="title film-card__info">
+                                <fest:value>film.title</fest:value>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="film-card">
-                    <div class="film-card__img">
-                        <a href=" /film?filmID=1">  a  </a>
-                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title film-card__info">
-                            ВЕНОМ
-                        </div>
-                    </div>
-                </div>
-                <div class="film-card">
-                    <div class="film-card__img">
-                        <a href=" /film?filmID=1">  a  </a>
-                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title film-card__info">
-                            ВЕНОМ
-                        </div>
-                    </div>
-                </div>
-                <div class="film-card">
-                    <div class="film-card__img">
-                        <a href=" /film?filmID=1">  a  </a>
-                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title film-card__info">
-                            ВЕНОМ
-                        </div>
-                    </div>
-                </div>
-                <div class="film-card">
-                    <div class="film-card__img">
-                        <a href=" /film?filmID=1">  a  </a>
-                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title film-card__info">
-                            ВЕНОМ
-                        </div>
-                    </div>
-                </div>
-                <div class="film-card">
-                    <div class="film-card__img">
-                        <a href=" /film?filmID=1">  a  </a>
-                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title film-card__info">
-                            ВЕНОМ
-                        </div>
-                    </div>
-                </div>
-                <div class="film-card">
-                    <div class="film-card__img">
-                        <a href=" /film?filmID=1">  a  </a>
-                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title film-card__info">
-                            ВЕНОМ
-                        </div>
-                    </div>
-                </div>
-                <div class="film-card">
-                    <div class="film-card__img">
-                        <a href=" /film?filmID=1">  a  </a>
-                        <img    src="/src/images/film-card.jpeg" alt="film-card"/>
-                        <div class="title film-card__info">
-                            ВЕНОМ
-                        </div>
-                    </div>
-                </div>
-
+                </fest:for>
             </div>
             <div class="genre-films-bar genre-films-bar_accent">
                 <div class="title"><a>Фантастика</a></div>
