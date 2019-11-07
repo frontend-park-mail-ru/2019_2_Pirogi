@@ -1,53 +1,22 @@
 <?xml version="1.0"?>
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
-    <main class="main">
-        <div class="actor">
-            <div class="actor__info"> <!-- to center this section or whatever -->
-                <div>
-                    <img class="actor__photo" alt="username" src="/images/persons/{params.images[0]}"/>
-                    <!--<img class="actor__photo" alt="username" src="src/images/guy.jpeg"/>-->
-                </div>
-                <div class="list"> <!-- img -->
-                    <div class="list__item">
-                        <div class="title"><fest:value>params.name</fest:value></div>
-                    </div>
-                    <div class="list__item">
-                        <div class="hr"></div>
-                        <div>рейтинг на сайте:</div>
-                        <fest:value>params.mark</fest:value>
-                        <div class="hr"></div>
-                        <div> Дата рождения:</div>
-                        <fest:value>params.birthday</fest:value>
-                        <div class="hr"></div>
-                        <div> Место рождения:</div>
-                        <fest:value>params.birthplace</fest:value>
-                        <div class="hr"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="actor__wall js-actor-wall">
-                <div class="profile__bar">
-                    <a  href="/actor?films&id={params.id}" class="button js-films-button" >фильмы</a>
-                    <a  disabled="true" class="button  button_active">фотографии </a>
-                    <a  href="/actor?awards&id={params.id}" class="button js-awards-button" >награды</a>
-                    <!--<input type="button" class="button js-films-button" value="фильмы"/>
-                    <input type="button" disabled="true" class="button  button_active" value="фотографии"/>
-                    <input type="button" class="button js-awards-button" value="Награды"/>-->
-                </div>
-                <div class="actor__photo-list">
-                    <img src="/src/images/tmp_film_card.jpg" alt="ajnj"/>
-                    <img src="/src/images/guy.jpeg" alt="фото"/>
-                    <img src="/src/images/avatar.jpg" alt="фото"/>
-                    <img src="/src/images/poster.jpg" alt="фото"/>
-                    <img src="/src/images/guy.jpeg" alt="фото"/>
-                    <img src="/src/images/film-card.jpeg" alt="фото"/>
-                    <img src="/src/images/poster.jpg" alt="фото"/>
-                    <img src="/src/images/avatar.jpg" alt="фото"/>
-                    <img src="/src/images/guy.jpeg" alt="фото"/>
-                </div>
-
-
-            </div>
-        </div>
-    </main>
+    <div class="profile__bar">
+        <a  href="/actor?films&id={params.id}" class="button js-films-button" >фильмы</a>
+        <a  disabled="true" class="button  button_active">фотографии </a>
+        <a  href="/actor?awards&id={params.id}" class="button js-awards-button" >награды</a>
+        <!--<input type="button" class="button js-films-button" value="фильмы"/>
+        <input type="button" disabled="true" class="button  button_active" value="фотографии"/>
+        <input type="button" class="button js-awards-button" value="Награды"/>-->
+    </div>
+    <div class="actor__photo-list">
+        <img src="/src/images/tmp_film_card.jpg" alt="ajnj"/>
+        <img src="/src/images/guy.jpeg" alt="фото"/>
+        <img src="/src/images/avatar.jpg" alt="фото"/>
+        <img src="/src/images/poster.jpg" alt="фото"/>
+        <img src="/src/images/guy.jpeg" alt="фото"/>
+        <img src="/src/images/film-card.jpeg" alt="фото"/>
+        <img src="/src/images/poster.jpg" alt="фото"/>
+        <img src="/src/images/avatar.jpg" alt="фото"/>
+        <img src="/src/images/guy.jpeg" alt="фото"/>
+    </div>
 </fest:template>

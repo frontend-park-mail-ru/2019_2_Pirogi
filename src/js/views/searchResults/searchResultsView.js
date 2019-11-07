@@ -54,12 +54,12 @@ export default class SearchResultsView extends View {
      * @param {Object} data
      */
     render(data = {}) {
-        super.render(data);
         data.limit = 10;
         data.offset = 0;
         if (data.films === 'films') {
             this.localEventBus.dispatchEvent('getGenres');
             super.template = genrestmpl;
+            super.render(data);
             return;
         } else if (data.ratings === 'ratings') {
             super.template = ratingtml;
@@ -69,6 +69,7 @@ export default class SearchResultsView extends View {
             super.template = template;
 
         }
+        super.render(data);
 
         this.localEventBus.dispatchEvent('getResults', data);
         this.searchData = data;

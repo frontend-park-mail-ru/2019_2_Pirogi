@@ -29,6 +29,7 @@ export default class ProfileView extends View {
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
 
+        this.data = {};
         this.localTmpl = reviewsTmpl;
 
         this.submitsIds = {
@@ -60,7 +61,7 @@ export default class ProfileView extends View {
         this.localEventBus.addEventListener('listButtonClicked',
             this.onListButtonClicked.bind(this));
         this.localEventBus.addEventListener('backButtonClicked',
-            this.onBackButtonClicked.bind(this));
+            this.onReviewButtonClicked.bind(this));
 
         this.localEventBus.addEventListener('avatarButtonClicked',
             this.onEditAvatar.bind(this));
@@ -86,24 +87,23 @@ export default class ProfileView extends View {
         super.render(data);
         this.editButton = document.querySelector('.js-edit-button');
 
-        if (this.localTmpl === editTmpl) {
+        if (this.data.edit === 'edit') {
             this.onEditButtonClicked();
-        } else if (this.localTmpl === reviewsTmpl) {
-            this.onBackButtonClicked();
-        } else {
+        } else if (this.data.lists === 'lists') {
             this.onListButtonClicked();
+        } else {
+            this.onReviewButtonClicked();
         }
     }
 
     /**
      * Render the profile wall
      * @method
-     * @param {function} template
      * @param {Object} data
      */
-    renderWall(template, data = {}) {
-        this.wall = document.querySelector('.js-profile-wall');
-        this.wall.innerHTML = template(data);
+    renderWall(data = {}) {
+        const wall = document.querySelector('.js-profile-wall');
+        wall.innerHTML = this.localTmpl(data);
     }
 
     ///////buttonsclicked
@@ -114,7 +114,8 @@ export default class ProfileView extends View {
     onEditButtonClicked() {
         this.editButton.disabled = true;
 
-        this.renderWall(editTmpl);
+        this.localTmpl = editTmpl;
+        this.renderWall();
         this.addEventListenersForEdit();
     }
 
@@ -122,11 +123,13 @@ export default class ProfileView extends View {
      * @method
      */
     onListButtonClicked() {
-        this.renderWall(listTmpl);
-        this.editButton = document.querySelector('.js-edit-button');
+        this.localTmpl = listTmpl;
+        this.renderWall();
+
         this.editButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('editButtonClicked');
         });
+
         const reviewsButton = document.querySelector('.js-reviews-button');
         reviewsButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('backButtonClicked');
@@ -137,9 +140,9 @@ export default class ProfileView extends View {
      * On event
      * @method
      */
-    onBackButtonClicked() {
-
-        this.renderWall(reviewsTmpl);
+    onReviewButtonClicked() {
+        this.localTmpl = reviewsTmpl;
+        this.renderWall();
 
         this.editButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('editButtonClicked');
@@ -203,7 +206,7 @@ export default class ProfileView extends View {
      * @method
      */
     editOk() {
-        this.localTmpl = reviewsTmpl;
+        this.data.reviews = 'reviews';
         this.localEventBus.dispatchEvent('getProfileInfo');
     }
 
@@ -274,15 +277,8 @@ export default class ProfileView extends View {
      * @param {Object} data
      */
     render(data = {}) {
-        if (data.reviews === 'reviews') {
-            this.localTmpl = reviewsTmpl;
-        } else if (data.lists === 'lists') {
-            this.localTmpl = listTmpl;
-        } else if (data.edit === 'edit') {
-            this.localTmpl = editTmpl;
-        } else {
-            this.localTmpl = reviewsTmpl;
-        }
+        this.data = data;
+
         this.localEventBus.dispatchEvent('getProfileInfo');
     }
 }

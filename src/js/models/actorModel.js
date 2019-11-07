@@ -38,7 +38,8 @@ export default class ActorModel {
                 } else {
                     this.localEventBus.dispatchEvent('ActorInfoFailed');
                 }
-            });
+            })
+            .catch(() => this.localEventBus.dispatchEvent('ActorInfoOk'));
 
 
     }

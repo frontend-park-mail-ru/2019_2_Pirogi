@@ -26,42 +26,6 @@
                 </div>
             </div>
             <div class="actor__wall js-actor-wall">
-                <div class="profile__bar">
-                    <!--<a disabled="true" class="button button_active "  >Рецензии</a>
-                    <a href="/profile?lists" class="button"> списки </a>-->
-                    <a disabled="true" class="button  button_active" >фильмы</a>
-                    <a  href="/actor?photo&id={params.id}" class="button js-photo-button">фотографии </a>
-                    <a  href="/actor?awards&id={params.id}" class="button js-awards-button" >награды</a>
-                </div>
-                <div class="list">
-                    <fest:for iterate="params.filmsarray" index="i" value="film">
-                        <div class="list__item actor__film">
-                            <div class="actor__film-img">
-                                <a href=" /film?filmID={film.id}"></a>
-                                <img  src="/images/films/{film.image}" alt="название фильма"/>
-                            </div>
-                            <div class="actor__film-card">
-                                <a href="/film?filmID={film.id}" class="title"><fest:value>film.title</fest:value></a>
-                                <div>Жанры:
-                                    <fest:for iterate="film.genres" index="j" value="v">
-                                        <a href="/search?genre={v}"><fest:value>v</fest:value></a>,
-                                    </fest:for>
-                                </div>
-                                <div>год: <a href="search?year={film.year}"><fest:value>film.year</fest:value></a></div>
-                                <div>Актеры:
-                                    <fest:for iterate="film.persons" index="j" value="v">
-                                        <a href="/actor?id={v.id}">
-                                            <fest:value>v.name</fest:value>
-                                        </a>,
-                                    </fest:for>
-                                </div>
-                                <div>
-                                    <fest:value>film.description</fest:value>
-                                </div>
-                            </div>
-                        </div>
-                    </fest:for>
-                </div>
             </div>
         </div>
     </main>

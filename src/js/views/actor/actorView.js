@@ -1,7 +1,7 @@
 import View from '../../libs/view.js';
 import template from './actorView.tmpl.xml';
 import EventBus from '../../libs/eventBus';
-import filmsTMPL from './actorView.tmpl.xml';
+import filmsTMPL from './actor.films.tmpl.xml';
 import photoTMPL from './actor.photo.tmpl.xml';
 import awardsTMPL from './actor.awards.tmpl.xml';
 
@@ -23,6 +23,8 @@ export default class ActorView extends View {
 
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
+        this.localTmpl = photoTMPL;
+        this.tmplData  = {};
 
         this.localEventBus.addEventListener('ActorInfoOk',
             this.actorInfoOk.bind(this));
@@ -30,34 +32,43 @@ export default class ActorView extends View {
             this.filmListOk.bind(this));
     }
 
+    /**
+     * Render the actor wall
+     * @method
+     * @param {Object} data
+     */
+    renderWall(data = {}) {
+        const wall = document.querySelector('.js-actor-wall');
+        wall.innerHTML = this.localTmpl(data);
+    }
+
     filmListOk(data) {
         this.actorData.filmsarray = data;
-        super.render(this.actorData);
+        this.renderWall(this.actorData);
     }
+
     actorInfoOk(data = {}) {
         super.render(data);
-        if (this.actorData.films === 'films') {
+        this.actorData = data;
+
+        if (this.tmplData.photo === 'photo') {
+            this.localTmpl = photoTMPL;
+        } else if (this.tmplData.awards === 'awards') {
+            this.localTmpl = awardsTMPL;
+        } else {
+            this.tmplData.films = 'films';
+            this.localTmpl = filmsTMPL;
             this.localEventBus.dispatchEvent('getFilmList',{limit:10, offset: 0});
         }
-
-        this.actorData = data;
+        this.renderWall();
     }
     /**
      * Render the Index view
      * @param {Object} data
      */
     render(data = {}) {
-        this.actorData = data;
-        if (data.films === 'films') {
-            super.template = filmsTMPL;
-        } else if (data.photo === 'photo') {
-            super.template = photoTMPL;
-        } else if (data.awards === 'awards') {
-            super.template = awardsTMPL;
-        } else {
-            data.films = 'films';
-            super.template = filmsTMPL;
-        }
+        this.tmplData = data;
+
         super.render(data);
 
         this.localEventBus.dispatchEvent('getActorInfo', data);
