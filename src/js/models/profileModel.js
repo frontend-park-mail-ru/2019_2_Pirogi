@@ -162,8 +162,6 @@ export default class ProfileModel {
      * @param {object} data
      */
     onEditingProfile() {
-        console.log(this.infoData);
-        console.log(this.loginData);
         if (!this.infoData.username && !this.infoData.description) {
             this.localEventBus.dispatchEvent('editFailed', {error: errorMessages.form});
             return;

@@ -18,7 +18,7 @@
                     <div class="film-card">
                         <div class="film-card__img">
                             <a href=" /film?filmID={film.id}"></a>
-                            <img  src="/images/films/{film.images[0]}" alt="{film.title}"/>
+                            <img  src="/images/films/{film.image}" alt="{film.title}"/>
                             <div class="title film-card__info">
                                 <fest:value>film.title</fest:value>
                             </div>
@@ -32,7 +32,7 @@
                     <div class="film-card">
                         <div class="film-card__img">
                             <a href=" /film?filmID={film.id}"></a>
-                            <img  src="/images/films/{film.images[0]}" alt="{film.title}"/>
+                            <img  src="/images/films/{film.image}" alt="{film.title}"/>
                             <div class="title film-card__info">
                                 <fest:value>film.title</fest:value>
                             </div>

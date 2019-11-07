@@ -9,7 +9,7 @@
                     <div class="list__item search-results__film">
                         <div class="search-results__img">
                             <a href=" /film?filmID={film.id}"></a>
-                            <img  src="/images/films/{film.images[0]}" alt="название фильма"/>
+                            <img  src="/images/films/{film.image}" alt="название фильма"/>
                         </div>
                         <div class="search-results__film-card">
                             <a href="/film?filmID={film.id}" class="title"><fest:value>film.title</fest:value></a>

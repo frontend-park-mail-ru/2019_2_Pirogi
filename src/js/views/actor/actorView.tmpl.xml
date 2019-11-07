@@ -38,7 +38,7 @@
                         <div class="list__item actor__film">
                             <div class="actor__film-img">
                                 <a href=" /film?filmID={film.id}"></a>
-                                <img  src="/images/films/{film.images[0]}" alt="название фильма"/>
+                                <img  src="/images/films/{film.image}" alt="название фильма"/>
                             </div>
                             <div class="actor__film-card">
                                 <a href="/film?filmID={film.id}" class="title"><fest:value>film.title</fest:value></a>

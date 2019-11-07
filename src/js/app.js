@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const indexController = new IndexController(globalEventBus, body);
     const adminController = new AdminController(globalEventBus, body);
     const actorController = new ActorController(globalEventBus,body);
-    const errorView = new ErrorView();
+    const errorView = new ErrorView(body);
 
     navbarController.navbarView.render();
 

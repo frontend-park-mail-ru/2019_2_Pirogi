@@ -81,7 +81,6 @@ export default class ProfileView extends View {
     }
 
     getInfoOk(data) {
-        console.log(data);
         this.userData = data;
 
         super.render(data);

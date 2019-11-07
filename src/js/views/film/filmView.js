@@ -83,10 +83,8 @@ export default class FilmView extends View {
      * @method
      * @param {Object} reviewData
      */
+    // eslint-disable-next-line no-unused-vars
     addMyReview(reviewData) {
-        console.log('add new review');
-        console.log(reviewData);
-
         this.localEventBus.dispatchEvent('getFilmInfo', {filmID: this.filmData.id});
     }
 
