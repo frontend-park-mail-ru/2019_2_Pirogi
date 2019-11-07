@@ -177,7 +177,12 @@ export default class Api {
     }
 
     static getList({limit, offset, genre}) {
-        return Network.doGet(`/api/lists?limit=${limit}&offset=${offset}&genre=${genre}`);
+        let path = `/api/lists?limit=${limit}&offset=${offset}`;
+        if (genre) {
+            path += `&genre=${genre}`;
+        }
+
+        return Network.doGet(path);
     }
 
     static getGenres() {

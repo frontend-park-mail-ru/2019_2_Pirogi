@@ -3,20 +3,19 @@
         <div class="film-index">
         <div class="film">
             <div class="posters">
-                <!--<img class="film__img" src="/images/films/{film.image}" alt="название фильма"/>-->
                 <img class="posters__img posters__img_left" src="/images/films/{film.images[0]}" alt="название фильма"/>
                 <img class="posters__img posters__img_active" src="/images/films/{film.images[0]}" alt="название фильма"/>
                 <img class="posters__img posters__img_right" src="/images/films/{film.images[0]}" alt="название фильма"/>
             </div>
             <div class="film__description">
-                <!--<div class="title"></div>-->
                 <div class="title film__title"><fest:value>film.title</fest:value></div>
                 <div>
                     <div class="film__decription_main">Рейтинг: <fest:value>film.mark</fest:value></div>
-                    <div class="film__decription_main">Год: <fest:value>film.year</fest:value></div>
+                    <div class="film__decription_main">Год:
+                        <a href="search?year={film.year}"><fest:value>film.year</fest:value></a></div>
                     <div class="film__decription_main">Жанры:
-                        <fest:for iterate="film.genres" index="i" value="v">
-                        <fest:value>v</fest:value>, <!-- abc -->
+                        <fest:for iterate="film.genres" index="j" value="v">
+                            <a href="/search?genre={v}"><fest:value>v</fest:value></a>,
                         </fest:for>
                     </div>
                     <div class="film__decription_main">Страны:
