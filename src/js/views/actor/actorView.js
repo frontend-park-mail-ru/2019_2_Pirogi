@@ -35,22 +35,18 @@ export default class ActorView extends View {
     /**
      * Render the actor wall
      * @method
-     * @param {Object} data
      */
-    renderWall(data = {}) {
+    renderWall() {
         const wall = document.querySelector('.js-actor-wall');
-        wall.innerHTML = this.localTmpl(data);
+        wall.innerHTML = this.localTmpl(this.actorData);
     }
 
     filmListOk(data) {
         this.actorData.filmsarray = data;
-        this.renderWall(this.actorData);
+        this.renderWall();
     }
 
-    actorInfoOk(data = {}) {
-        super.render(data);
-        this.actorData = data;
-
+    chooseWall() {
         if (this.tmplData.photo === 'photo') {
             this.localTmpl = photoTMPL;
         } else if (this.tmplData.awards === 'awards') {
@@ -60,13 +56,27 @@ export default class ActorView extends View {
             this.localTmpl = filmsTMPL;
             this.localEventBus.dispatchEvent('getFilmList',{limit:10, offset: 0});
         }
-        this.renderWall(this.actorData);
+    }
+
+    actorInfoOk(data = {}) {
+        super.render(data);
+        this.actorData = data;
+
+        this.chooseWall();
+        this.renderWall();
     }
     /**
      * Render the Index view
      * @param {Object} data
      */
     render(data = {}) {
+        if (document.querySelector('.js-actor-wall')) {
+            this.tmplData = data;
+            this.chooseWall();
+            this.renderWall();
+            return;
+
+        }
         this.tmplData = data;
 
         super.render(data);
