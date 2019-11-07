@@ -60,7 +60,7 @@ export default class ActorView extends View {
             this.localTmpl = filmsTMPL;
             this.localEventBus.dispatchEvent('getFilmList',{limit:10, offset: 0});
         }
-        this.renderWall();
+        this.renderWall(this.actorData);
     }
     /**
      * Render the Index view
