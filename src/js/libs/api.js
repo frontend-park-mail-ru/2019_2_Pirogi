@@ -176,7 +176,11 @@ export default class Api {
         return Network.doGet(`/api/reviews/${filmID}?limit=${limit}&offset=${offset}`);
     }
 
-    static getList({limit, offset}) {
-        return Network.doGet(`/api/lists?limit=${limit}&offset=${offset}`);
+    static getList({limit, offset, genre}) {
+        return Network.doGet(`/api/lists?limit=${limit}&offset=${offset}&genre=${genre}`);
+    }
+
+    static getGenres() {
+        return Network.doGet('/api/common/genres');
     }
 }
