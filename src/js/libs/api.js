@@ -188,4 +188,8 @@ export default class Api {
     static getGenres() {
         return Network.doGet('/api/common/genres');
     }
+
+    static getIndex() {
+        return Network.doGet('/api/pages');
+    }
 }

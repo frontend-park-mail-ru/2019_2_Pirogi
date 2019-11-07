@@ -20,6 +20,13 @@ export default class IndexView extends View {
 
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
+
+        this.localEventBus.addEventListener('indexOK',
+            this.indexOK.bind(this));
+    }
+
+    indexOK(data = {}) {
+        super.render(data);
     }
     /**
      * Render the Index view
@@ -27,5 +34,7 @@ export default class IndexView extends View {
    */
     render(data = {}) {
         super.render(data);
+
+        this.localEventBus.dispatchEvent('getIndex');
     }
 }
