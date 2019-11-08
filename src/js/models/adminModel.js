@@ -19,9 +19,8 @@ export default class AdminModel {
     /**
    * @param {object} filmInfo
    */
+    // eslint-disable-next-line no-unused-vars
     onAddFilmCheck(filmInfo) {
-        console.log('trying to add new film');
-        console.log(filmInfo);
         this.isNormal = true;
         if (this.isNormal) {
             this.localEventBus.dispatchEvent('filmAdded');

@@ -9,11 +9,12 @@
 
 // TODO: Что-то сделать с аватаркой, резать на стороне сервера?
 .profile__photo
-  width: 100%
+  width: 20vw
   border-radius: 2*$indent
+  +shadow-dark
 
 .profile__info
-  max-width: 20%
+  width: 25%
   text-align: center
 
 .profile__wall
@@ -21,22 +22,78 @@
   display: flex
   align-items: center
   flex-direction: column
-  width: 50%
-
-.profile__reviews .review
-  margin-top: 2*$indent
+  +shadow-dark
+  width: 65%
 
 .profile-edit-form
   display: flex
   flex-direction: column
   align-items: center
   text-align: center
-  width: 75%
+  font-size: $font-size-medium
+  padding: 2*$indent
+  +available
+  .profile-edit-form__avatar
+    display: flex
+  .profile-edit-form__text
+    font-family: $font-medium
 
 .profile-edit-form  *
-  width: 100%
-  margin-top: $indent
+  +available
+  margin: $indent
+
 
 .profile__button
   margin-top: $indent
   margin-bottom: $indent
+.profile__button_accent
+  color: $color-lightest
+  background-color: $color-accent
+  &:hover
+    color: $color-darkest
+    background-color: $color-lightest
+    border-color: $color-accent
+
+.profile__bar
+  width: 100%
+  display: flex
+  .button
+    width: 50%
+    padding: 2*$indent 0
+    border-radius: 0
+    color: $color-darkest
+    background-color: $color-light-90
+    border: 0
+    +transition(0.5s)
+    &:hover
+      background-color: $color-accent
+      color: $color-lightest
+  .button_active
+    color: $color-darkest
+    background-color: $color-lightest
+    box-shadow: 0 -5px $color-accent
+    opacity: 1
+
+.profile__lists
+  display: flex
+  width: 100%
+  flex-direction: column
+
+.film-list
+  margin: 2*$indent $indent
+  display: flex
+  flex-direction: column
+  .film-list__title
+    text-align: center
+    margin: $indent 0
+    padding: $indent 0
+    box-shadow: 0 -3px $color-accent-50
+  .film-list__item
+    padding:  $indent
+    font-size: $font-size-medium
+  .film-list__item_rose
+    background-color: $color-accent-10
+
+
+
+

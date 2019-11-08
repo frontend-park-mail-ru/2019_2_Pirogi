@@ -18,8 +18,12 @@ export default class FilmController {
      * @param {EventBus} globalEventBus
      * @param {Element} root
      */
-    constructor(globalEventBus = {}, root = {}) {
+    constructor(globalEventBus = {}, root = {}, router) {
         this.localEventBus = new EventBus(filmEvents);
+
+
+        this.localEventBus.addEventListener('filmInfoFailed',
+            () => router.route('/404'));
         this.filmModel = new FilmModel(this.localEventBus, globalEventBus);
         this.filmView = new FilmView(this.localEventBus, globalEventBus, root);
     }

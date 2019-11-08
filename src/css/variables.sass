@@ -1,7 +1,9 @@
 // TODO: Перевести все цвета в rgba
 $color-darkest: #011C26
-$color-dark: #4C6C73
-$color-light: #EBF1F2
+$color-dark: #393939
+$color-lightest: #FFFFFF
+$color-light: #00000029
+$color-accent: #FF9B9B
 $color-error: #F8F2F2
 $color-error-bright: #f85255
 $color-success: #F2FDF0
@@ -14,16 +16,21 @@ $color-darkest-50: rgba(1, 28, 38, 0.5)
 $color-light-50: rgba(235, 241, 242, 0.5)
 $color-light-75: rgba(235, 241, 242, 0.75)
 $color-light-90: rgba(235, 241, 242, 0.9)
+$color-accent-50: rgba(255, 155, 155, 0.5)
+$color-accent-25: rgba(255, 155, 155, 0.25)
+$color-accent-10: rgba(255, 155, 155, 0.1)
 
 $font-size-small: 1em
 $font-size-medium: 1.4em
 $font-size-large: 1.6em
+$font-size-super-large: 2em
 
 $font-light: Helvetica Neue Light, sans-serif
 $font-regular: Helvetica Neue Regular, sans-serif
 $font-medium: Helvetica Neue Medium, sans-serif
 $font-bold: Helvetica Neue Bold, sans-serif
 $font-serif: Baskerville Regular, serif
+$font-evolve: MADE Evolve Sans Medium, serif
 
 
 @mixin transition($seconds)
@@ -32,11 +39,17 @@ $font-serif: Baskerville Regular, serif
   -o-transition: $seconds
   -webkit-transition: $seconds
 
+@mixin available
+  width: 100%
+  width: -moz-available
+  width: -webkit-fill-available
+  width: fill-available
+
 
 @mixin shadow-light
-  -webkit-box-shadow: 0 0 10px 0 $color-light
-  -moz-box-shadow: 0 0 10px 0 $color-light
-  box-shadow: 0 0 10px 0 $color-light
+  -webkit-box-shadow: 0 0 10px 0 $color-lightest
+  -moz-box-shadow: 0 0 10px 0 $color-lightest
+  box-shadow: 0 0 10px 0 $color-lightest
 
 @mixin shadow-dark
   -webkit-box-shadow: 0 0 10px 0 $color-darkest-50

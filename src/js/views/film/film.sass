@@ -1,41 +1,84 @@
 @import "../../../css/variables"
 
+.film-index
+  width: 100%
+  padding-top: 7.5*$indent
+  display: flex
+  flex-direction: column
+  align-items: center
+  background-color: $color-light-50
+
 .film
+  width: 100%
   display: flex
   align-items: center
   flex-direction: row
   text-align: center
-  padding-top: 10*$indent
-  width: 60%
+  padding: 4*$indent 0
+  background-color: $color-light
+  justify-content: center
 
 .film *
   margin-top: $indent/2
   margin-bottom: $indent/2
 
-.film__img
-  height: 45vh
-  +shadow-dark
+.posters
+  width: 55vh
+  margin: 2*$indent 0
+  height: 50vh
+  position: relative
+  .posters__img
+    position: absolute
+    +shadow-dark
+  .posters__img_left
+      opacity: 0.5
+      left: 0
+      width: 25vh
+      height: 40vh
+  .posters__img_right
+      opacity: 0.5
+      right: 0
+      width: 25vh
+      height: 40vh
+  .posters__img_active
+      top: 50%
+      left: 50%
+      z-index: 70
+      width: 30vh
+      height: 45vh
+      transform: translate(-50%, -50%)
+
+.film__title
+  color: $color-accent
+  text-align: left
 
 .film__description
+  width: 60%
   margin: 0 2*$indent
   display: flex
   flex-direction: column
+  text-align: left
+  .film__decription_main
+    font-family: $font-medium
 
-.rating
+.user-block
   +shadow-dark
-  margin: 2*$indent 0
   align-items: center
   justify-content: space-evenly
   min-height: 75px
   background-color: $color-darkest
   display: flex
   width: 100%
+  .user-block__button
+    background-color: $color-accent
+    color: $color-lightest
 
-.rating__block .title
-  font-size: $font-size-medium
-  color: $color-light
-
+.feedback-block
   display: flex
+  flex-direction: column
+  width: 100%
+  .feedback-block__title
+    text-align: center
 
 .title *
   margin: 0 $indent
@@ -43,23 +86,75 @@
 .film__star
   color: $color-dark
   +transition(0.5s)
-
-
   &:hover
     +transition(0.5s)
     color: $color-yellow
 
 
 .feedback-form
-  text-align: center
   width: 60%
+  .feedback-form__top
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: space-between
+  .feedback-form__title
+    width: 50%
+    margin: 0 0
 
 .feedback-form *
   margin: 2*$indent 0
 
-.feedbacks
-  text-align: center
-  width: 60%
-
-.feedbacks *
+.feedback
+  width: 80%
+  display: flex
+  align-self: center
   margin: 2*$indent 0
+  +shadow-dark
+  .feedback__img
+    width: 17vh
+    height: 20vh
+  .feedback__mark
+    width: 15%
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    padding: $indent 0
+  .feedback__text
+    width: 70%
+    margin: $indent 0
+    display: flex
+    flex-direction: column
+    font-size: $font-size-small
+    .feedback__text_main
+      font-family: $font-medium
+  .feedback__rating
+    width: 15%
+
+.feedback__text *
+  margin: 10px 0
+
+.radio-form
+  margin: 0 0
+  display: flex
+  justify-content: space-around
+  .radio-form__button
+    display: flex
+    margin: 0 2*$indent
+    input
+      margin: 0 0 
+    div 
+      margin: 0 2* $indent
+
+
+.user-rating
+  background-color: $color-darkest
+  color: $color-lightest
+  display: flex
+  flex-direction: column
+  justify-content: center
+  .user-rating__text
+    color: $color-lightest
+    margin: $indent 0
+    text-align: center

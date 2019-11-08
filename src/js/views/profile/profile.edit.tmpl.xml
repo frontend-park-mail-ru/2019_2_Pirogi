@@ -1,22 +1,37 @@
 <?xml version="1.0"?>
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+
     <form class="profile-edit-form">
-        <div>Изменить аватарку: </div>
-        <div class="hr"></div>
+        <input class="button profile__button profile__button_accent js-back-button " type="button" value="Назад"/>
+        <div class="profile-edit-form__text">Изменить аватарку: </div>
+        <div class="profile-edit-form__avatar">
         <input class="input js-avatar-input" type="file" name="avatar"/>
         <div class="profile__button">
             <input class="button js-avatar-button" type="button" value="Изменить аватар"/>
         </div>
-        <div>Редактировать профиль: </div>
+        </div>
         <div class="hr"></div>
-        <input class="input js-nickname-input" type="text" name="nickname" placeholder="Имя"/>
-        <input class="input js-login-input" type="text" name="login" placeholder="Почта"/>
-        <input class="input js-password-input" type="text" name="password" placeholder="Пароль"/>
-        <textarea class="textarea js-description-textarea" name="description" placeholder="О себе"></textarea>
+        <div class="profile-edit-form__text">Редактировать информацию о себе: </div>
+        <input class="input" id="js-username-input" type="text" name="username" placeholder="Имя"/>
+        <textarea class="textarea" id="js-description-textarea" name="description" placeholder="О себе"> </textarea>
         <div class="profile__button">
-            <input class="button js-save-button" type="button" value="Сохранить"/>
+            <input class="button" id="js-save-button" type="button" value="Сохранить"/>
+        </div>
+        <div class="hr"></div>
+        <div class="profile-edit-form__text">Редактировать email:</div>
+        <input class="input" id="js-email-input" type="text" name="email" placeholder="Email"/>
+        <div class="profile__button">
+            <input class="button" id="js-save-login-button" type="button" value="Сохранить"/>
+        </div>
+        <div class="hr"></div>
+        <div class="profile-edit-form__text">Редактировать пароль:</div>
+        <input class="input" id="js-oldpassword-input" type="text" name="old-password" placeholder="Старый пароль"/>
+        <input class="input" id="js-password-input" type="text" name="password" placeholder="Новый пароль"/>
+        <input class="input" id="js-password-rep-input" type="text" name="password" placeholder="Повторите пароль"/>
+        <div class="profile__button">
+            <input class="button" id="js-save-password-button" type="button" value="Сохранить"/>
         </div>
         <div class="hr"></div>
     </form>
-    <input class="button profile__button js-back-button " type="button" value="Назад"/>
+
 </fest:template>

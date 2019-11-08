@@ -1,4 +1,5 @@
-const MY_PATH = 'http://167.71.5.55';
+const MY_PATH = 'https://cinsear.ru';
+//const MY_PATH = '127.0.0.1:8000';
 /**
  * Creates a new Network object
  * @class
@@ -28,6 +29,19 @@ export default class Network {
      * @returns {Promise<Response>}
      */
     static doPost(path = '/', body = {}) {
+        const csrfCookie = document.cookie.match(/_csrf=(\w+)/);
+        if (csrfCookie) {
+            return fetch(MY_PATH + path, {
+                method: 'POST',
+                mode: 'cors',
+                credentials: 'include',
+                body: JSON.stringify(body),
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                    'X-CSRF-TOKEN': csrfCookie[0]
+                },
+            });
+        }
         return fetch(MY_PATH + path, {
             method: 'POST',
             mode: 'cors',

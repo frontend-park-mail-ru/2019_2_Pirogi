@@ -1,0 +1,39 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
+    <div class="rating-page">
+    <div class="rating">
+        <div class="title"> Топ фильмов cinsear </div>
+        <div class="list">
+            <fest:for iterate="params.filmsArray" index="i" value="film">
+                <div class="list__item rating__film">
+                    <div class="rating__place"><fest:value>i+1</fest:value></div>
+                    <div class="rating__img">
+                        <a href=" /film?filmID={film.id}"></a>
+                        <img  src="/images/films/{film.image}" alt="{film.title}"/>
+                    </div>
+
+                    <div class="rating__film-card">
+                        <a href="/film?filmID={film.id}" class="title"><fest:value>film.title</fest:value></a>
+                        <div>Жанры:
+                            <fest:for iterate="film.genres" index="j" value="v">
+                                <a href="/search?genre={v}"><fest:value>v</fest:value></a>,
+                            </fest:for>
+                        </div>
+                        <div>год: <a href="search?year={film.year}"><fest:value>film.year</fest:value></a></div>
+                        <div>Актеры:
+                            <fest:for iterate="film.persons" index="j" value="v">
+                                <a href="/actor?films&id={v.id}">
+                                    <fest:value>v.name</fest:value>
+                                </a>,
+                            </fest:for>
+                        </div>
+                        <div>
+                            <fest:value>film.description</fest:value>
+                        </div>
+                    </div>
+                </div>
+            </fest:for>
+        </div>
+
+    </div>
+    </div>
+</fest:template>

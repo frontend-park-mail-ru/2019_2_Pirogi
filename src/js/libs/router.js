@@ -24,17 +24,17 @@ export default class Router {
      */
     start() {
         window.addEventListener('popstate', () => {
-            this.route(window.location.pathname);
+            this.route(window.location.pathname, window.location.search);
         });
 
         this.root.addEventListener('click', (event) => {
             if (event.target.tagName === 'A' && event.target.hostname === location.hostname) {
                 event.preventDefault();
-                this.route(event.target.pathname);
+                this.route(event.target.pathname, event.target.search);
             }
         });
 
-        this.route(window.location.pathname);
+        this.route(window.location.pathname, window.location.search);
     }
 
 
@@ -54,15 +54,16 @@ export default class Router {
      * @method
      * @param {string} path
      */
-    route(path) {
+    route(path, searchParams = '') {
         if (!this.routes.has(path)) {
             const log = new Logger();
             log.logError(404, path);
             this.currentPath = null;
+            this.route('/404');
             return;
         }
 
-        if (this.currentPath === path) {
+        if (this.currentPath === path + searchParams) {
             return;
         }
 
@@ -72,12 +73,20 @@ export default class Router {
             currentData.view.hide();
         }
 
-        if (window.location.pathname !== path) {
-            window.history.pushState(null, null, path);
+        if (window.location.href !== path + searchParams) {
+            window.history.pushState(null, null, path + searchParams);
         }
 
         const route = this.routes.get(path);
-        this.currentPath = path;
+        route.data = {};
+        if (searchParams !== '') {
+            const urlSearchRarams = new URLSearchParams(searchParams);
+            urlSearchRarams.forEach((value, name) => {
+                route.data[name] = value || name;
+            });
+        }
+
+        this.currentPath = path + searchParams;
         route.view.render(route.data);
     }
 }

@@ -34,7 +34,6 @@ export default class View {
     hide() {
         // this.baseElement.hidden = true;
         // this.baseElement.innerHTML = '';
-        console.log('hidding');
     }
 
     /**
@@ -42,8 +41,5 @@ export default class View {
      * @method
      */
     close() {
-        if (this.openFlag) {
-            console.log('closing...');
-        }
     }
 }
