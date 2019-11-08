@@ -6,7 +6,7 @@
             <input class="input" type="text" placeholder="жанр не выбран"/>
             <div class="nav-block__list">
                 <fest:for iterate="params.genres" index="j" value="v">
-                    <a href="/search?genre={v}" class="button"><fest:value>v</fest:value></a>,
+                    <a href="/search?genre={v}" class="button"><fest:value>v</fest:value></a>
                 </fest:for>
             </div>
         </div>

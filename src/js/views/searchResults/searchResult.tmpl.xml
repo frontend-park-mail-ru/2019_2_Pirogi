@@ -1,7 +1,7 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
     <div class="search">
         <div class="search-results">
-            <div class="title">Вы искали: <a>ужасы</a>, <a>университет</a>
+            <div class="title">Вы искали: <fest:value>params.genre</fest:value>
             </div>
             <div>666 результатов поиска</div>
             <div class="list">
