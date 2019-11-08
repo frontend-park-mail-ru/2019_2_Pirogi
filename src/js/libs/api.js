@@ -160,12 +160,36 @@ export default class Api {
      * @param {string} description
      * @returns {Promise<Response>}
      */
-    static sendReview({filmID, userID, title, description}) {
+    static sendReview({filmID, title, description}) {
         return Network.doPost('/api/reviews/', {
             film_id: filmID,
-            user_id: userID,
             title,
-            description,
+            body: description,
         });
+    }
+
+    static getPersonInfo({id}) {
+        return Network.doGet(`/api/persons/${id}/`);
+    }
+
+    static getReviews({filmID, limit, offset}) {
+        return Network.doGet(`/api/reviews/${filmID}?limit=${limit}&offset=${offset}`);
+    }
+
+    static getList({limit, offset, genre}) {
+        let path = `/api/lists?limit=${limit}&offset=${offset}`;
+        if (genre) {
+            path += `&genre=${genre}`;
+        }
+
+        return Network.doGet(path);
+    }
+
+    static getGenres() {
+        return Network.doGet('/api/common/genres');
+    }
+
+    static getIndex() {
+        return Network.doGet('/api/pages');
     }
 }

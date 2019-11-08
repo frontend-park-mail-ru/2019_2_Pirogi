@@ -3,20 +3,34 @@
         <div class="film-index">
         <div class="film">
             <div class="posters">
-                <!--<img class="film__img" src="/images/films/{film.image}" alt="название фильма"/>-->
-                <img class="posters__img posters__img_left" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
-                <img class="posters__img posters__img_active" src="/src/images/{film.image}" alt="название фильма"/>
-                <img class="posters__img posters__img_right" src="/src/images/tmp_film_card.jpg" alt="название фильма"/>
+                <img class="posters__img posters__img_left" src="/images/films/{film.images[0]}" alt="название фильма"/>
+                <img class="posters__img posters__img_active" src="/images/films/{film.images[0]}" alt="название фильма"/>
+                <img class="posters__img posters__img_right" src="/images/films/{film.images[0]}" alt="название фильма"/>
             </div>
             <div class="film__description">
-                <!--<div class="title"></div>-->
                 <div class="title film__title"><fest:value>film.title</fest:value></div>
                 <div>
-                    <div class="film__decription_main">Рейтинг: <fest:value>film.title</fest:value></div>
-                    <div class="film__decription_main">Жанры: драма</div>
+                    <div class="film__decription_main">Рейтинг: <fest:value>film.mark</fest:value></div>
+                    <div class="film__decription_main">Год:
+                        <a href="search?year={film.year}"><fest:value>film.year</fest:value></a></div>
+                    <div class="film__decription_main">Жанры:
+                        <fest:for iterate="film.genres" index="j" value="v">
+                            <a href="/search?genre={v}"><fest:value>v</fest:value></a>,
+                        </fest:for>
+                    </div>
+                    <div class="film__decription_main">Страны:
+                        <fest:for iterate="film.countries" index="i" value="v">
+                            <fest:value>v</fest:value>,
+                        </fest:for>
+                    </div>
                     <div class="film__decription_main"><fest:value>film.date</fest:value></div>
-                    <div class="film__decription_main">Актеры: Том Круз, Артем Бакулев, Вася Пупкин, Данила Козловский</div>
-                    <div class="film__decription_main">Режиссеры: Том Круз, Артем Бакулев, Вася Пупкин, Данила Козловский</div>
+                    <div class="film__decription_main">Актеры: <br/>
+                        <fest:for iterate="film.persons" index="i" value="v">
+                        <a href="/actor?films&id={v.id}">
+                            <fest:value>v.name</fest:value>
+                        </a>,<br/>
+                        </fest:for>
+                    </div>
                 </div>
                 <div>
                     <fest:value>film.description</fest:value>
@@ -28,7 +42,6 @@
             <div disabled="true" class="button user-block__button">Купить билет</div>
             <div class="button user-block__button">В список</div>
             <div class="button user-block__button">
-                stars
                 <i class="fas fa-star fa-2x film__star"></i>
                 <i class="fas fa-star fa-2x film__star"></i>
                 <i class="fas fa-star fa-2x film__star"></i>
@@ -41,7 +54,7 @@
             <div class="title">Расскажите что Вы думаете о фильме:</div>
             <form class="form">
                 <div class="feedback-form__top">
-                    <input class="input feedback-form__title" type="text" placeholder="Заголовок"/>
+                    <input class="input feedback-form__title js-title-input" type="text" placeholder="Заголовок"/>
                     <div class="radio-form">
                         <div class="radio-form__button">
                             <input  type="radio"/><div>Понравилось</div>
@@ -51,173 +64,39 @@
                         </div>
                     </div>
                 </div>
-                <textarea class="textarea" placeholder="Текст рецензии"></textarea>
-                <input class="button" type="button" value="Отправить"/>
+                <textarea class="textarea js-text-input" placeholder="Текст рецензии"></textarea>
+                <input class="button js-review-button" id="js-review-button" type="button" value="Отправить"/>
             </form>
             <div class="hr"></div>
         </div>
         <div class="feedback-block">
             <div class="title feedback-block__title">Рецензии:</div>
-            <div class="feedback">
-                <div class="feedback__mark"> 
-                <img class="feedback__img" src="/src/images/guy.jpeg" alt="название фильма"/>
-                <div>Фильм понравился</div>
-                </div>
-                <div class="feedback__text">
-                    <div class="review review__positive">
-                        <div class="review__author-info">
-                            <a href="/user">AlmostCurrentPerson</a>
-                        </div>
-                        <div class="title">Review's title</div>
+            <fest:for iterate="film.reviewarray" index="i" value="r">
+                <div class="feedback">
+                    <div class="feedback__mark">
+                        <img class="feedback__img" src="/images/users/{r.author.image}" alt="название фильма"/>
+                        <div>Фильм понравился</div>
+                    </div>
+                    <div class="feedback__text">
+                        <a href="/user"><fest:value>r.author.username</fest:value></a>
+                        <div class="title"><fest:value>r.title</fest:value></div>
                         <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget sem at nulla malesuada pulvinar vitae
-                            non
-                            felis. Aenean vel tempor risus. Mauris congue, neque non imperdiet pharetra, tellus nulla molestie dui, non
-                            porttitor dolor nulla a turpis. Duis rhoncus erat vitae neque ullamcorper cursus. Morbi suscipit lectus
-                            metus,
-                            in iaculis nulla pretium in. Aliquam vestibulum hendrerit nisi posuere commodo. Praesent sed turpis mi.
-                            Proin
-                            mattis ipsum at arcu mattis, a accumsan est mollis. Aliquam quis metus sodales, auctor metus quis, pharetra
-                            libero. Cras laoreet rhoncus velit ac viverra. Integer laoreet sagittis nibh, at convallis leo ullamcorper
-                            id.
-                            Curabitur porta est purus, et interdum quam cursus vel. Fusce sodales molestie turpis id rutrum. Vivamus ut
-                            magna a neque viverra rutrum ut eu quam. Donec convallis nunc sed sem suscipit fringilla.
+                            <fest:value>r.body</fest:value>
+                        </div>
+                    </div>
+                    <div class="feedback__rating user-rating">
+                        <div class="user-rating__text">Этот пользователь поставил:</div>
+                        <div class="user-rating__text">
+                            <fest:value>r.mark</fest:value>
+                            <i class="fas fa-star fa-2x film__star"></i>
+                            <i class="fas fa-star fa-2x film__star"></i>
+                            <i class="fas fa-star fa-2x film__star"></i>
+                            <i class="fas fa-star fa-2x film__star"></i>
+                            <i class="fas fa-star fa-2x film__star"></i>
                         </div>
                     </div>
                 </div>
-                <div class="feedback__rating user-rating">
-                <div class="user-rating__text">Этот пользователь поставил:</div>
-                <div class="user-rating__text"> 3 звезды! </div>
-                </div>
-            </div>
-            <div class="feedback">
-                <div class="feedback__mark"> 
-                <img class="feedback__img" src="/src/images/guy.jpeg" alt="название фильма"/>
-                <div>Фильм понравился</div>
-                </div>
-                <div class="feedback__text">
-                    <div class="review review__positive">
-                        <div class="review__author-info">
-                            <a href="/user">AlmostCurrentPerson</a>
-                        </div>
-                        <div class="title">Review's title</div>
-                        <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget sem at nulla malesuada pulvinar vitae
-                            non
-                            felis. Aenean vel tempor risus. Mauris congue, neque non imperdiet pharetra, tellus nulla molestie dui, non
-                            porttitor dolor nulla a turpis. Duis rhoncus erat vitae neque ullamcorper cursus. Morbi suscipit lectus
-                            metus,
-                            in iaculis nulla pretium in. Aliquam vestibulum hendrerit nisi posuere commodo. Praesent sed turpis mi.
-                            Proin
-                            mattis ipsum at arcu mattis, a accumsan est mollis. Aliquam quis metus sodales, auctor metus quis, pharetra
-                            libero. Cras laoreet rhoncus velit ac viverra. Integer laoreet sagittis nibh, at convallis leo ullamcorper
-                            id.
-                            Curabitur porta est purus, et interdum quam cursus vel. Fusce sodales molestie turpis id rutrum. Vivamus ut
-                            magna a neque viverra rutrum ut eu quam. Donec convallis nunc sed sem suscipit fringilla.
-                        </div>
-                    </div>
-                </div>
-                <div class="feedback__rating user-rating">
-                <div class="user-rating__text">Этот пользователь поставил:</div>
-                <div class="user-rating__text"> 3 звезды! </div>
-                </div>
-            </div>
-            <div class="feedback">
-                <div class="feedback__mark"> 
-                <img class="feedback__img" src="/src/images/guy.jpeg" alt="название фильма"/>
-                <div>Фильм понравился</div>
-                </div>
-                <div class="feedback__text">
-                    <div class="review review__positive">
-                        <div class="review__author-info">
-                            <a href="/user">AlmostCurrentPerson</a>
-                        </div>
-                        <div class="title">Review's title</div>
-                        <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget sem at nulla malesuada pulvinar vitae
-                            non
-                            felis. Aenean vel tempor risus. Mauris congue, neque non imperdiet pharetra, tellus nulla molestie dui, non
-                            porttitor dolor nulla a turpis. Duis rhoncus erat vitae neque ullamcorper cursus. Morbi suscipit lectus
-                            metus,
-                            in iaculis nulla pretium in. Aliquam vestibulum hendrerit nisi posuere commodo. Praesent sed turpis mi.
-                            Proin
-                            mattis ipsum at arcu mattis, a accumsan est mollis. Aliquam quis metus sodales, auctor metus quis, pharetra
-                            libero. Cras laoreet rhoncus velit ac viverra. Integer laoreet sagittis nibh, at convallis leo ullamcorper
-                            id.
-                            Curabitur porta est purus, et interdum quam cursus vel. Fusce sodales molestie turpis id rutrum. Vivamus ut
-                            magna a neque viverra rutrum ut eu quam. Donec convallis nunc sed sem suscipit fringilla.
-                        </div>
-                    </div>
-                </div>
-                <div class="feedback__rating user-rating">
-                <div class="user-rating__text">Этот пользователь поставил:</div>
-                <div class="user-rating__text"> 3 звезды! </div>
-                </div>
-            </div>
-            <div class="feedback">
-                <div class="feedback__mark">
-                    <img class="feedback__img" src="/src/images/guy.jpeg" alt="название фильма"/>
-                    <div>Фильм понравился</div>
-                </div>
-                <div class="feedback__text">
-                    <div class="review review__positive">
-                        <div class="review__author-info">
-                            <a href="/user">AlmostCurrentPerson</a>
-                        </div>
-                        <div class="title">Review's title</div>
-                        <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget sem at nulla malesuada pulvinar vitae
-                            non
-                            felis. Aenean vel tempor risus. Mauris congue, neque non imperdiet pharetra, tellus nulla molestie dui, non
-                            porttitor dolor nulla a turpis. Duis rhoncus erat vitae neque ullamcorper cursus. Morbi suscipit lectus
-                            metus,
-                            in iaculis nulla pretium in. Aliquam vestibulum hendrerit nisi posuere commodo. Praesent sed turpis mi.
-                            Proin
-                            mattis ipsum at arcu mattis, a accumsan est mollis. Aliquam quis metus sodales, auctor metus quis, pharetra
-                            libero. Cras laoreet rhoncus velit ac viverra. Integer laoreet sagittis nibh, at convallis leo ullamcorper
-                            id.
-                            Curabitur porta est purus, et interdum quam cursus vel. Fusce sodales molestie turpis id rutrum. Vivamus ut
-                            magna a neque viverra rutrum ut eu quam. Donec convallis nunc sed sem suscipit fringilla.
-                        </div>
-                    </div>
-                </div>
-                <div class="feedback__rating user-rating">
-                    <div class="user-rating__text">Этот пользователь поставил:</div>
-                    <div class="user-rating__text"> 3 звезды! </div>
-                </div>
-            </div>
-            <div class="feedback">
-                <div class="feedback__mark">
-                    <img class="feedback__img" src="/src/images/guy.jpeg" alt="название фильма"/>
-                    <div>Фильм понравился</div>
-                </div>
-                <div class="feedback__text">
-                    <div class="review review__positive">
-                        <div class="review__author-info">
-                            <a href="/user">AlmostCurrentPerson</a>
-                        </div>
-                        <div class="title">Review's title</div>
-                        <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget sem at nulla malesuada pulvinar vitae
-                            non
-                            felis. Aenean vel tempor risus. Mauris congue, neque non imperdiet pharetra, tellus nulla molestie dui, non
-                            porttitor dolor nulla a turpis. Duis rhoncus erat vitae neque ullamcorper cursus. Morbi suscipit lectus
-                            metus,
-                            in iaculis nulla pretium in. Aliquam vestibulum hendrerit nisi posuere commodo. Praesent sed turpis mi.
-                            Proin
-                            mattis ipsum at arcu mattis, a accumsan est mollis. Aliquam quis metus sodales, auctor metus quis, pharetra
-                            libero. Cras laoreet rhoncus velit ac viverra. Integer laoreet sagittis nibh, at convallis leo ullamcorper
-                            id.
-                            Curabitur porta est purus, et interdum quam cursus vel. Fusce sodales molestie turpis id rutrum. Vivamus ut
-                            magna a neque viverra rutrum ut eu quam. Donec convallis nunc sed sem suscipit fringilla.
-                        </div>
-                    </div>
-                </div>
-                <div class="feedback__rating user-rating">
-                    <div class="user-rating__text">Этот пользователь поставил:</div>
-                    <div class="user-rating__text"> 3 звезды! </div>
-                </div>
-            </div>
+            </fest:for>
         </div>
         </div>
     </main>

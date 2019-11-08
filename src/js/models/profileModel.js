@@ -1,4 +1,6 @@
 import Api from '../libs/api';
+import {validators} from '../libs/formValidation';
+import {errorMessages} from '../libs/constants';
 
 
 
@@ -27,7 +29,98 @@ export default class ProfileModel {
             this.onEditingAvatar.bind(this));
         this.localEventBus.addEventListener('getProfileInfo',
             this.getProfile.bind(this));
+
+        this.localEventBus.addEventListener('checkField',
+            this.fieldCheck.bind(this));
+        this.localEventBus.addEventListener('passwordsCheck',
+            this.passwordsCheck.bind(this));
+
+        this.passwordData = {
+            oldPassword: null,
+            password: null,
+        };
+        this.loginData = {
+            email: null,
+        };
+
+        this.infoData = {
+            username: null,
+            description: null,
+        };
+
+        this.localEventBus.addEventListener('modifyLoginData',
+            this.modifyLoginData.bind(this));
+        this.localEventBus.addEventListener('modifyInfoData',
+            this.modifyInfoData.bind(this));
+        this.localEventBus.addEventListener('modifyPasswordData',
+            this.modifyPasswordData.bind(this));
     }
+
+    /**
+     * Modify current Login data
+     * @method
+     * @param target
+     * @param value
+     */
+    modifyLoginData(target, value) {
+        this.loginData[target] = value;
+    }
+
+    modifyInfoData(target, value) {
+        this.infoData[target] = value;
+    }
+
+    /**
+     * Modify current registration value
+     * @method
+     * @param target
+     * @param value
+     */
+    modifyPasswordData(target, value) {
+        this.passwordData[target] = value;
+    }
+
+
+    /**
+     * Check fields
+     * @method
+     * @param field
+     * @returns {boolean}
+     */
+    fieldCheck(field) {
+        if (!validators[field.target.name]) {
+            return true;
+        }
+        if (!validators[field.target.name](field.target.value)) {
+            this.localEventBus.dispatchEvent('renderError', field.target.id, errorMessages[field.target.name]);
+            return false;
+        }
+        this.localEventBus.dispatchEvent('clearError', field.target.id);
+        return true;
+    }
+
+    /**
+     * Check password fields
+     * @method
+     * @param fields
+     * @returns {boolean}
+     */
+    passwordsCheck({password, passwordClone}) {
+        if (!validators[password.name](password.value)) {
+            this.localEventBus.dispatchEvent('renderError',
+                password.id, errorMessages[password.name]);
+            return false;
+        }
+        this.localEventBus.dispatchEvent('clearError', password.id);
+        if (password.value !== passwordClone.value) {
+            this.localEventBus.dispatchEvent('renderError',
+                passwordClone.id, errorMessages.passwordMatch);
+            return false;
+        }
+        this.localEventBus.dispatchEvent('clearError', passwordClone.id);
+        return true;
+    }
+
 
     /**
      * Profile request
@@ -39,9 +132,6 @@ export default class ProfileModel {
             .then((res) => {
                 if (res.ok) {
                     res.json().then(data => {
-                        if (/jpeg/.test(data.avatar_link)) {
-                            data.avatar_link = data.avatar_link.replace(/jpeg/, 'jpg');
-                        }
                         this.localEventBus.dispatchEvent('getInfoOk', data);});
                 } else {
                     this.localEventBus.dispatchEvent('getInfoFailed');
@@ -54,8 +144,8 @@ export default class ProfileModel {
      * @method
      * @param {object} data
      */
-    onEditingAvatar(data = {}, userData) {
-        Api.editAvatar({avatar: data, userID: userData.user_id})
+    onEditingAvatar(data = {}) {
+        Api.editAvatar({avatar: data})
             .then((res) => {
                 if (res.ok) {
                     this.localEventBus.dispatchEvent('editOk');
@@ -70,9 +160,12 @@ export default class ProfileModel {
      * @method
      * @param {object} data
      */
-    onEditingProfile(data = {}) {
-
-        Api.editProfile(data)
+    onEditingProfile() {
+        if (!this.infoData.username && !this.infoData.description) {
+            this.localEventBus.dispatchEvent('editFailed', {error: errorMessages.form});
+            return;
+        }
+        Api.editProfile(this.infoData)
             .then((res) => {
                 if (res.ok) {
                     this.localEventBus.dispatchEvent('editOk');
@@ -81,4 +174,21 @@ export default class ProfileModel {
                 }
             });
     }
+
+
+    /**
+     * Check all fields to be right
+     * @method
+     * @param data
+     * @returns {boolean}
+     */
+    dataCheck(data) {
+        for (const property in data) {
+            if (!data[property]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

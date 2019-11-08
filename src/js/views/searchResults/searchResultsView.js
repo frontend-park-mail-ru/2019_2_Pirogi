@@ -22,6 +22,30 @@ export default class SearchResultsView extends View {
 
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
+
+        this.searchData = {};
+
+        this.localEventBus.addEventListener('getResultsOK',
+            this.resultsOK.bind(this));
+        this.localEventBus.addEventListener('getGenresOK',
+            this.genresOK.bind(this));
+    }
+
+    genresOK(data = {}) {
+        this.searchData.genres = data;
+
+        const searchParams = {
+            limit: 8,
+            offset: 0,
+            genre: data[0],
+        };
+        this.localEventBus.dispatchEvent('getResults', searchParams);
+    }
+
+    resultsOK(data = {}) {
+        this.searchData.filmsArray = data;
+
+        super.render(this.searchData);
     }
 
     /**
@@ -30,14 +54,25 @@ export default class SearchResultsView extends View {
      * @param {Object} data
      */
     render(data = {}) {
-        console.log('rendering searchResults page');
-        if (data['films'] === '') {
+        data.limit = 10;
+        data.offset = 0;
+        if (data.films === 'films') {
+            this.localEventBus.dispatchEvent('getGenres');
             super.template = genrestmpl;
-        } else if (data['ratings'] === '') {
+            super.render(data);
+            return;
+        } else if (data.ratings === 'ratings') {
             super.template = ratingtml;
+        } else if (data.news === 'news') {
+            super.template = template;
         } else {
             super.template = template;
+
         }
         super.render(data);
+
+        this.localEventBus.dispatchEvent('getResults', data);
+        this.searchData = data;
+
     }
 }

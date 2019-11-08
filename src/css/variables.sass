@@ -16,6 +16,9 @@ $color-darkest-50: rgba(1, 28, 38, 0.5)
 $color-light-50: rgba(235, 241, 242, 0.5)
 $color-light-75: rgba(235, 241, 242, 0.75)
 $color-light-90: rgba(235, 241, 242, 0.9)
+$color-accent-50: rgba(255, 155, 155, 0.5)
+$color-accent-25: rgba(255, 155, 155, 0.25)
+$color-accent-10: rgba(255, 155, 155, 0.1)
 
 $font-size-small: 1em
 $font-size-medium: 1.4em
@@ -35,6 +38,12 @@ $font-evolve: MADE Evolve Sans Medium, serif
   -moz-transition: $seconds
   -o-transition: $seconds
   -webkit-transition: $seconds
+
+@mixin available
+  width: 100%
+  width: -moz-available
+  width: -webkit-fill-available
+  width: fill-available
 
 
 @mixin shadow-light

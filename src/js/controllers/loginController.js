@@ -8,7 +8,6 @@ import LoginModel from '../models/loginModel.js';
  * @typedef {string} key
  * @typedef {string} event
  */
-// todo: acknowledge why this is necessary
 const loginEvents = [
     {key: 'authorizationSuccessful'},
     // view

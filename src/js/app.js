@@ -8,12 +8,14 @@ import IndexController from './controllers/indexController.js';
 import AdminController from './controllers/adminController.js';
 import NavbarController from './controllers/navbarController.js';
 import Router from './libs/router.js';
+import ErrorView from './views/error/errorView';
+import ActorController from './controllers/actorController';
 
 
 document.addEventListener('DOMContentLoaded', () => {
     // Проверим, что эта технология доступна в браузере
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./dist/sw.js')
+        navigator.serviceWorker.register('./sw.js')
             .then((reg) => {
                 // регистрация сработала
                 console.log('Registration succeeded. Scope is ' + reg.scope);
@@ -31,11 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const navbarController = new NavbarController(globalEventBus, header);
     const loginController = new LoginController(globalEventBus, body, router);
-    const profileController = new ProfileController(globalEventBus, body);
-    const filmController = new FilmController(globalEventBus, body);
+    const profileController = new ProfileController(globalEventBus, body, router);
+    const filmController = new FilmController(globalEventBus, body, router);
     const searchResultsController = new SearchResultsController(globalEventBus, body);
     const indexController = new IndexController(globalEventBus, body);
     const adminController = new AdminController(globalEventBus, body);
+    const actorController = new ActorController(globalEventBus,body);
+    const errorView = new ErrorView(body);
 
     navbarController.navbarView.render();
 
@@ -45,12 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
     router.add('/search', searchResultsController.searchResultsView);
     router.add('/admin', adminController.adminView);
     router.add('/', indexController.indexView);
-    router.add('/new', indexController.indexView);
-    router.add('/films', indexController.indexView);
-    router.add('/ratings', indexController.indexView);
     router.add('/year', indexController.indexView);
     router.add('/genre', indexController.indexView);
     router.add('/actors', indexController.indexView);
+    router.add('/404', errorView);
+    router.add('/actor', actorController.actorView);
 
     router.start();
 });

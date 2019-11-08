@@ -32,7 +32,7 @@ export default class LoginView extends View {
         };
 
         this.registrationIds = {
-            name: 'js-nickname-register',
+            username: 'js-nickname-register',
             email: 'js-email-register'
         };
 

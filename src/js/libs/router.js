@@ -59,6 +59,7 @@ export default class Router {
             const log = new Logger();
             log.logError(404, path);
             this.currentPath = null;
+            this.route('/404');
             return;
         }
 
@@ -81,7 +82,7 @@ export default class Router {
         if (searchParams !== '') {
             const urlSearchRarams = new URLSearchParams(searchParams);
             urlSearchRarams.forEach((value, name) => {
-                route.data[name] = value;
+                route.data[name] = value || name;
             });
         }
 

@@ -59,6 +59,7 @@ export default class NavbarView extends View {
      * @param {Object} data
      */
     render(data = {}) {
+        super.render();
         if (data.isAuth === undefined) {
             this.globalEvetBus.dispatchEvent('checkAuth');
         }

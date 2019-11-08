@@ -21,7 +21,22 @@ export default class FilmModel {
 
         this.localEventBus.addEventListener('getFilmInfo',
             this.getFilmInfo.bind(this));
+
+        this.localEventBus.addEventListener('getReviews',
+            this.getReviews.bind(this));
     }
+
+    getReviews(data = {}) {
+        Api.getReviews(data)
+            .then((res) => {
+                if (res.ok) {
+                    res.json().then(data => this.localEventBus.dispatchEvent('getReviewsOK', data));
+                } else {
+                    this.localEventBus.dispatchEvent('getReviewsFail');
+                }
+            });
+    }
+
 
     getFilmInfo(data = {}) {
         Api.getFilmInfo(data)
@@ -39,8 +54,14 @@ export default class FilmModel {
      * Checks the review
      * @param {object} data
      */
-    onReviewCheck(data) {
-        console.log('checking review');
-        this.localEventBus.dispatchEvent('addMyNewReview', data);
+    onReviewCheck(data = {}) {
+        Api.sendReview(data)
+            .then((res) => {
+                if (res.ok) {
+                    this.localEventBus.dispatchEvent('addMyNewReview');
+                } else {
+                    res.json().then(data => this.localEventBus.dispatchEvent('addReviewFail', data));
+                }
+            });
     }
 }
