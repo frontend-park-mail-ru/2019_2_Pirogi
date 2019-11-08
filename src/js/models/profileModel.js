@@ -136,8 +136,7 @@ export default class ProfileModel {
                 } else {
                     this.localEventBus.dispatchEvent('getInfoFailed');
                 }
-            })
-            .catch(() => this.localEventBus.dispatchEvent('getInfoOk'));
+            });
     }
 
     /**
