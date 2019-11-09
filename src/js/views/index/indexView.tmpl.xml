@@ -99,7 +99,7 @@
                 <div class="trailers-bar__trailer">
                 <iframe name="trailer"
                         id="ytplayer" type="text/html"
-                        src="http://www.youtube.com/embed/{trailer[0].trailer}?autoplay=1&origin=https://cinsear.ru"
+                        src="http://www.youtube.com/embed/{params.trailers[0].trailer}?autoplay=1&origin=https://cinsear.ru"
                         frameborder="0"/>
                 </div>
             </div>

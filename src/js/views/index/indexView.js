@@ -27,6 +27,7 @@ export default class IndexView extends View {
 
     indexOK(data = {}) {
         super.render(data);
+        this.setEventListenersForTrailers();
     }
 
 
