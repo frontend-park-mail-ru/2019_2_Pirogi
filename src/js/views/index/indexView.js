@@ -35,8 +35,9 @@ export default class IndexView extends View {
 
     setEventListenersForTrailers() {
         this.trailersButttons = document.querySelectorAll('.js-trailer-button');
-
-        this.trailersButttons[0].classList.add('button_active');
+        if (this.trailersButttons[0]) {
+            this.trailersButttons[0].classList.add('button_active');
+        }
         this.trailersButttons.forEach((node) => {
             node.addEventListener('click', () => {
                 const old = document.querySelector('.button_active');
