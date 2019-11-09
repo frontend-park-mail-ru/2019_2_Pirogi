@@ -20,6 +20,7 @@ export default class IndexView extends View {
 
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
+        this.data = {};
 
         this.localEventBus.addEventListener('indexOK',
             this.indexOK.bind(this));
@@ -27,6 +28,7 @@ export default class IndexView extends View {
 
     indexOK(data = {}) {
         super.render(data);
+        this.data = data;
         this.setEventListenersForTrailers();
     }
 
@@ -37,7 +39,7 @@ export default class IndexView extends View {
         this.trailersButttons.forEach((node) => {
             node.addEventListener('click', () => {
                 const frame = document.querySelector('iframe');
-                frame.src = 'http://www.youtube.com/embed/' + this.data.trailers[node.id].trailer+'?autoplay=1&origin=https://cinsear.ru';
+                frame.src = 'https://www.youtube.com/embed/' + this.data.trailers[node.id].trailer+'?autoplay=1&origin=https://cinsear.ru';
             });
         });
 
