@@ -24,7 +24,14 @@ export default class ActorView extends View {
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
         this.localTmpl = photoTMPL;
-        this.tmplData  = {};
+        this.tmplData  = {
+            films: '',
+            awards: '',
+            photo: '',
+        };
+        this.actorData = {
+
+        };
 
         this.localEventBus.addEventListener('ActorInfoOk',
             this.actorInfoOk.bind(this));
@@ -54,7 +61,11 @@ export default class ActorView extends View {
         } else {
             this.tmplData.films = 'films';
             this.localTmpl = filmsTMPL;
-            this.localEventBus.dispatchEvent('getFilmList',{limit:10, offset: 0});
+            this.localEventBus.dispatchEvent('getFilmList',{
+                limit:10,
+                offset: 0,
+                actorid: this.actorData.id
+            });
         }
     }
 

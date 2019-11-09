@@ -67,8 +67,9 @@ export default class SearchResultsView extends View {
             return;
         } else if (data.ratings === 'ratings') {
             super.template = ratingtml;
-        } else if (data.news === 'news') {
+        } else if (data.new === 'new') {
             super.template = template;
+            this.searchData.orderby = 'date';
         } else {
             super.template = template;
 
@@ -76,7 +77,7 @@ export default class SearchResultsView extends View {
         this.searchData = Object.assign(this.searchData, data);
         super.render(this.searchData);
 
-        this.localEventBus.dispatchEvent('getResults', data);
+        this.localEventBus.dispatchEvent('getResults', this.searchData);
 
 
     }

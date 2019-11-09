@@ -176,7 +176,7 @@ export default class Api {
         return Network.doGet(`/api/reviews/${filmID}?limit=${limit}&offset=${offset}`);
     }
 
-    static getList({limit, offset, genre, query, year, actorid, actor, country}) {
+    static getList({limit, offset, genre, query, year, actorid, actor, country, orderby}) {
         let path = `/api/lists?limit=${limit}&offset=${offset}`;
         if (genre) {
             path += `&genre=${genre}`;
@@ -195,6 +195,9 @@ export default class Api {
         }
         if (country) {
             path += `&country=${country}`;
+        }
+        if (orderby) {
+            path += `&orderby=${orderby}`;
         }
 
         return Network.doGet(path);
