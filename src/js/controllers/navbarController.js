@@ -23,7 +23,7 @@ export default class NavbarController {
         globalEventBus.addEventListener('searchEvent', () => {
             const searchInput = document.getElementById('js-search-input');
             if (searchInput.value) {
-                router.route('/search?query='+searchInput.value);
+                router.route('/search','?query='+searchInput.value);
             } else {
                 router.route('/search');
             }

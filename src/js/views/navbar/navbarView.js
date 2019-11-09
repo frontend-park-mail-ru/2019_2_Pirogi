@@ -59,7 +59,6 @@ export default class NavbarView extends View {
             this.globalEvetBus.dispatchEvent('searchEvent'));
     }
 
-
     /**
      * Render the navbar
      * @param {Object} data

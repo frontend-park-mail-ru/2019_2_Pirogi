@@ -176,10 +176,25 @@ export default class Api {
         return Network.doGet(`/api/reviews/${filmID}?limit=${limit}&offset=${offset}`);
     }
 
-    static getList({limit, offset, genre}) {
+    static getList({limit, offset, genre, query, year, actorid, actor, country}) {
         let path = `/api/lists?limit=${limit}&offset=${offset}`;
         if (genre) {
             path += `&genre=${genre}`;
+        }
+        if (query) {
+            path += `&query=${query}`;
+        }
+        if (year) {
+            path += `&year=${year}`;
+        }
+        if (actorid) {
+            path += `&actorid=${actorid}`;
+        }
+        if (actor) {
+            path += `&actor=${actor}`;
+        }
+        if (country) {
+            path += `&country=${country}`;
         }
 
         return Network.doGet(path);
