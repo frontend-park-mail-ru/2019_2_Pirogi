@@ -28,6 +28,20 @@ export default class IndexView extends View {
     indexOK(data = {}) {
         super.render(data);
     }
+
+
+    setEventListenersForTrailers() {
+        this.trailersButttons = document.querySelectorAll('.js-trailer-button');
+
+        this.trailersButttons.forEach((node) => {
+            node.addEventListener('click', () => {
+                const frame = document.querySelector('iframe');
+                frame.src = 'http://www.youtube.com/embed/' + this.data.trailers[node.id].trailer+'?autoplay=1&origin=https://cinsear.ru';
+            });
+        });
+
+    }
+
     /**
      * Render the Index view
      * @param {Object} data
