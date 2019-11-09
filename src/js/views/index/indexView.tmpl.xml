@@ -92,6 +92,8 @@
             <div class="trailers-bar">
                 <div class="trailers-bar__list">
                     <div class="title">Топ трейлеров</div>
+                    <div class="button js-trailer-button" id="{i}"><fest:value>trailer.title</fest:value></div>
+                    <div class="button js-trailer-button" id="{i}"><fest:value>trailer.title</fest:value></div>
                     <fest:for iterate="params.trailers" index="i" value="trailer">
                         <div class="button js-trailer-button" id="{i}"><fest:value>trailer.title</fest:value></div>
                     </fest:for>
