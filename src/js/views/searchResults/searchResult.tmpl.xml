@@ -10,7 +10,7 @@
             </form>
         </div>
         <div class="search-results">
-            <div class="title">Вы искали: <fest:value>params.genre</fest:value>
+            <div class="title">Вы искали: <fest:value>params.genres</fest:value>
             </div>
             <div>666 результатов поиска</div>
             <div class="list">
