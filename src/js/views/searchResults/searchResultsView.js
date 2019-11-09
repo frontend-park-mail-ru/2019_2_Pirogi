@@ -23,7 +23,10 @@ export default class SearchResultsView extends View {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
 
-        this.searchData = {};
+        this.searchData = {
+            filmsArray: [],
+            genres: [],
+        };
 
         this.localEventBus.addEventListener('getResultsOK',
             this.resultsOK.bind(this));
@@ -59,7 +62,8 @@ export default class SearchResultsView extends View {
         if (data.films === 'films') {
             this.localEventBus.dispatchEvent('getGenres');
             super.template = genrestmpl;
-            super.render(data);
+            this.searchData = Object.assign(this.searchData, data);
+            super.render(this.searchData);
             return;
         } else if (data.ratings === 'ratings') {
             super.template = ratingtml;
@@ -69,10 +73,11 @@ export default class SearchResultsView extends View {
             super.template = template;
 
         }
-        super.render(data);
+        this.searchData = Object.assign(this.searchData, data);
+        super.render(this.searchData);
 
         this.localEventBus.dispatchEvent('getResults', data);
-        this.searchData = data;
+
 
     }
 }

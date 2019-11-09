@@ -15,5 +15,12 @@ export default class NavbarController {
     constructor(globalEventBus = {}, root = {}) {
         this.navbarView = new NavbarView(globalEventBus, root);
         this.navbarModel = new NavbarModel(globalEventBus);
+
+        globalEventBus.addEventListener('isAuth',
+            this.isAuth.bind(this));
+    }
+
+    isAuth() {
+        return this.navbarView.dataAuth.isAuth;
     }
 }
