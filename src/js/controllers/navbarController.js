@@ -12,15 +12,23 @@ export default class NavbarController {
      * @param {EventBus} globalEventBus
      * @param {object} root
      */
-    constructor(globalEventBus = {}, root = {}) {
+    constructor(globalEventBus = {}, root = {}, router = {}) {
         this.navbarView = new NavbarView(globalEventBus, root);
         this.navbarModel = new NavbarModel(globalEventBus);
 
-        globalEventBus.addEventListener('isAuth',
-            this.isAuth.bind(this));
-    }
+        globalEventBus.addEventListener('isAuth', () => {
+            return this.navbarView.dataAuth.isAuth;
+        });
 
-    isAuth() {
-        return this.navbarView.dataAuth.isAuth;
+        globalEventBus.addEventListener('searchEvent', () => {
+            const searchInput = document.getElementById('js-search-input');
+            if (searchInput.value) {
+                router.route('/search?query='+searchInput.value);
+            } else {
+                router.route('/search');
+            }
+        });
     }
 }
+
+

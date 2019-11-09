@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bodyForRouter = document.querySelector('body');
     const router = new Router(bodyForRouter);
 
-    const navbarController = new NavbarController(globalEventBus, header);
+    const navbarController = new NavbarController(globalEventBus, header, router);
     const loginController = new LoginController(globalEventBus, body, router);
     const profileController = new ProfileController(globalEventBus, body, router);
     const filmController = new FilmController(globalEventBus, body, router);

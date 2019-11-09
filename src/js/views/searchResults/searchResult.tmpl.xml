@@ -1,5 +1,14 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
     <div class="search">
+        <div class="search-params">
+            <form>
+                <input class="input" id="js-genre-input" name="genre" type="text" placeholder="Введите жанр"/>
+                <input class="input" id="js-actor-input" name="actor" type="text" placeholder="Введите имя актера"/>
+                <input class="input" id="js-year-input" name="year" type="text" placeholder="Введите год"/>
+                <input class="input" id="js-country-input" name="country" type="text" placeholder="Введите страну"/>
+                <input class="button" id="js-search-params" type="button" value="Применить"/>
+            </form>
+        </div>
         <div class="search-results">
             <div class="title">Вы искали: <fest:value>params.genre</fest:value>
             </div>
@@ -8,7 +17,7 @@
                 <fest:for iterate="params.filmsArray" index="i" value="film">
                     <div class="list__item search-results__film">
                         <div class="search-results__img">
-                            <a href=" /film?filmID={film.id}"></a>
+                            <a href=" /film?filmID={film.id}"/>
                             <img  src="/images/films/{film.image}" alt="название фильма"/>
                         </div>
                         <div class="search-results__film-card">
