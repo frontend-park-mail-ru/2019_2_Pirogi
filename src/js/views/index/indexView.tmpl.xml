@@ -93,10 +93,15 @@
                 <div class="trailers-bar__list">
                     <div class="title">Топ трейлеров</div>
                     <fest:for iterate="params.trailers" index="i" value="trailer">
-                        <div class="button" id="{i}"><fest:value>trailer.title</fest:value></div>
+                        <div class="button js-trailer-button" id="{i}"><fest:value>trailer.title</fest:value></div>
                     </fest:for>
                 </div>
-                <div class="trailers-bar__trailer"></div>
+                <div class="trailers-bar__trailer">
+                <iframe name="trailer"
+                        id="ytplayer" type="text/html"
+                        src="https://www.youtube.com/embed/{params.trailers[0].trailer}?autoplay=1&origin=https://cinsear.ru"
+                        frameborder="0"/>
+                </div>
             </div>
         </div>
     </main>
