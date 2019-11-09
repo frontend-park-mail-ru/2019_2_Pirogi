@@ -59,7 +59,6 @@ export default class IndexView extends View {
     render(data = {}) {
         super.render(data);
         this.data = data;
-        this.setEventListenersForTrailers();
 
         this.localEventBus.dispatchEvent('getIndex');
     }
