@@ -35,9 +35,16 @@ export default class IndexView extends View {
 
     setEventListenersForTrailers() {
         this.trailersButttons = document.querySelectorAll('.js-trailer-button');
-
+        if (this.trailersButttons[0]) {
+            this.trailersButttons[0].classList.add('button_active');
+        }
         this.trailersButttons.forEach((node) => {
             node.addEventListener('click', () => {
+                const old = document.querySelector('.button_active');
+                if (old) {
+                    old.classList.remove('button_active');
+                }
+                node.classList.add('button_active');
                 const frame = document.querySelector('iframe');
                 frame.src = 'https://www.youtube.com/embed/' + this.data.trailers[node.id].trailer+'?autoplay=1&origin=https://cinsear.ru';
             });
@@ -51,6 +58,7 @@ export default class IndexView extends View {
    */
     render(data = {}) {
         super.render(data);
+        this.data = data;
 
         this.localEventBus.dispatchEvent('getIndex');
     }
