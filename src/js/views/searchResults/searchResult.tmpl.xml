@@ -1,11 +1,13 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
     <div class="search">
         <div class="search-params">
-            <form>
-                <input class="input" id="js-genre-input" name="genre" type="text" placeholder="Введите жанр"/>
-                <input class="input" id="js-actor-input" name="actor" type="text" placeholder="Введите имя актера"/>
-                <input class="input" id="js-year-input" name="year" type="text" placeholder="Введите год"/>
-                <input class="input" id="js-country-input" name="country" type="text" placeholder="Введите страну"/>
+            <form class="js-search-form">
+                <input class="input" id="js-genre-input" name="genres" type="text" placeholder="Введите жанр"/>
+                <input class="input" id="js-actor-input" name="persons" type="text" placeholder="Введите имя актера"/>
+                <input class="input" id="js-yearmin-input" name="yearmin" type="text" placeholder="Введите год"/>
+                <input class="input" id="js-yearmax-input" name="yearmax" type="text" placeholder="Введите год"/>
+                <input class="input" id="js-ratingmin-input" name="ratingmin" type="text" placeholder="Введите год"/>
+                <input class="input" id="js-country-input" name="countries" type="text" placeholder="Введите страну"/>
                 <input class="button" id="js-search-params" type="button" value="Применить"/>
             </form>
         </div>

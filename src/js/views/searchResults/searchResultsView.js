@@ -46,10 +46,25 @@ export default class SearchResultsView extends View {
         this.localEventBus.dispatchEvent('getResults', searchParams);
     }
 
+    doSearch() {
+        const searchInput = document.getElementById('js-search-input');
+        this.renderData.searchParams['query'] = searchInput.value || null;
+        const searchForm = document.querySelector('.js-search-form');
+        const searchFormData = new FormData(searchForm);
+        searchFormData.forEach((val,name) => {
+            const newval = val.replace(/ /g, '+');
+            this.renderData.searchParams[name] = newval;
+        });
+        this.localEventBus.dispatchEvent('getResults', this.renderData.searchParams);
+    }
+
     resultsOK(data = {}) {
         this.renderData.filmsArray = data;
 
         super.render(this.renderData);
+
+        const searchButton = document.getElementById('js-search-params');
+        searchButton.addEventListener('click', () => this.doSearch());
     }
 
     /**
@@ -88,6 +103,8 @@ export default class SearchResultsView extends View {
 
         this.localEventBus.dispatchEvent('getResults', this.renderData.searchParams);
 
+        const searchButton = document.getElementById('js-search-params');
+        searchButton.addEventListener('click', () => this.doSearch());
 
     }
 }
