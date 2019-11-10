@@ -2,8 +2,8 @@
     <main class="main">
     <div class="genres">
         <div class="nav-block">
-            <div class="title"> Выбрать жанр </div>
-            <input class="input" type="text" placeholder="жанр не выбран"/>
+            <div class="title"> Выберите жанр </div>
+            <a href="/search">уточнить поиск</a>
             <div class="nav-block__list">
                 <fest:for iterate="params.genres" index="j" value="v">
                     <a href="/search?genre={v}" class="button"><fest:value>v</fest:value></a>
