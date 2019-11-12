@@ -1,11 +1,16 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
-    <div class="error-block">
-        <div class="title error-block__error">404</div>
-        <div>
-            Вроде поиск - это наша задача, но мы ничего не нашли.<br/>
+    <div class="error">
+        <div class="error__title">404</div>
+        <div class="error__body">
+            Вроде поиск - это наша задача, но мы ничего не нашли.
+            <br/>
             Извините.
         </div>
         <a href="/">Вернуться на
-            главную</a>
+            главную
+        </a>
+    </div>
+    <div class="error__back-container">
+        <div class="error__back-title">404</div>
     </div>
 </fest:template>

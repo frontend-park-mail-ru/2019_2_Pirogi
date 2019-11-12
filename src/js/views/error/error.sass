@@ -1,14 +1,34 @@
+@import "../../../css/variables"
 .error
   align-items: center
   justify-content: center
-
-.error-block
-  margin-top: 100px
+  display: flex
+  flex-direction: column
+  height: 100vh
+  width: 100%
   text-align: center
   font-size: 1.2em
 
-.error-block *
-  margin: 20px 0
+  *
+    margin: 20px 0
 
-.error-block__error
-  font-size: 8em
+  .error__title
+    font-size: 8em
+
+
+.error__back-title
+  position: absolute
+  margin: auto
+  display: flex
+  align-items: center
+  z-index: -1
+  justify-content: center
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  font-weight: 900
+  font-size: 40em
+  color: $color-accent-10
+
+
