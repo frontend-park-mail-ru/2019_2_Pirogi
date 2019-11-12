@@ -2,6 +2,7 @@ import View from '../../libs/view.js';
 import template from './filmView.tmpl.xml';
 import {errorMessages} from '../../libs/constants';
 import {clearError, renderError} from '../../libs/errorMessages';
+import starsInit from '../../libs/stars';
 
 
 /**
@@ -58,18 +59,22 @@ export default class FilmView extends View {
         super.render(this.filmData);
         this.reviewButton = document.querySelector('.js-review-button');
         this.reviewButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('reviewEvent');});
+            this.localEventBus.dispatchEvent('reviewEvent');
+        });
     }
 
-    
+
     filmInfoOk(data = {}) {
         super.render(data);
+        setTimeout(starsInit, 500);
+
 
         this.filmData = data;
 
         this.reviewButton = document.querySelector('.js-review-button');
         this.reviewButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('reviewEvent');});
+            this.localEventBus.dispatchEvent('reviewEvent');
+        });
 
         this.localEventBus.dispatchEvent('getReviews', {
             filmID: this.filmData.id,

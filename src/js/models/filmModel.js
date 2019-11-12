@@ -48,7 +48,9 @@ export default class FilmModel {
                 }
             })
             //TODO: правильно обработать ошибки
-            .catch(() => {console.log('Get Film Info Failed');} );
+            .catch(() => {
+                this.localEventBus.dispatchEvent('filmInfoOk');
+                console.log('Get Film Info Failed');} );
     }
     /**
      * Checks the review
