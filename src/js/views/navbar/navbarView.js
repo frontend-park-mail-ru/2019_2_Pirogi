@@ -68,10 +68,11 @@ export default class NavbarView extends View {
             this.globalEvetBus.dispatchEvent('checkAuth');
         }
 
+        /*
         document.addEventListener('keydown', (event) => {
             if (event.code === 'Enter') {
                 this.globalEvetBus.dispatchEvent('searchEvent');
             }
-        });
+        });*/
     }
 }
