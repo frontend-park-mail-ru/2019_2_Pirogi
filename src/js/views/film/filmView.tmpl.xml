@@ -92,7 +92,6 @@
                     <div class="feedback">
                         <div class="feedback__mark">
                             <img class="feedback__img" src="/images/users/{r.author.image}" alt="название фильма"/>
-                            <div>Фильм понравился</div>
                         </div>
                         <div class="feedback__text">
                             <a href="/user">
