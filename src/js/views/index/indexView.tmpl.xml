@@ -9,9 +9,9 @@
                             <div class="film-card__img">
                                 <a href="/film?filmID={film.id}"> </a>
                                 <img  src="/images/films/{film.image}" alt="{film.title}"/>
-                                <div class="title film-card__info">
-                                    <fest:value>film.title</fest:value>
-                                </div>
+<!--                                <div class="title film-card__info">-->
+<!--                                    <fest:value>film.title</fest:value>-->
+<!--                                </div>-->
                             </div>
                         </div>
                     </fest:for>
@@ -99,7 +99,7 @@
                 <div class="trailers-bar__trailer">
                 <iframe name="trailer"
                         id="ytplayer" type="text/html"
-                        src="https://www.youtube.com/embed/{params.trailers[0].trailer}?autoplay=1&origin=https://cinsear.ru"
+                        src="https://www.youtube.com/embed/{params.trailers[0].trailer}?autoplay=1&amp;origin=https://cinsear.ru"
                         frameborder="0"/>
                 </div>
             </div>
