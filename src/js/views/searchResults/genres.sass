@@ -5,18 +5,25 @@
 
 .genres-index
   width: 80%
-  margin: 7*$indent 0 0 0
+  margin-top: 7*$indent
 
 .nav-block
   width: 20%
-  padding: 3*$indent 2*$indent
-  margin: 7*$indent 0 0 0
+  padding: 3*$indent 0
+  margin-top: 7*$indent
   display: flex
   flex-direction: column
-  a
-    margin: $indent
+  .nav-block__button
     font-size: $font-size-medium
-    align-self: center
+    text-align: center
+    background-color: $color-accent-25
+    color: $color-darkest
+    padding: $indent 0
+    width: 100%
+    box-shadow: 0 0 0 1px $color-darkest-50
+    &:hover
+      background-color: $color-accent
+      color: $color-lightest
   .title
     margin: $indent
     align-self: center
@@ -25,7 +32,7 @@
     margin: $indent
   +shadow-dark
   .nav-block__list
-    margin: 2*$indent 0
+    margin: $indent 0
     display: flex
     align-items: center
     align-content: flex-start
@@ -35,6 +42,7 @@
       margin: $indent 0
       background-color: $color-light-50
       font-size: $font-size-small
+      border-radius: 0.5* $indent
       &:hover
         background-color: $color-accent
 

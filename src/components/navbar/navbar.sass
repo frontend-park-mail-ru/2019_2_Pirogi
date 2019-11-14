@@ -18,6 +18,21 @@
   .button
     margin: $indent
 
+.navbar__input
+  display: flex
+  position: relative
+  div
+    position: absolute
+    cursor: pointer
+    right: 5%
+    top: 25%
+  i
+    color: $color-darkest-50
+    font-size: 2*$indent
+  input
+    padding: $indent 4*$indent
+    &:focus
+      +shadow-light
 
 .navbar__item
   color: $color-lightest
@@ -33,6 +48,3 @@
 .navbar__item_current
   font-family: $font-bold
 
-.navbar__input
-  &:focus
-    +shadow-light

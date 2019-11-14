@@ -43,7 +43,7 @@ export default class NavbarView extends View {
             () => this.globalEvetBus.dispatchEvent('onLogoutClicked'));
 
         const searchButton = document.getElementById('js-navbar-search');
-        searchButton.addEventListener('click',
+        searchButton.addEventListener('click', () =>
             this.globalEvetBus.dispatchEvent('searchEvent'));
     }
 
