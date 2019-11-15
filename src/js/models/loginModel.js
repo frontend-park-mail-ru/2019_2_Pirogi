@@ -89,7 +89,7 @@ export default class LoginModel {
         Api.authCheck()
             .then((res) => {
                 if (res.ok) {
-                    this.localEventBus.dispatchEvent('authorizationSuccessfu');
+                    this.localEventBus.dispatchEvent('authorizationSuccessful');
                 }
             })
             .catch(() => {});
