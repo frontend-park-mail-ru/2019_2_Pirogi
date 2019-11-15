@@ -26,6 +26,7 @@ export default class FilmView extends View {
 
         this.filmData = {
             isAuth: false,
+            infoOk: false,
         };
 
         this.localEventBus.addEventListener('reviewEvent',
@@ -47,7 +48,9 @@ export default class FilmView extends View {
 
     authOK() {
         this.filmData.isAuth = true;
-        this.filmInfoOk();
+        if (this.filmData.infoOk) {
+            this.filmInfoOk();
+        }
     }
 
     addReviewFail(errors = {}) {
@@ -75,6 +78,7 @@ export default class FilmView extends View {
 
 
     filmInfoOk(data = {}) {
+        this.filmData.infoOk = true;
         this.filmData = Object.assign(this.filmData, data);
         super.render(this.filmData);
 
