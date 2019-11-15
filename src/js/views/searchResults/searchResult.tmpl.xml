@@ -12,7 +12,7 @@
                     <div>Введите имена актеров: </div>
                     <input class="input" id="js-actor-input"
                            name="persons" type="text" placeholder="Введите имя актера"
-                           value="{params.searchParams.actors}"/>
+                           value="{params.searchParams.persons}"/>
                 </div>
                 <div class="search-form__input">
                     <div>Введите минимальный рейтинг: </div>
