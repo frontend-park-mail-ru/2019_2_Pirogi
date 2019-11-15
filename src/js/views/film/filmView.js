@@ -24,7 +24,9 @@ export default class FilmView extends View {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
 
-        this.filmData = {};
+        this.filmData = {
+            isAuth: false,
+        };
 
         this.localEventBus.addEventListener('reviewEvent',
             this.onReview.bind(this));
@@ -40,6 +42,12 @@ export default class FilmView extends View {
             clearError.bind(this));
         this.localEventBus.addEventListener('renderError',
             renderError.bind(this));
+        this.localEventBus.addEventListener('authOK', () => this.authOK());
+    }
+
+    authOK() {
+        this.filmData.isAuth = true;
+        this.filmInfoOk();
     }
 
     addReviewFail(errors = {}) {
@@ -119,6 +127,7 @@ export default class FilmView extends View {
      * @param {Object} data
      */
     render(data = {}) {
+        this.localEventBus.dispatchEvent('isAuth');
         this.filmData = {};
         this.filmData.isAuth = this.globalEventBus.dispatchEvent('isAuth');
         this.localEventBus.dispatchEvent('getFilmInfo', data);

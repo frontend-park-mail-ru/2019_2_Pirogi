@@ -24,6 +24,19 @@ export default class FilmModel {
 
         this.localEventBus.addEventListener('getReviews',
             this.getReviews.bind(this));
+
+        this.localEventBus.addEventListener('isAuth',
+            () => this.isAuth());
+    }
+
+    isAuth() {
+        Api.authCheck()
+            .then((res) => {
+                if (res.ok) {
+                    this.localEventBus.dispatchEvent('authOK');
+                }
+            })
+            .catch(() => {});
     }
 
     getReviews(data = {}) {

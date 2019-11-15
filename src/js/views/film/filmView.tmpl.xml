@@ -87,9 +87,9 @@
                         <textarea rows="8" class="textarea js-text-input" placeholder="Текст рецензии"/>
                         <input class="button js-review-button" id="js-review-button" type="button" value="Отправить"/>
                     </form>
-                    <div class="hr"/>
                 </div>
             </fest:if>
+            <div class="hr"/>
             <div class="feedback-block">
                 <div class="title feedback-block__title">Рецензии:</div>
                 <fest:for iterate="film.reviewarray" index="i" value="r">

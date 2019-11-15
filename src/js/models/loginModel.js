@@ -43,6 +43,7 @@ export default class LoginModel {
             this.loginCheck.bind(this));
         this.localEventBus.addEventListener('registrationCheck',
             this.registrationCheck.bind(this));
+        this.localEventBus.addEventListener('isAuth', () => this.isAuth());
     }
 
     /**
@@ -82,6 +83,16 @@ export default class LoginModel {
         }
         this.localEventBus.dispatchEvent('clearError', passwordClone.id);
         return true;
+    }
+
+    isAuth() {
+        Api.authCheck()
+            .then((res) => {
+                if (res.ok) {
+                    this.localEventBus.dispatchEvent('authorizationSuccessfu');
+                }
+            })
+            .catch(() => {});
     }
 
     /**
