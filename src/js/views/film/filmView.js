@@ -78,7 +78,7 @@ export default class FilmView extends View {
         this.filmData = Object.assign(this.filmData, data);
         super.render(this.filmData);
 
-        starsInit();
+        setTimeout(starsInit, 500);
 
         const reviewButton = document.querySelector('.js-review-button');
         if (reviewButton) {
