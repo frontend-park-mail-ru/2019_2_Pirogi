@@ -177,7 +177,7 @@ export default class Api {
     }
 
     static getList({limit, offset, genres, query, yearmin, yearmax, personsids, persons, countries, orderby}) {
-        let path = `/api/lists?limit=${limit}&offset=${offset}`;
+        let path = `/api/search?limit=${limit}&offset=${offset}`;
         let data = {
             genres, query, yearmin, yearmax, personsids, persons, countries, orderby
         };

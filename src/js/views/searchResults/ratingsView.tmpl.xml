@@ -23,11 +23,11 @@
                                 </fest:if>
                             </fest:for>
                         </div>
-                        <div>Год: <a href="search?year={film.year}"><a href="search?year={film.year}">
+                        <div>Год:<a href="search?year={film.year}">
                             <fest:value>" " + film.year</fest:value>
-                        </a></a></div>
+                        </a></div>
                         <div>Актеры:
-                            <fest:for iterate="film.persons" index="i" value="v">
+                            <fest:for iterate="film.persons" index="j" value="v">
                                 <a href="/actor?films&amp;id={v.id}">
                                     <fest:value>" " + v.name</fest:value>
                                 </a>
