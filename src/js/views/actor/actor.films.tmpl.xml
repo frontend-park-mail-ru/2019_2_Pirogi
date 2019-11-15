@@ -30,7 +30,7 @@
                         <fest:value>" " + film.year</fest:value>
                     </a></div>
                     <div>Актеры:
-                        <fest:for iterate="film.persons" index="i" value="v">
+                        <fest:for iterate="film.persons" index="j" value="v">
                             <a href="/actor?films&amp;id={v.id}">
                                 <fest:value>" " + v.name</fest:value>
                             </a>
