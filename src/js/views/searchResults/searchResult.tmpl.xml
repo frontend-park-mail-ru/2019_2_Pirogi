@@ -45,7 +45,7 @@
             <div class="title">Вы искали: <a href="/search?query={params.searchParams.query}">
                 <fest:value>params.searchParams.query</fest:value> </a>
             </div>
-            <div>666 результатов поиска</div>
+            <!--<div>666 результатов поиска</div> -->
             <div class="list">
                 <fest:for iterate="params.filmsArray" index="i" value="film">
                     <div class="list__item search-results__film">
@@ -88,10 +88,10 @@
         </div>
 
     </div>
-    <div class="paginator">
+    <!--<div class="paginator">
         <div class="text paginator__item">1</div>
         <div class="text paginator__item">2</div>
         <div class="text paginator__item">...</div>
         <div class="text paginator__item">55</div>
-    </div>
+    </div>-->
 </fest:template>
