@@ -76,18 +76,20 @@
                     </div>
                 </div>
             </div>
-            <div class="feedback-form">
-                <div class="hr"/>
-                <div class="title">Расскажите что Вы думаете о фильме:</div>
-                <form class="form">
-                    <div class="feedback-form__top">
-                        <input maxlength="100" class="input feedback-form__title js-title-input" type="text" placeholder="Заголовок"/>
-                    </div>
-                    <textarea rows="8" class="textarea js-text-input" placeholder="Текст рецензии"/>
-                    <input class="button js-review-button" id="js-review-button" type="button" value="Отправить"/>
-                </form>
-                <div class="hr"/>
-            </div>
+            <fest:if test="film.isAuth">
+                <div class="feedback-form">
+                    <div class="hr"/>
+                    <div class="title">Расскажите что Вы думаете о фильме:</div>
+                    <form class="form">
+                        <div class="feedback-form__top">
+                            <input maxlength="100" class="input feedback-form__title js-title-input" type="text" placeholder="Заголовок"/>
+                        </div>
+                        <textarea rows="8" class="textarea js-text-input" placeholder="Текст рецензии"/>
+                        <input class="button js-review-button" id="js-review-button" type="button" value="Отправить"/>
+                    </form>
+                    <div class="hr"/>
+                </div>
+            </fest:if>
             <div class="feedback-block">
                 <div class="title feedback-block__title">Рецензии:</div>
                 <fest:for iterate="film.reviewarray" index="i" value="r">

@@ -57,24 +57,27 @@ export default class FilmView extends View {
         this.filmData.reviewarray = data;
 
         super.render(this.filmData);
-        this.reviewButton = document.querySelector('.js-review-button');
-        this.reviewButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('reviewEvent');
-        });
+        const reviewButton = document.querySelector('.js-review-button');
+        if (reviewButton) {
+            reviewButton.addEventListener('click', () => {
+                this.localEventBus.dispatchEvent('reviewEvent');
+            });
+        }
     }
 
 
     filmInfoOk(data = {}) {
-        super.render(data);
-        setTimeout(starsInit, 500);
+        this.filmData = Object.assign(this.filmData, data);
+        super.render(this.filmData);
 
+        starsInit();
 
-        this.filmData = data;
-
-        this.reviewButton = document.querySelector('.js-review-button');
-        this.reviewButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('reviewEvent');
-        });
+        const reviewButton = document.querySelector('.js-review-button');
+        if (reviewButton) {
+            reviewButton.addEventListener('click', () => {
+                this.localEventBus.dispatchEvent('reviewEvent');
+            });
+        }
 
         this.localEventBus.dispatchEvent('getReviews', {
             filmID: this.filmData.id,
@@ -116,6 +119,8 @@ export default class FilmView extends View {
      * @param {Object} data
      */
     render(data = {}) {
+        this.filmData = {};
+        this.filmData.isAuth = this.globalEventBus.dispatchEvent('isAuth');
         this.localEventBus.dispatchEvent('getFilmInfo', data);
     }
 }

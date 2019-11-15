@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    const globalEventBus = new EventBus([{}]);
+    const globalEventBus = new EventBus([]);
     const header = document.querySelector('header');
     const body = document.querySelector('.js-append-tmpl');
     const bodyForRouter = document.querySelector('body');

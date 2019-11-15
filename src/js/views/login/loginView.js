@@ -153,6 +153,7 @@ export default class LoginView extends View {
     render(data = {}) {
         if (this.globalEventBus.dispatchEvent('isAuth')) {
             this.localEventBus.dispatchEvent('authorizationSuccessful');
+            return;
         }
         super.render(data);
 
