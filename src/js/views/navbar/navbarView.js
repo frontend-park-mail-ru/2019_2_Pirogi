@@ -45,6 +45,13 @@ export default class NavbarView extends View {
         const searchButton = document.getElementById('js-navbar-search');
         searchButton.addEventListener('click', () =>
             this.globalEvetBus.dispatchEvent('searchEvent'));
+
+        const searchInput = document.getElementById('js-search-input');
+        searchInput.addEventListener('keydown', (event) => {
+            if (event.code === 'Enter') {
+                this.globalEvetBus.dispatchEvent('searchEvent');
+            }
+        });
     }
 
     /**
@@ -57,6 +64,12 @@ export default class NavbarView extends View {
         const searchButton = document.getElementById('js-navbar-search');
         searchButton.addEventListener('click', () =>
             this.globalEvetBus.dispatchEvent('searchEvent'));
+        const searchInput = document.getElementById('js-search-input');
+        searchInput.addEventListener('keydown', (event) => {
+            if (event.code === 'Enter') {
+                this.globalEvetBus.dispatchEvent('searchEvent');
+            }
+        });
     }
 
     /**
