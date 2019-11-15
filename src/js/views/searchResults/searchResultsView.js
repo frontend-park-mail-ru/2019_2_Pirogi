@@ -69,7 +69,7 @@ export default class SearchResultsView extends View {
         const searchForm = document.querySelector('.js-search-form');
         searchForm.addEventListener('keydown', (event) => {
             if (event.code === 'Enter') {
-                this.globalEvetBus.dispatchEvent('searchEvent');
+                this.doSearch();
             }
         });
 
