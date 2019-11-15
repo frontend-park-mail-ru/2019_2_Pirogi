@@ -35,7 +35,9 @@
                         </div>
                         <div class="film__decription_main">Страны:
                             <fest:for iterate="film.countries" index="i" value="v">
-                                <fest:value>" " + v</fest:value>
+                                <a href="/search?countries={v}">
+                                    <fest:value>" " + v</fest:value>
+                                </a>
                                 <fest:if test="j<film.countries.length-1">
                                     ,
                                 </fest:if>

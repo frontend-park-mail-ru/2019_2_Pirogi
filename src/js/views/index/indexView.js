@@ -20,15 +20,19 @@ export default class IndexView extends View {
 
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
-        this.data = {};
+        this.data = {
+            filmsForUser: [],
+            filmsNew: [],
+            trailers: [''],
+        };
 
         this.localEventBus.addEventListener('indexOK',
             this.indexOK.bind(this));
     }
 
     indexOK(data = {}) {
-        super.render(data);
         this.data = data;
+        super.render(this.data);
         this.setEventListenersForTrailers();
     }
 
@@ -56,9 +60,8 @@ export default class IndexView extends View {
      * Render the Index view
      * @param {Object} data
    */
-    render(data = {}) {
-        super.render(data);
-        this.data = data;
+    render() {
+        super.render(this.data);
 
         this.localEventBus.dispatchEvent('getIndex');
     }

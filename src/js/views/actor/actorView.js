@@ -30,7 +30,8 @@ export default class ActorView extends View {
             photo: '',
         };
         this.actorData = {
-
+            name: '',
+            images: 'default.png',
         };
 
         this.localEventBus.addEventListener('ActorInfoOk',
@@ -70,8 +71,8 @@ export default class ActorView extends View {
     }
 
     actorInfoOk(data = {}) {
-        super.render(data);
         this.actorData = data;
+        super.render(this.actorData);
 
         this.chooseWall();
         this.renderWall();
@@ -90,7 +91,7 @@ export default class ActorView extends View {
         }
         this.tmplData = data;
 
-        super.render(data);
+        super.render(this.actorData);
 
         this.localEventBus.dispatchEvent('getActorInfo', data);
     }
