@@ -25,7 +25,7 @@
                         </div>
                         <div class="film__decription_main">Жанры:
                             <fest:for iterate="film.genres" index="j" value="v">
-                                <a href="/search?genre={v}">
+                                <a href="/search?genres={v}">
                                     <fest:value>" " + v</fest:value>
                                 </a>
                                 <fest:if test="j<film.genres.length-1">
@@ -79,7 +79,7 @@
                 <div class="title">Расскажите что Вы думаете о фильме:</div>
                 <form class="form">
                     <div class="feedback-form__top">
-                        <input class="input feedback-form__title js-title-input" type="text" placeholder="Заголовок"/>
+                        <input maxlength="100" class="input feedback-form__title js-title-input" type="text" placeholder="Заголовок"/>
                     </div>
                     <textarea rows="8" class="textarea js-text-input" placeholder="Текст рецензии"/>
                     <input class="button js-review-button" id="js-review-button" type="button" value="Отправить"/>

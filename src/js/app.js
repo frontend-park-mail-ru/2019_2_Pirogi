@@ -49,10 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     router.add('/search', searchResultsController.searchResultsView);
     router.add('/admin', adminController.adminView);
     router.add('/', indexController.indexView);
-    router.add('/year', indexController.indexView);
-    router.add('/genre', indexController.indexView);
-    router.add('/actors', indexController.indexView);
-    router.add('/404', errorView);
+    router.add('/error', errorView);
     router.add('/actor', actorController.actorView);
 
     router.start();

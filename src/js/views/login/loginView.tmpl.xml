@@ -9,9 +9,9 @@
                         <i class="fab fa-linkedin"></i>
                         <i class="fab fa-yandex"></i>
                     </div>
-                    <input class="input" id="js-email-login" name="email" type="email" placeholder="Введите почту"/>
-                    <input class="input" id="js-password-login" name="password" type="password" placeholder="Введите пароль"/>
-                    <input class="button" id="js-login" type="button" value="войти"/>
+                    <input maxlength="30" class="input" id="js-email-login" name="email" type="email" placeholder="Введите почту"/>
+                    <input maxlength="30" class="input" id="js-password-login" name="password" type="password" placeholder="Введите пароль"/>
+                    <input maxlength="30" class="button" id="js-login" type="button" value="войти"/>
                 </div>
                 <div class="login__register">
                     <div class="title title_center">Регистрация</div>
@@ -20,10 +20,10 @@
                         <i class="fab fa-linkedin"></i>
                         <i class="fab fa-yandex"></i>
                     </div>
-                    <input class="input" id="js-nickname-register" name="username" type="text" placeholder="Введите имя"/>
-                    <input class="input" id="js-email-register" name="email" type="email" placeholder="Введите почту"/>
-                    <input class="input" id="js-password-register" name="password" type="password" placeholder="Введите пароль"/>
-                    <input class="input" id="js-password-register-clone" name="password-clone" type="password" placeholder="Повторите пароль"/>
+                    <input maxlength="30" class="input" id="js-nickname-register" name="username" type="text" placeholder="Введите имя"/>
+                    <input maxlength="30" class="input" id="js-email-register" name="email" type="email" placeholder="Введите почту"/>
+                    <input maxlength="30" class="input" id="js-password-register" name="password" type="password" placeholder="Введите пароль"/>
+                    <input maxlength="30" class="input" id="js-password-register-clone" name="password-clone" type="password" placeholder="Повторите пароль"/>
                     <input class="button" id="js-register" type="button" value="войти"/>
                 </div>
             </div>

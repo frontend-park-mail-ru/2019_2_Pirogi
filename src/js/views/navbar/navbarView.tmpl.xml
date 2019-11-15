@@ -1,21 +1,23 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
     <div class="navbar">
-        <a class="logo" href="/">CINSEAR</a>
-        <div class="navbar__input">
-            <input class="input navbar__input" id="js-search-input" type="text" placeholder="поиск"/>
-            <div id="js-navbar-search"><i class="fas fa-search"/></div>
+        <div class="desktop-navbar">
+            <a class="logo" href="/">CINSEAR</a>
+            <div class="navbar__input">
+                <input class="input navbar__input" id="js-search-input" type="text" size="30" placeholder="поиск"/>
+                <div id="js-navbar-search"><i class="fas fa-search"/></div>
+            </div>
+            <a href="/search?new" class="navbar__item">новинки</a>
+            <a href="/search?films" class="navbar__item">фильмы</a>
+            <a href="/search?ratings" class="navbar__item">рейтинги</a>
+            <fest:choose>
+                <fest:when test="param.isAuth">
+                    <a href="/profile" class="button">профиль</a>
+                    <input type="button" class="button js-logout-button" value="выйти"/>
+                </fest:when>
+                <fest:otherwise>
+                    <a href="/login" class="button">войти</a>
+                </fest:otherwise>
+            </fest:choose>
         </div>
-        <a href="/search?new" class="navbar__item">новинки</a>
-        <a href="/search?films" class="navbar__item">фильмы</a>
-        <a href="/search?ratings" class="navbar__item">рейтинги</a>
-        <fest:choose>
-            <fest:when test="param.isAuth">
-                <a href="/profile" class="button">профиль</a>
-                <input type="button" class="button js-logout-button" value="выйти"/>
-            </fest:when>
-            <fest:otherwise>
-                <a href="/login" class="button">войти</a>
-            </fest:otherwise>
-        </fest:choose>
     </div>
 </fest:template>
