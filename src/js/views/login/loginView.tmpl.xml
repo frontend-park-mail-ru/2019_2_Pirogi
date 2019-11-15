@@ -4,22 +4,22 @@
             <div class="login__form">
                 <div class="login__auth">
                     <div class="title title_center">ВХОД</div>
-                    <div class="login__iconbar login__iconbar_light">
+                    <!--<div class="login__iconbar login__iconbar_light">
                         <i class="fab fa-google-plus"></i>
                         <i class="fab fa-linkedin"></i>
                         <i class="fab fa-yandex"></i>
-                    </div>
+                    </div>-->
                     <input maxlength="30" class="input" id="js-email-login" name="email" type="email" placeholder="Введите почту"/>
                     <input maxlength="30" class="input" id="js-password-login" name="password" type="password" placeholder="Введите пароль"/>
                     <input maxlength="30" class="button" id="js-login" type="button" value="войти"/>
                 </div>
                 <div class="login__register">
                     <div class="title title_center">Регистрация</div>
-                    <div class="login__iconbar login__iconbar_dark">
+                    <!--<div class="login__iconbar login__iconbar_dark">
                         <i class="fab fa-google-plus"></i>
                         <i class="fab fa-linkedin"></i>
                         <i class="fab fa-yandex"></i>
-                    </div>
+                    </div>-->
                     <input maxlength="30" class="input" id="js-nickname-register" name="username" type="text" placeholder="Введите имя"/>
                     <input maxlength="30" class="input" id="js-email-register" name="email" type="email" placeholder="Введите почту"/>
                     <input maxlength="30" class="input" id="js-password-register" name="password" type="password" placeholder="Введите пароль"/>

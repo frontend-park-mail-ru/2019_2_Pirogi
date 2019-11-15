@@ -23,7 +23,6 @@ export default class FilmController {
 
 
         this.localEventBus.addEventListener('filmInfoFailed', () => {
-            window.history.back();
             router.route('/404');
         });
         this.filmModel = new FilmModel(this.localEventBus, globalEventBus);

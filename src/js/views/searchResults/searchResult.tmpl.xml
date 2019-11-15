@@ -73,7 +73,7 @@
                                     <a href="/actor?films&amp;id={v.id}">
                                         <fest:value>" " + v.name</fest:value>
                                     </a>
-                                    <fest:if test="i<film.persons.length-1">
+                                    <fest:if test="j<film.persons.length-1">
                                         ,
                                     </fest:if>
                                 </fest:for>
