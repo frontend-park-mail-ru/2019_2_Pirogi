@@ -50,11 +50,7 @@ export default class SearchResultsView extends View {
         const searchInput = document.getElementById('js-search-input');
         this.renderData.searchParams['query'] = searchInput.value || null;
         const searchForm = document.querySelector('.js-search-form');
-        searchForm.addEventListener('keydown', (event) => {
-            if (event.code === 'Enter') {
-                this.globalEvetBus.dispatchEvent('searchEvent');
-            }
-        });
+
         const searchFormData = new FormData(searchForm);
         searchFormData.forEach((val,name) => {
             this.renderData.searchParams[name] = val.replace(/ /g, '+');
@@ -69,6 +65,14 @@ export default class SearchResultsView extends View {
 
         const searchButton = document.getElementById('js-search-params');
         searchButton.addEventListener('click', () => this.doSearch());
+
+        const searchForm = document.querySelector('.js-search-form');
+        searchForm.addEventListener('keydown', (event) => {
+            if (event.code === 'Enter') {
+                this.globalEvetBus.dispatchEvent('searchEvent');
+            }
+        });
+
     }
 
     /**
