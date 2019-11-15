@@ -19,7 +19,7 @@
                             <fest:value>" " + film.mark</fest:value>
                         </div>
                         <div class="film__decription_main">Год:
-                            <a href="search?year={film.year}">
+                            <a href="search?yearmin={film.year}&amp;yearmax={film.year}">
                                 <fest:value>" " + film.year</fest:value>
                             </a>
                         </div>

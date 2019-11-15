@@ -11,7 +11,7 @@
         <fest:for iterate="params.filmsarray" index="i" value="film">
             <div class="list__item actor__film">
                 <div class="actor__film-img">
-                    <a href=" /film?filmID={film.id}"></a>
+                    <a href=" /film?filmID={film.id}"/>
                     <img  src="/images/films/{film.image}" alt="название фильма"/>
                 </div>
                 <div class="actor__film-card">
@@ -26,9 +26,9 @@
                             </fest:if>
                         </fest:for>
                     </div>
-                    <div>Год: <a href="search?year={film.year}"><a href="search?year={film.year}">
+                    <div>Год: <a href="search?yearmin={film.year}&amp;yearmax={film.year}">
                         <fest:value>" " + film.year</fest:value>
-                    </a></a></div>
+                    </a></div>
                     <div>Актеры:
                         <fest:for iterate="film.persons" index="i" value="v">
                             <a href="/actor?films&amp;id={v.id}">

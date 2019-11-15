@@ -52,8 +52,7 @@ export default class SearchResultsView extends View {
         const searchForm = document.querySelector('.js-search-form');
         const searchFormData = new FormData(searchForm);
         searchFormData.forEach((val,name) => {
-            const newval = val.replace(/ /g, '+');
-            this.renderData.searchParams[name] = newval;
+            this.renderData.searchParams[name] = val.replace(/ /g, '+');
         });
         this.localEventBus.dispatchEvent('getResults', this.renderData.searchParams);
     }
