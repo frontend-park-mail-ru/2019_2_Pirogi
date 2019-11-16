@@ -82,7 +82,7 @@ export default class ActorView extends View {
      * @param {Object} data
      */
     render(data = {}) {
-        if (document.querySelector('.js-actor-wall')) {
+        if ( data.id == this.tmplData && document.querySelector('.js-actor-wall')) {
             this.tmplData = data;
             this.chooseWall();
             this.renderWall();

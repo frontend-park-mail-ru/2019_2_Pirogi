@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <div class="news-bar">
+            <!--<div class="news-bar">
                 <div class="title">Статьи и новости</div>
                 <div class="article-bar">
                     <div class="article-bar__card">
@@ -43,51 +43,8 @@
                         <div> Article text 1
                         </div>
                     </div>
-                    <div class="article-bar__card">
-                        <div class="article-bar__img">
-                            <a href="/article/1"></a><img src="/src/images/poster.jpg" alt="film-card"/>
-                        </div>
-                        <div class="article-bar__title">
-                            <a href="">Article 2</a>
-                        </div>
-                        <div> Article text 2
-                        </div>
-                    </div>
-                    <div class="article-bar__card">
-                        <div class="article-bar__img">
-                            <a href="/article/1"></a><img src="/src/images/poster.jpg" alt="film-card"/>
-                        </div>
-                        <div class="article-bar__title">
-                            <a href="">Article 3</a>
-                        </div>
-                        <div> Article text 3
-                        </div>
-                    </div>
-                    <div class="article-bar__card">
-                    <div class="article-bar__img">
-                        <a href="/article/1"></a><img src="/src/images/poster.jpg" alt="film-card"/>
-                    </div>
-                    <div class="article-bar__title">
-                        <a href="">Article 4</a>
-                    </div>
-                    <div> Article text 4
-                    </div>
                 </div>
-                    <div class="article-bar__card">
-                    <div class="article-bar__img">
-                        <a href="/article/1"></a><img src="/src/images/poster.jpg" alt="film-card"/>
-                    </div>
-                    <div class="article-bar__title">
-                        <a href="">Article 5</a>
-                    </div>
-                    <div> Article text 5
-                    </div>
-                </div>
-
-
-
-                </div>
-            </div>
+            </div>-->
 
             <div class="trailers-bar">
                 <div class="trailers-bar__list">
