@@ -150,7 +150,7 @@ export default class ProfileModel {
                 if (res.ok) {
                     this.localEventBus.dispatchEvent('editOk');
                 } else {
-                    this.localEventBus.dispatchEvent('editFailed', data);
+                    this.localEventBus.dispatchEvent('avatarEditFailed', data);
                 }
             });
     }

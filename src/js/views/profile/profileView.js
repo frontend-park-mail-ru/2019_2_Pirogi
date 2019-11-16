@@ -36,6 +36,7 @@ export default class ProfileView extends View {
             loginSubmit: 'js-save-login-button',
             passwordSubmit: 'js-save-password-button',
             infoSubmit: 'js-save-button',
+            avatarSubmit: 'js-avatar-button'
         };
 
         this.infoIds = {
@@ -70,6 +71,8 @@ export default class ProfileView extends View {
             this.editOk.bind(this));
         this.localEventBus.addEventListener('editFailed',
             this.editFailed.bind(this));
+        this.localEventBus.addEventListener('avatarEditFailed',
+            this.editAvatarFailed.bind(this));
 
         this.localEventBus.addEventListener('getInfoOk',
             this.getInfoOk.bind(this));
@@ -218,6 +221,17 @@ export default class ProfileView extends View {
         } else {
             this.localEventBus.dispatchEvent('renderError',
                 this.submitsIds.infoSubmit, errorMessages.unknown);
+        }
+    }
+
+    editAvatarFailed(errors) {
+        this.localEventBus.dispatchEvent('clearError', this.submitsIds.avatarSubmit);
+        if (errors.error) {
+            this.localEventBus.dispatchEvent('renderError',
+                this.submitsIds.avatarSubmit, errors.error);
+        } else {
+            this.localEventBus.dispatchEvent('renderError',
+                this.submitsIds.avatarSubmit, errorMessages.unknown);
         }
     }
 

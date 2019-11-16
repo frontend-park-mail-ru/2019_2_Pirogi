@@ -8,6 +8,7 @@
         <input type="button" disabled="true" class="button  button_active" value="фотографии"/>
         <input type="button" class="button js-awards-button" value="Награды"/>-->
     </div>
+    <!--
     <div class="actor__awards-list">
         <div class="award">
             <div class="award__desc">
@@ -19,5 +20,5 @@
 
         </div>
     </div>
-    <div class="hr"/>
+    <div class="hr"/>-->
 </fest:template>

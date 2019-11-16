@@ -7,7 +7,7 @@
         <div class="profile-edit-form__avatar">
         <input class="input js-avatar-input" type="file" name="avatar"/>
         <div class="profile__button">
-            <input class="button js-avatar-button" type="button" value="Изменить аватар"/>
+            <input class="button js-avatar-button" id="js-avatar-button" type="button" value="Изменить аватар"/>
         </div>
         </div>
         <div class="hr"></div>
