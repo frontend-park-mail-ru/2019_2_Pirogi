@@ -65,7 +65,7 @@ export default class ActorView extends View {
             this.localEventBus.dispatchEvent('getFilmList',{
                 limit:10,
                 offset: 0,
-                personsid: this.actorData.id
+                personsids: this.actorData.id
             });
         }
     }
