@@ -253,18 +253,18 @@ export default class ProfileView extends View {
     addEventListenersForEdit() {
         this.setEventListenersForFields(this.infoIds,
             'checkField', 'modifyInfoData');
-        this.setEventListenersForFields(this.loginIds,
-            'checkField', 'modifyLoginData');
-        this.setEventListenersForFields(this.oldPasswordIds,
-            'checkField', 'modifyPasswordData');
-        this.setEventListenersForDependentFields(this.passwordsIds,
-            'passwordsCheck', 'modifyPasswordData', 'password');
+        //this.setEventListenersForFields(this.loginIds,
+        //    'checkField', 'modifyLoginData');
+        //this.setEventListenersForFields(this.oldPasswordIds,
+        //    'checkField', 'modifyPasswordData');
+        //this.setEventListenersForDependentFields(this.passwordsIds,
+        //    'passwordsCheck', 'modifyPasswordData', 'password');
 
         const saveButton = document.getElementById('js-save-button');
         saveButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('onEditingProfile');
         });
-
+        /*
         const saveLoginButton = document.getElementById('js-save-login-button');
         saveLoginButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('onEditingProfile');
@@ -272,7 +272,7 @@ export default class ProfileView extends View {
         const savePasswordButton = document.getElementById('js-save-password-button');
         savePasswordButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('onEditingPassword');
-        });
+        });*/
 
         const avatarButton = document.querySelector('.js-avatar-button');
         avatarButton.addEventListener('click', () => {
