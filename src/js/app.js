@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchResultsController = new SearchResultsController(globalEventBus, body);
     const indexController = new IndexController(globalEventBus, body);
     const adminController = new AdminController(globalEventBus, body);
-    const actorController = new ActorController(globalEventBus,body);
+    const actorController = new ActorController(globalEventBus,body, router);
     const errorView = new ErrorView(body);
 
     navbarController.navbarView.render();
