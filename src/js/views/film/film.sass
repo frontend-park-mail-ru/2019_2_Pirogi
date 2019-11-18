@@ -14,9 +14,21 @@
   align-items: center
   flex-direction: row
   text-align: center
-  padding: 4*$indent 0
+  padding: 6vw 0
   background-color: $color-light
   justify-content: center
+  position: relative
+.film__background
+  background-color: $color-light-50
+  width: 95%
+  height: 95%
+  position: absolute
+  z-index: 5
+.film__iframe
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 0
 
 .film *
   margin-top: $indent/2
@@ -27,9 +39,9 @@
   margin: 2*$indent 0
   height: 50vh
   position: relative
-
   .posters__img
     position: absolute
+    z-index: 10
     +shadow-dark
 
   .posters__img_left
@@ -62,7 +74,7 @@
   display: flex
   flex-direction: column
   text-align: left
-
+  z-index: 10
   .film__decription_main
     font-family: $font-medium
 

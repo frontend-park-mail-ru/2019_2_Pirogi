@@ -1,6 +1,7 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="film">
     <main class="main">
         <div class="film-index">
+
             <div class="film">
                 <div class="posters">
                     <img class="posters__img posters__img_left" src="/images/films/{film.images[0]}"
@@ -10,6 +11,13 @@
                     <img class="posters__img posters__img_right" src="/images/films/{film.images[0]}"
                          alt="название фильма"/>
                 </div>
+                <div class="film__background"/>
+
+                <iframe class="film__iframe"
+                name="film-iframe"
+                        src="https://www.youtube.com/embed/{film.trailer}?autoplay=1&loop=1&enablejsapi=1&&playerapiid=featuredytplayer&controls=0&modestbranding=1&rel=0&showinfo=0&color=white&iv_load_policy=3&theme=light&wmode=transparent&playlist={film.trailer}&mute=1&origin=https://cinsear.ru"
+                        frameborder="0"/>
+
                 <div class="film__description">
                     <div class="title film__title">
                         <fest:value>film.title</fest:value>
