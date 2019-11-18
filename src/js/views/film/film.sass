@@ -18,8 +18,12 @@
   background-color: $color-light
   justify-content: center
   position: relative
+  a
+    color: $color-accent
+    &:hover
+      color: $color-lightest
 .film__background
-  background-color: $color-light-50
+  background-color: $color-darkest-50
   width: 95%
   height: 95%
   position: absolute
@@ -33,6 +37,8 @@
 .film *
   margin-top: $indent/2
   margin-bottom: $indent/2
+  color: $color-lightest
+
 
 .posters
   width: 55vh
@@ -42,7 +48,7 @@
   .posters__img
     position: absolute
     z-index: 10
-    +shadow-dark
+    +shadow-light
 
   .posters__img_left
     opacity: 0.5
@@ -65,7 +71,6 @@
     transform: translate(-50%, -50%)
 
 .film__title
-  color: $color-darkest
   text-align: left
 
 .film__description
