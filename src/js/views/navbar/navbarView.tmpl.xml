@@ -1,7 +1,9 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
     <div class="navbar">
         <div class="mobile-navbar">
-            <i class="fas fa-bars"></i>
+            <div class="navbar__list js-navbar-list-button">
+                <i class="fas fa-bars"/>
+            </div>
             <div class="navbar__input">
                 <input class="input navbar__input" id="js-search-input" type="text" size="10" placeholder="поиск"/>
                 <div id="js-navbar-search"><i class="fas fa-search"/></div>
@@ -9,12 +11,12 @@
 
             <fest:choose>
             <fest:when test="param.isAuth">
-                <a href="/profile" class="button">п</a>
-                <input type="button" class="button js-logout-button"> <i class="fas fa-sign-in-alt"/> </input>
+                <a href="/profile" class="button"><i class="fas fa-user"/></a>
+                <input type="button" class="js-logout-button"><i class="fas fa-sign-out-alt"/></input>
             </fest:when>
             <fest:otherwise>
                 <div class="navbar__href">
-                    <a href="/login"></a>
+                    <a href="/login"/>
                     <i class="fas fa-sign-in-alt"/></div>
             </fest:otherwise>
         </fest:choose>
