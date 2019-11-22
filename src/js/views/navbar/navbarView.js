@@ -70,6 +70,16 @@ export default class NavbarView extends View {
                 this.globalEvetBus.dispatchEvent('searchEvent');
             }
         });
+        const navbarlist = document.querySelector('.js-navbar-list-button');
+        navbarlist.addEventListener('click', () => {
+            const m = document.querySelector('.mobile-menu_display');
+            if (!m) {
+                const menu = document.querySelector('.mobile-menu');
+                menu.classList.add('mobile-menu_display');
+            } else {
+                m.classList.remove('mobile-menu_display');
+            }
+        });
     }
 
     /**

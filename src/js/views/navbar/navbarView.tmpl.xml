@@ -24,6 +24,13 @@
             </fest:otherwise>
         </fest:choose>
         </div>
+        <div class="mobile-menu">
+            <a class="logo" href="/">CINSEAR</a>
+            <a href="/search?new" class="navbar__item">новинки</a>
+            <a href="/search?films" class="navbar__item">фильмы</a>
+            <a href="/search?ratings" class="navbar__item">рейтинги</a>
+            <div class="hr"/>
+        </div>
         <div class="desktop-navbar">
             <a class="logo" href="/">CINSEAR</a>
             <div class="navbar__input">
@@ -33,7 +40,7 @@
             <a href="/search?new" class="navbar__item">новинки</a>
             <a href="/search?films" class="navbar__item">фильмы</a>
             <a href="/search?ratings" class="navbar__item">рейтинги</a>
-
+         
             <fest:choose>
                 <fest:when test="param.isAuth">
                     <a href="/profile" class="button">профиль</a>
