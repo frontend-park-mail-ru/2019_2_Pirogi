@@ -9,20 +9,25 @@
                 <div id="js-navbar-search"><i class="fas fa-search"/></div>
             </div>
 
-            <fest:choose>
+            <div class="navbar__href">
+                <a href="/profile"/>
+                <i class="fas fa-user fa-2x"/>
+            </div>
+            <div class="navbar__href js-mobile-logout-button"><i class="fas fa-sign-out-alt fa-2x"/></div>
+            <!--<fest:choose>
             <fest:when test="param.isAuth">
                 <div class="navbar__href">
-                    <a href="/profile" class="button"/>
+                    <a href="/profile"/>
                     <i class="fas fa-user fa-2x"/>
                 </div>
-                <input class="js-mobile-logout-button"><i class="fas fa-sign-out-alt fa-2x"/></input>
+                <div class="navbar__href js-mobile-logout-button"><i class="fas fa-sign-out-alt fa-2x"/></div>
             </fest:when>
             <fest:otherwise>
                 <div class="navbar__href">
                     <a href="/login"/>
                     <i class="fas fa-sign-in-alt fa-2x"/></div>
             </fest:otherwise>
-        </fest:choose>
+        </fest:choose>-->
         </div>
         <div class="desktop-navbar">
             <a class="logo" href="/">CINSEAR</a>
