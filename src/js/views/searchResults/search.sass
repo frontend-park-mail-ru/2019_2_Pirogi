@@ -64,16 +64,16 @@
 
 @media screen and (max-width: 1000px)
   .search-results
-    width: 100%
-    .list
-      display: flex
-      flex-wrap: wrap
+    width: 95%
   .search-results__film
     margin: 2*$indent 0
     display: flex
     align-items: center
-    flex-wrap: wrap
+    flex-direction: column
+    justify-content: center
     +shadow-dark
+    .title
+      font-size: $font-size-medium
   .search-results__img
     position: relative
     height: 30vh
@@ -89,6 +89,5 @@
     img
       height: 30vh
       margin: 0
-    .title
-      font-size: $font-size-medium
+
 

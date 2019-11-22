@@ -13,6 +13,8 @@
       font-size: 50px
 
 @media screen and (max-width: 1000px)
+  .main
+    margin-top: 4*$indent
   .desktop-navbar
     display: none
   .navbar__input
@@ -49,9 +51,11 @@
 
 .mobile-menu
   display: none
-  margin-top: 140px
-  margin-left: 40px
-  margin-right: 40px
+  padding-top: 100px
+  padding-left: 40px
+  background-color: $color-light
+  width: 100%
+  position: absolute
 .mobile-menu_display
   display: flex
   flex-direction: column

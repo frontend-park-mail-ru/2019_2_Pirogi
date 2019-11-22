@@ -63,3 +63,18 @@
     background-color: $color-lightest
 .genre-films-bar_accent
     background-color: $color-accent
+
+@media screen and (max-width: 1000px)
+  .genres
+    flex-direction: column
+  .nav-block
+    width: 100%
+  .genres-index
+    width: 100%
+  .genre-films-bar
+    padding: 0
+    .film-card
+      margin-top: 3*$indent
+      &:last-of-type
+        margin-right: $indent
+
