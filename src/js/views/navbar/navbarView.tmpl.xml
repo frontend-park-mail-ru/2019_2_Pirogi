@@ -11,8 +11,11 @@
 
             <fest:choose>
             <fest:when test="param.isAuth">
-                <a href="/profile" class="button"><i class="fas fa-user fa-2x"/></a>
-                <input type="button" class="js-mobile-logout-button"><i class="fas fa-sign-out-alt fa-2x"/></input>
+                <div class="navbar__href">
+                    <a href="/profile" class="button"/>
+                    <i class="fas fa-user fa-2x"/>
+                </div>
+                <input class="js-mobile-logout-button"><i class="fas fa-sign-out-alt fa-2x"/></input>
             </fest:when>
             <fest:otherwise>
                 <div class="navbar__href">

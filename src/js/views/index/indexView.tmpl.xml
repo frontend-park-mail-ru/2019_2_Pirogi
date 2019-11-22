@@ -11,7 +11,7 @@
                                 <img  src="/images/films/{film.image}" alt="{film.title}"/>
                                 <div class="title film-card__info">
                                     <fest:value>film.title</fest:value>
-                                </div>-->
+                                </div>
                             </div>
                         </div>
                     </fest:for>

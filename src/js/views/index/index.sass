@@ -41,15 +41,15 @@
   *
     text-align: center
   .rec-films-bar
-    padding: 2*$indent
+    padding: 2*$indent 0
   .new-films-bar
-    padding: 2*$indent
+    padding: 2*$indent 0
   .rec-films-bar__bar
     flex-wrap: wrap
     display: flex
     justify-content: center
   .film-card
-    margin: 4*$indent
+    margin: 2*$indent $indent
     text-align: center
     .title
       padding: $indent 0
@@ -88,7 +88,8 @@
     width: 100%
     .button
       font-size: $font-size-medium
-      padding: 2*$indent $indent
+      padding: $indent $indent
+      min-width: 80%
   .trailers-bar
     margin: 4*$indent
     width: 100%
