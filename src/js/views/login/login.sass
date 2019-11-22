@@ -26,8 +26,6 @@
   display: flex
   flex-direction: column
   padding: 2*$indent
-  border-top-left-radius: 2*$indent
-  border-bottom-left-radius: 2*$indent
   .input:focus
     +shadow-light
   *
@@ -45,16 +43,10 @@
   background-color: $color-lightest
   display: flex
   flex-direction: column
-  border-top-right-radius: 2*$indent
-  border-bottom-right-radius: 2*$indent
   *
     margin: $indent 0
-
-
   .title
     margin: 2*$indent 0
-
-
 .login__iconbar
   display: flex
   width: 15vw
@@ -72,3 +64,32 @@
 
 .error-mes
   color: red
+
+@media screen and (max-width: 1000px)
+  .login__form
+    width: 100%
+    flex-wrap: wrap
+    margin-top: 6*$indent
+  .login__auth
+    align-items: center
+    justify-content: center
+    background-color: $color-darkest-75
+    display: flex
+    flex-direction: column
+    padding: 2*$indent
+  .login__register
+    padding: 2*$indent
+    align-items: center
+    justify-content: center
+    background-color: $color-light-90
+    display: flex
+    flex-direction: column
+
+@media screen and (min-width: 1000px)
+  .login__auth
+    border-top-left-radius: 2*$indent
+    border-bottom-left-radius: 2*$indent
+  .login__register
+    border-top-right-radius: 2*$indent
+    border-bottom-right-radius: 2*$indent
+
