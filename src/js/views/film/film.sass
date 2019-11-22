@@ -1,5 +1,6 @@
 @import "../../../css/variables"
 
+
 .film-index
   width: 100%
   padding-top: 7.5*$indent
@@ -22,12 +23,14 @@
     color: $color-accent
     &:hover
       color: $color-lightest
+
 .film__background
   background-color: $color-darkest-75
   width: 100%
   height: 100%
   position: absolute
   z-index: 5
+
 .film__iframe
   position: absolute
   width: 100%
@@ -39,7 +42,6 @@
   margin-bottom: $indent/2
   color: $color-lightest
 
-
 .posters
   width: 55vh
   margin: 2*$indent 0
@@ -49,19 +51,16 @@
     position: absolute
     z-index: 10
     +shadow-light
-
   .posters__img_left
     opacity: 0.5
     left: 0
     width: 25vh
     height: 40vh
-
   .posters__img_right
     opacity: 0.5
     right: 0
     width: 25vh
     height: 40vh
-
   .posters__img_active
     top: 50%
     left: 50%
@@ -91,7 +90,6 @@
   background-color: $color-darkest
   display: flex
   width: 100%
-
   .user-block__button
     background-color: $color-accent
     color: $color-lightest
@@ -164,6 +162,8 @@
     padding: $indent 0
 
   .feedback__text
+    img
+      display: none
     width: 70%
     margin: $indent 0
     display: flex
@@ -232,12 +232,49 @@
 
 .stars_review i
   color: $color-dark
-
-
 .opacity-0
   opacity: 0
-
-
 .opacity-1
   opacity: 1
 
+
+@media screen and (max-width: 1000px)
+  iframe
+    display: none
+  .posters__img_left
+    display: none
+  .posters__img_right
+    display: none
+  .film__description
+    width: 95%
+  .user-block
+    flex-direction: column
+    .button
+      margin: $indent 0
+  .film
+    flex-direction: column
+    *
+      text-align: start
+  .feedback
+    width: 100%
+    flex-direction: column
+    *
+      text-align: start
+    .title
+      font-size: $font-size-medium
+    +shadow-dark
+    .feedback__img
+      width: 10vh
+      height: 12vh
+    .feedback__mark
+      display: none
+    .feedback__text
+      display: unset
+      img
+        display: unset
+        float: left
+      width: unset
+    .feedback__rating
+      width: unset
+  .feedback__text *
+    margin: 10px 0
