@@ -18,7 +18,7 @@
 .trailers-bar__list
   text-align: center
   .title
-    font-size: $font-size-small
+    font-size: $font-size-large
     width: 100%
     background-color: $color-darkest
     padding: 2*$indent 0
@@ -38,6 +38,8 @@
       color: $color-lightest
 
 @media screen and (max-width: 1000px)
+  *
+    text-align: center
   .rec-films-bar
     padding: 2*$indent
   .new-films-bar
@@ -49,15 +51,6 @@
   .film-card
     margin: 4*$indent
     text-align: center
-    .film-card__img
-      position: relative
-      overflow: unset
-      a
-        position: absolute
-        width: 100%
-        height: 100%
-      img
-        height: 50vh
     .title
       padding: $indent 0
       margin: auto
@@ -65,40 +58,53 @@
       background-color: $color-light
       position: absolute
       bottom: 0
+  .film-card__img
+    position: relative
+    overflow: unset
+    a
+      position: absolute
+      width: 100%
+      height: 100%
+    img
+      height: 50vh
   .films-bar
     margin: $indent 0
     display: flex
     padding-bottom: $indent
     flex-wrap: wrap
     justify-content: center
-    .film-bar__card
-      margin: $indent
-      position: relative
+  .film-bar__card
+    margin: $indent
+    position: relative
+    height: 30vh
+    a
+      position: absolute
+      width: 100%
+      height: 100%
+    img
       height: 30vh
-      a
-        position: absolute
-        width: 100%
-        height: 100%
-      img
-        height: 30vh
-      +shadow-dark
-
+    +shadow-dark
+  .trailers-bar__list
+    width: 100%
+    .button
+      font-size: $font-size-medium
+      padding: 2*$indent $indent
   .trailers-bar
     margin: 4*$indent
     width: 100%
     align-self: center
     +shadow-dark
-    .trailers-bar__trailer
+  .trailers-bar__trailer
+    width: 100%
+    height: 30vh
+    background-color: $color-accent
+    iframe
       width: 100%
-      height: 30vh
-      background-color: $color-accent
-      iframe
-        width: 100%
-        height: 100%
-    .trailers-bar__scroll
-      text-align: center
-      display: flex
-      overflow-x: scroll
+      height: 100%
+  .trailers-bar__scroll
+    text-align: center
+    display: flex
+    overflow-x: scroll
 
 
 
@@ -156,6 +162,8 @@
       +shadow-dark
       &:last-of-type
         margin-right: 0
+  .trailers-bar__list
+    width: 20%
   .trailers-bar
     margin: 4*$indent
     display: flex
