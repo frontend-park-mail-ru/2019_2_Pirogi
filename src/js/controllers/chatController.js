@@ -30,8 +30,6 @@ export default class ChatController {
 
         this.socket.onopen = () => {
             console.log('WebSocket [open] Соединение установлено');
-            console.log('WebSocket Отправляем данные на сервер');
-            this.socket.send('WebSocket Меня зовут Джон');
 
             const send = document.getElementById('js-message-sendler');
             send.addEventListener('click', () => {
@@ -40,6 +38,7 @@ export default class ChatController {
                     const data = {
                         body: input.value,
                     };
+                    console.log('WebSocket Отправляем данные на сервер' + JSON.stringify(data));
                     this.socket.send(JSON.stringify(data));
 
                     const date = new Date();
@@ -63,7 +62,7 @@ export default class ChatController {
             m.classList.add('mes');
             m.classList.add('mes_admin');
             m.innerHTML = '<div class="mes__author">Поддержка</div><div class="mes__body">' +
-                 event.data + '</div> <div class="mes__date">' + date + '</div>';
+                 event.data.body + '</div> <div class="mes__date">' + date + '</div>';
             const messages = document.querySelector('.chat__messages');
             messages.appendChild(m);
         };

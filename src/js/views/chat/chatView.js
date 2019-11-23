@@ -1,7 +1,7 @@
 import View from '../../libs/view';
 import EventBus from '../../libs/eventBus';
 import template from './chatView.tmpl.xml';
-import tmpladmin from './chatView.admin.tmpl.xml';
+//import tmpladmin from './chatView.admin.tmpl.xml';
 
 
 /**
@@ -17,7 +17,7 @@ export default class ChatView extends View {
      * @param {Object} root
      */
     constructor(localEventBus = EventBus, globalEventBus = EventBus, root = {}) {
-        super(localEventBus, root, tmpladmin);
+        super(localEventBus, root, template);
 
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
