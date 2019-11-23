@@ -62,6 +62,9 @@
                         frameborder="0"/>
                 </div>
             </div>
+            <div class="chat-iframe">
+                <input type="button" class="button js-chat-button" value="написать админу"/>
+            </div>
         </div>
     </main>
 </fest:template>

@@ -1,7 +1,7 @@
 import EventBus from '../libs/eventBus';
 import ChatView from '../views/chat/chatView';
 import ChatModel from '../models/chatModel';
-import MyWebSocket from "../libs/webSocket";
+import MyWebSocket from '../libs/webSocket';
 
 const chatEvents = [
 ];
@@ -53,7 +53,7 @@ export default class ChatController {
         this.socket.open();
         const send = document.getElementById('js-message-sendler');
         send.addEventListener('click', () => {
-            this.socket.send(document.getElementById('js-message-input').value)
+            this.socket.send(document.getElementById('js-message-input').value);
         });
         // const input = document.getElementById('js-message-input');
         // input.addEventListener('keydown', (event) => {

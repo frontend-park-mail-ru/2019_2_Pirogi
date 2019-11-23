@@ -15,7 +15,7 @@ export default class MyWebSocket {
             let author = '';
             m.classList.add('mes');
             if (d.author) {
-                m.classList.add('mes_admin')
+                m.classList.add('mes_admin');
                 author = 'Поддержка';
             } else {
                 m.classList.add('mes_user');
@@ -70,4 +70,4 @@ export default class MyWebSocket {
             this.socket = null;
         }
     }
-};
+}

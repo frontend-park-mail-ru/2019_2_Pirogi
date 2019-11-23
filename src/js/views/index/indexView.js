@@ -34,6 +34,14 @@ export default class IndexView extends View {
         this.data = data;
         super.render(this.data);
         this.setEventListenersForTrailers();
+
+        if (this.globalEvetBus.dispatchEvent('isAuth')) {
+            const chat = document.querySelector('.js-chat-button');
+            chat.addEventListener('click', () => {
+                const chatDiv = document.querySelector('.chat-iframe');
+                chatDiv.innerHTML = '<iframe src="https://cinsear.ru/chat"/>';
+            });
+        }
     }
 
 
@@ -63,6 +71,12 @@ export default class IndexView extends View {
     render() {
         super.render(this.data);
 
+
+        const chat = document.querySelector('.js-chat-button');
+        chat.addEventListener('click', () => {
+            const chatDiv = document.querySelector('.chat-iframe');
+            chatDiv.innerHTML = '<iframe src="https://cinsear.ru/chat"/>';
+        });
         this.localEventBus.dispatchEvent('getIndex');
     }
 }

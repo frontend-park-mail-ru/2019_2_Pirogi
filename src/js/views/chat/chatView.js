@@ -25,10 +25,14 @@ export default class ChatView extends View {
 
     hide() {
         this.localEventBus.dispatchEvent('closeWS');
+        const navbar = document.querySelector('header');
+        navbar.classList.remove('display-none');
     }
 
     render(data = {}) {
         super.render(data);
         this.localEventBus.dispatchEvent('createWS');
+        const navbar = document.querySelector('header');
+        navbar.classList.add('display-none');
     }
 }
