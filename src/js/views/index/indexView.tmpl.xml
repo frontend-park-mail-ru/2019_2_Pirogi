@@ -64,6 +64,10 @@
             </div>
             <div class="chat-iframe">
                 <input type="button" class="button js-chat-button" value="написать админу"/>
+                <input type="button" class="button js-chat2-button display-none" value="закрыть"/>
+                <div class="js-iframe iframe display-none">
+                </div>
+
             </div>
         </div>
     </main>
