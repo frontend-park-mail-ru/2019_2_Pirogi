@@ -58,12 +58,16 @@ export default class MyWebSocket {
     // }
 
     send(data) {
-        this.socket.send(JSON.stringify({body: data}));
+        if (this.socket) {
+            this.socket.send(JSON.stringify({body: data}));
+        }
     }
 
     close() {
-        this.socket.close();
-        console.log(this.socket);
-        this.socket = null;
+        if (this.socket) {
+            this.socket.close();
+            console.log(this.socket);
+            this.socket = null;
+        }
     }
 };
