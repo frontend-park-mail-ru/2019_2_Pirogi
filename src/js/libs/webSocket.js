@@ -12,15 +12,18 @@ export default class MyWebSocket {
         this.socket.onmessage = (data) => {
             const d = JSON.parse(data.data);
             const m = document.createElement('div');
+            let author = '';
             m.classList.add('mes');
             if (d.author) {
-                m.classList.add('mes_admin');
+                m.classList.add('mes_admin')
+                author = 'Поддержка';
             } else {
                 m.classList.add('mes_user');
+                author = 'Я';
             }
 
-            m.innerHTML = '<div class="mes__author">Поддержка</div><div class="mes__body">' +
-                d.body + '</div> <div class="mes__date">' + d.date + '</div>';
+            m.innerHTML = '<div class="mes__author"> + author + </div><div class="mes__body">' +
+                d.body + '</div> <div class="mes__date">' + d.datetime + '</div>';
 
             const messages = document.querySelector('.chat__messages');
             messages.appendChild(m);
