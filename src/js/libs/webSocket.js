@@ -49,9 +49,9 @@ export default class MyWebSocket {
     // }
 
     send(data) {
-        this.socket.send(JSON.stringify("body:" + data));
+        this.socket.send(JSON.stringify('body:"' + data + '"'))
     }
-    
+
     close() {
         this.socket.close();
         console.log(this.socket);
