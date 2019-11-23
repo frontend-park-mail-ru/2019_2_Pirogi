@@ -5,8 +5,8 @@
                 <i class="fas fa-bars fa-2x"/>
             </div>
             <div class="navbar__input">
-                <input class="input navbar__input" id="js-search-input" type="text" size="10" placeholder="поиск"/>
-                <div id="js-navbar-search"><i class="fas fa-search"/></div>
+                <input class="input navbar__input" id="js-mobile-search-input" type="text" size="10" placeholder="поиск"/>
+                <div id="js-mobile-navbar-search"><i class="fas fa-search"/></div>
             </div>
 
             <fest:choose>
