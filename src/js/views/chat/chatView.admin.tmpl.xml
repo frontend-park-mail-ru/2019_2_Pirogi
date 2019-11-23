@@ -1,0 +1,52 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
+    <main class="chat-main">
+        <div class="chat__list">
+            <div class="chat__item">
+                <div class="mes__author">Вася Пупкин</div>
+                <div class="mes__body">Неотвечено</div>
+                <div class="mes__date">23.11.19 12:35:00</div>
+            </div>
+            <div class="hr"/>
+            <div class="chat__item">
+                <div class="mes__author">Вася Пупкин</div>
+                <div class="mes__body">Неотвечено</div>
+                <div class="mes__date">23.11.19 12:35:00</div>
+            </div>
+            <div class="hr"/>
+
+            <div class="chat__item">
+                <div class="mes__author">Вася Пупкин</div>
+                <div class="mes__body">Неотвечено</div>
+                <div class="mes__date">23.11.19 12:35:00</div>
+            </div>
+            <div class="hr"/>
+            <div class="chat__item">
+                <div class="mes__author">Вася Пупкин</div>
+                <div class="mes__body">Неотвечено</div>
+                <div class="mes__date">23.11.19 12:35:00</div>
+            </div>
+
+        </div>
+        <div class="chat">
+            <div class="chat__messages">
+                <div class="chat__mes mes mes_user">
+                    <div class="mes__author">Вася Пупкин</div>
+                    <div class="mes__body">Привет, Я Вася! А кто ты? </div>
+                    <div class="mes__date">23.11.19 12:35:00</div>
+                </div>
+                <div class="chat__mes mes mes_admin">
+                    <div class="mes__author">Поддержка</div>
+                    <div class="mes__body">Привет, Вася! Бла бла бла мы очень рады приветсвовать вас на нашем сайте! ЧТо вас интересует?
+                        Чем мы могли бы помочь? блаблабла
+                        ваываы d d sd sa dsa d  asd as d  sa d sa d sad  sa d  sa  da sd a ds sadd sa sdsddfd
+                    </div>
+                    <div class="mes__date">23.11.19 12:35:00</div>
+                </div>
+            </div>
+            <div class="chat__input">
+                <input class="input" id="js-message-input" type="text" size="20" placeholder="напишите что-нибудь"/>
+                <div id="js-message-sendler"><i class="fas fa-paper-plane"/></div>
+            </div>
+        </div>
+    </main>
+</fest:template>

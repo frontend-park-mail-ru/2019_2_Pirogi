@@ -1,0 +1,67 @@
+@import '../../../css/variables'
+.chat-main
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  +shadow-dark
+  margin-top: 12*$indent
+
+.chat
+  width: 40%
+  height: 70vh
+  display: flex
+  align-self: center
+  flex-direction: column
+  +shadow-dark
+
+.chat__list
+  width: 10%
+  height: 70vh
+  +shadow-dark
+  overflow-y: scroll
+.chat__item
+  margin: $indent
+
+.chat__messages
+  background-color: $color-light
+  width: 100%
+  flex: 15
+  overflow-y: scroll
+.chat__input
+  flex: 1
+  width: 100%
+  position: relative
+  display: flex
+  div
+    position: absolute
+    cursor: pointer
+    right: 2%
+    height: 100%
+    align-items: center
+    display: flex
+  i
+    color: $color-darkest-50
+    font-size: 2*$indent
+    width: 100%
+  input
+    padding-right: 4*$indent
+    border: none
+    position: relative
+    +available
+    &:focus
+      +shadow-light
+
+.mes
+  padding: $indent
+  border: 1px solid $color-darkest-50
+.mes__author
+  font-weight: bold
+.mes__body
+  margin: $indent 0
+.mes__date
+  font-size: 0.8*$font-size-small
+.mes_user
+  background-color: $color-lightest
+.mes_admin
+  background-color: $color-accent-25
