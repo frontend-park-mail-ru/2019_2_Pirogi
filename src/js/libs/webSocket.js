@@ -49,12 +49,12 @@ export default class MyWebSocket {
     // }
 
     send(data) {
-        this.socket.send(JSON.stringify(data));
+        this.socket.send(JSON.stringify("body:" + data));
     }
-
+MyWebSocket
     close() {
         this.socket.close();
-        console.log(this.socket)
+        console.log(this.socket);
         this.socket = null;
     }
 };
