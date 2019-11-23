@@ -22,7 +22,7 @@ export default class MyWebSocket {
                 author = 'Я';
             }
 
-            m.innerHTML = '<div class="mes__author"> + author + </div><div class="mes__body">' +
+            m.innerHTML = '<div class="mes__author">' + author + '</div><div class="mes__body">' +
                 d.body + '</div> <div class="mes__date">' + d.datetime + '</div>';
 
             const messages = document.querySelector('.chat__messages');
