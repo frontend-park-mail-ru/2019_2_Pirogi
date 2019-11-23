@@ -38,8 +38,18 @@ export default class IndexView extends View {
         if (this.globalEvetBus.dispatchEvent('isAuth')) {
             const chat = document.querySelector('.js-chat-button');
             chat.addEventListener('click', () => {
-                const chatDiv = document.querySelector('.chat-iframe');
-                chatDiv.innerHTML = '<iframe src="https://cinsear.ru/chat"/>';
+                chat.classList.add('display-none');
+                const iframe = document.querySelector('.js-iframe');
+                iframe.classList.remove('display-none');
+                iframe.innerHTML = '<iframe class="iframe" src="https://cinsear.ru/chat"/>';
+                const chat2 = document.querySelector('.js-chat2-button');
+                chat2.classList.remove('display-none');
+                chat2.addEventListener('click', () => {
+                    chat2.classList.add('display-none');
+                    iframe.classList.add('display-none');
+                    iframe.innerHTML = '';
+                    chat.classList.remove('display-none');
+                });
             });
         }
     }
