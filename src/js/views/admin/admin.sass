@@ -1,7 +1,8 @@
 @import "../../../css/variables"
 .admin
   justify-content: center
-
+  .title.title_center
+    margin-top: 20px
 .admin-form
   display: flex
   flex-direction: column
@@ -9,6 +10,12 @@
   text-align: center
   padding-top: 10*$indent
   width: 60%
+  form
+    padding-bottom: 20px
 
-.admin-form  *
-  margin-top: $indent 0
+label
+  text-align: left
+  margin-top: 20px
+
+input:last-of-type
+  margin-bottom: 20px
