@@ -13,7 +13,8 @@
             <a href="/search?new" class="navbar__item">новинки</a>
             <a href="/search?films" class="navbar__item">фильмы</a>
             <a href="/search?ratings" class="navbar__item">рейтинги</a>
-            <a href="/actor?films&id=1739" class="navbar__item">админ</a>
+            <a href="/actor?films&id=1739" class="navbar__item"><fest:value>param.new_events_num</fest:value></a>
+
             <fest:choose>
                 <fest:when test="param.isAuth">
                     <a href="/profile" class="button">профиль</a>
