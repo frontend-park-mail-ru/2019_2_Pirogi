@@ -91,6 +91,13 @@
     font-size: $font-size-medium
   .film-list__item_rose
     background-color: $color-accent-10
+
+.profile__title
+  +available
+  padding: $indent
+  background-color: $color-accent-25
+  text-align: center
+
 .profile__events
   width: 100%
   display: flex
@@ -100,7 +107,10 @@
   position: relative
   display: flex
   flex-direction: column
-  width: 100%
+  padding: 2*$indent
+  margin-top: 4*$indent
+  *
+    padding-left: 2*$indent
   a
     width: 100%
     height: 100%
@@ -109,6 +119,9 @@
     margin: $indent 0
   .event__date
     font-size: 0.8*$font-size-small
+
+.event_new
+  background-color: $color-accent-10
 
 .profile__subsrcibes
   width: 100%

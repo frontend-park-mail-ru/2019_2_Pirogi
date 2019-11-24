@@ -6,6 +6,27 @@
         <input type="button" disabled="true"  class="button button_active" value="уведомления"/>
     </div>
     <div class="profile__events">
+        <div class="title profile__title">Ваши уведомления</div>
+        <fest:for iterate="json.eventsArray" index="i" value="event">
+            <fest:choose>
+                <fest:when test="event.is_read">
+                    <div class="event">
+                        <a href="actor?films&id={event.person_id}"/>
+                        <div class="title">Новый фильм</div>
+                        <div class="event__description">event.description</div>
+                        <div class="event__date">event.date</div>
+                    </div>
+                </fest:when>
+                <fest:otherwise>
+                    <div class="event event_new">
+                        <a href="actor?films&id={event.person_id}"/>
+                        <div class="title">Новый фильм</div>
+                        <div class="event__description">event.description</div>
+                        <div class="event__date">event.date</div>
+                    </div>
+                </fest:otherwise>
+            </fest:choose>
+        </fest:for>
         <div class="event">
             <a href="actor?films&id=1"/>
             <div class="title">Новый фильм</div>
@@ -14,6 +35,6 @@
         </div>
     </div>
     <div class="profile__subsrcibes">
-
+        <div class="title profile__title">Ваши подписки</div>
     </div>
 </fest:template>

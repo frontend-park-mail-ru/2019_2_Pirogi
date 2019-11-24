@@ -211,6 +211,10 @@ export default class Api {
     }
 
     static getSubscribtions() {
+        return Network.doGet('/api/subscriptions/');
+    }
+
+    static getNewEvents() {
         return Network.doGet('/api/subscriptions/events/');
     }
 }
