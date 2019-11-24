@@ -109,12 +109,12 @@ export default class ActorView extends View {
         } else if (this.actorData.params.is_subscribed) {
             subButton.value = 'Отписаться';
             subButton.addEventListener('click', () => {
-                this.localEventBus.dispatchEvent('unsubscribe', this.actorData);
+                this.localEventBus.dispatchEvent('unsubscribe', this.actorData.person);
             });
         } else {
             subButton.value = 'Подписаться';
             subButton.addEventListener('click', () => {
-                this.localEventBus.dispatchEvent('subscribe', this.actorData);
+                this.localEventBus.dispatchEvent('subscribe', this.actorData.person);
             });
         }
         parent.appendChild(subButton);
