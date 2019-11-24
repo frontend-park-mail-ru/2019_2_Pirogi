@@ -50,11 +50,11 @@ export default class ActorView extends View {
     }
 
     subOk() {
-        this.actorData.params.isSubscribe = true;
+        this.actorData.params.is_subscribed = true;
         this.addListenersForSubscribe();
     }
     unsubOk() {
-        this.actorData.params.isSubscribe = false;
+        this.actorData.params.is_subscribed = false;
         this.addListenersForSubscribe();
     }
 
