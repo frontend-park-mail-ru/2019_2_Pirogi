@@ -28,9 +28,6 @@
                     <div class="navbar__href">
                         <a href="/login"/>
                         <i class="fas fa-sign-in-alt fa-2x"/></div>
-                    <div class="button js-logout-button" > <div class="button_exit"> выйти </div><div class="navbar__href"><i class="fas fa-sign-out-alt fa-2x"/></div> </div>
-
-
                 </fest:otherwise>
             </fest:choose>
         </div>
