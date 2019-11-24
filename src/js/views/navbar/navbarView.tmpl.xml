@@ -13,7 +13,6 @@
             <a href="/search?new" class="navbar__item">новинки</a>
             <a href="/search?films" class="navbar__item">фильмы</a>
             <a href="/search?ratings" class="navbar__item">рейтинги</a>
-            <a href="/actor?films&id=1739" class="navbar__item"><fest:value>param.new_events_num</fest:value></a>
 
             <fest:choose>
                 <fest:when test="param.isAuth">
@@ -22,6 +21,7 @@
                         <a href="/profile"/>
                         <i class="fas fa-user fa-2x"/>
                     </div>
+                    <a href="/profile" class="navbar__item"><fest:value>param.new_events_num</fest:value></a>
                     <div class="button js-logout-button" ><div class="button_exit"> выйти </div><div class="navbar__href"><i class="fas fa-sign-out-alt fa-2x"/></div> </div>
                 </fest:when>
                 <fest:otherwise>
