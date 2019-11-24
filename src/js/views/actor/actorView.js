@@ -29,6 +29,7 @@ export default class ActorView extends View {
             awards: '',
             photo: '',
         };
+        this.actorData = {};
         this.actorData.person = {
             name: '',
             images: 'default.png',
