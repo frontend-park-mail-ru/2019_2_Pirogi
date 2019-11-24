@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+    <div class="profile__bar">
+        <input type="button" class="button js-reviews-button" value="рецензии"/>
+        <input type="button" class="button js-list-button" value="списки"/>
+        <input type="button" disabled="true"  class="button button_active" value="уведомления"/>
+    </div>
+    <div class="profile__events">
+        <div class="event">
+            <a href="actor?films&id=1"/>
+            <div class="title">Новый фильм</div>
+            <div class="event__description">Новый фильм блаблабла с Менди Мурр!</div>
+            <div class="event__date"> 23-11-19</div>
+        </div>
+    </div>
+    <div class="profile__subsrcibes">
+
+    </div>
+</fest:template>

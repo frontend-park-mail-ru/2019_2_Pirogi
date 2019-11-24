@@ -3,6 +3,7 @@ import template from './profile.tmpl.xml';
 import reviewsTmpl from './profile.reviews.tmpl.xml';
 import editTmpl from './profile.edit.tmpl.xml';
 import listTmpl from './profile.list.tmpl.xml';
+import eventsTmpl from './profile.events.tmpl.xml';
 import {clearError, renderError} from '../../libs/errorMessages';
 import {errorMessages} from '../../libs/constants';
 
@@ -57,13 +58,6 @@ export default class ProfileView extends View {
             passwordClone: 'js-password-rep-input',
         };
 
-        this.localEventBus.addEventListener('editButtonClicked',
-            this.onEditButtonClicked.bind(this));
-        this.localEventBus.addEventListener('listButtonClicked',
-            this.onListButtonClicked.bind(this));
-        this.localEventBus.addEventListener('backButtonClicked',
-            this.onReviewButtonClicked.bind(this));
-
         this.localEventBus.addEventListener('avatarButtonClicked',
             this.onEditAvatar.bind(this));
 
@@ -94,6 +88,8 @@ export default class ProfileView extends View {
             this.onEditButtonClicked();
         } else if (this.data.lists === 'lists') {
             this.onListButtonClicked();
+        } else if (this.data.events === 'events') {
+            this.onEventsButtonClicked();
         } else {
             this.onReviewButtonClicked();
         }
@@ -130,12 +126,17 @@ export default class ProfileView extends View {
         this.renderWall();
 
         this.editButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('editButtonClicked');
+            this.onEditButtonClicked();
         });
 
         const reviewsButton = document.querySelector('.js-reviews-button');
         reviewsButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('backButtonClicked');
+            this.onReviewButtonClicked();
+        });
+
+        const eventsButton = document.querySelector('.js-events-button');
+        eventsButton.addEventListener('click', () => {
+            this.onEventsButtonClicked();
         });
     }
 
@@ -148,13 +149,36 @@ export default class ProfileView extends View {
         this.renderWall();
 
         this.editButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('editButtonClicked');
+            this.onEditButtonClicked();
         });
 
         this.editButton.disabled = false;
         const listButton = document.querySelector('.js-list-button');
         listButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('listButtonClicked');
+            this.onListButtonClicked();
+        });
+
+        const eventsButton = document.querySelector('.js-events-button');
+        eventsButton.addEventListener('click', () => {
+            this.onEventsButtonClicked();
+        });
+    }
+
+    onEventsButtonClicked() {
+        this.localTmpl = eventsTmpl;
+        this.renderWall();
+
+        this.editButton.addEventListener('click', () => {
+            this.onEditButtonClicked();
+        });
+
+        const reviewsButton = document.querySelector('.js-reviews-button');
+        reviewsButton.addEventListener('click', () => {
+            this.onReviewButtonClicked();
+        });
+        const listButton = document.querySelector('.js-list-button');
+        listButton.addEventListener('click', () => {
+            this.onListButtonClicked();
         });
     }
 
@@ -281,7 +305,7 @@ export default class ProfileView extends View {
 
         const backButton = document.querySelector('.js-back-button');
         backButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('backButtonClicked');
+            this.onReviewButtonClicked();
         });
     }
 
