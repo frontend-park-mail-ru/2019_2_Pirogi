@@ -39,7 +39,7 @@
 
 @media screen and (max-width: 1000px)
   .index
-    padding: 10*$indent
+    padding-top: 10*$indent
   *
     text-align: center
   .rec-films-bar
@@ -72,6 +72,7 @@
       height: 100%
     img
       height: 30vh
+      +shadow-dark
   .films-bar
     margin: $indent 0
     display: flex
@@ -92,6 +93,7 @@
       height: 100%
     img
       height: 30vh
+      +shadow-dark
     +shadow-dark
   .trailers-bar__list
     width: 100%
@@ -142,6 +144,7 @@
         height: 100%
       img
         height: 23vw
+        +shadow-dark
       .title
         padding: $indent 0
         margin: auto
@@ -156,7 +159,7 @@
     margin: $indent 0
     display: flex
     padding-bottom: $indent
-    overflow-y: scroll
+    overflow-x: scroll
     .film-bar__card
       margin-right: 3*$indent
       position: relative
@@ -167,6 +170,7 @@
         height: 100%
       img
         height: 16vw
+        +shadow-dark
       +shadow-dark
       &:last-of-type
         margin-right: 0
