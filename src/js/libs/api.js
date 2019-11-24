@@ -197,4 +197,21 @@ export default class Api {
     static getIndex() {
         return Network.doGet('/api/pages');
     }
+
+    static subscribe({id}) {
+        return Network.doPost('/api/subscriptions', {
+            person_id: id
+        });
+    }
+
+    static unsubscribe({id}) {
+        return Network.doDelete('/api/subscriptions/', {
+            person_id: id
+        });
+    }
+
+    static getSubscribtions() {
+        return Network.doGet('/api/subscriptions/events/');
+    }
 }
+

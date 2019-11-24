@@ -26,8 +26,14 @@ export default class NavbarView extends View {
             this.authPassed.bind(this));
         this.globalEvetBus.addEventListener('logoutOk',
             this.notAuth.bind(this));
+        this.globalEvetBus.addEventListener('newEventHappend',
+            this.newEvent.bind(this));
     }
 
+
+    newEvent(data = {}) {
+        this.dataAuth.new_events_num = data.new_events_num;
+    }
     /**
      * If auth is successful
      * @method
@@ -35,7 +41,7 @@ export default class NavbarView extends View {
      */
     authPassed(data = {}) {
         this.dataAuth.isAuth = true;
-        this.dataAuth.userID = data.user_id;
+        this.dataAuth.new_events_num = data.new_events_num;
         super.render(this.dataAuth);
 
         this.logoutButton = document.querySelector('.js-logout-button');

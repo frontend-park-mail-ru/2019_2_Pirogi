@@ -33,6 +33,7 @@ export default class FilmModel {
         Api.authCheck()
             .then((res) => {
                 if (res.ok) {
+                    res.json().then((data) => this.globalEventBus.dispatchEvent('newEventHappend', data));
                     this.localEventBus.dispatchEvent('authOK');
                 }
             })

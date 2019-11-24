@@ -29,15 +29,32 @@ export default class ActorView extends View {
             awards: '',
             photo: '',
         };
-        this.actorData = {
+        this.actorData.person = {
             name: '',
             images: 'default.png',
+        };
+        this.actorData.params = {
+            is_auth: false,
+            is_subscribed: false,
         };
 
         this.localEventBus.addEventListener('ActorInfoOk',
             this.actorInfoOk.bind(this));
         this.localEventBus.addEventListener('filmListOk',
             this.filmListOk.bind(this));
+        this.localEventBus.addEventListener('subOk',
+            this.subOk.bind(this));
+        this.localEventBus.addEventListener('unsubOk',
+            this.unsubOk.bind(this));
+    }
+
+    subOk() {
+        this.actorData.isSubscribe = true;
+        this.addListenersForSubscribe();
+    }
+    unsubOk() {
+        this.actorData.isSubscribe = false;
+        this.addListenersForSubscribe();
     }
 
     /**
@@ -46,11 +63,11 @@ export default class ActorView extends View {
      */
     renderWall() {
         const wall = document.querySelector('.js-actor-wall');
-        wall.innerHTML = this.localTmpl(this.actorData);
+        wall.innerHTML = this.localTmpl(this.actorData.person);
     }
 
     filmListOk(data) {
-        this.actorData.filmsarray = data;
+        this.actorData.person.filmsarray = data;
         this.renderWall();
     }
 
@@ -65,24 +82,49 @@ export default class ActorView extends View {
             this.localEventBus.dispatchEvent('getFilmList',{
                 limit:10,
                 offset: 0,
-                personsids: this.actorData.id
+                personsids: this.actorData.person.id
             });
         }
     }
 
     actorInfoOk(data = {}) {
         this.actorData = data;
-        super.render(this.actorData);
+        super.render(this.actorData.person);
 
         this.chooseWall();
         this.renderWall();
+        this.addListenersForSubscribe();
     }
+
+    addListenersForSubscribe() {
+        let subButton = document.querySelector('.js-subscribe-button');
+        const parent = subButton.parentElement;
+        parent.removeChild(subButton);
+        subButton = document.createElement('input');
+        subButton.classList.add('button');
+        subButton.classList.add('js-subscribe-button');
+        if (!this.actorData.params.isAuth) {
+            subButton.classList.add('display-none');
+        } else if (this.actorData.params.isSubscribe) {
+            subButton.value = 'Отписаться';
+            subButton.addEventListener('click', () => {
+                this.localEventBus.dispatchEvent('unsubscribe', this.actorData);
+            });
+        } else {
+            subButton.value = 'Подписаться';
+            subButton.addEventListener('click', () => {
+                this.localEventBus.dispatchEvent('subscribe', this.actorData);
+            });
+        }
+        parent.appendChild(subButton);
+    }
+
     /**
      * Render the Index view
      * @param {Object} data
      */
     render(data = {}) {
-        if ( data.id == this.tmplData && document.querySelector('.js-actor-wall')) {
+        if ( data.id === this.tmplData.id && document.querySelector('.js-actor-wall')) {
             this.tmplData = data;
             this.chooseWall();
             this.renderWall();
@@ -91,8 +133,9 @@ export default class ActorView extends View {
         }
         this.tmplData = data;
 
-        super.render(this.actorData);
+        super.render(this.actorData.person);
 
+        this.addListenersForSubscribe();
         this.localEventBus.dispatchEvent('getActorInfo', data);
     }
 }
