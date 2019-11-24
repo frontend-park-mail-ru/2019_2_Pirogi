@@ -104,9 +104,9 @@ export default class ActorView extends View {
         subButton = document.createElement('input');
         subButton.classList.add('button');
         subButton.classList.add('js-subscribe-button');
-        if (!this.actorData.params.isAuth) {
+        if (!this.actorData.params.is_auth) {
             subButton.classList.add('display-none');
-        } else if (this.actorData.params.isSubscribe) {
+        } else if (this.actorData.params.is_subscribed) {
             subButton.value = 'Отписаться';
             subButton.addEventListener('click', () => {
                 this.localEventBus.dispatchEvent('unsubscribe', this.actorData);
