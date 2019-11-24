@@ -35,7 +35,7 @@ export default class ActorModel {
     }
 
     subscribe(data = {}) {
-        Api.unsubscribe(data)
+        Api.subscribe(data)
             .then ((res) => {
                 if (res.ok) {
                     this.localEventBus.dispatchEvent('subOk');
