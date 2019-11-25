@@ -5,21 +5,34 @@
 
 .genres-index
   width: 80%
-  margin: 7*$indent 0
+  margin-top: 7*$indent
 
 .nav-block
   width: 20%
-  padding: 3*$indent 2*$indent
-  margin: 7*$indent 0
+  padding: 3*$indent 0
+  margin-top: 7*$indent
   display: flex
   flex-direction: column
+  .nav-block__button
+    font-size: $font-size-medium
+    text-align: center
+    background-color: $color-accent-25
+    color: $color-darkest
+    padding: $indent 0
+    width: 100%
+    box-shadow: 0 0 0 1px $color-darkest-50
+    &:hover
+      background-color: $color-accent
+      color: $color-lightest
   .title
     margin: $indent
+    align-self: center
+    text-align: center
   .input
     margin: $indent
   +shadow-dark
   .nav-block__list
-    margin: 2*$indent 0
+    margin: $indent 0
     display: flex
     align-items: center
     align-content: flex-start
@@ -28,6 +41,8 @@
     .button
       margin: $indent 0
       background-color: $color-light-50
+      font-size: $font-size-small
+      border-radius: 0.5* $indent
       &:hover
         background-color: $color-accent
 
@@ -41,6 +56,9 @@
   flex-wrap: wrap
   .film-card
     margin-top: 3*$indent
+    .film-card__img
+      a
+        left: 0
     &:last-of-type
       margin-right: 5*$indent
 
@@ -48,3 +66,18 @@
     background-color: $color-lightest
 .genre-films-bar_accent
     background-color: $color-accent
+
+@media screen and (max-width: 1000px) and (orientation: portrait)
+  .genres
+    flex-direction: column
+  .nav-block
+    width: 100%
+  .genres-index
+    width: 100%
+  .genre-films-bar
+    padding: 0
+    .film-card
+      margin-top: 3*$indent
+      &:last-of-type
+        margin-right: $indent
+

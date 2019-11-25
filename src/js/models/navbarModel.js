@@ -30,11 +30,12 @@ export default class NavbarModel {
         Api.authCheck()
             .then((res) => {
                 if (res.ok) {
-                    this.globalEventBus.dispatchEvent('authGood');
+                    res.json().then((data) => this.globalEventBus.dispatchEvent('authGood', data));
                 } else {
                     this.globalEventBus.dispatchEvent('logoutOk');
                 }
-            });
+            })
+            .catch(() => {this.globalEventBus.dispatchEvent('logoutOk');});
     }
 
     /**

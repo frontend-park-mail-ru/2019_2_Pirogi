@@ -1,103 +1,137 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="film">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="film">
     <main class="main">
         <div class="film-index">
-        <div class="film">
-            <div class="posters">
-                <img class="posters__img posters__img_left" src="/images/films/{film.images[0]}" alt="название фильма"/>
-                <img class="posters__img posters__img_active" src="/images/films/{film.images[0]}" alt="название фильма"/>
-                <img class="posters__img posters__img_right" src="/images/films/{film.images[0]}" alt="название фильма"/>
+
+            <div class="film">
+                <div class="posters">
+                    <img class="posters__img posters__img_left" src="/images/films/{film.images[0]}"
+                         alt="название фильма"/>
+                    <img class="posters__img posters__img_active" src="/images/films/{film.images[0]}"
+                         alt="название фильма"/>
+                    <img class="posters__img posters__img_right" src="/images/films/{film.images[0]}"
+                         alt="название фильма"/>
+                </div>
+                <div class="film__background"/>
+
+                <iframe class="film__iframe"
+                name="film-iframe"
+                        src="https://www.youtube.com/embed/{film.trailer}?autoplay=1&loop=1&fs=0&disablekb=0&enablejsapi=1&&playerapiid=featuredytplayer&controls=0&modestbranding=1&rel=0&showinfo=0&color=white&iv_load_policy=3&theme=light&wmode=transparent&playlist={film.trailer}&mute=1&origin=https://cinsear.ru"
+                        frameborder="0"/>
+
+                <div class="film__description">
+                    <div class="title film__title">
+                        <fest:value>film.title</fest:value>
+                    </div>
+                    <div>
+                        <div class="film__decription_main">Рейтинг:
+                            <fest:value>" " + film.mark</fest:value>
+                        </div>
+                        <div class="film__decription_main">Год:
+                            <a href="search?yearmin={film.year}&amp;yearmax={film.year}">
+                                <fest:value>" " + film.year</fest:value>
+                            </a>
+                        </div>
+                        <div class="film__decription_main">Жанры:
+                            <fest:for iterate="film.genres" index="j" value="v">
+                                <a href="/search?genres={v}">
+                                    <fest:value>" " + v</fest:value>
+                                </a>
+                                <fest:if test="j<film.genres.length-1">
+                                    ,
+                                </fest:if>
+                            </fest:for>
+                        </div>
+                        <div class="film__decription_main">Страны:
+                            <fest:for iterate="film.countries" index="i" value="v">
+                                <a href="/search?countries={v}">
+                                    <fest:value>" " + v</fest:value>
+                                </a>
+                                <fest:if test="j<film.countries.length-1">
+                                    ,
+                                </fest:if>
+                            </fest:for>
+                        </div>
+                        <div class="film__decription_main">Актеры:
+                            <fest:for iterate="film.persons" index="i" value="v">
+                                <a href="/actor?films&amp;id={v.id}">
+                                    <fest:value>" " + v.name</fest:value>
+                                </a>
+                                <fest:if test="i<film.persons.length-1">
+                                    ,
+                                </fest:if>
+                            </fest:for>
+                        </div>
+                    </div>
+                    <div>
+                        <fest:value>film.description</fest:value>
+                    </div>
+                    <hr/>
+                </div>
             </div>
-            <div class="film__description">
-                <div class="title film__title"><fest:value>film.title</fest:value></div>
-                <div>
-                    <div class="film__decription_main">Рейтинг: <fest:value>film.mark</fest:value></div>
-                    <div class="film__decription_main">Год:
-                        <a href="search?year={film.year}"><fest:value>film.year</fest:value></a></div>
-                    <div class="film__decription_main">Жанры:
-                        <fest:for iterate="film.genres" index="j" value="v">
-                            <a href="/search?genre={v}"><fest:value>v</fest:value></a>,
-                        </fest:for>
-                    </div>
-                    <div class="film__decription_main">Страны:
-                        <fest:for iterate="film.countries" index="i" value="v">
-                            <fest:value>v</fest:value>,
-                        </fest:for>
-                    </div>
-                    <div class="film__decription_main"><fest:value>film.date</fest:value></div>
-                    <div class="film__decription_main">Актеры: <br/>
-                        <fest:for iterate="film.persons" index="i" value="v">
-                        <a href="/actor?films&id={v.id}">
-                            <fest:value>v.name</fest:value>
-                        </a>,<br/>
-                        </fest:for>
+            <div class="user-block">
+                <div class="button user-block__button user-block__button_disabled">Купить билет</div>
+                <div class="button user-block__button user-block__button_disabled">В список</div>
+                <div class="button user-block__button user-block__button_disabled">
+                    <div class="stars" id="stars" data-value="0">
+                        <div class="stars__change">
+                            изменить оценку?
+                        </div>
+                        <i class="fas fa-star" data-index="0"/>
+                        <i class="fas fa-star" data-index="1"/>
+                        <i class="fas fa-star" data-index="2"/>
+                        <i class="fas fa-star" data-index="3"/>
+                        <i class="fas fa-star" data-index="4"/>
                     </div>
                 </div>
-                <div>
-                    <fest:value>film.description</fest:value>
-                </div>
-                <hr/>
             </div>
-        </div>
-        <div class="user-block">
-            <div disabled="true" class="button user-block__button">Купить билет</div>
-            <div class="button user-block__button">В список</div>
-            <div class="button user-block__button">
-                <i class="fas fa-star fa-2x film__star"></i>
-                <i class="fas fa-star fa-2x film__star"></i>
-                <i class="fas fa-star fa-2x film__star"></i>
-                <i class="fas fa-star fa-2x film__star"></i>
-                <i class="fas fa-star fa-2x film__star"></i>
+            <fest:if test="film.isAuth">
+                <div class="feedback-form">
+                    <div class="hr"/>
+                    <div class="title">Расскажите что Вы думаете о фильме:</div>
+                    <form class="form">
+                        <div class="feedback-form__top">
+                            <input maxlength="100" class="input feedback-form__title js-title-input" type="text" placeholder="Заголовок"/>
+                        </div>
+                        <textarea rows="8" class="textarea js-text-input" placeholder="Текст рецензии"/>
+                        <input class="button js-review-button" id="js-review-button" type="button" value="Отправить"/>
+                    </form>
+                </div>
+            </fest:if>
+            <div class="hr"/>
+            <div class="feedback-block">
+                <div class="title feedback-block__title">Рецензии:</div>
+                <fest:for iterate="film.reviewarray" index="i" value="r">
+                    <div class="feedback">
+                        <div class="feedback__mark">
+                            <img class="feedback__img" src="/images/users/{r.author.image}" alt="название фильма"/>
+                        </div>
+                        <div class="feedback__text">
+                            <a href="/user">
+                                <fest:value>r.author.username</fest:value>
+                            </a>
+                            <div class="title">
+                                <fest:value>r.title</fest:value>
+                            </div>
+                            <div>
+                                <fest:value>r.body</fest:value>
+                            </div>
+                        </div>
+                        <div class="feedback__rating user-rating">
+                            <div class="user-rating__text">Этот пользователь поставил:</div>
+                            <div class="user-rating__text">
+                                <div class="stars stars_review" data-value="{r.mark}">
+                                    <i class="fas fa-star" data-index="0"/>
+                                    <i class="fas fa-star" data-index="1"/>
+                                    <i class="fas fa-star" data-index="2"/>
+                                    <i class="fas fa-star" data-index="3"/>
+                                    <i class="fas fa-star" data-index="4"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fest:for>
             </div>
-        </div>
-        <div class="feedback-form">
-            <div class="hr"></div>
-            <div class="title">Расскажите что Вы думаете о фильме:</div>
-            <form class="form">
-                <div class="feedback-form__top">
-                    <input class="input feedback-form__title js-title-input" type="text" placeholder="Заголовок"/>
-                    <div class="radio-form">
-                        <div class="radio-form__button">
-                            <input  type="radio"/><div>Понравилось</div>
-                        </div>
-                        <div class="radio-form__button">
-                            <input  type="radio"/><div>Не понравилось</div>
-                        </div>
-                    </div>
-                </div>
-                <textarea class="textarea js-text-input" placeholder="Текст рецензии"></textarea>
-                <input class="button js-review-button" id="js-review-button" type="button" value="Отправить"/>
-            </form>
-            <div class="hr"></div>
-        </div>
-        <div class="feedback-block">
-            <div class="title feedback-block__title">Рецензии:</div>
-            <fest:for iterate="film.reviewarray" index="i" value="r">
-                <div class="feedback">
-                    <div class="feedback__mark">
-                        <img class="feedback__img" src="/images/users/{r.author.image}" alt="название фильма"/>
-                        <div>Фильм понравился</div>
-                    </div>
-                    <div class="feedback__text">
-                        <a href="/user"><fest:value>r.author.username</fest:value></a>
-                        <div class="title"><fest:value>r.title</fest:value></div>
-                        <div>
-                            <fest:value>r.body</fest:value>
-                        </div>
-                    </div>
-                    <div class="feedback__rating user-rating">
-                        <div class="user-rating__text">Этот пользователь поставил:</div>
-                        <div class="user-rating__text">
-                            <fest:value>r.mark</fest:value>
-                            <i class="fas fa-star fa-2x film__star"></i>
-                            <i class="fas fa-star fa-2x film__star"></i>
-                            <i class="fas fa-star fa-2x film__star"></i>
-                            <i class="fas fa-star fa-2x film__star"></i>
-                            <i class="fas fa-star fa-2x film__star"></i>
-                        </div>
-                    </div>
-                </div>
-            </fest:for>
-        </div>
         </div>
     </main>
 </fest:template>

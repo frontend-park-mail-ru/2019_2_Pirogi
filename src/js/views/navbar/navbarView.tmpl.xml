@@ -1,18 +1,43 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
     <div class="navbar">
-        <a class="logo" href="/">CINSEAR</a>
-        <input class="input navbar__input" type="text" placeholder="поиск"/>
-        <a href="/search?new" class="navbar__item navbar__item_current">новинки</a>
-        <a href="/search?films" class="navbar__item">фильмы</a>
-        <a href="/search?ratings" class="navbar__item">рейтинги</a>
-        <fest:choose>
-            <fest:when test="param.isAuth">
-                <a href="/profile" class="button">профиль</a>
-                <input type="button" class="button js-logout-button" value="выйти"></input>
-            </fest:when>
-            <fest:otherwise>
-                <a href="/login" class="button">войти</a>
-            </fest:otherwise>
-        </fest:choose>
+
+        <div class="desktop-navbar">
+            <div class="navbar__list js-navbar-list-button">
+                <i class="fas fa-bars fa-2x"/>
+            </div>
+            <a class="logo" href="/">CINSEAR</a>
+            <div class="navbar__input">
+                <input class="input navbar__input" id="js-search-input" type="text" size="30" placeholder="поиск"/>
+                <div id="js-navbar-search"><i class="fas fa-search"/></div>
+            </div>
+            <a href="/search?new" class="navbar__item">новинки</a>
+            <a href="/search?films" class="navbar__item">фильмы</a>
+            <a href="/search?ratings" class="navbar__item">рейтинги</a>
+
+            <fest:choose>
+                <fest:when test="param.isAuth">
+                    <a href="/profile" class="button">профиль</a>
+                    <div class="navbar__href">
+                        <a href="/profile"/>
+                        <i class="fas fa-user fa-2x"/>
+                    </div>
+                    <a href="/profile?events" class="navbar__item"><fest:value>param.new_events_num</fest:value></a>
+                    <div class="button js-logout-button" ><div class="button_exit"> выйти </div><div class="navbar__href"><i class="fas fa-sign-out-alt fa-2x"/></div> </div>
+                </fest:when>
+                <fest:otherwise>
+                    <a href="/login" class="button">войти</a>
+                    <div class="navbar__href">
+                        <a href="/login"/>
+                        <i class="fas fa-sign-in-alt fa-2x"/></div>
+                </fest:otherwise>
+            </fest:choose>
+        </div>
+        <div class="mobile-menu">
+            <a class="logo" href="/">CINSEAR</a>
+            <a href="/search?new" class="navbar__item">новинки</a>
+            <a href="/search?films" class="navbar__item">фильмы</a>
+            <a href="/search?ratings" class="navbar__item">рейтинги</a>
+            <div class="hr"/>
+        </div>
     </div>
 </fest:template>

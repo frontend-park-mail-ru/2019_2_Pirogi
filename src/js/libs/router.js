@@ -59,7 +59,7 @@ export default class Router {
             const log = new Logger();
             log.logError(404, path);
             this.currentPath = null;
-            this.route('/404');
+            this.route('/error');
             return;
         }
 

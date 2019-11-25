@@ -3,9 +3,10 @@
     <div class="profile__bar">
         <input type="button" class="button js-reviews-button" value="рецензии"/>
         <input type="button" disabled="true"  class="button button_active" value="списки"/>
+        <input type="button" class="button js-events-button" value="уведомления"/>
     </div>
     <div class="profile__lists">
-        <div class="film-list">
+       <!-- <div class="film-list">
             <div class="title film-list__title">
                 Хочу посмотреть
             </div>
@@ -17,36 +18,8 @@
             <div class="film-list__item film-list__item_rose"> Матрица </div>
             <div class="film-list__item"> Инсургент </div>
             <div class="hr"></div>
-        </div>
-        <div class="film-list">
-            <div class="title film-list__title">
-                Посмотрел
-            </div>
+        </div> -->
 
-            <div class="film-list__item film-list__item_rose"> Веном </div>
-            <div class="film-list__item"> Матрица </div>
-            <div class="film-list__item film-list__item_rose"> Матрица </div>
-            <div class="hr"></div>
-        </div>
-        <div class="film-list">
-            <div class="title film-list__title">
-                Понравилось
-            </div>
 
-            <div class="film-list__item film-list__item_rose"> Веном </div>
-            <div class="film-list__item"> Матрица </div>
-            <div class="film-list__item film-list__item_rose"> Матрица </div>
-            <div class="film-list__item"> Матрица </div>
-            <div class="hr"></div>
-        </div>
-        <div class="film-list">
-            <div class="title film-list__title">
-                Мой личный топ
-            </div>
-
-            <div class="film-list__item film-list__item_rose"> Веном </div>
-            <div class="film-list__item"> Матрица </div>
-            <div class="hr"></div>
-        </div>
     </div>
 </fest:template>

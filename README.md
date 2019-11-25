@@ -5,7 +5,7 @@
 ## Описание
 
 ### Ссылка на поиграть
-[CinSearch](http://167.71.5.55/)
+[Cinsear](https://cinsear.ru/)
 
 ### Ментор
  - [Пупчин Павел](https://github.com/4taa)

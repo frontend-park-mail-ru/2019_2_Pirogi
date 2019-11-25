@@ -24,6 +24,20 @@ export default class FilmModel {
 
         this.localEventBus.addEventListener('getReviews',
             this.getReviews.bind(this));
+
+        this.localEventBus.addEventListener('isAuth',
+            this.isAuth.bind(this));
+    }
+
+    isAuth() {
+        Api.authCheck()
+            .then((res) => {
+                if (res.ok) {
+                    res.json().then((data) => this.globalEventBus.dispatchEvent('newEventHappend', data));
+                    this.localEventBus.dispatchEvent('authOK');
+                }
+            })
+            .catch(() => {});
     }
 
     getReviews(data = {}) {
@@ -48,7 +62,9 @@ export default class FilmModel {
                 }
             })
             //TODO: правильно обработать ошибки
-            .catch(() => {console.log('Get Film Info Failed');} );
+            .catch(() => {
+                this.localEventBus.dispatchEvent('filmInfoOk');
+                console.log('Get Film Info Failed');} );
     }
     /**
      * Checks the review

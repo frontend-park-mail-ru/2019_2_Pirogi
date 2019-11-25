@@ -43,6 +43,7 @@ export default class LoginModel {
             this.loginCheck.bind(this));
         this.localEventBus.addEventListener('registrationCheck',
             this.registrationCheck.bind(this));
+        this.localEventBus.addEventListener('isAuth', () => this.isAuth());
     }
 
     /**
@@ -84,6 +85,16 @@ export default class LoginModel {
         return true;
     }
 
+    isAuth() {
+        Api.authCheck()
+            .then((res) => {
+                if (res.ok) {
+                    this.localEventBus.dispatchEvent('authorizationSuccessful');
+                }
+            })
+            .catch(() => {});
+    }
+
     /**
      * Modify current Login data
      * @method
@@ -117,7 +128,8 @@ export default class LoginModel {
         Api.login(this.loginData)
             .then((res) => {
                 if (res.ok) {
-                    this.globalEventBus.dispatchEvent('authGood');
+                    res.json().then((data) => this.globalEventBus.dispatchEvent('authGood', data));
+                    //this.globalEventBus.dispatchEvent('authGood');
                     this.localEventBus.dispatchEvent('authorizationSuccessful');
                 } else {
                     res.json().then(data => this.localEventBus.dispatchEvent('loginFailed', data));

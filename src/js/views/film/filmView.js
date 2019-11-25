@@ -2,6 +2,7 @@ import View from '../../libs/view.js';
 import template from './filmView.tmpl.xml';
 import {errorMessages} from '../../libs/constants';
 import {clearError, renderError} from '../../libs/errorMessages';
+import starsInit from '../../libs/stars';
 
 
 /**
@@ -23,7 +24,10 @@ export default class FilmView extends View {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
 
-        this.filmData = {};
+        this.filmData = {
+            isAuth: false,
+            infoOk: false,
+        };
 
         this.localEventBus.addEventListener('reviewEvent',
             this.onReview.bind(this));
@@ -39,6 +43,14 @@ export default class FilmView extends View {
             clearError.bind(this));
         this.localEventBus.addEventListener('renderError',
             renderError.bind(this));
+        this.localEventBus.addEventListener('authOK', () => this.authOK());
+    }
+
+    authOK() {
+        this.filmData.isAuth = true;
+        if (this.filmData.infoOk) {
+            this.filmInfoOk();
+        }
     }
 
     addReviewFail(errors = {}) {
@@ -56,20 +68,28 @@ export default class FilmView extends View {
         this.filmData.reviewarray = data;
 
         super.render(this.filmData);
-        this.reviewButton = document.querySelector('.js-review-button');
-        this.reviewButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('reviewEvent');});
+        const reviewButton = document.querySelector('.js-review-button');
+        if (reviewButton) {
+            reviewButton.addEventListener('click', () => {
+                this.localEventBus.dispatchEvent('reviewEvent');
+            });
+        }
     }
 
-    
+
     filmInfoOk(data = {}) {
-        super.render(data);
+        this.filmData.infoOk = true;
+        this.filmData = Object.assign(this.filmData, data);
+        super.render(this.filmData);
 
-        this.filmData = data;
+        setTimeout(starsInit, 500);
 
-        this.reviewButton = document.querySelector('.js-review-button');
-        this.reviewButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('reviewEvent');});
+        const reviewButton = document.querySelector('.js-review-button');
+        if (reviewButton) {
+            reviewButton.addEventListener('click', () => {
+                this.localEventBus.dispatchEvent('reviewEvent');
+            });
+        }
 
         this.localEventBus.dispatchEvent('getReviews', {
             filmID: this.filmData.id,
@@ -111,6 +131,9 @@ export default class FilmView extends View {
      * @param {Object} data
      */
     render(data = {}) {
+        this.localEventBus.dispatchEvent('isAuth');
+        this.filmData = {};
+        this.filmData.isAuth = this.globalEventBus.dispatchEvent('isAuth');
         this.localEventBus.dispatchEvent('getFilmInfo', data);
     }
 }

@@ -25,6 +25,8 @@
   width: 65%
   .list
     width: 100%
+.display-none
+  display: none
 
 .actor__bar
   display: flex
@@ -60,6 +62,7 @@
     width: 100%
     margin: 0
   max-width: 10vw
+  min-width: 10vw
   margin: 0
 
 .actor__film-card
@@ -89,4 +92,22 @@
     padding: $indent*2
     *
       margin: $indent
+
+@media screen and (max-width: 1000px) and (orientation: portrait)
+  .actor
+    flex-direction: column
+    width: 100%
+  .actor__info
+    width: 100%
+  .actor__wall
+    width: 100%
+    margin: 0
+  .actor__photo
+    width: 100vw
+  .actor__film-img
+    max-width: 20vw
+  .actor__bar
+    .button
+      min-width: unset
+
 
