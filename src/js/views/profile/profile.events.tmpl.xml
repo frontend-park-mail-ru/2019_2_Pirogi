@@ -39,7 +39,7 @@
         <fest:for iterate="json.subscribersArray" index="i" value="sub">
             <div class="film-card">
                 <div class="film-card__img">
-                    <a href=" /film?filmID={sub.id}"></a>
+                    <a href="/actor?films&amp;id={sub.id}"></a>
                     <img  src="/images/persons/{sub.image}" alt="{sub.name}"/>
                     <div class="sub__info">
                         <fest:value>sub.name</fest:value>
