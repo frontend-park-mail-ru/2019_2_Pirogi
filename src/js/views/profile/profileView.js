@@ -36,6 +36,7 @@ export default class ProfileView extends View {
             loginSubmit: 'js-save-login-button',
             passwordSubmit: 'js-save-password-button',
             infoSubmit: 'js-save-button',
+            avatarSubmit: 'js-avatar-button'
         };
 
         this.infoIds = {
@@ -70,6 +71,8 @@ export default class ProfileView extends View {
             this.editOk.bind(this));
         this.localEventBus.addEventListener('editFailed',
             this.editFailed.bind(this));
+        this.localEventBus.addEventListener('avatarEditFailed',
+            this.editAvatarFailed.bind(this));
 
         this.localEventBus.addEventListener('getInfoOk',
             this.getInfoOk.bind(this));
@@ -221,6 +224,17 @@ export default class ProfileView extends View {
         }
     }
 
+    editAvatarFailed(errors) {
+        this.localEventBus.dispatchEvent('clearError', this.submitsIds.avatarSubmit);
+        if (errors.error) {
+            this.localEventBus.dispatchEvent('renderError',
+                this.submitsIds.avatarSubmit, errors.error);
+        } else {
+            this.localEventBus.dispatchEvent('renderError',
+                this.submitsIds.avatarSubmit, errorMessages.unknown);
+        }
+    }
+
     /**
      * On event
      * @method
@@ -239,18 +253,18 @@ export default class ProfileView extends View {
     addEventListenersForEdit() {
         this.setEventListenersForFields(this.infoIds,
             'checkField', 'modifyInfoData');
-        this.setEventListenersForFields(this.loginIds,
-            'checkField', 'modifyLoginData');
-        this.setEventListenersForFields(this.oldPasswordIds,
-            'checkField', 'modifyPasswordData');
-        this.setEventListenersForDependentFields(this.passwordsIds,
-            'passwordsCheck', 'modifyPasswordData', 'password');
+        //this.setEventListenersForFields(this.loginIds,
+        //    'checkField', 'modifyLoginData');
+        //this.setEventListenersForFields(this.oldPasswordIds,
+        //    'checkField', 'modifyPasswordData');
+        //this.setEventListenersForDependentFields(this.passwordsIds,
+        //    'passwordsCheck', 'modifyPasswordData', 'password');
 
         const saveButton = document.getElementById('js-save-button');
         saveButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('onEditingProfile');
         });
-
+        /*
         const saveLoginButton = document.getElementById('js-save-login-button');
         saveLoginButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('onEditingProfile');
@@ -258,7 +272,7 @@ export default class ProfileView extends View {
         const savePasswordButton = document.getElementById('js-save-password-button');
         savePasswordButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('onEditingPassword');
-        });
+        });*/
 
         const avatarButton = document.querySelector('.js-avatar-button');
         avatarButton.addEventListener('click', () => {

@@ -27,5 +27,5 @@ export const renderError = (targetId, errorMessage) => {
  * @returns {string}
  */
 const markupError = (targetId, errorMessage) => {
-    return `<div class="error" id="\error-${targetId}\">${errorMessage}</div>`;
+    return `<div class="error-mes" id="\error-${targetId}\">${errorMessage}</div>`;
 };

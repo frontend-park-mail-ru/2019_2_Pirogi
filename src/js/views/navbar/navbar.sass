@@ -1,6 +1,6 @@
-@import '../../css/variables'
+@import '../../../css/variables'
 
-.navbar
+.desktop-navbar
   background-color: $color-darkest
   width: 100%
   min-height: 75px
@@ -15,7 +15,24 @@
   +shadow-dark
   i
     color: $color-lightest
+  .button
+    margin: $indent
 
+.navbar__input
+  display: flex
+  position: relative
+  div
+    position: absolute
+    cursor: pointer
+    right: 5%
+    top: 25%
+  i
+    color: $color-darkest-50
+    font-size: 2*$indent
+  input
+    padding-right: 4*$indent
+    &:focus
+      +shadow-light
 
 .navbar__item
   color: $color-lightest
@@ -31,6 +48,3 @@
 .navbar__item_current
   font-family: $font-bold
 
-.navbar__input
-  &:focus
-    +shadow-light

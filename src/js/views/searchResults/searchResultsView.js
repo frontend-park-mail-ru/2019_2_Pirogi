@@ -23,9 +23,10 @@ export default class SearchResultsView extends View {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
 
-        this.searchData = {
+        this.renderData = {
             filmsArray: [],
             genres: [],
+            searchParams: {},
         };
 
         this.localEventBus.addEventListener('getResultsOK',
@@ -35,20 +36,45 @@ export default class SearchResultsView extends View {
     }
 
     genresOK(data = {}) {
-        this.searchData.genres = data;
+        this.renderData.genres = data;
 
         const searchParams = {
             limit: 8,
             offset: 0,
-            genre: data[0],
+            genres: data[0],
         };
         this.localEventBus.dispatchEvent('getResults', searchParams);
     }
 
-    resultsOK(data = {}) {
-        this.searchData.filmsArray = data;
+    doSearch() {
+        const searchInput = document.getElementById('js-search-input');
+        this.renderData.searchParams['query'] = searchInput.value || null;
+        const searchForm = document.querySelector('.js-search-form');
 
-        super.render(this.searchData);
+        const searchFormData = new FormData(searchForm);
+        searchFormData.forEach((val,name) => {
+            val = val.replace(/, /g, ',');
+            this.renderData.searchParams[name] = val.replace(/ /g, '+');
+        });
+        this.localEventBus.dispatchEvent('getResults', this.renderData.searchParams);
+    }
+
+    resultsOK(data = {}) {
+        this.renderData.filmsArray = data;
+
+        super.render(this.renderData);
+
+        const searchButton = document.getElementById('js-search-params');
+        const searchForm = document.querySelector('.js-search-form');
+        if (searchButton && searchForm) {
+            searchButton.addEventListener('click', () => this.doSearch());
+            searchForm.addEventListener('keydown', (event) => {
+                if (event.code === 'Enter') {
+                    this.doSearch();
+                }
+            });
+        }
+
     }
 
     /**
@@ -57,27 +83,39 @@ export default class SearchResultsView extends View {
      * @param {Object} data
      */
     render(data = {}) {
+        this.renderData = {
+            filmsArray: [],
+            genres: [],
+            searchParams: {},
+        };
+
+
         data.limit = 10;
         data.offset = 0;
         if (data.films === 'films') {
             this.localEventBus.dispatchEvent('getGenres');
             super.template = genrestmpl;
-            this.searchData = Object.assign(this.searchData, data);
-            super.render(this.searchData);
+            this.renderData.searchParams = data;
+            //this.searchData = Object.assign(this.searchData, data);
+            super.render(this.renderData);
             return;
         } else if (data.ratings === 'ratings') {
             super.template = ratingtml;
-        } else if (data.news === 'news') {
+        } else if (data.new === 'new') {
             super.template = template;
+            data.orderby = 'date';
         } else {
             super.template = template;
 
         }
-        this.searchData = Object.assign(this.searchData, data);
-        super.render(this.searchData);
+        this.renderData.searchParams = data;
+        super.render(this.renderData);
 
-        this.localEventBus.dispatchEvent('getResults', data);
+        this.localEventBus.dispatchEvent('getResults', this.renderData.searchParams);
 
-
+        const searchButton = document.getElementById('js-search-params');
+        if (searchButton) {
+            searchButton.addEventListener('click', () => this.doSearch());
+        }
     }
 }

@@ -24,7 +24,15 @@ export default class ActorView extends View {
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
         this.localTmpl = photoTMPL;
-        this.tmplData  = {};
+        this.tmplData  = {
+            films: '',
+            awards: '',
+            photo: '',
+        };
+        this.actorData = {
+            name: '',
+            images: 'default.png',
+        };
 
         this.localEventBus.addEventListener('ActorInfoOk',
             this.actorInfoOk.bind(this));
@@ -54,13 +62,17 @@ export default class ActorView extends View {
         } else {
             this.tmplData.films = 'films';
             this.localTmpl = filmsTMPL;
-            this.localEventBus.dispatchEvent('getFilmList',{limit:10, offset: 0});
+            this.localEventBus.dispatchEvent('getFilmList',{
+                limit:10,
+                offset: 0,
+                personsids: this.actorData.id
+            });
         }
     }
 
     actorInfoOk(data = {}) {
-        super.render(data);
         this.actorData = data;
+        super.render(this.actorData);
 
         this.chooseWall();
         this.renderWall();
@@ -70,7 +82,7 @@ export default class ActorView extends View {
      * @param {Object} data
      */
     render(data = {}) {
-        if (document.querySelector('.js-actor-wall')) {
+        if ( data.id === this.tmplData.id && document.querySelector('.js-actor-wall')) {
             this.tmplData = data;
             this.chooseWall();
             this.renderWall();
@@ -79,7 +91,7 @@ export default class ActorView extends View {
         }
         this.tmplData = data;
 
-        super.render(data);
+        super.render(this.actorData);
 
         this.localEventBus.dispatchEvent('getActorInfo', data);
     }

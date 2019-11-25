@@ -25,20 +25,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    const globalEventBus = new EventBus([{}]);
+    const globalEventBus = new EventBus([]);
     const header = document.querySelector('header');
     const body = document.querySelector('.js-append-tmpl');
     const bodyForRouter = document.querySelector('body');
     const router = new Router(bodyForRouter);
 
-    const navbarController = new NavbarController(globalEventBus, header);
+    const navbarController = new NavbarController(globalEventBus, header, router);
     const loginController = new LoginController(globalEventBus, body, router);
     const profileController = new ProfileController(globalEventBus, body, router);
     const filmController = new FilmController(globalEventBus, body, router);
     const searchResultsController = new SearchResultsController(globalEventBus, body);
     const indexController = new IndexController(globalEventBus, body);
     const adminController = new AdminController(globalEventBus, body);
-    const actorController = new ActorController(globalEventBus,body);
+    const actorController = new ActorController(globalEventBus,body, router);
     const errorView = new ErrorView(body);
 
     navbarController.navbarView.render();
@@ -49,10 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     router.add('/search', searchResultsController.searchResultsView);
     router.add('/admin', adminController.adminView);
     router.add('/', indexController.indexView);
-    router.add('/year', indexController.indexView);
-    router.add('/genre', indexController.indexView);
-    router.add('/actors', indexController.indexView);
-    router.add('/404', errorView);
+    router.add('/error', errorView);
     router.add('/actor', actorController.actorView);
 
     router.start();

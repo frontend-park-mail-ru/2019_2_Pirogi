@@ -29,7 +29,6 @@ app.get('*', function(req, res) {
     res.sendFile(__dirname + req.url, (e) => {
         if (e) {
             log.logError(404, req.url);
-            return res.sendFile(__dirname + '/src/pages/error/error.html');
         }
     }
     );

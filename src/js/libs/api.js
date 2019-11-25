@@ -176,11 +176,16 @@ export default class Api {
         return Network.doGet(`/api/reviews/${filmID}?limit=${limit}&offset=${offset}`);
     }
 
-    static getList({limit, offset, genre}) {
-        let path = `/api/lists?limit=${limit}&offset=${offset}`;
-        if (genre) {
-            path += `&genre=${genre}`;
-        }
+    static getList({limit, offset, genres, query, yearmin, yearmax, personsids, persons, countries, orderby, year}) {
+        let path = `/api/search?limit=${limit}&offset=${offset}`;
+        let data = {
+            genres, query, yearmin, yearmax, personsids, persons, countries, orderby, year
+        };
+        Object.keys(data).forEach((val) => {
+            if (data[val]) {
+                path += `&${val}=${data[val]}`;
+            }
+        });
 
         return Network.doGet(path);
     }

@@ -26,7 +26,6 @@ export default class NavbarView extends View {
             this.authPassed.bind(this));
         this.globalEvetBus.addEventListener('logoutOk',
             this.notAuth.bind(this));
-
     }
 
     /**
@@ -42,6 +41,17 @@ export default class NavbarView extends View {
         this.logoutButton = document.querySelector('.js-logout-button');
         this.logoutButton.addEventListener('click',
             () => this.globalEvetBus.dispatchEvent('onLogoutClicked'));
+
+        const searchButton = document.getElementById('js-navbar-search');
+        searchButton.addEventListener('click', () =>
+            this.globalEvetBus.dispatchEvent('searchEvent'));
+
+        const searchInput = document.getElementById('js-search-input');
+        searchInput.addEventListener('keydown', (event) => {
+            if (event.code === 'Enter') {
+                this.globalEvetBus.dispatchEvent('searchEvent');
+            }
+        });
     }
 
     /**
@@ -51,8 +61,16 @@ export default class NavbarView extends View {
     notAuth() {
         this.dataAuth.isAuth = false;
         super.render(this.dataAuth);
+        const searchButton = document.getElementById('js-navbar-search');
+        searchButton.addEventListener('click', () =>
+            this.globalEvetBus.dispatchEvent('searchEvent'));
+        const searchInput = document.getElementById('js-search-input');
+        searchInput.addEventListener('keydown', (event) => {
+            if (event.code === 'Enter') {
+                this.globalEvetBus.dispatchEvent('searchEvent');
+            }
+        });
     }
-
 
     /**
      * Render the navbar
@@ -62,5 +80,12 @@ export default class NavbarView extends View {
         if (data.isAuth === undefined) {
             this.globalEvetBus.dispatchEvent('checkAuth');
         }
+
+        /*
+        document.addEventListener('keydown', (event) => {
+            if (event.code === 'Enter') {
+                this.globalEvetBus.dispatchEvent('searchEvent');
+            }
+        });*/
     }
 }

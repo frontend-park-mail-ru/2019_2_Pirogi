@@ -17,8 +17,15 @@ export default class ActorController {
      * @param {EventBus} globalEventBus
      * @param {Element} root
      */
-    constructor(globalEventBus = EventBus, root = EventBus) {
+    constructor(globalEventBus = EventBus, root = EventBus, router) {
+
         this.localEventBus = new EventBus(actorEvents);
+
+
+        this.localEventBus.addEventListener('filmListFailed', () =>
+            router.route('/404')
+        );
+
         this.actorView = new ActorView(this.localEventBus, globalEventBus, root);
         this.actorModel = new ActorModel(this.localEventBus, globalEventBus);
     }
