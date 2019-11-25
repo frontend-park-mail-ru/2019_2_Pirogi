@@ -41,7 +41,7 @@
                 <div class="film-card__img">
                     <a href=" /film?filmID={sub.id}"></a>
                     <img  src="/images/persons/{sub.image}" alt="{sub.name}"/>
-                    <div class="title film-card__info">
+                    <div class="sub__info">
                         <fest:value>sub.name</fest:value>
                     </div>
                 </div>
