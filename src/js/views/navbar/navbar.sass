@@ -26,46 +26,16 @@
   z-index: 100
   +shadow-dark
 
-@media screen and (max-width: 1000px)
-  .js-append-tmpl
-    margin-top: 4*$indent
-  .navbar__input
-    width: 60%
-    input
-      +available
-  .navbar__list
-    display: unset
-    cursor: pointer
-  .desktop-navbar
-    i
-      color: $color-lightest
-    a
-      display: none
-    .button
-      margin: $indent
-      background-color: unset
-      min-width: 0
-      .button_exit
-        display: none
-    .navbar__href
-      display: unset
-      position: relative
-      cursor: pointer
-      a
-        display: unset
-        position: absolute
-        width: 100%
-        height: 100%
-
 
 .mobile-menu
   display: none
-  padding-top: 100px
-  padding-left: 40px
+  padding-top: 10*$indent
   background-color: $color-light
   width: 100%
   position: absolute
   z-index: 99
+  .navbar__item
+    padding-left: 2*$indent
 .mobile-menu_display
   display: flex
   flex-direction: column
@@ -119,4 +89,35 @@
 
 .navbar__item_current
   font-family: $font-bold
+
+@media screen and (max-width: 1000px)
+  .js-append-tmpl
+    margin-top: 4*$indent
+  .navbar__input
+    width: 60%
+    input
+      +available
+  .navbar__list
+    display: unset
+    cursor: pointer
+  .desktop-navbar
+    i
+      color: $color-lightest
+    a
+      display: none
+    .button
+      margin: $indent
+      background-color: unset
+      min-width: 0
+      .button_exit
+        display: none
+    .navbar__href
+      display: unset
+      position: relative
+      cursor: pointer
+      a
+        display: unset
+        position: absolute
+        width: 100%
+        height: 100%
 
