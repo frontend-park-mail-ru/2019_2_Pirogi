@@ -72,7 +72,7 @@ export default class ProfileModel {
     }
 
     getSubscribers() {
-        Api.getNewEvents()
+        Api.getSubscribtions()
             .then((res) => {
                 if (res.ok) {
                     res.json().then((data) => this.localEventBus.dispatchEvent('subscribersGood', data));
