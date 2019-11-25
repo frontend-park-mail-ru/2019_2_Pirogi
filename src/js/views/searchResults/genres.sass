@@ -56,6 +56,9 @@
   flex-wrap: wrap
   .film-card
     margin-top: 3*$indent
+    .film-card__img
+      a
+        left: 0
     &:last-of-type
       margin-right: 5*$indent
 
@@ -64,7 +67,7 @@
 .genre-films-bar_accent
     background-color: $color-accent
 
-@media screen and (max-width: 1000px)
+@media screen and (max-width: 1000px) and (orientation: portrait)
   .genres
     flex-direction: column
   .nav-block

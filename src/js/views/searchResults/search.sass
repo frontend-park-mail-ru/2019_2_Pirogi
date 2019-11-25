@@ -62,7 +62,9 @@
 .search .top
   margin-bottom: 2*$indent
 
-@media screen and (max-width: 1000px)
+@media screen and (max-width: 1000px) and (orientation: portrait)
+  .search-params
+    margin-top: 4*$indent
   .search-form__input
     justify-content: center
   .search-results
