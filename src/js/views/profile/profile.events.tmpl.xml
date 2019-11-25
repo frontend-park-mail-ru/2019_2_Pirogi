@@ -27,12 +27,6 @@
                 </fest:otherwise>
             </fest:choose>
         </fest:for>
-        <div class="event">
-            <a href="actor?films&id=1"/>
-            <div class="title">Новый фильм</div>
-            <div class="event__description">Новый фильм блаблабла с Менди Мурр!</div>
-            <div class="event__date"> 23-11-19</div>
-        </div>
     </div>
     <div class="profile__subsrcibes">
         <div class="title profile__title">Ваши подписки</div>
