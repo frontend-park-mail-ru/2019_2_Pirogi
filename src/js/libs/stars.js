@@ -23,7 +23,6 @@ export default function starsInit() {
         starsReviewContainer.forEach((item) => {
             let starsNum = parseFloat(item.attributes['data-value'].value);
             let starsReview = item.querySelectorAll('i');
-            console.log(starsNum);
             for (let i = 0; i < starsNum; i++) {
                 starsReview[i].classList.add('star_chosen');
             }

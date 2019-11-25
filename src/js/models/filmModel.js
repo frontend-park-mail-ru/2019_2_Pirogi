@@ -26,7 +26,7 @@ export default class FilmModel {
             this.getReviews.bind(this));
 
         this.localEventBus.addEventListener('isAuth',
-            () => this.isAuth());
+            this.isAuth.bind(this));
     }
 
     isAuth() {
