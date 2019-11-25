@@ -101,41 +101,6 @@
             <div class="hr"/>
             <div class="feedback-block">
                 <div class="title feedback-block__title">Рецензии:</div>
-                <div class="feedback">
-                    <div class="feedback__mark">
-                        <img class="feedback__img" src="src/images/guy.jpeg" alt="название фильма"/>
-                    </div>
-                    <div class="feedback__text">
-                        <img class="feedback__img" src="src/images/guy.jpeg" alt="название фильма"/>
-                        <a href="/user">
-                            какой-то чел
-                        </a>
-                        <div class="title">
-                            ывфы выфыы ыыыыыы
-                        </div>
-                        <div>
-                            ыффыв фывввв ввввввв вввввв ввввввввв ввв ввв ыфыффы
-                            вы
-                            ыфв
-                            фывыфвыфжвдыф
-                            вфывжджфыдвжфыдвэжыдфжвдфы
-                            фывжфыдвжэ ыфвжфыдв
-
-                        </div>
-                    </div>
-                    <div class="feedback__rating user-rating">
-                        <div class="user-rating__text">Этот пользователь поставил:</div>
-                        <div class="user-rating__text">
-                            <div class="stars stars_review" data-value="{r.mark}">
-                                <i class="fas fa-star" data-index="0"/>
-                                <i class="fas fa-star" data-index="1"/>
-                                <i class="fas fa-star" data-index="2"/>
-                                <i class="fas fa-star" data-index="3"/>
-                                <i class="fas fa-star" data-index="4"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <fest:for iterate="film.reviewarray" index="i" value="r">
                     <div class="feedback">
                         <div class="feedback__mark">
