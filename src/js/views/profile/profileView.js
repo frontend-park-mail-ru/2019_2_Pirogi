@@ -78,6 +78,8 @@ export default class ProfileView extends View {
 
         this.localEventBus.addEventListener('eventsGood',
             this.eventsGood.bind(this));
+        this.localEventBus.addEventListener('subscribersGood',
+            this.subscribersGood.bind(this));
 
         // error events
         this.localEventBus.addEventListener('clearError',
@@ -153,6 +155,7 @@ export default class ProfileView extends View {
         this.renderWall();
 
         this.localEventBus.dispatchEvent('getEvents');
+        this.localEventBus.dispatchEvent('getSubscribers');
 
         this.addListenersForBar();
     }

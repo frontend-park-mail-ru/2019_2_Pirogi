@@ -56,6 +56,8 @@ export default class ProfileModel {
             this.modifyPasswordData.bind(this));
         this.localEventBus.addEventListener('getEvents',
             this.getEvents.bind(this));
+        this.localEventBus.addEventListener('getSubscribers',
+            this.getSubscribers.bind(this));
     }
 
     getEvents() {
@@ -69,6 +71,16 @@ export default class ProfileModel {
             });
     }
 
+    getSubscribers() {
+        Api.getNewEvents()
+            .then((res) => {
+                if (res.ok) {
+                    res.json().then((data) => this.localEventBus.dispatchEvent('subscribersGood', data));
+                } else {
+                    this.localEventBus.dispatchEvent('subscribersFailed');
+                }
+            });
+    }
     /**
      * Modify current Login data
      * @method
