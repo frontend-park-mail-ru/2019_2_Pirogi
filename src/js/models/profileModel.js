@@ -62,9 +62,9 @@ export default class ProfileModel {
         Api.getNewEvents()
             .then((res) => {
                 if (res.ok) {
-                    res.json().then((data) => this.globalEventBus.dispatchEvent('eventsGood', data));
+                    res.json().then((data) => this.localEventBus.dispatchEvent('eventsGood', data));
                 } else {
-                    this.globalEventBus.dispatchEvent('eventsFailed');
+                    this.localEventBus.dispatchEvent('eventsFailed');
                 }
             });
     }

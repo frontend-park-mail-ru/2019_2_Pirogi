@@ -6,7 +6,7 @@ import listTmpl from './profile.list.tmpl.xml';
 import eventsTmpl from './profile.events.tmpl.xml';
 import {clearError, renderError} from '../../libs/errorMessages';
 import {errorMessages} from '../../libs/constants';
-import EventBus from "../../libs/eventBus";
+import EventBus from '../../libs/eventBus';
 
 /**
  * Creates a new Profile view
