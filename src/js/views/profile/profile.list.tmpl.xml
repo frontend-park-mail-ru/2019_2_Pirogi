@@ -3,6 +3,7 @@
     <div class="profile__bar">
         <input type="button" class="button js-reviews-button" value="рецензии"/>
         <input type="button" disabled="true"  class="button button_active" value="списки"/>
+        <input type="button" class="button js-events-button" value="уведомления"/>
     </div>
     <div class="profile__lists">
        <!-- <div class="film-list">

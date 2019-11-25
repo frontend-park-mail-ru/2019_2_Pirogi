@@ -3,8 +3,10 @@ import template from './profile.tmpl.xml';
 import reviewsTmpl from './profile.reviews.tmpl.xml';
 import editTmpl from './profile.edit.tmpl.xml';
 import listTmpl from './profile.list.tmpl.xml';
+import eventsTmpl from './profile.events.tmpl.xml';
 import {clearError, renderError} from '../../libs/errorMessages';
 import {errorMessages} from '../../libs/constants';
+import EventBus from '../../libs/eventBus';
 
 /**
  * Creates a new Profile view
@@ -23,13 +25,17 @@ export default class ProfileView extends View {
      * @param {Object} globalEventBus
      * @param {Object} root
      */
-    constructor(localEventBus = {}, globalEventBus = {}, root = {}) {
+    constructor(localEventBus = EventBus, globalEventBus = EventBus, root = {}) {
         super(localEventBus, root, template);
 
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
 
         this.data = {};
+        this.eventsData = {
+            eventsArray: [],
+            subscribersArray: [],
+        };
         this.localTmpl = reviewsTmpl;
 
         this.submitsIds = {
@@ -57,13 +63,6 @@ export default class ProfileView extends View {
             passwordClone: 'js-password-rep-input',
         };
 
-        this.localEventBus.addEventListener('editButtonClicked',
-            this.onEditButtonClicked.bind(this));
-        this.localEventBus.addEventListener('listButtonClicked',
-            this.onListButtonClicked.bind(this));
-        this.localEventBus.addEventListener('backButtonClicked',
-            this.onReviewButtonClicked.bind(this));
-
         this.localEventBus.addEventListener('avatarButtonClicked',
             this.onEditAvatar.bind(this));
 
@@ -76,6 +75,11 @@ export default class ProfileView extends View {
 
         this.localEventBus.addEventListener('getInfoOk',
             this.getInfoOk.bind(this));
+
+        this.localEventBus.addEventListener('eventsGood',
+            this.eventsGood.bind(this));
+        this.localEventBus.addEventListener('subscribersGood',
+            this.subscribersGood.bind(this));
 
         // error events
         this.localEventBus.addEventListener('clearError',
@@ -94,6 +98,8 @@ export default class ProfileView extends View {
             this.onEditButtonClicked();
         } else if (this.data.lists === 'lists') {
             this.onListButtonClicked();
+        } else if (this.data.events === 'events') {
+            this.onEventsButtonClicked();
         } else {
             this.onReviewButtonClicked();
         }
@@ -120,6 +126,7 @@ export default class ProfileView extends View {
         this.localTmpl = editTmpl;
         this.renderWall();
         this.addEventListenersForEdit();
+        this.addListenersForBar();
     }
 
     /**
@@ -129,14 +136,7 @@ export default class ProfileView extends View {
         this.localTmpl = listTmpl;
         this.renderWall();
 
-        this.editButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('editButtonClicked');
-        });
-
-        const reviewsButton = document.querySelector('.js-reviews-button');
-        reviewsButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('backButtonClicked');
-        });
+        this.addListenersForBar();
     }
 
     /**
@@ -146,18 +146,60 @@ export default class ProfileView extends View {
     onReviewButtonClicked() {
         this.localTmpl = reviewsTmpl;
         this.renderWall();
-
-        this.editButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('editButtonClicked');
-        });
-
         this.editButton.disabled = false;
-        const listButton = document.querySelector('.js-list-button');
-        listButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('listButtonClicked');
-        });
+        this.addListenersForBar();
     }
 
+    onEventsButtonClicked() {
+        this.localTmpl = eventsTmpl;
+        this.renderWall();
+
+        this.localEventBus.dispatchEvent('getEvents');
+        this.localEventBus.dispatchEvent('getSubscribers');
+
+        this.addListenersForBar();
+    }
+
+    eventsGood(data = {}) {
+        if (this.localTmpl === eventsTmpl) {
+            this.eventsData.eventsArray = data.new_events;
+            this.renderWall(this.eventsData);
+            this.addListenersForBar();
+        }
+    }
+
+    subscribersGood(data = {}) {
+        if (this.localTmpl === eventsTmpl) {
+            this.eventsData.subscribersArray = data.subscriptions;
+            this.renderWall(this.eventsData);
+            this.addListenersForBar();
+        }
+    }
+
+    addListenersForBar() {
+        this.editButton.addEventListener('click', () => {
+            this.onEditButtonClicked();
+        });
+
+        const reviewsButton = document.querySelector('.js-reviews-button');
+        if (reviewsButton) {
+            reviewsButton.addEventListener('click', () => {
+                this.onReviewButtonClicked();
+            });
+        }
+        const listButton = document.querySelector('.js-list-button');
+        if (listButton) {
+            listButton.addEventListener('click', () => {
+                this.onListButtonClicked();
+            });
+        }
+        const eventsButton = document.querySelector('.js-events-button');
+        if (eventsButton) {
+            eventsButton.addEventListener('click', () => {
+                this.onEventsButtonClicked();
+            });
+        }
+    }
 
     /////event listeners
     /**
@@ -277,11 +319,6 @@ export default class ProfileView extends View {
         const avatarButton = document.querySelector('.js-avatar-button');
         avatarButton.addEventListener('click', () => {
             this.localEventBus.dispatchEvent('avatarButtonClicked');
-        });
-
-        const backButton = document.querySelector('.js-back-button');
-        backButton.addEventListener('click', () => {
-            this.localEventBus.dispatchEvent('backButtonClicked');
         });
     }
 

@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     router.add('/', indexController.indexView);
     router.add('/error', errorView);
     router.add('/actor', actorController.actorView);
+    router.add('/admin', adminController.adminView);
 
     router.start();
 });

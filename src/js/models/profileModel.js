@@ -54,8 +54,33 @@ export default class ProfileModel {
             this.modifyInfoData.bind(this));
         this.localEventBus.addEventListener('modifyPasswordData',
             this.modifyPasswordData.bind(this));
+        this.localEventBus.addEventListener('getEvents',
+            this.getEvents.bind(this));
+        this.localEventBus.addEventListener('getSubscribers',
+            this.getSubscribers.bind(this));
     }
 
+    getEvents() {
+        Api.getNewEvents()
+            .then((res) => {
+                if (res.ok) {
+                    res.json().then((data) => this.localEventBus.dispatchEvent('eventsGood', data));
+                } else {
+                    this.localEventBus.dispatchEvent('eventsFailed');
+                }
+            });
+    }
+
+    getSubscribers() {
+        Api.getSubscribtions()
+            .then((res) => {
+                if (res.ok) {
+                    res.json().then((data) => this.localEventBus.dispatchEvent('subscribersGood', data));
+                } else {
+                    this.localEventBus.dispatchEvent('subscribersFailed');
+                }
+            });
+    }
     /**
      * Modify current Login data
      * @method

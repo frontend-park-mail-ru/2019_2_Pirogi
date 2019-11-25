@@ -23,6 +23,7 @@
                         <fest:value>params.birthplace</fest:value>
                         <div class="hr"></div>
                     </div>
+                    <input type="button" class="button js-subscribe-button" value="подписаться"/>
                 </div>
             </div>
             <div class="actor__wall js-actor-wall">

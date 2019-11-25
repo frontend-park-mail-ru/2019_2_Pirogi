@@ -75,11 +75,15 @@ export default class Network {
      * @param {string} path
      * @returns {Promise<Response>}
      */
-    static doDelete(path = '/') {
+    static doDelete(path = '/', body = {}) {
         return fetch(MY_PATH + path, {
             method: 'DELETE',
             mode: 'cors',
             credentials: 'include',
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
         });
     }
 

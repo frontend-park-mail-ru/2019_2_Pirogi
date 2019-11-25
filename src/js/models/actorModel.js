@@ -17,6 +17,32 @@ export default class ActorModel {
             this.getActorInfo.bind(this));
         this.localEventBus.addEventListener('getFilmList',
             this.getFilmList.bind(this));
+        this.localEventBus.addEventListener('unsubscribe',
+            this.unsubscribe.bind(this));
+        this.localEventBus.addEventListener('subscribe',
+            this.subscribe.bind(this));
+    }
+
+    unsubscribe(data = {}) {
+        Api.unsubscribe(data)
+            .then ((res) => {
+                if (res.ok) {
+                    this.localEventBus.dispatchEvent('unsubOk');
+                } else {
+                    res.json().then(data => this.localEventBus.dispatchEvent('unsubFailed', data));
+                }
+            });
+    }
+
+    subscribe(data = {}) {
+        Api.subscribe(data)
+            .then ((res) => {
+                if (res.ok) {
+                    this.localEventBus.dispatchEvent('subOk');
+                } else {
+                    res.json().then(data => this.localEventBus.dispatchEvent('subFailed', data));
+                }
+            });
     }
 
     getFilmList(data = {}) {

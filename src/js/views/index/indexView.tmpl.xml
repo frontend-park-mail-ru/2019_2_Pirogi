@@ -9,9 +9,9 @@
                             <div class="film-card__img">
                                 <a href="/film?filmID={film.id}"> </a>
                                 <img  src="/images/films/{film.image}" alt="{film.title}"/>
-<!--                                <div class="title film-card__info">-->
-<!--                                    <fest:value>film.title</fest:value>-->
-<!--                                </div>-->
+                                <div class="title film-card__info">
+                                    <fest:value>film.title</fest:value>
+                                </div>
                             </div>
                         </div>
                     </fest:for>
@@ -21,6 +21,7 @@
             <div class="new-films-bar">
                 <div class="title">Новинки</div>
                 <div class="films-bar">
+
                     <fest:for iterate="params.filmsNew" index="i" value="film">
                         <div class="film-bar__card">
                             <a href="/film?filmID={film.id}"> </a>

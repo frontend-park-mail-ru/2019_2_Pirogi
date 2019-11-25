@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+    <div class="profile__bar">
+        <input type="button" class="button js-reviews-button" value="рецензии"/>
+        <input type="button" class="button js-list-button" value="списки"/>
+        <input type="button" disabled="true"  class="button button_active" value="уведомления"/>
+    </div>
+    <div class="profile__events">
+        <div class="title profile__title">Ваши уведомления</div>
+        <fest:for iterate="json.eventsArray" index="i" value="event">
+            <fest:choose>
+                <fest:when test="event.is_read">
+                    <div class="event">
+                        <a href="actor?films&id={event.person_id}"/>
+                        <div class="title">Новый фильм</div>
+                        <div class="event__description">event.description</div>
+                        <div class="event__date">event.date</div>
+                    </div>
+                </fest:when>
+                <fest:otherwise>
+                    <div class="event event_new">
+                        <a href="actor?films&id={event.person_id}"/>
+                        <div class="title">Новый фильм</div>
+                        <div class="event__description">event.description</div>
+                        <div class="event__date">event.date</div>
+                    </div>
+                </fest:otherwise>
+            </fest:choose>
+        </fest:for>
+    </div>
+    <div class="profile__subsrcibes">
+        <div class="title profile__title">Ваши подписки</div>
+        <fest:for iterate="json.subscribersArray" index="i" value="sub">
+            <div class="film-card">
+                <div class="film-card__img">
+                    <a href="/actor?films&amp;id={sub.id}"></a>
+                    <img  src="/images/persons/{sub.image}" alt="{sub.name}"/>
+                    <div class="sub__info">
+                        <fest:value>sub.name</fest:value>
+                    </div>
+                </div>
+            </div>
+        </fest:for>
+    </div>
+</fest:template>

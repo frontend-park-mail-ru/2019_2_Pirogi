@@ -26,8 +26,14 @@ export default class NavbarView extends View {
             this.authPassed.bind(this));
         this.globalEvetBus.addEventListener('logoutOk',
             this.notAuth.bind(this));
+        this.globalEvetBus.addEventListener('newEventHappend',
+            this.newEvent.bind(this));
     }
 
+
+    newEvent(data = {}) {
+        this.dataAuth.new_events_num = data.new_events_number;
+    }
     /**
      * If auth is successful
      * @method
@@ -35,7 +41,7 @@ export default class NavbarView extends View {
      */
     authPassed(data = {}) {
         this.dataAuth.isAuth = true;
-        this.dataAuth.userID = data.user_id;
+        this.dataAuth.new_events_num = data.new_events_number;
         super.render(this.dataAuth);
 
         this.logoutButton = document.querySelector('.js-logout-button');
@@ -68,6 +74,16 @@ export default class NavbarView extends View {
         searchInput.addEventListener('keydown', (event) => {
             if (event.code === 'Enter') {
                 this.globalEvetBus.dispatchEvent('searchEvent');
+            }
+        });
+        const navbarlist = document.querySelector('.js-navbar-list-button');
+        navbarlist.addEventListener('click', () => {
+            const m = document.querySelector('.mobile-menu_display');
+            if (!m) {
+                const menu = document.querySelector('.mobile-menu');
+                menu.classList.add('mobile-menu_display');
+            } else {
+                m.classList.remove('mobile-menu_display');
             }
         });
     }

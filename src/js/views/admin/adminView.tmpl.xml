@@ -1,17 +1,27 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="param">
     <main class="main admin">
         <div class="admin-form">
+            <div class="hr"/>
+
             <div class="title title_center">Добавить новый фильм:</div>
-            <div class="hr"></div>
-            <form class="form">
-                <input class="input" type="text" name="genre" placeholder="Жанр"/>
-                <input class="input" type="text" name="year" placeholder="Год"/>
-                <input class="input" type="text" name="actors" placeholder="Актеры"/>
-                <textarea class="textarea" name="description" placeholder="Описание"></textarea>
-                <input class="input" type="file" name="picture"/>
-                <div class="hr"></div>
+            <form class="form" action="/api/films/" method="post">
+                <label for="title">Название фильма:</label>
+                <input class="input" type="text" id="title" name="title" placeholder="Введите название фильма"/>
+                <label for="description">Описание фильма:</label>
+                <textarea class="textarea" rows="5" id="description" name="description" placeholder="Введите описание"/>
+                <label for="year">Год издания фильма:</label>
+                <input class="input" type="number" id="year" name="year" placeholder="Укажите год"/>
+                <label for="year">Страны, через запятую:</label>
+                <input class="input" type="text" name="countries" placeholder="Введите страны"/>
+                <label for="genres">Жанры, через запятую:</label>
+                <input class="input" type="text" id="genres" name="genres" placeholder="Жанры"/>
+                <label for="genres">ID актеров, через запятую:</label>
+                <input class="input" type="text" name="actors" placeholder="Введите ID актеров"/>
+                <label for="genres">ID трейлера на YouTube:</label>
+                <input class="input" type="text" name="trailer" placeholder="Введите ID"/>
+                <div class="hr"/>
                 <div class="admin-form__button">
-                    <input class="button" type="button" value="Отправить"/>
+                    <input class="button" type="submit" value="Отправить"/>
                 </div>
             </form>
         </div>
