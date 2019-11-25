@@ -13,16 +13,16 @@
                     <div class="event">
                         <a href="actor?films&id={event.person_id}"/>
                         <div class="title">Новый фильм</div>
-                        <div class="event__description">event.description</div>
-                        <div class="event__date">event.date</div>
+                        <div class="event__description"><fest:value>event.description</fest:value></div>
+                        <div class="event__date"><fest:value>event.date</fest:value></div>
                     </div>
                 </fest:when>
                 <fest:otherwise>
                     <div class="event event_new">
                         <a href="actor?films&id={event.person_id}"/>
                         <div class="title">Новый фильм</div>
-                        <div class="event__description">event.description</div>
-                        <div class="event__date">event.date</div>
+                        <div class="event__description"><fest:value>event.description</fest:value></div>
+                        <div class="event__date"><fest:value>event.date</fest:value></div>
                     </div>
                 </fest:otherwise>
             </fest:choose>
