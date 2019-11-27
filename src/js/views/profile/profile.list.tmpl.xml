@@ -22,7 +22,7 @@
                         </fest:when>
                         <fest:otherwise>
                             <div class="film-list__item film-list__item_rose">
-                                <a href="/film&filmID={film.id}">
+                                <a href="/film?filmID={film.id}">
                                     <fest:value>film.title</fest:value>
                                 </a>
                             </div>
