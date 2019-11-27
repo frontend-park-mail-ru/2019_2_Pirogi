@@ -228,10 +228,10 @@ export default class Api {
         });
     }
 
-    static updateUsersList({title, FilmId}) {
+    static updateUsersList({title, filmID}) {
         return Network.doPut('/api/lists', {
             title,
-            film_id: FilmId,
+            film_id: filmID,
         });
     }
 }
