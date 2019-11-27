@@ -44,6 +44,13 @@ export default class FilmView extends View {
         this.localEventBus.addEventListener('renderError',
             renderError.bind(this));
         this.localEventBus.addEventListener('authOK', () => this.authOK());
+        this.localEventBus.addEventListener('addFilmToListOK',
+            this.addFilmToListOK.bind(this));
+    }
+
+    addFilmToListOK() {
+        const listButton = document.querySelector('.js-user-list-button');
+        listButton.classList.add('user-block__button_disabled');
     }
 
     authOK() {
@@ -96,6 +103,16 @@ export default class FilmView extends View {
             limit: 10,
             offset: 0,
         });
+
+        const listButton = document.querySelector('.js-user-list-button');
+        if (listButton) {
+            listButton.addEventListener('click', () => {
+                this.localEventBus.dispatchEvent('addFilmToUserList', {
+                    title: 'myList',
+                    filmID:  this.filmData.id,
+                });
+            });
+        }
     }
 
     /**

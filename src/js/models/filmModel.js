@@ -27,7 +27,19 @@ export default class FilmModel {
 
         this.localEventBus.addEventListener('isAuth',
             this.isAuth.bind(this));
+        this.localEventBus.addEventListener('addFilmToUserList',
+            this.addFilmToUserList.bind(this));
     }
+
+    addFilmToUserList(data = {}) {
+        Api.updateUsersList(data)
+            .then((res) => {
+                if (res.ok) {
+                    this.localEventBus.dispatchEvent('addFilmToListOK');
+                }
+            });
+    }
+
 
     isAuth() {
         Api.authCheck()
