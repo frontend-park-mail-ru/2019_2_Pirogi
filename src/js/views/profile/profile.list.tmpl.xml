@@ -6,20 +6,32 @@
         <input type="button" class="button js-events-button" value="уведомления"/>
     </div>
     <div class="profile__lists">
-       <!-- <div class="film-list">
-            <div class="title film-list__title">
-                Хочу посмотреть
+        <fest:for iterate="json.listsArray" index="i" value="list">
+            <div class="film-list">
+                <div class="title film-list__title">
+                    <fest:value>list.title</fest:value>
+                </div>
+                <fest:for iterate="list.films" index="j" value="film">
+                    <fest:choose>
+                        <fest:when test="j%2">
+                            <div class="film-list__item film-list__item_rose">
+                                <a href="/film&filmID={film.id}">
+                                    <fest:value>film.title</fest:value>
+                                </a>
+                            </div>
+                        </fest:when>
+                        <fest:otherwise>
+                            <div class="film-list__item film-list__item_rose">
+                                <a href="/film&filmID={film.id}">
+                                    <fest:value>film.title</fest:value>
+                                </a>
+                            </div>
+                        </fest:otherwise>
+                    </fest:choose>
+                    <div class="hr"/>
+                </fest:for>
             </div>
-
-            <div class="film-list__item film-list__item_rose"> Веном </div>
-            <div class="film-list__item"> Матрица </div>
-            <div class="film-list__item film-list__item_rose"> Матрица </div>
-            <div class="film-list__item"> Матрица </div>
-            <div class="film-list__item film-list__item_rose"> Матрица </div>
-            <div class="film-list__item"> Инсургент </div>
-            <div class="hr"></div>
-        </div> -->
-
+        </fest:for>
 
     </div>
 </fest:template>

@@ -58,6 +58,19 @@ export default class ProfileModel {
             this.getEvents.bind(this));
         this.localEventBus.addEventListener('getSubscribers',
             this.getSubscribers.bind(this));
+        this.localEventBus.addEventListener('getUserLists',
+            this.getUserLists.bind(this));
+    }
+
+    getUserLists() {
+        Api.getUsersLists()
+            .then((res) => {
+                if (res.ok) {
+                    res.json().then((data) => this.localEventBus.dispatchEvent('listsGood', data));
+                } else {
+                    this.localEventBus.dispatchEvent('listsFailed');
+                }
+            });
     }
 
     getEvents() {
