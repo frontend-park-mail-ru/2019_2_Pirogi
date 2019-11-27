@@ -81,6 +81,15 @@ export default class FilmView extends View {
                 this.localEventBus.dispatchEvent('reviewEvent');
             });
         }
+        const listButton = document.querySelector('.js-user-list-button');
+        if (listButton) {
+            listButton.addEventListener('click', () => {
+                this.localEventBus.dispatchEvent('addFilmToUserList', {
+                    title: 'myList',
+                    filmID:  this.filmData.id,
+                });
+            });
+        }
     }
 
 
