@@ -55,7 +55,7 @@
   .film-card__img
     width: 15vw
     overflow: hidden
-    display: unset
+    display: flex
     border-radius: 2.5*$indent
     a
       position: absolute
@@ -77,6 +77,7 @@
     &:hover
       .title
         opacity: 1
+        +transition(0.5s)
       transform: translate(0%, -5%)
       +transition(0.5s)
 
@@ -95,10 +96,14 @@
     height: 100%
   img
     height: 16vw
+    border-radius: 2*$indent
     +shadow-dark
-  +shadow-dark
   &:last-of-type
     margin-right: 0
+  &:hover
+    transform: translate(0%, -3%)
+      +transition(0.5s)
+
 .trailers-bar__list
   width: 20%
 .trailers-bar
@@ -142,12 +147,16 @@
     margin: 2*$indent $indent
     .title
       font-size: 0.8*$font-size-small
+      opacity: 1
     .film-card__img
       width: 20vh
       display: flex
       justify-content: center
       img
         height: 30vh
+    &:hover
+      transform: none
+      +transition(0.5s)
   .films-bar
     overflow-x: unset
     flex-wrap: wrap
@@ -174,6 +183,7 @@
   .trailers-bar__trailer
     height: 30vh
   .trailers-bar__scroll
+    flex-direction: row
     overflow-x: scroll
     overflow-y: unset
     height: unset
