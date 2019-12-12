@@ -10,11 +10,12 @@
   display: flex
   padding: 4*$indent
   flex-direction: column
-  .rec-films-bar__bar
-    display: flex
-    justify-content: space-between
-    margin: 2*$indent 0
-    overflow-x: scroll
+
+.rec-films-bar__bar
+  display: flex
+  justify-content: space-between
+  margin: 2*$indent 0
+  overflow-x: scroll
 
 .new-films-bar
   background-color: $color-accent
@@ -48,10 +49,10 @@
 .film-card
   margin-right: 5*$indent
   text-align: center
+  position: relative
   &:last-of-type
     margin-right: 0
   .film-card__img
-    position: relative
     width: 15vw
     overflow: hidden
     display: unset
@@ -73,26 +74,31 @@
       opacity: 0
       &:hover
         opacity: 1
+    &:hover
+      .title
+        opacity: 1
+      transform: translate(0%, -5%)
+      +transition(0.5s)
 
 .films-bar
   margin: $indent 0
   display: flex
   padding-bottom: $indent
   overflow-x: scroll
-  .film-bar__card
-    margin-right: 3*$indent
-    position: relative
+.film-bar__card
+  margin-right: 3*$indent
+  position: relative
+  height: 16vw
+  a
+    position: absolute
+    width: 100%
+    height: 100%
+  img
     height: 16vw
-    a
-      position: absolute
-      width: 100%
-      height: 100%
-    img
-      height: 16vw
-      +shadow-dark
     +shadow-dark
-    &:last-of-type
-      margin-right: 0
+  +shadow-dark
+  &:last-of-type
+    margin-right: 0
 .trailers-bar__list
   width: 20%
 .trailers-bar
@@ -102,12 +108,14 @@
   width: 90%
   align-self: center
   +shadow-dark
-  .trailers-bar__trailer
+
+.trailers-bar__trailer
+  width: 100%
+  background-color: $color-accent
+  iframe
     width: 100%
-    background-color: $color-accent
-    iframe
-      width: 100%
-      height: 100%
+    height: 100%
+
 .trailers-bar__scroll
   text-align: center
   display: flex
@@ -134,12 +142,12 @@
     margin: 2*$indent $indent
     .title
       font-size: 0.8*$font-size-small
-  .film-card__img
-    width: 20vh
-    display: flex
-    justify-content: center
-    img
-      height: 30vh
+    .film-card__img
+      width: 20vh
+      display: flex
+      justify-content: center
+      img
+        height: 30vh
   .films-bar
     overflow-x: unset
     flex-wrap: wrap
