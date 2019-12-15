@@ -77,12 +77,7 @@ export default class NavbarView extends View {
                 const navbar = document.querySelector('.desktop-navbar');
                 navbar.classList.add('navbar_not-pointed');
             } else {
-                m.classList.remove('mobile-menu_display');
-                const all = document.querySelector('.all-page_display');
-                all.classList.remove('all-page_display');
-                all.removeEventListener('click', this.burgerMenuClose.bind(this));
-                const navbar = document.querySelector('.desktop-navbar');
-                navbar.classList.remove('navbar_not-pointed');
+                this.burgerMenuClose();
             }
         });
     }
@@ -95,6 +90,10 @@ export default class NavbarView extends View {
         const all = document.querySelector('.all-page_display');
         if (all) {
             all.classList.remove('all-page_display');
+        }
+        const navbar = document.querySelector('.navbar_not-pointed');
+        if (navbar) {
+            navbar.classList.remove('navbar_not-pointed');
         }
     }
 
