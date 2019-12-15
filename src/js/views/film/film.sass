@@ -115,7 +115,7 @@
   padding: 2*$indent
   display: flex
   flex-direction: column
-  width: 90%
+  width: 70%
   +shadow-dark
   align-self: center
   align-items: center
@@ -130,6 +130,34 @@
 .related-block
   +available
   padding: 4*$indent
+  +shadow-dark
+
+
+.feedback-form
+  margin: $indent 0
+  .feedback-form__top
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: space-between
+  .feedback-form__title
+    width: 100%
+    margin: 0
+    padding: 10px 15px
+  .title
+    margin-top: 4*$indent
+  .form
+    margin-bottom: 2*$indent
+
+.feedback-form *
+  margin: $indent 0
+  +available
+
+.feedback__main
+  padding: 2*$indent
+  *
+    margin: $indent 0
+    display: flex
 
 .user-block
   +shadow-dark
@@ -173,30 +201,7 @@
   +shadow-dark
 
 
-.feedback-form
-  margin: $indent 0
-  width: 60%
 
-  .feedback-form__top
-    width: 100%
-    display: flex
-    align-items: center
-    justify-content: space-between
-
-  .feedback-form__title
-    width: 100%
-    margin: 0
-    padding: 10px 15px
-
-  .title
-    margin-top: 4*$indent
-
-  .form
-    margin-bottom: 2*$indent
-
-.feedback-form *
-  margin: $indent 0
-  +available
 
 
 .feedback
@@ -253,11 +258,9 @@
 .stars
   position: relative
   display: flex
-
-  .stars i
+  i
     -webkit-transition: 0.3s
     margin: 0
-
     &:hover
       cursor: pointer
 
