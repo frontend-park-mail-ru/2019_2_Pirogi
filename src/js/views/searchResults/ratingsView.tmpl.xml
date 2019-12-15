@@ -8,7 +8,7 @@
                     <div class="rating__place"><fest:value>i+1</fest:value></div>
                     <div class="rating__img">
                         <a href=" /film?filmID={film.id}"/>
-                        <img  src="/images/films/{film.image}" alt="{film.title}"/>
+                        <img  src="/images/films/{film.images[0]}" alt="{film.title}"/>
                     </div>
 
                     <div class="rating__film-card">

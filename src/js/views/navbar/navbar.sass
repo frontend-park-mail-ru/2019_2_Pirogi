@@ -34,6 +34,7 @@
   background-color: $color-light
   width: 100%
   z-index: 99
+  +transition(0.5s)
   .navbar__item
     padding-left: 2*$indent
 
@@ -41,6 +42,7 @@
   display: flex
   flex-direction: column
   align-items: start
+  +transition(0.5s)
   a
     color: $color-darkest
 
@@ -51,8 +53,10 @@
   height: 100%
   background-color: $color-darkest-50
   z-index: 98
+  +transition(0.5s)
 .all-page_display
   display: flex
+  +transition(0.5s)
 
 .navbar_not-pointed
   pointer-events: none
