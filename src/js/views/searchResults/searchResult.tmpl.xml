@@ -5,36 +5,36 @@
                 <div class="search-form__input">
                     <div>Введите жанры: </div>
                     <input class="input" id="js-genre-input"
-                           name="genres" type="text" placeholder="Введите жанр"
+                           name="genres" type="text" placeholder="Ужасы"
                            value="{params.searchParams.genres}"/>
                 </div>
                 <div class="search-form__input">
                     <div>Введите имена актеров: </div>
                     <input class="input" id="js-actor-input"
-                           name="persons" type="text" placeholder="Введите имя актера"
+                           name="persons" type="text" placeholder="Бред Питт"
                            value="{params.searchParams.persons}"/>
                 </div>
                 <div class="search-form__input">
                     <div>Введите минимальный рейтинг: </div>
                     <input class="input" id="js-ratingmin-input"
-                           name="ratingmin" type="text" placeholder="Введите рейтинг"
+                           name="ratingmin" type="text" placeholder="3"
                            value="{params.searchParams.ratingmin}"/>
                 </div>
                 <div class="search-form__input">
                     <div>Введите страны: </div>
                     <input class="input" id="js-country-input"
-                           name="countries" type="text" placeholder="Введите страну"
+                           name="countries" type="text" placeholder="Россия"
                            value="{params.searchParams.countries}"/>
                 </div>
                 <div class="search-form__input">
                     <div>Введите промежуток времени: </div>
                     <div>Год от </div>
                     <input class="input" id="js-yearmin-input"
-                           name="yearmin" type="text" placeholder="Введите год"
+                           name="yearmin" type="text" placeholder="1997"
                            value="{params.searchParams.yearmin}"/>
                     <div>до </div>
                     <input class="input" id="js-yearmax-input"
-                           name="yearmax" type="text" placeholder="Введите год"
+                           name="yearmax" type="text" placeholder="2015"
                            value="{params.searchParams.yearmax}"/>
                 </div>
             </form>

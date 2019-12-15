@@ -333,7 +333,7 @@ export default class ProfileView extends View {
 
         //const avatarButton = document.querySelector('.js-avatar-button');
         const avatar = document.querySelector('.js-avatar-input');
-        avatar.addEventListener('changed', () => {
+        avatar.addEventListener('change', () => {
             this.localEventBus.dispatchEvent('avatarButtonClicked');
         });
     }
