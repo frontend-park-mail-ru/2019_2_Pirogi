@@ -28,20 +28,32 @@
 
 
 .mobile-menu
+  position: fixed
   display: none
   padding-top: 10*$indent
   background-color: $color-light
   width: 100%
-  position: absolute
   z-index: 99
   .navbar__item
     padding-left: 2*$indent
+
 .mobile-menu_display
   display: flex
   flex-direction: column
   align-items: start
   a
     color: $color-darkest
+
+.all-page
+  position: fixed
+  display: none
+  width: 100%
+  height: 100%
+  background-color: $color-darkest-50
+  z-index: 98
+
+.app-page_display
+  display: flex
 
 @media screen and (min-width: 1000px)
   .navbar__href

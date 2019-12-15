@@ -36,6 +36,9 @@ export default class ProfileView extends View {
             eventsArray: [],
             subscribersArray: [],
         };
+        this.listsData = {
+            listsArray: [],
+        };
         this.localTmpl = reviewsTmpl;
 
         this.submitsIds = {
@@ -78,6 +81,8 @@ export default class ProfileView extends View {
 
         this.localEventBus.addEventListener('eventsGood',
             this.eventsGood.bind(this));
+        this.localEventBus.addEventListener('listsGood',
+            this.listsGood.bind(this));
         this.localEventBus.addEventListener('subscribersGood',
             this.subscribersGood.bind(this));
 
@@ -86,6 +91,8 @@ export default class ProfileView extends View {
             clearError.bind(this));
         this.localEventBus.addEventListener('renderError',
             renderError.bind(this));
+
+
     }
 
     getInfoOk(data) {
@@ -136,6 +143,7 @@ export default class ProfileView extends View {
         this.localTmpl = listTmpl;
         this.renderWall();
 
+        this.localEventBus.dispatchEvent('getUserLists');
         this.addListenersForBar();
     }
 
@@ -164,6 +172,13 @@ export default class ProfileView extends View {
         if (this.localTmpl === eventsTmpl) {
             this.eventsData.eventsArray = data.new_events;
             this.renderWall(this.eventsData);
+            this.addListenersForBar();
+        }
+    }
+    listsGood(data = {}) {
+        if (this.localTmpl === listTmpl) {
+            this.listsData.listsArray = data.lists;
+            this.renderWall(this.listsData);
             this.addListenersForBar();
         }
     }
@@ -316,8 +331,9 @@ export default class ProfileView extends View {
             this.localEventBus.dispatchEvent('onEditingPassword');
         });*/
 
-        const avatarButton = document.querySelector('.js-avatar-button');
-        avatarButton.addEventListener('click', () => {
+        //const avatarButton = document.querySelector('.js-avatar-button');
+        const avatar = document.querySelector('.js-avatar-input');
+        avatar.addEventListener('change', () => {
             this.localEventBus.dispatchEvent('avatarButtonClicked');
         });
     }

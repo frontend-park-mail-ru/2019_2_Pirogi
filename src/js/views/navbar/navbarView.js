@@ -82,8 +82,13 @@ export default class NavbarView extends View {
             if (!m) {
                 const menu = document.querySelector('.mobile-menu');
                 menu.classList.add('mobile-menu_display');
+
+                const all = document.querySelector('.all-page');
+                all.classList.add('all-page_display');
             } else {
                 m.classList.remove('mobile-menu_display');
+                const all = document.querySelector('.all-page_display');
+                all.classList.remove('all-page_display');
             }
         });
     }

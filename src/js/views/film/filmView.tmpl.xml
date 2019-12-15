@@ -71,24 +71,28 @@
             </div>
             <div class="user-block">
                 <div class="button user-block__button user-block__button_disabled">Купить билет</div>
-                <div class="button user-block__button user-block__button_disabled">В список</div>
+                <div class="button user-block__button js-user-list-button">В список</div>
                 <div class="button user-block__button user-block__button_disabled">
-                    <div class="stars" id="stars" data-value="0">
-                        <div class="stars__change">
-                            изменить оценку?
-                        </div>
-                        <i class="fas fa-star" data-index="0"/>
-                        <i class="fas fa-star" data-index="1"/>
-                        <i class="fas fa-star" data-index="2"/>
-                        <i class="fas fa-star" data-index="3"/>
-                        <i class="fas fa-star" data-index="4"/>
-                    </div>
+                    Оценить фильм
                 </div>
             </div>
             <fest:if test="film.isAuth">
                 <div class="feedback-form">
                     <div class="hr"/>
                     <div class="title">Расскажите что Вы думаете о фильме:</div>
+                    <!--
+                    <div class="button user-block__button user-block__button_disabled">
+                        <div class="stars" id="stars" data-value="0">
+                            <div class="stars__change">
+                                изменить оценку?
+                            </div>
+                            <i class="fas fa-star" data-index="0"/>
+                            <i class="fas fa-star" data-index="1"/>
+                            <i class="fas fa-star" data-index="2"/>
+                            <i class="fas fa-star" data-index="3"/>
+                            <i class="fas fa-star" data-index="4"/>
+                        </div>
+                    </div>-->
                     <form class="form">
                         <div class="feedback-form__top">
                             <input maxlength="100" class="input feedback-form__title js-title-input" type="text" placeholder="Заголовок"/>

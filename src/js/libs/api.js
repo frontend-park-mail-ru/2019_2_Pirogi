@@ -217,5 +217,22 @@ export default class Api {
     static getNewEvents() {
         return Network.doGet('/api/subscriptions/events/');
     }
+
+    static getUsersLists() {
+        return Network.doGet('/api/lists');
+    }
+
+    static createUsersList({title}) {
+        return Network.doPost('/api/lists', {
+            title,
+        });
+    }
+
+    static updateUsersList({title, filmID}) {
+        return Network.doPut('/api/lists', {
+            title,
+            film_id: filmID,
+        });
+    }
 }
 
