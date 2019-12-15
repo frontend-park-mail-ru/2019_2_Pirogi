@@ -69,7 +69,7 @@
                     <hr/>
                 </div>
                 <div class="film__user-block">
-                    <div class="button user-block__button user-block__button_disabled">
+                    <div class="button">
                         <div class="stars" id="stars" data-value="0">
                             <div class="stars__change">
                                 изменить оценку?
@@ -134,7 +134,7 @@
                             <div class="feedback__main">
                                 <div><fest:value>r.author.username</fest:value></div>
                                 <div class="title"><fest:value>r.title</fest:value></div>
-                                <div>
+                                <div class="feedback__mark">
                                     Этот пользователь поставил:
                                     <div class="stars stars_review" data-value="{r.mark}">
                                         <i class="fas fa-star" data-index="0"/>
