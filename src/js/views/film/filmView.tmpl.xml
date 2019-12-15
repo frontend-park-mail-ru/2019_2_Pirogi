@@ -90,12 +90,12 @@
                 </div>
             </div>
             <div class="related-block">
-                <div class="title">Новинки</div>
+                <div class="title">Похожие</div>
                 <div class="films-bar">
-                    <fest:for iterate="film.related" index="i" value="film">
+                    <fest:for iterate="film.related" index="i" value="f">
                         <div class="film-bar__card">
-                            <a href="/film?filmID={film.id}"> </a>
-                            <img  src="/images/films/{film.image}" alt="{film.title}"/>
+                            <a href="/film?filmID={f.id}"> </a>
+                            <img  src="/images/films/{f.image}" alt="{f.title}"/>
                         </div>
                     </fest:for>
                 </div>

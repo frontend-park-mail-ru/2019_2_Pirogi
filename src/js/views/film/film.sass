@@ -87,14 +87,32 @@
   width: 15%
   background-color: $color-darkest
   border-radius: 2.5*$indent
-  height: 20vh
+  height: 40vh
+  padding: 2*$indent
+  z-index: 10
+  display: flex
+  flex-direction: column
+  +shadow-dark
+  align-items: center
+  justify-content: space-evenly
+  .button
+    background-color: $color-accent
+    color: $color-lightest
+    display: flex
+    +available
+  .user-block__button_disabled
+    opacity: 0.5
+
 
 .reviews-block
   display: flex
   flex-direction: column
   width: 80%
   +shadow-dark
+
 .user-review-block
+  margin: 4*$indent
+  padding: 2*$indent
   display: flex
   flex-direction: column
   width: 90%
@@ -104,6 +122,14 @@
   .button
     width: auto
     align-self: center
+  .title
+    align-self: center
+    width: auto
+
+
+.related-block
+  +available
+  padding: 4*$indent
 
 .user-block
   +shadow-dark
@@ -226,10 +252,11 @@
 
 .stars
   position: relative
-  display: inline
+  display: flex
 
   .stars i
     -webkit-transition: 0.3s
+    margin: 0
 
     &:hover
       cursor: pointer
