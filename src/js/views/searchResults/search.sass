@@ -86,8 +86,10 @@
 @media screen and (max-width: 1000px) and (orientation: portrait)
   .search
     margin-top: 4*$indent
+    flex-direction: column
   .search-params
     margin-top: 8*$indent
+    width: 100%
   .search-form__input
     justify-content: center
   .search-results
@@ -98,6 +100,10 @@
     align-items: center
     flex-direction: column
     justify-content: center
+    transition: none
+    transform: none
+    max-width: 90vw
+
     +shadow-dark
     .title
       font-size: $font-size-medium

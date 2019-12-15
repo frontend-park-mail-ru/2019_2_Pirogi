@@ -108,7 +108,7 @@
                             <input maxlength="100" class="input feedback-form__title js-title-input"
                                    type="text" placeholder="Заголовок"/>
                             <div class="button">
-                                <div class="stars" id="stars" data-value="0">
+                                <div class="stars" id="stars2" data-value="0">
                                     <div class="stars__change">
                                         изменить оценку?
                                     </div>

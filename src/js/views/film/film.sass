@@ -100,6 +100,7 @@
     color: $color-lightest
     display: flex
     text-align: center
+    justify-content: center
     +available
   .user-block__button_disabled
     opacity: 0.5
@@ -166,31 +167,6 @@
   height: 3em
   align-items: center
 
-.user-block
-  +shadow-dark
-  align-items: center
-  justify-content: space-evenly
-  min-height: 75px
-  background-color: $color-darkest
-  display: flex
-  width: 100%
-  .user-block__button
-    background-color: $color-accent
-    color: $color-lightest
-    display: flex
-  .user-block__button_disabled
-    opacity: 0.5
-
-
-
-
-.feedback-block
-  display: flex
-  flex-direction: column
-  width: 100%
-  .feedback-block__title
-    margin-top: $indent
-    text-align: center
 
 .title *
   margin: 0 $indent
@@ -198,7 +174,6 @@
 .film__star
   color: $color-dark
   +transition(0.5s)
-
   &:hover
     +transition(0.5s)
     color: $color-yellow
@@ -208,15 +183,13 @@
   +shadow-dark
 
 
-
-
-
 .feedback
   width: 80%
   display: flex
   align-self: center
   margin: 2*$indent 0
   +shadow-dark
+
   .feedback__img
     width: 17vh
     height: 20vh
@@ -281,14 +254,23 @@
     width: 80%
   .posters
     width: 100%
-  .user-block
+  .film__user-block
+    width: 90%
     flex-direction: column
+    height: auto
     .button
-      margin: $indent 0
+      margin: $indent
   .film
     flex-direction: column
     *
       text-align: start
+  .related-block
+    .film-bar__card
+      height: 13vh
+      width: 10vh
+      img
+        height: 13vh
+        
   .feedback
     width: 100%
     flex-direction: column
