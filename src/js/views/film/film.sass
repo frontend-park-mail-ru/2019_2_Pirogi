@@ -73,7 +73,7 @@
   text-align: left
 
 .film__description
-  width: 60%
+  width: 40%
   margin: 0 2*$indent
   display: flex
   flex-direction: column
@@ -83,6 +83,28 @@
   .film__decription_main
     font-family: $font-medium
 
+.film__user-block
+  width: 15%
+  background-color: $color-darkest
+  border-radius: 2.5*$indent
+  height: 20vh
+
+.reviews-block
+  display: flex
+  flex-direction: column
+  width: 80%
+  +shadow-dark
+.user-review-block
+  display: flex
+  flex-direction: column
+  width: 90%
+  +shadow-dark
+  align-self: center
+  align-items: center
+  .button
+    width: auto
+    align-self: center
+
 .user-block
   +shadow-dark
   align-items: center
@@ -91,18 +113,20 @@
   background-color: $color-darkest
   display: flex
   width: 100%
-.user-block__button
-  background-color: $color-accent
-  color: $color-lightest
-  display: flex
-.user-block__button_disabled
-  opacity: 0.5
+  .user-block__button
+    background-color: $color-accent
+    color: $color-lightest
+    display: flex
+  .user-block__button_disabled
+    opacity: 0.5
+
+
+
 
 .feedback-block
   display: flex
   flex-direction: column
   width: 100%
-
   .feedback-block__title
     margin-top: $indent
     text-align: center
