@@ -58,6 +58,29 @@ export default class NavbarView extends View {
                 this.globalEvetBus.dispatchEvent('searchEvent');
             }
         });
+        const navbarlist = document.querySelector('.js-navbar-list-button');
+        navbarlist.addEventListener('click', () => {
+            const m = document.querySelector('.mobile-menu_display');
+            if (!m) {
+                const menu = document.querySelector('.mobile-menu');
+                menu.classList.add('mobile-menu_display');
+                const all = document.querySelector('.all-page');
+                all.classList.add('all-page_display');
+                all.addEventListener('click', this.burgerMenuClose.bind(this));
+            } else {
+                m.classList.remove('mobile-menu_display');
+                const all = document.querySelector('.all-page_display');
+                all.classList.remove('all-page_display');
+                all.removeEventListener('click', this.burgerMenuClose.bind(this));
+            }
+        });
+    }
+
+    burgerMenuClose() {
+        const m = document.querySelector('.mobile-menu_display');
+        m.classList.remove('mobile-menu_display');
+        const all = document.querySelector('.all-page_display');
+        all.classList.remove('all-page_display');
     }
 
     /**
@@ -82,13 +105,14 @@ export default class NavbarView extends View {
             if (!m) {
                 const menu = document.querySelector('.mobile-menu');
                 menu.classList.add('mobile-menu_display');
-
                 const all = document.querySelector('.all-page');
                 all.classList.add('all-page_display');
+                all.addEventListener('click', this.burgerMenuClose.bind(this));
             } else {
                 m.classList.remove('mobile-menu_display');
                 const all = document.querySelector('.all-page_display');
                 all.classList.remove('all-page_display');
+                all.removeEventListener('click', this.burgerMenuClose.bind(this));
             }
         });
     }
