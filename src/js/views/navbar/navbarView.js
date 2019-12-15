@@ -53,7 +53,6 @@ export default class NavbarView extends View {
     }
 
     addListeners() {
-        this.burgerMenuClose();
         const searchButton = document.getElementById('js-navbar-search');
         searchButton.addEventListener('click', () =>
             this.globalEvetBus.dispatchEvent('searchEvent'));
@@ -64,6 +63,8 @@ export default class NavbarView extends View {
                 this.globalEvetBus.dispatchEvent('searchEvent');
             }
         });
+        const menu = document.querySelector('.mobile-menu');
+        menu.addEventListener('click', this.burgerMenuClose.bind(this));
         const navbarlist = document.querySelector('.js-navbar-list-button');
         navbarlist.addEventListener('click', () => {
             const m = document.querySelector('.mobile-menu_display');
@@ -73,11 +74,15 @@ export default class NavbarView extends View {
                 const all = document.querySelector('.all-page');
                 all.classList.add('all-page_display');
                 all.addEventListener('click', this.burgerMenuClose.bind(this));
+                const navbar = document.querySelector('.desktop-navbar');
+                navbar.classList.add('navbar_not-pointed');
             } else {
                 m.classList.remove('mobile-menu_display');
                 const all = document.querySelector('.all-page_display');
                 all.classList.remove('all-page_display');
                 all.removeEventListener('click', this.burgerMenuClose.bind(this));
+                const navbar = document.querySelector('.desktop-navbar');
+                navbar.classList.remove('navbar_not-pointed');
             }
         });
     }
