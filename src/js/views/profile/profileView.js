@@ -331,8 +331,9 @@ export default class ProfileView extends View {
             this.localEventBus.dispatchEvent('onEditingPassword');
         });*/
 
-        const avatarButton = document.querySelector('.js-avatar-button');
-        avatarButton.addEventListener('click', () => {
+        //const avatarButton = document.querySelector('.js-avatar-button');
+        const avatar = document.querySelector('.js-avatar-input');
+        avatar.addEventListener('changed', () => {
             this.localEventBus.dispatchEvent('avatarButtonClicked');
         });
     }

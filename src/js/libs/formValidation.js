@@ -1,7 +1,7 @@
 const regExpressions = {
     // https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
-    email: /^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(?:\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$/,
-    username: /^[а-яА-Яa-zA-Z0-9_]{2,}$/,
+    email: /^[a-zA-Z0-9\-_]+[a-zA-Z0-9\-_\.]*@[a-zA-Z]+[a-zA-Z0-9\.]*$/,
+    username: /^[a-zA-Z0-9_]{2,}$/,
     // ASCII chars from ! to ~
     password: /[!-~]{4,}/
 };

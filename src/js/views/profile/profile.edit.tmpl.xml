@@ -6,9 +6,9 @@
         <div class="profile-edit-form__text">Изменить аватарку: </div>
         <div class="profile-edit-form__avatar">
         <input class="input js-avatar-input" type="file" name="avatar"/>
-        <div class="profile__button">
+       <!--<div class="profile__button">
             <input class="button js-avatar-button" id="js-avatar-button" type="button" value="Изменить аватар"/>
-        </div>
+        </div>-->
         </div>
         <div class="hr"></div>
         <div class="profile-edit-form__text">Редактировать информацию о себе: </div>
