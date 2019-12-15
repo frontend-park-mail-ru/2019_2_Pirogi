@@ -32,7 +32,7 @@
             </fest:choose>
         </div>
         <div class="mobile-menu">
-            <a class="logo" href="/">CINSEAR</a>
+            <a href="/" class="navbar__item">главная</a>
             <a href="/search?new" class="navbar__item">новинки</a>
             <a href="/search?films" class="navbar__item">фильмы</a>
             <a href="/search?ratings" class="navbar__item">рейтинги</a>
