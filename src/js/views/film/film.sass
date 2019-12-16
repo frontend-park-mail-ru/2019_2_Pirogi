@@ -16,7 +16,7 @@
   flex-direction: row
   text-align: center
   padding: 6vw 0
-  background-color: $color-light
+
   justify-content: center
   position: relative
   a
@@ -110,7 +110,7 @@
   display: flex
   flex-direction: column
   width: 80%
-  +shadow-dark
+  background-color: $color-light
 
 .user-review-block
   margin: 4*$indent
@@ -196,7 +196,11 @@
     min-width: 10vw
     min-height: 13vw
 
-
+.feedback__block
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
 
 .stars
   position: relative
