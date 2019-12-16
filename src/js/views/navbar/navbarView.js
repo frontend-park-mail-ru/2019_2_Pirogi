@@ -47,7 +47,12 @@ export default class NavbarView extends View {
         this.logoutButton = document.querySelector('.js-logout-button');
         this.logoutButton.addEventListener('click',
             () => this.globalEvetBus.dispatchEvent('onLogoutClicked'));
+        this.addListeners();
 
+
+    }
+
+    addListeners() {
         const searchButton = document.getElementById('js-navbar-search');
         searchButton.addEventListener('click', () =>
             this.globalEvetBus.dispatchEvent('searchEvent'));
@@ -58,6 +63,38 @@ export default class NavbarView extends View {
                 this.globalEvetBus.dispatchEvent('searchEvent');
             }
         });
+        const menu = document.querySelector('.mobile-menu');
+        menu.addEventListener('click', this.burgerMenuClose.bind(this));
+        const navbarlist = document.querySelector('.js-navbar-list-button');
+        navbarlist.addEventListener('click', () => {
+            const m = document.querySelector('.mobile-menu_display');
+            if (!m) {
+                const menu = document.querySelector('.mobile-menu');
+                menu.classList.add('mobile-menu_display');
+                const all = document.querySelector('.all-page');
+                all.classList.add('all-page_display');
+                all.addEventListener('click', this.burgerMenuClose.bind(this));
+                const navbar = document.querySelector('.desktop-navbar');
+                navbar.classList.add('navbar_not-pointed');
+            } else {
+                this.burgerMenuClose();
+            }
+        });
+    }
+
+    burgerMenuClose() {
+        const m = document.querySelector('.mobile-menu_display');
+        if (m) {
+            m.classList.remove('mobile-menu_display');
+        }
+        const all = document.querySelector('.all-page_display');
+        if (all) {
+            all.classList.remove('all-page_display');
+        }
+        const navbar = document.querySelector('.navbar_not-pointed');
+        if (navbar) {
+            navbar.classList.remove('navbar_not-pointed');
+        }
     }
 
     /**
@@ -67,30 +104,7 @@ export default class NavbarView extends View {
     notAuth() {
         this.dataAuth.isAuth = false;
         super.render(this.dataAuth);
-        const searchButton = document.getElementById('js-navbar-search');
-        searchButton.addEventListener('click', () =>
-            this.globalEvetBus.dispatchEvent('searchEvent'));
-        const searchInput = document.getElementById('js-search-input');
-        searchInput.addEventListener('keydown', (event) => {
-            if (event.code === 'Enter') {
-                this.globalEvetBus.dispatchEvent('searchEvent');
-            }
-        });
-        const navbarlist = document.querySelector('.js-navbar-list-button');
-        navbarlist.addEventListener('click', () => {
-            const m = document.querySelector('.mobile-menu_display');
-            if (!m) {
-                const menu = document.querySelector('.mobile-menu');
-                menu.classList.add('mobile-menu_display');
-
-                const all = document.querySelector('.all-page');
-                all.classList.add('all-page_display');
-            } else {
-                m.classList.remove('mobile-menu_display');
-                const all = document.querySelector('.all-page_display');
-                all.classList.remove('all-page_display');
-            }
-        });
+        this.addListeners();
     }
 
     /**

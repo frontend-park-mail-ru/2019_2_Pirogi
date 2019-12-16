@@ -2,32 +2,32 @@
     <div class="search">
         <div class="search-params">
             <form class="search-form js-search-form">
+                <div class="title">Расширенный поиск</div>
                 <div class="search-form__input">
-                    <div>Введите жанры: </div>
+                    <div>Жанры: </div>
                     <input class="input" id="js-genre-input"
-                           name="genres" type="text" placeholder="Ужасы"
+                           name="genres" type="text" placeholder="Ужасы, комедия"
                            value="{params.searchParams.genres}"/>
                 </div>
                 <div class="search-form__input">
-                    <div>Введите имена актеров: </div>
+                    <div>Актеры: </div>
                     <input class="input" id="js-actor-input"
-                           name="persons" type="text" placeholder="Бред Питт"
+                           name="persons" type="text" placeholder="Бред Питт, Линдси Лохан"
                            value="{params.searchParams.persons}"/>
                 </div>
                 <div class="search-form__input">
-                    <div>Введите минимальный рейтинг: </div>
+                    <div>Рейтинг от: </div>
                     <input class="input" id="js-ratingmin-input"
                            name="ratingmin" type="text" placeholder="3"
                            value="{params.searchParams.ratingmin}"/>
                 </div>
                 <div class="search-form__input">
-                    <div>Введите страны: </div>
+                    <div>Cтраны: </div>
                     <input class="input" id="js-country-input"
                            name="countries" type="text" placeholder="Россия"
                            value="{params.searchParams.countries}"/>
                 </div>
                 <div class="search-form__input">
-                    <div>Введите промежуток времени: </div>
                     <div>Год от </div>
                     <input class="input" id="js-yearmin-input"
                            name="yearmin" type="text" placeholder="1997"
@@ -40,9 +40,8 @@
             </form>
             <input class="button" id="js-search-params" type="button" value="Применить"/>
         </div>
-        <div class="hr"/>
         <div class="search-results">
-            <div class="title">Вы искали: <a href="/search?query={params.searchParams.query}">
+            <div class="search-results__title title">Вы искали: <a href="/search?query={params.searchParams.query}">
                 <fest:value>params.searchParams.query</fest:value> </a>
             </div>
             <!--<div>666 результатов поиска</div> -->
@@ -51,7 +50,7 @@
                     <div class="list__item search-results__film">
                         <div class="search-results__img">
                             <a href=" /film?filmID={film.id}"/>
-                            <img  src="/images/films/{film.image}" alt="название фильма"/>
+                            <img  src="/images/films/{film.images[0]}" alt="название фильма"/>
                         </div>
                         <div class="search-results__film-card">
                             <a href="/film?filmID={film.id}" class="title"><fest:value>film.title</fest:value></a>

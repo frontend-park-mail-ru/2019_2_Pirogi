@@ -21,7 +21,6 @@
             <div class="new-films-bar">
                 <div class="title">Новинки</div>
                 <div class="films-bar">
-
                     <fest:for iterate="params.filmsNew" index="i" value="film">
                         <div class="film-bar__card">
                             <a href="/film?filmID={film.id}"> </a>
