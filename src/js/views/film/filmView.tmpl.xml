@@ -83,8 +83,8 @@
                     </div>
                     <select name="select" class="button">
                         <option value="value1">не в списке</option>
-                        <option value="value2">список 1</option>
-                        <option value="value3">список моих самых самых любимых фильмов</option>
+                        <option value="value2" class="js-user-list-button">список 1</option>
+
                     </select>
                     <a href="#" class="button">купить билет</a>
                 </div>
