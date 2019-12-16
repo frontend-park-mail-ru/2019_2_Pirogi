@@ -176,6 +176,10 @@ export default class Api {
         return Network.doGet(`/api/reviews/${filmID}?limit=${limit}&offset=${offset}`);
     }
 
+    static getMyReviews(){
+        return Network.doGet('/api/reviews/');
+    }
+
     static getList({limit, offset, genres, query, yearmin, yearmax, personsids, persons, countries, orderby, year}) {
         let path = `/api/search?limit=${limit}&offset=${offset}`;
         let data = {

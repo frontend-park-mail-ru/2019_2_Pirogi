@@ -39,6 +39,9 @@ export default class ProfileView extends View {
         this.listsData = {
             listsArray: [],
         };
+        this.reviewsData = {
+            reviewsArray: [],
+        };
         this.localTmpl = reviewsTmpl;
 
         this.submitsIds = {
@@ -83,6 +86,8 @@ export default class ProfileView extends View {
             this.eventsGood.bind(this));
         this.localEventBus.addEventListener('listsGood',
             this.listsGood.bind(this));
+        this.localEventBus.addEventListener('reviewsGood',
+            this.reviewsGood.bind(this));
         this.localEventBus.addEventListener('subscribersGood',
             this.subscribersGood.bind(this));
 
@@ -155,6 +160,8 @@ export default class ProfileView extends View {
         this.localTmpl = reviewsTmpl;
         this.renderWall();
         this.editButton.disabled = false;
+
+        this.localEventBus.dispatchEvent('getReviews');
         this.addListenersForBar();
     }
 
@@ -172,6 +179,13 @@ export default class ProfileView extends View {
         if (this.localTmpl === eventsTmpl) {
             this.eventsData.eventsArray = data.new_events;
             this.renderWall(this.eventsData);
+            this.addListenersForBar();
+        }
+    }
+    reviewsGood(data = {}) {
+        if (this.localTmpl === reviewsTmpl) {
+            this.reviewsData.reviewsArray = data;
+            this.renderWall(this.reviewsData);
             this.addListenersForBar();
         }
     }

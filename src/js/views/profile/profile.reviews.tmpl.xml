@@ -8,6 +8,20 @@
         <input type="button" class="button js-events-button" value="уведомления"/>
     </div>
     <div class="profile__reviews">
+        <fest:for iterate="json.reviewsArray" index="i" value="r">
+            <div class="review">
+                <div class="review__text">
+                    <div> К фильму: <a href="/film?filmID={r.film_id}">фильм</a></div>
+                    <div class="title"><fest:value>r.title</fest:value></div>
+                    <div>
+                        <fest:value>r.body</fest:value>
+                    </div>
+                </div>
+                <div class="review__likes">
+                    <fest:value>r.date</fest:value>
+                </div>
+            </div>
+        </fest:for>
         <!--
         <div class="profile__reviews">
             <div class="review review__positive">
