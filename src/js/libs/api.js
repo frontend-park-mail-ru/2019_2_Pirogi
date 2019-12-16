@@ -176,7 +176,7 @@ export default class Api {
         return Network.doGet(`/api/reviews/${filmID}?limit=${limit}&offset=${offset}`);
     }
 
-    static getMyReviews(){
+    static getMyReviews() {
         return Network.doGet('/api/reviews/');
     }
 
