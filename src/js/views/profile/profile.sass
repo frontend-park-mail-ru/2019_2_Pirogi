@@ -44,6 +44,7 @@
 .profile__button
   margin-top: $indent
   margin-bottom: $indent
+  width: auto
 .profile__button_accent
   color: $color-lightest
   background-color: $color-accent
@@ -71,6 +72,8 @@
     background-color: $color-lightest
     box-shadow: 0 -5px $color-accent
     opacity: 1
+.profile__reviews
+  width: 100%
 
 .profile__lists
   display: flex
@@ -124,13 +127,13 @@
   background-color: $color-accent-10
 
 .profile__subsrcibes
-  padding: 2*$indent
+  padding: 2*$indent 0
   display: flex
   align-items: center
   align-content: flex-start
   justify-content: space-around
   flex-wrap: wrap
-
+  +available
   .film-card
     margin-top: 2*$indent
     margin-right: $indent

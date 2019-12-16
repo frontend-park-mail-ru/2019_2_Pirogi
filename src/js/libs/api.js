@@ -176,6 +176,10 @@ export default class Api {
         return Network.doGet(`/api/reviews/${filmID}?limit=${limit}&offset=${offset}`);
     }
 
+    static getMyReviews() {
+        return Network.doGet('/api/reviews/');
+    }
+
     static getList({limit, offset, genres, query, yearmin, yearmax, personsids, persons, countries, orderby, year}) {
         let path = `/api/search?limit=${limit}&offset=${offset}`;
         let data = {
@@ -216,6 +220,23 @@ export default class Api {
 
     static getNewEvents() {
         return Network.doGet('/api/subscriptions/events/');
+    }
+
+    static getUsersLists() {
+        return Network.doGet('/api/lists');
+    }
+
+    static createUsersList({title}) {
+        return Network.doPost('/api/lists', {
+            title,
+        });
+    }
+
+    static updateUsersList({title, filmID}) {
+        return Network.doPut('/api/lists', {
+            title,
+            film_id: filmID,
+        });
     }
 }
 

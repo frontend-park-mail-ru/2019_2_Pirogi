@@ -16,7 +16,7 @@
   flex-direction: row
   text-align: center
   padding: 6vw 0
-  background-color: $color-light
+
   justify-content: center
   position: relative
   a
@@ -73,37 +73,101 @@
   text-align: left
 
 .film__description
-  width: 60%
+  width: 40%
   margin: 0 2*$indent
   display: flex
   flex-direction: column
   text-align: left
   z-index: 10
+  background-color: $color-darkest-50
   .film__decription_main
     font-family: $font-medium
 
-.user-block
+.film__user-block
+  width: 15%
+  background-color: $color-darkest
+  border-radius: 2.5*$indent
+  height: 40vh
+  padding: 2*$indent
+  z-index: 10
+  display: flex
+  flex-direction: column
   +shadow-dark
   align-items: center
   justify-content: space-evenly
-  min-height: 75px
-  background-color: $color-darkest
-  display: flex
-  width: 100%
-  .user-block__button
+  .button
     background-color: $color-accent
     color: $color-lightest
+    display: flex
+    text-align: center
+    justify-content: center
+    +available
   .user-block__button_disabled
     opacity: 0.5
 
-.feedback-block
+
+.reviews-block
   display: flex
   flex-direction: column
-  width: 100%
+  width: 80%
+  background-color: $color-light
+  +shadow-dark
 
-  .feedback-block__title
-    margin-top: $indent
-    text-align: center
+.user-review-block
+  margin: 4*$indent
+  padding: 2*$indent
+  display: flex
+  flex-direction: column
+  width: 70%
+  +shadow-dark
+  align-self: center
+  align-items: center
+  .button
+    width: auto
+    align-self: center
+  .title
+    align-self: center
+    width: auto
+
+
+.related-block
+  +available
+  padding: 4*$indent
+  +shadow-dark
+
+
+.feedback-form
+  margin: $indent 0
+  .feedback-form__top
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: space-between
+  .feedback-form__title
+    width: 100%
+    margin: 0
+    padding: 10px 15px
+  .title
+    margin-top: 4*$indent
+  .form
+    margin-bottom: 2*$indent
+
+.feedback-form *
+  margin: $indent
+  +available
+
+.feedback__main
+  padding: 2*$indent
+  *
+    margin: $indent 0
+    display: flex
+
+.feedback__mark
+  display: flex
+  flex-direction: row
+  height: 3em
+  align-items: center
+
 
 .title *
   margin: 0 $indent
@@ -111,36 +175,9 @@
 .film__star
   color: $color-dark
   +transition(0.5s)
-
   &:hover
     +transition(0.5s)
     color: $color-yellow
-
-
-.feedback-form
-  margin: $indent 0
-  width: 60%
-
-  .feedback-form__top
-    width: 100%
-    display: flex
-    align-items: center
-    justify-content: space-between
-
-  .feedback-form__title
-    width: 100%
-    margin: 0
-    padding: 10px 15px
-
-  .title
-    margin-top: 4*$indent
-
-  .form
-    margin-bottom: 2*$indent
-
-.feedback-form *
-  margin: $indent 0
-  +available
 
 
 .feedback
@@ -153,54 +190,22 @@
   .feedback__img
     width: 17vh
     height: 20vh
+    min-width: 10vw
+    min-height: 13vw
 
-  .feedback__mark
-    width: 15%
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
-    padding: $indent 0
-
-  .feedback__text
-    img
-      display: none
-    width: 70%
-    margin: $indent 0
-    display: flex
-    flex-direction: column
-    font-size: $font-size-small
-
-    .feedback__text_main
-      font-family: $font-medium
-
-  .feedback__rating
-    width: 15%
-
-.feedback__text *
-  margin: 10px 0
-
-
-.user-rating
-  background-color: $color-darkest
-  color: $color-lightest
+.feedback-block
   display: flex
   flex-direction: column
   justify-content: center
-
-  .user-rating__text
-    color: $color-lightest
-    margin: $indent 0
-    text-align: center
-
+  align-items: center
 
 .stars
   position: relative
-  display: inline
-
-  .stars i
+  display: flex
+  margin: 0
+  i
     -webkit-transition: 0.3s
-
+    margin: 0
     &:hover
       cursor: pointer
 
@@ -240,7 +245,7 @@
 
 
 @media screen and (max-width: 1000px) and (orientation: portrait)
-  iframe
+  .film__iframe
     display: none
   .posters__img_left
     display: none
@@ -250,14 +255,31 @@
     width: 80%
   .posters
     width: 100%
-  .user-block
+  .film__user-block
+    width: 90%
     flex-direction: column
+    height: auto
     .button
-      margin: $indent 0
+      margin: $indent
   .film
     flex-direction: column
     *
       text-align: start
+  .related-block
+    .film-bar__card
+      height: 13vh
+      width: 10vh
+      img
+        height: 13vh
+  .feedback-form
+    .feedback-form__top
+      width: unset
+      flex-direction: column
+    .feedback-form__title
+      width: unset
+  .user-review-block
+    width: unset
+    margin: 0
   .feedback
     width: 100%
     flex-direction: column
