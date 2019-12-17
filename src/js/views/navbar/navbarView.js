@@ -66,7 +66,7 @@ export default class NavbarView extends View {
         const menu = document.querySelector('.mobile-menu');
         menu.addEventListener('click', this.burgerMenuClose.bind(this));
         const navbarlist = document.querySelector('.js-navbar-list-button');
-        navbarlist.addEventListener('touchstart', () => {
+        navbarlist.addEventListener('click', () => {
             const m = document.querySelector('.mobile-menu_display');
             if (!m) {
                 const menu = document.querySelector('.mobile-menu');
