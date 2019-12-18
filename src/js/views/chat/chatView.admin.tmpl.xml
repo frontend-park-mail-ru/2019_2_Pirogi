@@ -1,0 +1,21 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
+    <main class="chat-main">
+        <div class="chat__list">
+            <div class="chat__item">
+                <div class="mes__author">Вася Пупкин</div>
+                <div class="mes__body">Неотвечено</div>
+                <div class="mes__date">23.11.19 12:35:00</div>
+            </div>
+            <div class="hr"/>
+
+        </div>
+        <div class="chat">
+            <div class="chat__messages">
+            </div>
+            <div class="chat__input">
+                <input class="input" id="js-message-input" type="text" size="20" placeholder="напишите что-нибудь"/>
+                <div id="js-message-sendler"><i class="fas fa-paper-plane"/></div>
+            </div>
+        </div>
+    </main>
+</fest:template>

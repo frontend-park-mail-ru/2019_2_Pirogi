@@ -34,6 +34,24 @@ export default class IndexView extends View {
         this.data = data;
         super.render(this.data);
         this.setEventListenersForTrailers();
+
+        if (this.globalEvetBus.dispatchEvent('isAuth')) {
+            const chat = document.querySelector('.js-chat-button');
+            chat.addEventListener('click', () => {
+                chat.classList.add('display-none');
+                const iframe = document.querySelector('.js-iframe');
+                iframe.classList.remove('display-none');
+                iframe.innerHTML = '<iframe class="iframe" src="https://cinsear.ru/chat"/>';
+                const chat2 = document.querySelector('.js-chat2-button');
+                chat2.classList.remove('display-none');
+                chat2.addEventListener('click', () => {
+                    chat2.classList.add('display-none');
+                    iframe.classList.add('display-none');
+                    iframe.innerHTML = '';
+                    chat.classList.remove('display-none');
+                });
+            });
+        }
     }
 
 
@@ -63,6 +81,22 @@ export default class IndexView extends View {
     render() {
         super.render(this.data);
 
+
+        const chat = document.querySelector('.js-chat-button');
+        chat.addEventListener('click', () => {
+            chat.classList.add('display-none');
+            const iframe = document.querySelector('.js-iframe');
+            iframe.classList.remove('display-none');
+            iframe.innerHTML = '<iframe class="iframe" src="https://cinsear.ru/chat"/>';
+            const chat2 = document.querySelector('.js-chat2-button');
+            chat2.classList.remove('display-none');
+            chat2.addEventListener('click', () => {
+                chat2.classList.add('display-none');
+                iframe.classList.add('display-none');
+                iframe.innerHTML = '';
+                chat.classList.remove('display-none');
+            });
+        });
         this.localEventBus.dispatchEvent('getIndex');
     }
 }

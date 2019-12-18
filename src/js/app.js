@@ -10,6 +10,7 @@ import NavbarController from './controllers/navbarController.js';
 import Router from './libs/router.js';
 import ErrorView from './views/error/errorView';
 import ActorController from './controllers/actorController';
+import ChatController from './controllers/chatController';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const indexController = new IndexController(globalEventBus, body);
     const adminController = new AdminController(globalEventBus, body);
     const actorController = new ActorController(globalEventBus,body, router);
+    const chatController = new ChatController(globalEventBus, body);
     const errorView = new ErrorView(body);
 
     navbarController.navbarView.render();
@@ -51,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     router.add('/', indexController.indexView);
     router.add('/error', errorView);
     router.add('/actor', actorController.actorView);
+    router.add('/chat', chatController.chatView);
 
     router.start();
 });
