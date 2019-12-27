@@ -6,11 +6,13 @@
                 <div class="rec-films-bar__bar">
                     <fest:for iterate="params.filmsForUser" index="i" value="film">
                         <div class="film-card">
-                            <div class="film-card__img">
-                                <a href="/film?filmID={film.id}"> </a>
-                                <img  src="/images/films/{film.image}" alt="{film.title}"/>
-                                <div class="title film-card__info">
-                                    <fest:value>film.title</fest:value>
+                            <div class="film-card__img-container">
+                                <div class="film-card__img">
+                                    <a href="/film?filmID={film.id}"> </a>
+                                    <img src="/images/films/{film.image}" alt="{film.title}"/>
+                                    <div class="title film-card__info">
+                                        <fest:value>film.title</fest:value>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -24,7 +26,7 @@
                     <fest:for iterate="params.filmsNew" index="i" value="film">
                         <div class="film-bar__card">
                             <a href="/film?filmID={film.id}"> </a>
-                            <img  src="/images/films/{film.image}" alt="{film.title}"/>
+                            <img src="/images/films/{film.image}" alt="{film.title}"/>
                         </div>
                     </fest:for>
                 </div>
@@ -50,16 +52,18 @@
                 <div class="trailers-bar__list">
                     <div class="title">Топ трейлеров</div>
                     <div class="trailers-bar__scroll">
-                    <fest:for iterate="params.trailers" index="i" value="trailer">
-                        <div class="button js-trailer-button" id="{i}"><fest:value>trailer.title</fest:value></div>
-                    </fest:for>
+                        <fest:for iterate="params.trailers" index="i" value="trailer">
+                            <div class="button js-trailer-button" id="{i}">
+                                <fest:value>trailer.title</fest:value>
+                            </div>
+                        </fest:for>
                     </div>
                 </div>
                 <div class="trailers-bar__trailer">
-                <iframe name="trailer"
-                        id="ytplayer" type="text/html"
-                        src="https://www.youtube.com/embed/{params.trailers[0].trailer}?autoplay=1&amp;origin=https://cinsear.ru"
-                        frameborder="0"/>
+                    <iframe name="trailer"
+                            id="ytplayer" type="text/html"
+                            src="https://www.youtube.com/embed/{params.trailers[0].trailer}?autoplay=1&amp;origin=https://cinsear.ru"
+                            frameborder="0"/>
                 </div>
             </div>
         </div>
