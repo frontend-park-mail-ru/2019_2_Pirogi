@@ -2,8 +2,6 @@ import View from '../../libs/view.js';
 import template from './actorView.tmpl.xml';
 import EventBus from '../../libs/eventBus';
 import filmsTMPL from './actor.films.tmpl.xml';
-import photoTMPL from './actor.photo.tmpl.xml';
-import awardsTMPL from './actor.awards.tmpl.xml';
 
 
 /**
@@ -73,26 +71,22 @@ export default class ActorView extends View {
     }
 
     chooseWall() {
-        if (this.tmplData.photo === 'photo') {
-            this.localTmpl = photoTMPL;
-        } else if (this.tmplData.awards === 'awards') {
-            this.localTmpl = awardsTMPL;
-        } else {
-            this.tmplData.films = 'films';
-            this.localTmpl = filmsTMPL;
-            this.localEventBus.dispatchEvent('getFilmList',{
-                limit:10,
-                offset: 0,
-                personsids: this.actorData.person.id
-            });
-        }
+       
+        this.tmplData.films = 'films';
+        this.localTmpl = filmsTMPL;
+        this.localEventBus.dispatchEvent('getFilmList',{
+            limit:10,
+            offset: 0,
+            personsids: this.actorData.person.id
+        });
+
     }
 
     actorInfoOk(data = {}) {
         this.actorData = data;
         super.render(this.actorData.person);
 
-        //this.chooseWall();
+        this.chooseWall();
         this.renderWall();
         this.addListenersForSubscribe();
     }
