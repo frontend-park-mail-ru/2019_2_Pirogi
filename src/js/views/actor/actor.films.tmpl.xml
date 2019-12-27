@@ -3,10 +3,12 @@
     <div class="profile__bar">
         <!--<a disabled="true" class="button button_active "  >Рецензии</a>
         <a href="/profile?lists" class="button"> списки </a>-->
-        <a disabled="true" class="button  button_active" >фильмы</a>
-        <a  href="/actor?photo&id={params.id}" class="button js-photo-button">фотографии </a>
-        <a  href="/actor?awards&id={params.id}" class="button js-awards-button" >награды</a>
+        <a disabled="true" class="button  button_active" ><div class="title">Фильмы с участием актера</div></a>
+        <!--<a  href="/actor?photo&id={params.id}" class="button js-photo-button">фотографии </a>
+        <a  href="/actor?awards&id={params.id}" class="button js-awards-button" >награды</a>-->
+
     </div>
+    <div class="hr"/>
     <div class="list">
         <fest:for iterate="params.filmsarray" index="i" value="film">
             <div class="list__item actor__film">

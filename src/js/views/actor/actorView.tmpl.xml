@@ -12,9 +12,7 @@
                         <div class="title"><fest:value>params.name</fest:value></div>
                     </div>
                     <div class="list__item">
-                        <div class="hr"></div>
-                        <div>рейтинг на сайте:</div>
-                        <fest:value>params.mark</fest:value>
+
                         <div class="hr"></div>
                         <div> Дата рождения:</div>
                         <fest:value>params.birthday</fest:value>
