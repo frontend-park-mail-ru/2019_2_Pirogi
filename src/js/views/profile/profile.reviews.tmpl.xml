@@ -23,7 +23,7 @@
                 <div class="review__likes">
                     <fest:script>
                         var date = new Date(r.date);
-                        var day = date.getDate();
+                        var day = date.getDate() +"."+date.getMonth()+"."+date.getYear()+" " + date.getHours() +":" + date.getMinutes();
                     </fest:script>
                     <fest:value>day</fest:value>
                 </div>
