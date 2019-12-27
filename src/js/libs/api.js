@@ -180,10 +180,10 @@ export default class Api {
         return Network.doGet('/api/reviews/');
     }
 
-    static getList({limit, offset, genres, query, yearmin, yearmax, personsids, persons, countries, orderby, year}) {
+    static getList({limit, offset, genres, query, yearmin, yearmax, personsids, persons, countries, order_by, year, rating_min}) {
         let path = `/api/search?limit=${limit}&offset=${offset}`;
         let data = {
-            genres, query, yearmin, yearmax, personsids, persons, countries, orderby, year
+            genres, query, yearmin, yearmax, personsids, persons, countries, order_by, year, rating_min,
         };
         Object.keys(data).forEach((val) => {
             if (data[val]) {

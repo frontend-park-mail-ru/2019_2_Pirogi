@@ -18,8 +18,8 @@
                 <div class="search-form__input">
                     <div>Рейтинг от: </div>
                     <input class="input" id="js-ratingmin-input"
-                           name="ratingmin" type="text" placeholder="3"
-                           value="{params.searchParams.ratingmin}"/>
+                           name="rating_min" type="text" placeholder="3"
+                           value="{params.searchParams.rating_min}"/>
                 </div>
                 <div class="search-form__input">
                     <div>Cтраны: </div>

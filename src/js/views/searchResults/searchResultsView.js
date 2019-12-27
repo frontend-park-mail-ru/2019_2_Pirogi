@@ -100,10 +100,11 @@ export default class SearchResultsView extends View {
             super.render(this.renderData);
             return;
         } else if (data.ratings === 'ratings') {
+            data.order_by = 'mark';
             super.template = ratingtml;
         } else if (data.new === 'new') {
             super.template = template;
-            data.orderby = 'date';
+            data.order_by = 'year';
         } else {
             super.template = template;
 
