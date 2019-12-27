@@ -8,7 +8,7 @@
     <div class="profile__events">
         <div class="title profile__title">Ваши уведомления</div>
         <fest:if test="json.eventsArray===undefined || json.eventsArray===[]">
-            <div>Нет новых уведомленйи</div>
+            <div class="profile__warning">Нет новых уведомленйи</div>
         </fest:if>
         <fest:for iterate="json.eventsArray" index="i" value="event">
             <fest:choose>
@@ -34,7 +34,7 @@
     <div class="profile__subsrcibes">
         <div class="title profile__title">Ваши подписки</div>
         <fest:if test="json.subscribersArray===[] || json.subscribersArray===undefined">
-            <div>Вы ни на кого не подписаны</div>
+            <div class="profile__warning">Вы ни на кого не подписаны</div>
         </fest:if>
         <fest:for iterate="json.subscribersArray" index="i" value="sub">
             <div class="film-card">

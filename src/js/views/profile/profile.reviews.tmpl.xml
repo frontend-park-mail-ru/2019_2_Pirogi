@@ -8,8 +8,8 @@
         <input type="button" class="button js-events-button" value="уведомления"/>
     </div>
     <div class="profile__reviews">
-        <fest:if test="json.reviewsArray===[] || json.reviewsArray===undefined">
-            Вы не оставили ни одной рецензии.
+        <fest:if test="json.reviewsArray===undefined || json.reviewsArray.length() == 0 ">
+            <div class="profile__warning">Вы не оставили ни одной рецензии.</div>
         </fest:if>
         <fest:for iterate="json.reviewsArray" index="i" value="r">
             <div class="review">
