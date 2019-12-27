@@ -81,11 +81,21 @@
                             <i class="fas fa-star" data-index="4"/>
                         </div>
                     </div>
+                    <fest:if test="film.is_auth">
                     <select name="select" class="button">
                         <option value="value1">не в списке</option>
-                        <option value="value2" class="js-user-list-button">список 1</option>
-
+                        <fest:for iterate="film.lists" index="i" value="l">
+                            <fest:choose>
+                                <fest:when test="l == film.active_list">
+                                    <option value="{l}" class="js-user-list-button" selected>l</option>
+                                </fest:when>
+                                <fest:otherwise>
+                                    <option value="{l}" class="js-user-list-button">l</option>
+                                </fest:otherwise>
+                            </fest:choose>
+                        </fest:for>
                     </select>
+                    </fest:if>
                     <a href="#" class="button">купить билет</a>
                 </div>
             </div>
@@ -101,30 +111,32 @@
                 </div>
             </div>
             <div class="reviews-block">
-                <div class="user-review-block">
-                    <div class="title">Расскажите, что вы думаете о фильме </div>
-                    <form class="form feedback-form">
-                        <div class="feedback-form__top">
-                            <input maxlength="100" class="input feedback-form__title js-title-input"
-                                   type="text" placeholder="Заголовок"/>
-                            <div class="button">
-                                <div class="stars" id="stars2" data-value="0">
-                                    <div class="stars__change">
-                                        изменить оценку?
+                <fest:if test="film.is_auth">
+                    <div class="user-review-block">
+                        <div class="title">Расскажите, что вы думаете о фильме </div>
+                        <form class="form feedback-form">
+                            <div class="feedback-form__top">
+                                <input maxlength="100" class="input feedback-form__title js-title-input"
+                                       type="text" placeholder="Заголовок"/>
+                                <div class="button">
+                                    <div class="stars" id="stars2" data-value="0">
+                                        <div class="stars__change">
+                                            изменить оценку?
+                                        </div>
+                                        <i class="fas fa-star" data-index="0"/>
+                                        <i class="fas fa-star" data-index="1"/>
+                                        <i class="fas fa-star" data-index="2"/>
+                                        <i class="fas fa-star" data-index="3"/>
+                                        <i class="fas fa-star" data-index="4"/>
                                     </div>
-                                    <i class="fas fa-star" data-index="0"/>
-                                    <i class="fas fa-star" data-index="1"/>
-                                    <i class="fas fa-star" data-index="2"/>
-                                    <i class="fas fa-star" data-index="3"/>
-                                    <i class="fas fa-star" data-index="4"/>
                                 </div>
                             </div>
-                        </div>
-                        <textarea rows="8" class="textarea js-text-input" placeholder="Текст рецензии"/>
-                        <input class="button js-review-button" id="js-review-button" type="button" value="Отправить"/>
-                    </form>
-                </div>
-                <div class="hr"/>
+                            <textarea rows="8" class="textarea js-text-input" placeholder="Текст рецензии"/>
+                            <input class="button js-review-button" id="js-review-button" type="button" value="Отправить"/>
+                        </form>
+                    </div>
+                    <div class="hr"/>
+                </fest:if>
                 <div class="feedback-block">
                     <div class="title feedback-block__title">Рецензии:</div>
                     <fest:for iterate="film.reviewarray" index="i" value="r">

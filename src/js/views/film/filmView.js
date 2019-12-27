@@ -29,6 +29,13 @@ export default class FilmView extends View {
             infoOk: false,
         };
 
+        this.params = {
+            is_auth: false,
+            stars: -1,
+            lists: [],
+            active_list: '',
+        };
+
         this.localEventBus.addEventListener('reviewEvent',
             this.onReview.bind(this));
         this.localEventBus.addEventListener('addMyNewReview',
@@ -95,7 +102,9 @@ export default class FilmView extends View {
 
     filmInfoOk(data = {}) {
         this.filmData.infoOk = true;
-        this.filmData = Object.assign(this.filmData, data);
+        this.filmData = Object.assign(this.filmData, data.film);
+        this.params = Object.assign(this.params, data.params);
+        this.filmData = Object.assign(this.filmData, data.params);
         super.render(this.filmData);
 
         setTimeout(starsInit, 500);
