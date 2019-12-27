@@ -66,9 +66,9 @@
                     <div>
                         <fest:value>film.description</fest:value>
                     </div>
-                    <hr/>
                 </div>
                 <div class="film__user-block">
+                    <fest:if test="film.is_auth">
                     <div class="button">
                         <div class="stars" id="stars" data-value="0">
                             <div class="stars__change">
@@ -81,6 +81,7 @@
                             <i class="fas fa-star" data-index="4"/>
                         </div>
                     </div>
+                    </fest:if>
                     <fest:if test="film.is_auth">
                     <select name="select" class="button">
                         <option value="value1">не в списке</option>

@@ -24,17 +24,7 @@ export default class FilmView extends View {
         this.localEventBus = localEventBus;
         this.globalEventBus = globalEventBus;
 
-        this.filmData = {
-            isAuth: false,
-            infoOk: false,
-        };
-
-        this.params = {
-            is_auth: false,
-            stars: -1,
-            lists: [],
-            active_list: '',
-        };
+        this.filmData = {};
 
         this.localEventBus.addEventListener('reviewEvent',
             this.onReview.bind(this));
@@ -50,7 +40,6 @@ export default class FilmView extends View {
             clearError.bind(this));
         this.localEventBus.addEventListener('renderError',
             renderError.bind(this));
-        this.localEventBus.addEventListener('authOK', () => this.authOK());
         this.localEventBus.addEventListener('addFilmToListOK',
             this.addFilmToListOK.bind(this));
     }
@@ -60,12 +49,6 @@ export default class FilmView extends View {
         listButton.classList.add('user-block__button_disabled');
     }
 
-    authOK() {
-        this.filmData.isAuth = true;
-        if (this.filmData.infoOk) {
-            this.filmInfoOk();
-        }
-    }
 
     addReviewFail(errors = {}) {
         this.localEventBus.dispatchEvent('clearError', 'js-review-button');
@@ -101,9 +84,7 @@ export default class FilmView extends View {
 
 
     filmInfoOk(data = {}) {
-        this.filmData.infoOk = true;
         this.filmData = Object.assign(this.filmData, data.film);
-        this.params = Object.assign(this.params, data.params);
         this.filmData = Object.assign(this.filmData, data.params);
         super.render(this.filmData);
 
@@ -166,9 +147,7 @@ export default class FilmView extends View {
      * @param {Object} data
      */
     render(data = {}) {
-        this.localEventBus.dispatchEvent('isAuth');
         this.filmData = {};
-        this.filmData.isAuth = this.globalEventBus.dispatchEvent('isAuth');
         this.localEventBus.dispatchEvent('getFilmInfo', data);
     }
 }
