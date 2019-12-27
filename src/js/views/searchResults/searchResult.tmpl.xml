@@ -44,8 +44,12 @@
             <div class="search-results__title title">Вы искали: <a href="/search?query={params.searchParams.query}">
                 <fest:value>params.searchParams.query</fest:value> </a>
             </div>
+
             <!--<div>666 результатов поиска</div> -->
             <div class="list">
+                <fest:if test="params.filmsArray === undefined || params.filmsArray.length == 0 ">
+                    <div class="profile__warning">По вашему запросу ничего не найдено.</div>
+                </fest:if>
                 <fest:for iterate="params.filmsArray" index="i" value="film">
                     <div class="list__item search-results__film">
                         <div class="search-results__img">

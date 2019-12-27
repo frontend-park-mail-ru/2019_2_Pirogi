@@ -2,6 +2,7 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
     <main class="main">
         <div class="profile">
+            <div class="title"> Ваша страница </div>
             <div class="profile__info"> <!-- to center this section or whatever -->
                 <div>
                 <img class="profile__photo" alt="username" src="/images/users/{params.image}"/>
