@@ -8,6 +8,9 @@
         <input type="button" class="button js-events-button" value="уведомления"/>
     </div>
     <div class="profile__reviews">
+        <fest:if test="json.reviewsArray===[]">
+            Вы не оставили ни одной рецензии.
+        </fest:if>
         <fest:for iterate="json.reviewsArray" index="i" value="r">
             <div class="review">
                 <div class="review__text">
@@ -18,9 +21,14 @@
                     </div>
                 </div>
                 <div class="review__likes">
-                    <fest:value>r.date</fest:value>
+                    <fest:script>
+                        var date = new Date(r.date);
+                        var day = date.getDate();
+                    </fest:script>
+                    <fest:value>day</fest:value>
                 </div>
             </div>
+            <div class="hr"/>
         </fest:for>
         <!--
         <div class="profile__reviews">

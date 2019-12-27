@@ -6,6 +6,9 @@
         <input type="button" class="button js-events-button" value="уведомления"/>
     </div>
     <div class="profile__lists">
+        <fest:if test="json.listsArray===[]">
+            У вас пока нет списков.
+        </fest:if>
         <fest:for iterate="json.listsArray" index="i" value="list">
             <div class="film-list">
                 <div class="title film-list__title">
