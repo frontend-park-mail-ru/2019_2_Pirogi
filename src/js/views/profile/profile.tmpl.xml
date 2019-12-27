@@ -16,9 +16,6 @@
                     </div>
                     <div class="list__item">
                         <div class="hr"></div>
-                        <div>рейтинг на сайте:</div>
-                        <fest:value>params.mark</fest:value>
-                        <div class="hr"></div>
                         <div> рецензий:</div>
                         <fest:value>params.reviews_num</fest:value>
                         <div class="hr"></div>

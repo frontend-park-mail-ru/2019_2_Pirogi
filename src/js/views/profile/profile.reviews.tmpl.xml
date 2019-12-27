@@ -14,7 +14,7 @@
         <fest:for iterate="json.reviewsArray" index="i" value="r">
             <div class="review">
                 <div class="review__text">
-                    <div> К фильму: <a href="/film?filmID={r.film_id}">фильм</a></div>
+                    <div> К фильму: <a href="/film?filmID={r.film_id}"><fest:value>r.film_title</fest:value></a></div>
                     <div class="title"><fest:value>r.title</fest:value></div>
                     <div>
                         <fest:value>r.body</fest:value>
