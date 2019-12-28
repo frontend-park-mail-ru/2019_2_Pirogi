@@ -135,10 +135,7 @@
                                 <input maxlength="100" class="input feedback-form__title js-title-input"
                                        type="text" placeholder="Заголовок"/>
                                 <div class="button">
-                                    <div class="stars" id="stars" data-value="{film.stars}">
-                                        <div class="stars__change">
-                                            изменить оценку?
-                                        </div>
+                                    <div class="stars-review" data-value="{film.stars}">
                                         <i class="fas fa-star" data-index="0"/>
                                         <i class="fas fa-star" data-index="1"/>
                                         <i class="fas fa-star" data-index="2"/>
@@ -169,7 +166,7 @@
                                         <fest:for from="1" to="5" index="st">
                                             <fest:choose>
                                                 <fest:when test="st < r.mark">
-                                                    <i class="fas fa-star star_chosen" data-index="{st}"/>
+                                                    <i class="fas fa-star star_chosen_static" data-index="{st}"/>
                                                 </fest:when>
                                                 <fest:otherwise>
                                                     <i class="fas fa-star" data-index="{st}"/>
