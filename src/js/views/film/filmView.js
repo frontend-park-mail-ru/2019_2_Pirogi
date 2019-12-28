@@ -47,7 +47,7 @@ export default class FilmView extends View {
     }
 
     setStatOK() {
-        console.log("stars ok");
+        console.log('stars ok');
     }
 
     addFilmToListOK() {
@@ -77,25 +77,6 @@ export default class FilmView extends View {
     }
 
     setListeners() {
-        const reviewButton = document.querySelector('.js-review-button');
-        if (reviewButton) {
-            reviewButton.addEventListener('click', () => {
-                this.localEventBus.dispatchEvent('reviewEvent');
-            });
-        }
-
-        const select = document.querySelector('.js-select');
-        if (select) {
-            select.addEventListener('change', this.selectListener.bind(this));
-
-        }
-    }
-
-
-    filmInfoOk(data = {}) {
-        this.filmData = Object.assign(this.filmData, data.film);
-        this.filmData = Object.assign(this.filmData, data.params);
-        super.render(this.filmData);
 
         setTimeout(starsInit, 500);
 
@@ -117,6 +98,26 @@ export default class FilmView extends View {
 
         const stars = document.getElementById('stars');
         observer.observe(stars, config);
+
+        const reviewButton = document.querySelector('.js-review-button');
+        if (reviewButton) {
+            reviewButton.addEventListener('click', () => {
+                this.localEventBus.dispatchEvent('reviewEvent');
+            });
+        }
+
+        const select = document.querySelector('.js-select');
+        if (select) {
+            select.addEventListener('change', this.selectListener.bind(this));
+
+        }
+    }
+
+
+    filmInfoOk(data = {}) {
+        this.filmData = Object.assign(this.filmData, data.film);
+        this.filmData = Object.assign(this.filmData, data.params);
+        super.render(this.filmData);
 
         this.localEventBus.dispatchEvent('getReviews', {
             filmID: this.filmData.id,
