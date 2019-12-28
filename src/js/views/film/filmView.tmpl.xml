@@ -112,7 +112,14 @@
                         </option>
                     </select>
                     </fest:if>
-                    <a href="{film.ticket_link}" class="button">купить билет</a>
+                    <fest:choose>
+                        <fest:when test="film.reviewarray === undefined || film.reviewarray.length === 0">
+                            <a class="button disabled">нет билетов</a>
+                        </fest:when>
+                        <fest:otherwise>
+                            <a href="{film.ticket_link}" class="button">купить билеты</a>
+                        </fest:otherwise>
+                    </fest:choose>
                 </div>
             </div>
             <div class="related-block">
