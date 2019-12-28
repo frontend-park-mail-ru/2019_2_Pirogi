@@ -7,6 +7,9 @@
     </div>
     <div class="profile__events">
         <div class="title profile__title">Ваши уведомления</div>
+        <fest:if test="json.eventsArray===undefined || json.eventsArray.length == 0">
+            <div class="profile__warning">Нет новых уведомлений</div>
+        </fest:if>
         <fest:for iterate="json.eventsArray" index="i" value="event">
             <fest:choose>
                 <fest:when test="event.is_read">
@@ -30,10 +33,13 @@
     </div>
     <div class="profile__subsrcibes">
         <div class="title profile__title">Ваши подписки</div>
+        <fest:if test="json.subscribersArray===undefined || json.subscribersArray.length == 0 ">
+            <div class="profile__warning">Вы ни на кого не подписаны</div>
+        </fest:if>
         <fest:for iterate="json.subscribersArray" index="i" value="sub">
             <div class="film-card">
                 <div class="film-card__img">
-                    <a href="/actor?films&amp;id={sub.id}"></a>
+                    <a href="/actor?films&amp;id={sub.id}"/>
                     <img  src="/images/persons/{sub.image}" alt="{sub.name}"/>
                     <div class="sub__info">
                         <fest:value>sub.name</fest:value>

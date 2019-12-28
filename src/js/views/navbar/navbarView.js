@@ -73,7 +73,7 @@ export default class NavbarView extends View {
                 menu.classList.add('mobile-menu_display');
                 const all = document.querySelector('.all-page');
                 all.classList.add('all-page_display');
-                all.addEventListener('click', this.burgerMenuClose.bind(this));
+                all.addEventListener('touchstart', this.burgerMenuClose.bind(this));
                 const navbar = document.querySelector('.desktop-navbar');
                 navbar.classList.add('navbar_not-pointed');
             } else {
@@ -90,6 +90,7 @@ export default class NavbarView extends View {
         const all = document.querySelector('.all-page_display');
         if (all) {
             all.classList.remove('all-page_display');
+            all.removeEventListener('touchstart', this.burgerMenuClose.bind(this));
         }
         const navbar = document.querySelector('.navbar_not-pointed');
         if (navbar) {

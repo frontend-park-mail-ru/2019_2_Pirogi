@@ -38,15 +38,16 @@ export default class SearchResultsView extends View {
     genresOK(data = {}) {
         this.renderData.genres = data;
 
-        const searchParams = {
-            limit: 8,
-            offset: 0,
-            genres: data[0],
-        };
-        this.localEventBus.dispatchEvent('getResults', searchParams);
+        this.renderData.searchParams.limit = 8;
+        this.renderData.searchParams.offset = 0;
+        if (!this.renderData.searchParams.genres) {
+            this.renderData.searchParams.genres = data[0];
+        }
+        this.localEventBus.dispatchEvent('getResults', this.renderData.searchParams);
     }
 
     doSearch() {
+        this.renderData.filmsArray = [];
         const searchInput = document.getElementById('js-search-input');
         this.renderData.searchParams['query'] = searchInput.value || null;
         const searchForm = document.querySelector('.js-search-form');
@@ -59,8 +60,9 @@ export default class SearchResultsView extends View {
         this.localEventBus.dispatchEvent('getResults', this.renderData.searchParams);
     }
 
+
     resultsOK(data = {}) {
-        this.renderData.filmsArray = data;
+        this.renderData.filmsArray = Array.prototype.concat(this.renderData.filmsArray, data);
 
         super.render(this.renderData);
 
@@ -74,8 +76,17 @@ export default class SearchResultsView extends View {
                 }
             });
         }
-
+        const more = document.querySelector('.js-more-res-button');
+        if (more) {
+            more.addEventListener('click', () => {
+                this.renderData.searchParams.limit += 10;
+                this.renderData.searchParams.offset += 10;
+                this.localEventBus.dispatchEvent('getResults', this.renderData.searchParams);
+            });
+        }
     }
+
+
 
     /**
      * Renders the search results
@@ -100,10 +111,11 @@ export default class SearchResultsView extends View {
             super.render(this.renderData);
             return;
         } else if (data.ratings === 'ratings') {
+            data.order_by = 'mark';
             super.template = ratingtml;
         } else if (data.new === 'new') {
             super.template = template;
-            data.orderby = 'date';
+            data.order_by = 'year';
         } else {
             super.template = template;
 

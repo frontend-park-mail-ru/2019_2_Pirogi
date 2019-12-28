@@ -1,6 +1,15 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="film">
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="film">
     <main class="main">
+        <div class="add-list-popup js-popup">
+            <form class="popup-form">
+                    <div>Введите название нового списка: </div>
+                    <input class="input" id="js-list-input"
+                           name="new_list" type="text" placeholder="Название списка..."/>
+                    <input class="button" id="js-create-list" type="button" value="Создать"/>
+                    <input class="button" id="js-stop-create" value="Отмена"/>
+
+            </form>
+        </div>
         <div class="film-index">
 
             <div class="film">
@@ -15,7 +24,7 @@
                 <div class="film__background"/>
 
                 <iframe class="film__iframe"
-                name="film-iframe"
+                        name="film-iframe"
                         src="https://www.youtube.com/embed/{film.trailer}?autoplay=1&loop=1&fs=0&disablekb=0&enablejsapi=1&&playerapiid=featuredytplayer&controls=0&modestbranding=1&rel=0&showinfo=0&color=white&iv_load_policy=3&theme=light&wmode=transparent&playlist={film.trailer}&mute=1&origin=https://cinsear.ru"
                         frameborder="0"/>
 
@@ -66,27 +75,51 @@
                     <div>
                         <fest:value>film.description</fest:value>
                     </div>
-                    <hr/>
                 </div>
                 <div class="film__user-block">
-                    <div class="button">
-                        <div class="stars" id="stars" data-value="0">
-                            <div class="stars__change">
-                                изменить оценку?
+                    <fest:if test="film.is_auth">
+                        <div class="button">
+                            <div class="stars" id="stars" data-value="0">
+                                <div class="stars__change">
+                                    изменить оценку?
+                                </div>
+                                <i class="fas fa-star" data-index="0"/>
+                                <i class="fas fa-star" data-index="1"/>
+                                <i class="fas fa-star" data-index="2"/>
+                                <i class="fas fa-star" data-index="3"/>
+                                <i class="fas fa-star" data-index="4"/>
                             </div>
-                            <i class="fas fa-star" data-index="0"/>
-                            <i class="fas fa-star" data-index="1"/>
-                            <i class="fas fa-star" data-index="2"/>
-                            <i class="fas fa-star" data-index="3"/>
-                            <i class="fas fa-star" data-index="4"/>
                         </div>
                     </div>
-                    <select name="select" class="button">
+                    </fest:if>-->
+                    <fest:if test="film.is_auth">
+                    <select name="select" class="button js-select">
                         <option value="value1">не в списке</option>
-                        <option value="value2" class="js-user-list-button">список 1</option>
-
+                        <fest:for iterate="film.lists" index="i" value="l">
+                            <fest:choose>
+                                <fest:when test="l == film.active_list">
+                                    <option value="{l}" class="js-user-list-button" selected="true">
+                                        <fest:value>l</fest:value>
+                                    </option>
+                                </fest:when>
+                                <fest:otherwise>
+                                    <option value="{l}" class="js-user-list-button"><fest:value>l</fest:value></option>
+                                </fest:otherwise>
+                            </fest:choose>
+                        </fest:for>
+                        <option value="new_list" class="js-user-list-button">
+                            новый список
+                        </option>
                     </select>
-                    <a href="#" class="button">купить билет</a>
+                    </fest:if>
+                    <fest:choose>
+                        <fest:when test="film.reviewarray === undefined || film.reviewarray.length === 0">
+                            <a class="button disabled">нет билетов</a>
+                        </fest:when>
+                        <fest:otherwise>
+                            <a href="{film.ticket_link}" class="button">купить билеты</a>
+                        </fest:otherwise>
+                    </fest:choose>
                 </div>
             </div>
             <div class="related-block">
@@ -94,50 +127,25 @@
                 <div class="films-bar">
                     <fest:for iterate="film.related" index="i" value="f">
                         <div class="film-bar__card">
-                            <a href="/film?filmID={f.id}"> </a>
-                            <img  src="/images/films/{f.image}" alt="{f.title}"/>
+                            <a href="/film?filmID={f.id}"></a>
+                            <img src="/images/films/{f.image}" alt="{f.title}"/>
                         </div>
                     </fest:for>
                 </div>
             </div>
             <div class="reviews-block">
-                <div class="user-review-block">
-                    <div class="title">Расскажите, что вы думаете о фильме </div>
-                    <form class="form feedback-form">
-                        <div class="feedback-form__top">
-                            <input maxlength="100" class="input feedback-form__title js-title-input"
-                                   type="text" placeholder="Заголовок"/>
-                            <div class="button">
-                                <div class="stars" id="stars2" data-value="0">
-                                    <div class="stars__change">
-                                        изменить оценку?
-                                    </div>
-                                    <i class="fas fa-star" data-index="0"/>
-                                    <i class="fas fa-star" data-index="1"/>
-                                    <i class="fas fa-star" data-index="2"/>
-                                    <i class="fas fa-star" data-index="3"/>
-                                    <i class="fas fa-star" data-index="4"/>
-                                </div>
-                            </div>
-                        </div>
-                        <textarea rows="8" class="textarea js-text-input" placeholder="Текст рецензии"/>
-                        <input class="button js-review-button" id="js-review-button" type="button" value="Отправить"/>
-                    </form>
-                </div>
-                <div class="hr"/>
-                <div class="feedback-block">
-                    <div class="title feedback-block__title">Рецензии:</div>
-                    <fest:for iterate="film.reviewarray" index="i" value="r">
-                        <div class="feedback">
-                            <div class="feedback__photo">
-                                <img class="feedback__img" src="/images/users/{r.author.image}" alt="название фильма"/>
-                            </div>
-                            <div class="feedback__main">
-                                <div><fest:value>r.author.username</fest:value></div>
-                                <div class="title"><fest:value>r.title</fest:value></div>
-                                <div class="feedback__mark">
-                                    Этот пользователь поставил:
-                                    <div class="stars stars_review" data-value="{r.mark}">
+                <fest:if test="film.is_auth">
+                    <div class="user-review-block">
+                        <div class="title">Расскажите, что вы думаете о фильме</div>
+                        <form class="form feedback-form">
+                            <div class="feedback-form__top">
+                                <input maxlength="100" class="input feedback-form__title js-title-input"
+                                       type="text" placeholder="Заголовок"/>
+                                <div class="button">
+                                    <div class="stars stars_review" id="stars" data-value="{film.stars}">
+                                        <div class="stars__change">
+                                            изменить оценку?
+                                        </div>
                                         <i class="fas fa-star" data-index="0"/>
                                         <i class="fas fa-star" data-index="1"/>
                                         <i class="fas fa-star" data-index="2"/>
@@ -145,71 +153,51 @@
                                         <i class="fas fa-star" data-index="4"/>
                                     </div>
                                 </div>
+                            </div>
+                            <textarea rows="8" class="textarea js-text-input" placeholder="Текст рецензии"/>
+                            <input class="button js-review-button" id="js-review-button" type="button"
+                                   value="Отправить"/>
+                        </form>
+                    </div>
+                </fest:if>
+                <div class="feedback-block">
+                    <fest:choose>
+                        <fest:when test="film.reviewarray === undefined || film.reviewarray.length === 0">
+                            <div class="title feedback-block__title">Пока нет рецензий. Станьте первым!</div>
+                        </fest:when>
+                        <fest:otherwise>
+                            <div class="title feedback-block__title">Рецензии</div>
+                        </fest:otherwise>
+                    </fest:choose>
+                    <fest:for iterate="film.reviewarray" index="i" value="r">
+                        <div class="feedback">
+                            <div class="feedback__photo"
+                                 style="background-image: url('/images/users/{r.author.image}')">
+                            </div>
+                            <div class="feedback__main">
+                                <div><fest:value>r.author.username</fest:value></div>
+                                <div class="title"><fest:value>r.title</fest:value></div>
+<!--                                <div class="feedback__mark">-->
+<!--                                    Этот пользователь поставил:-->
+<!--                                    <div class="stars-review" data-value="{r.mark}">-->
+<!--                                        <fest:for from="1" to="5" index="st">-->
+<!--                                            <fest:choose>-->
+<!--                                                <fest:when test="st < r.mark">-->
+<!--                                                    <i class="fas fa-star star_chosen_static" data-index="{st}"/>-->
+<!--                                                </fest:when>-->
+<!--                                                <fest:otherwise>-->
+<!--                                                    <i class="fas fa-star" data-index="{st}"/>-->
+<!--                                                </fest:otherwise>-->
+<!--                                            </fest:choose>-->
+<!--                                        </fest:for>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                                 <div>
                                     <fest:value>r.body</fest:value>
                                 </div>
                             </div>
-
-                        </div>
-                    </fest:for>
-                </div>
-            </div>
-            <!--
-            <div class="user-block">
-                <div class="button user-block__button user-block__button_disabled">Купить билет</div>
-                <div class="button user-block__button js-user-list-button">В список</div>
-                <div class="button user-block__button user-block__button_disabled">
-                    Оценить фильм
-                </div>
-            </div>
-            <fest:if test="film.isAuth">
-                <div class="feedback-form">
-                    <div class="hr"/>
-                    <div class="title">Расскажите что Вы думаете о фильме:</div>
-
-                    <div class="button user-block__button user-block__button_disabled">
-                        <div class="stars" id="stars" data-value="0">
-                            <div class="stars__change">
-                                изменить оценку?
-                            </div>
-                            <i class="fas fa-star" data-index="0"/>
-                            <i class="fas fa-star" data-index="1"/>
-                            <i class="fas fa-star" data-index="2"/>
-                            <i class="fas fa-star" data-index="3"/>
-                            <i class="fas fa-star" data-index="4"/>
-                        </div>
-                    </div>
-                    <form class="form">
-                        <div class="feedback-form__top">
-                            <input maxlength="100" class="input feedback-form__title js-title-input" type="text" placeholder="Заголовок"/>
-                        </div>
-                        <textarea rows="8" class="textarea js-text-input" placeholder="Текст рецензии"/>
-                        <input class="button js-review-button" id="js-review-button" type="button" value="Отправить"/>
-                    </form>
-                </div>
-            </fest:if>
-            <div class="hr"/>
-            <div class="feedback-block">
-                <div class="title feedback-block__title">Рецензии:</div>
-                <fest:for iterate="film.reviewarray" index="i" value="r">
-                    <div class="feedback">
-                        <div class="feedback__mark">
-                            <img class="feedback__img" src="/images/users/{r.author.image}" alt="название фильма"/>
-                        </div>
-                        <div class="feedback__text">
-                            <a href="/user">
-                                <fest:value>r.author.username</fest:value>
-                            </a>
-                            <div class="title">
-                                <fest:value>r.title</fest:value>
-                            </div>
-                            <div>
-                                <fest:value>r.body</fest:value>
-                            </div>
-                        </div>
-                        <div class="feedback__rating user-rating">
-                            <div class="user-rating__text">Этот пользователь поставил:</div>
-                            <div class="user-rating__text">
+                            <div class="feedback__mark">
+                                Этот пользователь поставил:
                                 <div class="stars stars_review" data-value="{r.mark}">
                                     <i class="fas fa-star" data-index="0"/>
                                     <i class="fas fa-star" data-index="1"/>
@@ -219,11 +207,79 @@
                                 </div>
                             </div>
                         </div>
+                    </fest:for>
+                </div>
+                <!--
+                <div class="user-block">
+                    <div class="button user-block__button user-block__button_disabled">Купить билет</div>
+                    <div class="button user-block__button js-user-list-button">В список</div>
+                    <div class="button user-block__button user-block__button_disabled">
+                        Оценить фильм
                     </div>
-                </fest:for>
-            </div> -->
+                </div>
+                <fest:if test="film.isAuth">
+                    <div class="feedback-form">
+                        <div class="hr"/>
+                        <div class="title">Расскажите что Вы думаете о фильме:</div>
+
+                        <div class="button user-block__button user-block__button_disabled">
+                            <div class="stars" id="stars" data-value="0">
+                                <div class="stars__change">
+                                    изменить оценку?
+                                </div>
+                                <i class="fas fa-star" data-index="0"/>
+                                <i class="fas fa-star" data-index="1"/>
+                                <i class="fas fa-star" data-index="2"/>
+                                <i class="fas fa-star" data-index="3"/>
+                                <i class="fas fa-star" data-index="4"/>
+                            </div>
+                        </div>
+                        <form class="form">
+                            <div class="feedback-form__top">
+                                <input maxlength="100" class="input feedback-form__title js-title-input" type="text" placeholder="Заголовок"/>
+                            </div>
+                            <textarea rows="8" class="textarea js-text-input" placeholder="Текст рецензии"/>
+                            <input class="button js-review-button" id="js-review-button" type="button" value="Отправить"/>
+                        </form>
+                    </div>
+                </fest:if>
+                <div class="hr"/>
+                <div class="feedback-block">
+                    <div class="title feedback-block__title">Рецензии:</div>
+                    <fest:for iterate="film.reviewarray" index="i" value="r">
+                        <div class="feedback">
+                            <div class="feedback__mark">
+                                <img class="feedback__img" src="/images/users/{r.author.image}" alt="название фильма"/>
+                            </div>
+                            <div class="feedback__text">
+                                <a href="/user">
+                                    <fest:value>r.author.username</fest:value>
+                                </a>
+                                <div class="title">
+                                    <fest:value>r.title</fest:value>
+                                </div>
+                                <div>
+                                    <fest:value>r.body</fest:value>
+                                </div>
+                            </div>
+                            <div class="feedback__rating user-rating">
+                                <div class="user-rating__text">Этот пользователь поставил:</div>
+                                <div class="user-rating__text">
+                                    <div class="stars stars_review" data-value="{r.mark}">
+                                        <i class="fas fa-star" data-index="0"/>
+                                        <i class="fas fa-star" data-index="1"/>
+                                        <i class="fas fa-star" data-index="2"/>
+                                        <i class="fas fa-star" data-index="3"/>
+                                        <i class="fas fa-star" data-index="4"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fest:for>
+                </div> -->
 
 
+            </div>
         </div>
     </main>
 </fest:template>

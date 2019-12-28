@@ -31,13 +31,16 @@
   input
     margin: $indent/2
   .button
+    margin-top: 2*$indent
     width: max-content
     align-self: center
   .search-form__input
+    width: 100%
     display: flex
     align-items: center
     flex-wrap: wrap
-    justify-content: center
+    justify-content: space-between
+    flex-direction: column
 
 .search-results
   align-self: center
@@ -53,6 +56,8 @@
     display: flex
     flex-direction: column
     align-items: center
+  .button
+    margin-bottom: 2*$indent
 
 .search-results__img
   width: 10vw
@@ -95,10 +100,13 @@
     flex-direction: column
   .search-params
     margin-top: 8*$indent
+    width: auto
     +available
+    position: unset
   .search-form__input
     justify-content: center
   .search-results
+    margin-left: 0
     width: 95%
   .search-results__film
     margin: 2*$indent 0

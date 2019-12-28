@@ -1,7 +1,6 @@
 @import '../../css/variables'
 
 .textarea
-  font-family: $font-light
   color: $color-dark
   background-color: $color-lightest
   font-size: $font-size-small
@@ -15,3 +14,7 @@
     outline: none
     +shadow-dark
     +transition(0.5s)
+
+textarea::placeholder
+  line-height: 1.5
+  font-style: italic

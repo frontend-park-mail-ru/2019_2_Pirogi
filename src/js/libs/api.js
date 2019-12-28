@@ -180,10 +180,10 @@ export default class Api {
         return Network.doGet('/api/reviews/');
     }
 
-    static getList({limit, offset, genres, query, yearmin, yearmax, personsids, persons, countries, orderby, year}) {
+    static getList({limit, offset, genres, query, year_min, year_max, persons_ids, persons, countries, order_by, year, rating_min}) {
         let path = `/api/search?limit=${limit}&offset=${offset}`;
         let data = {
-            genres, query, yearmin, yearmax, personsids, persons, countries, orderby, year
+            genres, query, year_min, year_max, persons_ids, persons, countries, order_by, year, rating_min,
         };
         Object.keys(data).forEach((val) => {
             if (data[val]) {
@@ -235,6 +235,13 @@ export default class Api {
     static updateUsersList({title, filmID}) {
         return Network.doPut('/api/lists', {
             title,
+            film_id: filmID,
+        });
+    }
+
+    static setStars({filmID, stars}) {
+        return Network.doPost('/api/ratings', {
+            stars,
             film_id: filmID,
         });
     }

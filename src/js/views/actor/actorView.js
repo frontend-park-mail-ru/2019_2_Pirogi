@@ -2,8 +2,6 @@ import View from '../../libs/view.js';
 import template from './actorView.tmpl.xml';
 import EventBus from '../../libs/eventBus';
 import filmsTMPL from './actor.films.tmpl.xml';
-import photoTMPL from './actor.photo.tmpl.xml';
-import awardsTMPL from './actor.awards.tmpl.xml';
 
 
 /**
@@ -23,7 +21,7 @@ export default class ActorView extends View {
 
         this.localEventBus = localEventBus;
         this.globalEvetBus = globalEventBus;
-        this.localTmpl = photoTMPL;
+        this.localTmpl = filmsTMPL;
         this.tmplData  = {
             films: '',
             awards: '',
@@ -73,19 +71,14 @@ export default class ActorView extends View {
     }
 
     chooseWall() {
-        if (this.tmplData.photo === 'photo') {
-            this.localTmpl = photoTMPL;
-        } else if (this.tmplData.awards === 'awards') {
-            this.localTmpl = awardsTMPL;
-        } else {
-            this.tmplData.films = 'films';
-            this.localTmpl = filmsTMPL;
-            this.localEventBus.dispatchEvent('getFilmList',{
-                limit:10,
-                offset: 0,
-                personsids: this.actorData.person.id
-            });
-        }
+       
+        this.tmplData.films = 'films';
+        this.localTmpl = filmsTMPL;
+        this.localEventBus.dispatchEvent('getFilmList',{
+            persons_ids: this.actorData.person.id,
+            order_by: 'year'
+        });
+
     }
 
     actorInfoOk(data = {}) {
@@ -125,16 +118,16 @@ export default class ActorView extends View {
      * @param {Object} data
      */
     render(data = {}) {
-        if ( data.id === this.tmplData.id && document.querySelector('.js-actor-wall')) {
+        /*if ( data.id === this.tmplData.id && document.querySelector('.js-actor-wall')) {
             this.tmplData = data;
             this.chooseWall();
             this.renderWall();
             return;
-
-        }
+        }*/
         this.tmplData = data;
 
         super.render(this.actorData.person);
+        this.renderWall();
 
         this.addListenersForSubscribe();
         this.localEventBus.dispatchEvent('getActorInfo', data);

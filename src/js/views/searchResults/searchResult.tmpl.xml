@@ -18,8 +18,8 @@
                 <div class="search-form__input">
                     <div>Рейтинг от: </div>
                     <input class="input" id="js-ratingmin-input"
-                           name="ratingmin" type="text" placeholder="3"
-                           value="{params.searchParams.ratingmin}"/>
+                           name="rating_min" type="text" placeholder="3"
+                           value="{params.searchParams.rating_min}"/>
                 </div>
                 <div class="search-form__input">
                     <div>Cтраны: </div>
@@ -30,12 +30,12 @@
                 <div class="search-form__input">
                     <div>Год от </div>
                     <input class="input" id="js-yearmin-input"
-                           name="yearmin" type="text" placeholder="1997"
-                           value="{params.searchParams.yearmin}"/>
+                           name="year_min" size="3" type="text" placeholder="1997"
+                           value="{params.searchParams.year_min}"/>
                     <div>до </div>
                     <input class="input" id="js-yearmax-input"
-                           name="yearmax" type="text" placeholder="2015"
-                           value="{params.searchParams.yearmax}"/>
+                           name="year_max" size="3" type="text" placeholder="2015"
+                           value="{params.searchParams.year_max}"/>
                 </div>
             </form>
             <input class="button" id="js-search-params" type="button" value="Применить"/>
@@ -44,8 +44,12 @@
             <div class="search-results__title title">Вы искали: <a href="/search?query={params.searchParams.query}">
                 <fest:value>params.searchParams.query</fest:value> </a>
             </div>
+
             <!--<div>666 результатов поиска</div> -->
             <div class="list">
+                <fest:if test="params.filmsArray === undefined || params.filmsArray.length == 0 ">
+                    <div class="profile__warning">По вашему запросу ничего не найдено.</div>
+                </fest:if>
                 <fest:for iterate="params.filmsArray" index="i" value="film">
                     <div class="list__item search-results__film">
                         <div class="search-results__img">
@@ -64,7 +68,7 @@
                                     </fest:if>
                                 </fest:for>
                             </div>
-                            <div>Год:<a href="search?yearmin={film.year}&amp;yearmax={film.year}">
+                            <div>Год:<a href="search?year_min={film.year}&amp;year_max={film.year}">
                                 <fest:value>" " + film.year</fest:value>
                             </a></div>
                             <div>Актеры:
@@ -84,6 +88,7 @@
                     </div>
                 </fest:for>
             </div>
+            <div class="button js-more-res-button"> Еще результаты </div>
         </div>
 
     </div>

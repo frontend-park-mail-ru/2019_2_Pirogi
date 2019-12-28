@@ -25,55 +25,90 @@
 
 .trailers-bar__list
   text-align: center
+  padding-right: 10px
+
   .title
     font-size: $font-size-large
     width: 100%
     background-color: $color-darkest
     padding: 2*$indent 0
     color: $color-lightest
+    position: relative
+    z-index: 2
+    +shadow-dark
+
   .button
     width: 100%
     padding: 2*$indent $indent
     +available
     border-radius: 0
-    border: 0
+    border-top: 0.2px solid $color-accent
+    border-bottom: 0.2px solid $color-accent
+
+    &:first-of-type
+      border-top: 0
+      z-index: 1
+
+    &:last-of-type
+      border-bottom: 1px solid $color-darkest
+      border-radius: 0 0 10px 10px
+
+    &:hover
+      border-right: 1px solid $color-darkest
+      border-left: 1px solid $color-darkest
+
   .button_active
     background-color: $color-accent
     color: $color-lightest
     pointer-events: none
     user-select: none
+
     &:hover
       background-color: $color-accent
       color: $color-lightest
 
 .film-card
-  margin-right: 5*$indent
   text-align: center
   position: relative
+  margin: 10px 5*$indent 10px 10px
+  width: 15vw
+  +shadow-dark
+  border-radius: 2.5*$indent
+  height: 23vw
+
+
+  .film-card__img-container
+    border-radius: 2.5*$indent
+    height: 100%
+    width: 100%
+    overflow: hidden
+
   &:last-of-type
     margin-right: 0
+
   .film-card__img
-    width: 15vw
-    overflow: hidden
     display: flex
-    border-radius: 2.5*$indent
+
     a
       position: absolute
       width: 100%
       height: 100%
+
     img
       height: 23vw
-      +shadow-dark
+
     .title
       padding: $indent 0
+      width: 100%
       margin: auto
       font-size: $font-size-medium
       background-color: $color-light
       position: absolute
       bottom: 0
       opacity: 0
-      &:hover
-        opacity: 1
+      border-radius: 0 0 2.5*$indent 2.5*$indent
+      +transition(0.5s)
+
     &:hover
       .title
         opacity: 1
@@ -86,27 +121,39 @@
   display: flex
   padding-bottom: $indent
   overflow-x: scroll
+
 .film-bar__card
   margin-right: 3*$indent
   position: relative
   height: 16vw
+
   a
     position: absolute
     width: 100%
     height: 100%
+
   img
     height: 16vw
     border-radius: 2*$indent
     +shadow-dark
+
   &:last-of-type
     margin-right: 0
+
   &:hover
-    +shadow-dark
+    img
+      +shadow-dark
     +transition(0.5s)
 
 .trailers-bar__list
   width: 20%
+
+  .title
+    border-radius: 10px 10px 0 0
+
 .trailers-bar
+  padding: 10px
+  border-radius: 10px
   margin: 4*$indent
   display: flex
   height: 42vw
@@ -117,9 +164,12 @@
 .trailers-bar__trailer
   width: 100%
   background-color: $color-accent
+  border-radius: 10px
+
   iframe
     width: 100%
     height: 100%
+    border-radius: 10px
 
 .trailers-bar__scroll
   text-align: center
@@ -127,6 +177,7 @@
   flex-direction: column
   overflow-y: scroll
   height: 38vw
+
 
 @media screen and (max-width: 1000px) and (orientation: portrait)
   .js-append-tmpl
@@ -145,16 +196,21 @@
     justify-content: center
   .film-card
     margin: 2*$indent $indent
+
     .title
       font-size: 0.8*$font-size-small
       opacity: 1
+
     .film-card__img
       width: 20vh
       display: flex
       justify-content: center
+
       img
         height: 30vh
+
     &:hover
+      box-shadow: 0 0 10px 4px $color-darkest-75
       transform: none
       +transition(0.5s)
   .films-bar
@@ -168,13 +224,16 @@
     overflow: hidden
     display: flex
     justify-content: center
+
     img
       height: 30vh
   .trailers-bar__list
     width: 100%
+
     .button
       font-size: $font-size-small
       padding: $indent 0
+
   .trailers-bar
     display: unset
     width: 100%
