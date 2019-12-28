@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
     <main class="main">
+        <div class="page-title title"> Актер <fest:value>" " + params.name</fest:value> </div>
         <div class="actor">
             <div class="actor__info"> <!-- to center this section or whatever -->
                 <div>

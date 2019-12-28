@@ -208,6 +208,7 @@ export default class ProfileView extends View {
     }
 
     addListenersForBar() {
+        this.editButton = document.querySelector('.js-edit-button');
         this.editButton.addEventListener('click', () => {
             this.onEditButtonClicked();
         });

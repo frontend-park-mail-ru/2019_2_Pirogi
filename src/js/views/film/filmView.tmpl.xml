@@ -1,5 +1,15 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="film">
     <main class="main">
+        <div class="add-list-popup js-popup">
+            <form class="popup-form">
+                    <div>Введите название нового списка: </div>
+                    <input class="input" id="js-list-input"
+                           name="new_list" type="text" placeholder="Название списка..."/>
+                    <input class="button" id="js-create-list" type="button" value="Создать"/>
+                    <input class="button" id="js-stop-create" value="Отмена"/>
+
+            </form>
+        </div>
         <div class="film-index">
 
             <div class="film">
@@ -80,23 +90,29 @@
                                 <i class="fas fa-star" data-index="4"/>
                             </div>
                         </div>
-                    </fest:if>
+                    </div>
+                    </fest:if>-->
                     <fest:if test="film.is_auth">
-                        <select name="select" class="button">
-                            <option value="value1">не в списке</option>
-                            <fest:for iterate="film.lists" index="i" value="l">
-                                <fest:choose>
-                                    <fest:when test="l == film.active_list">
-                                        <option value="{l}" class="js-user-list-button" selected="true">l</option>
-                                    </fest:when>
-                                    <fest:otherwise>
-                                        <option value="{l}" class="js-user-list-button">l</option>
-                                    </fest:otherwise>
-                                </fest:choose>
-                            </fest:for>
-                        </select>
+                    <select name="select" class="button js-select">
+                        <option value="value1">не в списке</option>
+                        <fest:for iterate="film.lists" index="i" value="l">
+                            <fest:choose>
+                                <fest:when test="l == film.active_list">
+                                    <option value="{l}" class="js-user-list-button" selected="true">
+                                        <fest:value>l</fest:value>
+                                    </option>
+                                </fest:when>
+                                <fest:otherwise>
+                                    <option value="{l}" class="js-user-list-button"><fest:value>l</fest:value></option>
+                                </fest:otherwise>
+                            </fest:choose>
+                        </fest:for>
+                        <option value="new_list" class="js-user-list-button">
+                            новый список
+                        </option>
+                    </select>
                     </fest:if>
-                    <a href="#" class="button">купить билет</a>
+                    <a href="{film.ticket_link}" class="button">купить билет</a>
                 </div>
             </div>
             <div class="related-block">
@@ -119,7 +135,7 @@
                                 <input maxlength="100" class="input feedback-form__title js-title-input"
                                        type="text" placeholder="Заголовок"/>
                                 <div class="button">
-                                    <div class="stars" id="stars2" data-value="0">
+                                    <div class="stars stars_review" id="stars" data-value="{film.stars}">
                                         <div class="stars__change">
                                             изменить оценку?
                                         </div>
@@ -152,11 +168,22 @@
                                  style="background-image: url('/images/users/{r.author.image}')">
                             </div>
                             <div class="feedback__main">
-                                <div>
-                                    <fest:value>r.author.username</fest:value>
-                                </div>
-                                <div class="title">
-                                    <fest:value>r.title</fest:value>
+                                <div><fest:value>r.author.username</fest:value></div>
+                                <div class="title"><fest:value>r.title</fest:value></div>
+                                <div class="feedback__mark">
+                                    Этот пользователь поставил:
+                                    <div class="stars-review" data-value="{r.mark}">
+                                        <fest:for from="1" to="5" index="st">
+                                            <fest:choose>
+                                                <fest:when test="st < r.mark">
+                                                    <i class="fas fa-star star_chosen_static" data-index="{st}"/>
+                                                </fest:when>
+                                                <fest:otherwise>
+                                                    <i class="fas fa-star" data-index="{st}"/>
+                                                </fest:otherwise>
+                                            </fest:choose>
+                                        </fest:for>
+                                    </div>
                                 </div>
                                 <div>
                                     <fest:value>r.body</fest:value>
