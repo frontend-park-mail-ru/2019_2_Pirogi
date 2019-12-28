@@ -177,21 +177,21 @@
                             <div class="feedback__main">
                                 <div><fest:value>r.author.username</fest:value></div>
                                 <div class="title"><fest:value>r.title</fest:value></div>
-                                <div class="feedback__mark">
-                                    Этот пользователь поставил:
-                                    <div class="stars-review" data-value="{r.mark}">
-                                        <fest:for from="1" to="5" index="st">
-                                            <fest:choose>
-                                                <fest:when test="st < r.mark">
-                                                    <i class="fas fa-star star_chosen_static" data-index="{st}"/>
-                                                </fest:when>
-                                                <fest:otherwise>
-                                                    <i class="fas fa-star" data-index="{st}"/>
-                                                </fest:otherwise>
-                                            </fest:choose>
-                                        </fest:for>
-                                    </div>
-                                </div>
+<!--                                <div class="feedback__mark">-->
+<!--                                    Этот пользователь поставил:-->
+<!--                                    <div class="stars-review" data-value="{r.mark}">-->
+<!--                                        <fest:for from="1" to="5" index="st">-->
+<!--                                            <fest:choose>-->
+<!--                                                <fest:when test="st < r.mark">-->
+<!--                                                    <i class="fas fa-star star_chosen_static" data-index="{st}"/>-->
+<!--                                                </fest:when>-->
+<!--                                                <fest:otherwise>-->
+<!--                                                    <i class="fas fa-star" data-index="{st}"/>-->
+<!--                                                </fest:otherwise>-->
+<!--                                            </fest:choose>-->
+<!--                                        </fest:for>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                                 <div>
                                     <fest:value>r.body</fest:value>
                                 </div>
