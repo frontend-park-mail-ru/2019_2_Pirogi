@@ -38,12 +38,12 @@ export default class SearchResultsView extends View {
     genresOK(data = {}) {
         this.renderData.genres = data;
 
-        const searchParams = {
-            limit: 8,
-            offset: 0,
-            genres: data[0],
-        };
-        this.localEventBus.dispatchEvent('getResults', searchParams);
+        this.renderData.searchParams.limit = 8;
+        this.renderData.searchParams.offset = 0;
+        if (!this.renderData.searchParams.genres) {
+            this.renderData.searchParams.genres = data[0];
+        }
+        this.localEventBus.dispatchEvent('getResults', this.renderData.searchParams);
     }
 
     doSearch() {
