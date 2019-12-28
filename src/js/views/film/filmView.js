@@ -45,8 +45,7 @@ export default class FilmView extends View {
     }
 
     addFilmToListOK() {
-        super.render(this.filmData);
-        this.setListeners();
+        this.localEventBus.dispatchEvent('getFilmInfo', this.filmData);
         /*const popup = document.querySelector('.js-popup');
         if (popup.classList.contains('popup_display')) {
             popup.classList.remove('popup_display');

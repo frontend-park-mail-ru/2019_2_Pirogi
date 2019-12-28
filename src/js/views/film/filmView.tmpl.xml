@@ -98,10 +98,12 @@
                         <fest:for iterate="film.lists" index="i" value="l">
                             <fest:choose>
                                 <fest:when test="l == film.active_list">
-                                    <option value="{l}" class="js-user-list-button" selected="true">l</option>
+                                    <option value="{l}" class="js-user-list-button" selected="true">
+                                        <fest:value>l</fest:value>
+                                    </option>
                                 </fest:when>
                                 <fest:otherwise>
-                                    <option value="{l}" class="js-user-list-button">l</option>
+                                    <option value="{l}" class="js-user-list-button"><fest:value>l</fest:value></option>
                                 </fest:otherwise>
                             </fest:choose>
                         </fest:for>
