@@ -72,8 +72,7 @@
       position: absolute
       bottom: 0
       opacity: 0
-      &:hover
-        opacity: 1
+      border-radius: 2.5*$indent
     &:hover
       .title
         opacity: 1
@@ -101,7 +100,8 @@
   &:last-of-type
     margin-right: 0
   &:hover
-    +shadow-dark
+    img
+      +shadow-dark
     +transition(0.5s)
 
 .trailers-bar__list
