@@ -240,7 +240,7 @@ export default class Api {
     }
 
     static setStars({filmID, stars}) {
-        return Network.doPost('api/ratings', {
+        return Network.doPost('/api/ratings', {
             stars,
             film_id: filmID,
         });
