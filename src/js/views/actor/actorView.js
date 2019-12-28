@@ -75,9 +75,7 @@ export default class ActorView extends View {
         this.tmplData.films = 'films';
         this.localTmpl = filmsTMPL;
         this.localEventBus.dispatchEvent('getFilmList',{
-            limit:10,
-            offset: 0,
-            personsids: this.actorData.person.id,
+            persons_ids: this.actorData.person.id,
             order_by: 'year'
         });
 
