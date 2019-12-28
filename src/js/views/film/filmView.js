@@ -45,8 +45,12 @@ export default class FilmView extends View {
     }
 
     addFilmToListOK() {
-        const listButton = document.querySelector('.js-user-list-button');
-        listButton.classList.add('user-block__button_disabled');
+        super.render(this.filmData);
+        this.setListeners();
+        /*const popup = document.querySelector('.js-popup');
+        if (popup.classList.contains('popup_display')) {
+            popup.classList.remove('popup_display');
+        }*/
     }
 
 
@@ -63,22 +67,22 @@ export default class FilmView extends View {
 
     reviewsOk(data = {}) {
         this.filmData.reviewarray = data;
-
         super.render(this.filmData);
+        this.setListeners();
+    }
+
+    setListeners() {
         const reviewButton = document.querySelector('.js-review-button');
         if (reviewButton) {
             reviewButton.addEventListener('click', () => {
                 this.localEventBus.dispatchEvent('reviewEvent');
             });
         }
-        const listButton = document.querySelector('.js-user-list-button');
-        if (listButton) {
-            listButton.addEventListener('click', () => {
-                this.localEventBus.dispatchEvent('addFilmToUserList', {
-                    title: 'myList',
-                    filmID:  this.filmData.id,
-                });
-            });
+
+        const select = document.querySelector('.js-select');
+        if (select) {
+            select.addEventListener('change', this.selectListener.bind(this));
+
         }
     }
 
@@ -90,26 +94,38 @@ export default class FilmView extends View {
 
         setTimeout(starsInit, 500);
 
-        const reviewButton = document.querySelector('.js-review-button');
-        if (reviewButton) {
-            reviewButton.addEventListener('click', () => {
-                this.localEventBus.dispatchEvent('reviewEvent');
-            });
-        }
-
         this.localEventBus.dispatchEvent('getReviews', {
             filmID: this.filmData.id,
             limit: 10,
             offset: 0,
         });
+        this.setListeners();
+    }
 
-        const listButton = document.querySelector('.js-user-list-button');
-        if (listButton) {
-            listButton.addEventListener('click', () => {
+
+    selectListener() {
+        const select = document.querySelector('.js-select');
+        if (select.value === 'new_list') {
+            const popup = document.querySelector('.js-popup');
+            popup.classList.add('popup_display');
+
+            const create = document.getElementById('js-create-list');
+            create.addEventListener('click', () => {
+                const input = document.getElementById('js-list-input');
                 this.localEventBus.dispatchEvent('addFilmToUserList', {
-                    title: 'myList',
+                    title: input.value || null,
                     filmID:  this.filmData.id,
                 });
+            });
+            const close = document.getElementById('js-stop-create');
+            close.addEventListener('click', () => {
+                popup.classList.remove('popup_display');
+                select.options[select.selectedIndex].selected = false;
+            });
+        } else {
+            this.localEventBus.dispatchEvent('addFilmToUserList', {
+                title: select.value || null,
+                filmID:  this.filmData.id,
             });
         }
     }
@@ -148,6 +164,8 @@ export default class FilmView extends View {
      */
     render(data = {}) {
         this.filmData = {};
+        //super.render({is_auth:true});
+        //this.setListeners()
         this.localEventBus.dispatchEvent('getFilmInfo', data);
     }
 }

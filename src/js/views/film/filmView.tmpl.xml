@@ -1,6 +1,16 @@
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="film">
+
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="film">
     <main class="main">
+        <div class="add-list-popup js-popup">
+            <form class="popup-form">
+                    <div>Введите название нового списка: </div>
+                    <input class="input" id="js-list-input"
+                           name="new_list" type="text" placeholder="Название списка..."/>
+                    <input class="button" id="js-create-list" type="button" value="Создать"/>
+                    <input class="button" id="js-stop-create" value="Отмена"/>
+
+            </form>
+        </div>
         <div class="film-index">
 
             <div class="film">
@@ -83,7 +93,7 @@
                     </div>
                     </fest:if>
                     <fest:if test="film.is_auth">
-                    <select name="select" class="button">
+                    <select name="select" class="button js-select">
                         <option value="value1">не в списке</option>
                         <fest:for iterate="film.lists" index="i" value="l">
                             <fest:choose>
@@ -95,6 +105,9 @@
                                 </fest:otherwise>
                             </fest:choose>
                         </fest:for>
+                        <option value="new_list" class="js-user-list-button">
+                            новый список
+                        </option>
                     </select>
                     </fest:if>
                     <a href="#" class="button">купить билет</a>
