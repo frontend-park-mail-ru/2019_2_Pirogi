@@ -23,7 +23,7 @@
                                 </fest:if>
                             </fest:for>
                         </div>
-                        <div>Год:<a href="search?yearmin={film.year}&amp;yearmax={film.year}">
+                        <div>Год:<a href="search?year_min={film.year}&amp;year_max={film.year}">
                             <fest:value>" " + film.year</fest:value>
                         </a></div>
                         <div>Актеры:
