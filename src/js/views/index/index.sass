@@ -33,6 +33,9 @@
     background-color: $color-darkest
     padding: 2*$indent 0
     color: $color-lightest
+    position: relative
+    z-index: 2
+    +shadow-dark
 
   .button
     width: 100%
@@ -44,6 +47,7 @@
 
     &:first-of-type
       border-top: 0
+      z-index: 1
 
     &:last-of-type
       border-bottom: 1px solid $color-darkest
