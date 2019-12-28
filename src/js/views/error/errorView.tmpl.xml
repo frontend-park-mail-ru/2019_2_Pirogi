@@ -6,7 +6,7 @@
             <br/>
             Извините.
         </div>
-        <a href="/">Вернуться на
+        <a href="/" class="error__back-link">Вернуться на
             главную
         </a>
     </div>
