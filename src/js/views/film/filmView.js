@@ -85,7 +85,7 @@ export default class FilmView extends View {
             if (stars.getAttribute('data-value') !== '0') {
                 this.localEventBus.dispatchEvent('setStar', {
                     filmID: this.filmData.id,
-                    stars: stars.getAttribute('data-value')
+                    stars: parseInt(stars.getAttribute('data-value')),
                 });
             }
         };
