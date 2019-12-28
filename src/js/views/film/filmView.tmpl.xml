@@ -166,11 +166,16 @@
                                 <div class="feedback__mark">
                                     Этот пользователь поставил:
                                     <div class="stars stars_review" data-value="{r.mark}">
-                                        <i class="fas fa-star" data-index="0"/>
-                                        <i class="fas fa-star" data-index="1"/>
-                                        <i class="fas fa-star" data-index="2"/>
-                                        <i class="fas fa-star" data-index="3"/>
-                                        <i class="fas fa-star" data-index="4"/>
+                                        <fest:for from="1" to="5" index="st">
+                                            <fest:choose>
+                                                <fest:when test="st < r.mark">
+                                                    <i class="fas fa-star star_chosen" data-index="{st}"/>
+                                                </fest:when>
+                                                <fest:otherwise>
+                                                    <i class="fas fa-star" data-index="{st}"/>
+                                                </fest:otherwise>
+                                            </fest:choose>
+                                        </fest:for>
                                     </div>
                                 </div>
                                 <div>

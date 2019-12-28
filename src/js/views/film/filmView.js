@@ -42,6 +42,12 @@ export default class FilmView extends View {
             renderError.bind(this));
         this.localEventBus.addEventListener('addFilmToListOK',
             this.addFilmToListOK.bind(this));
+        this.localEventBus.addEventListener('setStarOK',
+            this.setStatOK.bind(this));
+    }
+
+    setStatOK() {
+        console.log("stars ok");
     }
 
     addFilmToListOK() {
@@ -92,6 +98,25 @@ export default class FilmView extends View {
         super.render(this.filmData);
 
         setTimeout(starsInit, 500);
+
+        const callback = () => {
+            const stars = document.getElementById('stars');
+            if (stars.getAttribute('data-value') !== '0') {
+                this.localEventBus.dispatchEvent('setStar', {
+                    filmID: this.filmData.id,
+                    stars: stars.getAttribute('data-value')
+                });
+            }
+        };
+
+        const observer = new MutationObserver(callback);
+
+        const config = {
+            attributes: true
+        };
+
+        const stars = document.getElementById('stars');
+        observer.observe(stars, config);
 
         this.localEventBus.dispatchEvent('getReviews', {
             filmID: this.filmData.id,

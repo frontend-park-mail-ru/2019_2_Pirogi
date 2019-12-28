@@ -27,6 +27,17 @@ export default class FilmModel {
 
         this.localEventBus.addEventListener('addFilmToUserList',
             this.addFilmToUserList.bind(this));
+        this.localEventBus.addEventListener('setStar',
+            this.setStar.bind(this));
+    }
+
+    setStar(data = {}) {
+        Api.setStars(data)
+            .then((res) => {
+                if (res.ok) {
+                    this.localEventBus.dispatchEvent('setStarOK');
+                }
+            });
     }
 
     addFilmToUserList(data = {}) {

@@ -238,5 +238,12 @@ export default class Api {
             film_id: filmID,
         });
     }
+
+    static setStars({filmID, stars}) {
+        return Network.doPost('api/ratings', {
+            stars,
+            film_id: filmID,
+        });
+    }
 }
 
