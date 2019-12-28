@@ -88,6 +88,7 @@
                     </div>
                 </fest:for>
             </div>
+            <div class="button js-more-res-button"> Еще результаты <div>
         </div>
 
     </div>
