@@ -19,8 +19,10 @@
 
   justify-content: center
   position: relative
+
   a
     color: $color-accent
+
     &:hover
       color: $color-lightest
 
@@ -30,6 +32,8 @@
   height: 100%
   position: absolute
   z-index: 5
+  margin-top: 0 !important
+
 
 .film__iframe
   position: absolute
@@ -47,20 +51,24 @@
   margin: 2*$indent 0
   height: 50vh
   position: relative
+
   .posters__img
     position: absolute
     z-index: 10
     +shadow-light
+
   .posters__img_left
     opacity: 0.5
     left: 0
     width: 25vh
     height: 40vh
+
   .posters__img_right
     opacity: 0.5
     right: 0
     width: 25vh
     height: 40vh
+
   .posters__img_active
     top: 50%
     left: 50%
@@ -79,7 +87,10 @@
   flex-direction: column
   text-align: left
   z-index: 10
+  padding: 10px
+  border-radius: 20px
   background-color: $color-darkest-50
+
   .film__decription_main
     font-family: $font-medium
 
@@ -95,6 +106,7 @@
   +shadow-dark
   align-items: center
   justify-content: space-evenly
+
   .button
     background-color: $color-accent
     color: $color-lightest
@@ -102,6 +114,12 @@
     text-align: center
     justify-content: center
     +available
+
+  select.button
+    text-align-last: center
+    -webkit-appearance: none
+    padding: 10px
+
   .user-block__button_disabled
     opacity: 0.5
 
@@ -112,43 +130,59 @@
   width: 80%
   background-color: $color-light
   +shadow-dark
+  position: relative
+  z-index: 2
+  border-radius: 0 0 20px 20px
+  margin-bottom: 20px
+
 
 .user-review-block
   margin: 4*$indent
   padding: 2*$indent
   display: flex
+  border-radius: 20px
   flex-direction: column
   width: 70%
   +shadow-dark
   align-self: center
   align-items: center
+
   .button
     width: auto
     align-self: center
+
   .title
     align-self: center
+    margin: 20px 0
     width: auto
 
 
 .related-block
   +available
   padding: 4*$indent
+  background-color: $color-light
+  position: relative
+  z-index: 3
   +shadow-dark
 
 
 .feedback-form
   margin: $indent 0
+
   .feedback-form__top
     width: 100%
     display: flex
     align-items: center
     justify-content: space-between
+
   .feedback-form__title
     width: 100%
     margin: 0
     padding: 10px 15px
+
   .title
     margin-top: 4*$indent
+
   .form
     margin-bottom: 2*$indent
 
@@ -158,15 +192,20 @@
 
 .feedback__main
   padding: 2*$indent
+
   *
     margin: $indent 0
     display: flex
 
 .feedback__mark
   display: flex
-  flex-direction: row
-  height: 3em
+  flex-direction: column
   align-items: center
+  justify-content: center
+  padding-right: 20px
+
+  .stars
+    margin-top: 5px
 
 
 .title *
@@ -175,6 +214,7 @@
 .film__star
   color: $color-dark
   +transition(0.5s)
+
   &:hover
     +transition(0.5s)
     color: $color-yellow
@@ -187,17 +227,18 @@
   margin: 2*$indent 0
   +shadow-dark
 
-  .feedback__img
-    width: 17vh
-    height: 20vh
-    min-width: 10vw
-    min-height: 13vw
+.feedback__img
+  width: 17vh
+  height: 20vh
+  min-width: 10vw
+  min-height: 13vw
 
 .feedback-block
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
+
 .feedback-block__title
   text-align: center
 
@@ -205,9 +246,11 @@
   position: relative
   display: flex
   margin: 0
+
   i
     -webkit-transition: 0.3s
     margin: 0
+
     &:hover
       cursor: pointer
 
@@ -240,8 +283,10 @@
 
 .stars_review i
   color: $color-dark
+
 .opacity-0
   opacity: 0
+
 .opacity-1
   opacity: 1
 
@@ -261,50 +306,85 @@
     width: 90%
     flex-direction: column
     height: auto
+
     .button
       margin: $indent
   .film
     flex-direction: column
+
     *
       text-align: start
   .related-block
     .film-bar__card
       height: 13vh
       width: 10vh
+
       img
         height: 13vh
   .feedback-form
     .feedback-form__top
       width: unset
       flex-direction: column
+
     .feedback-form__title
       width: unset
   .user-review-block
     width: unset
     margin: 0
+    border-radius: 20px
   .feedback
     width: 100%
     flex-direction: column
+
     *
       text-align: start
+
     .title
       font-size: $font-size-medium
     +shadow-dark
+
     .feedback__img
       width: 10vh
       height: 12vh
+
     .feedback__mark
       display: none
+
     .feedback__text
       display: unset
+
       img
         display: unset
         float: left
         margin: 2*$indent
       width: unset
+
     .feedback__rating
       width: unset
   .feedback__text *
     margin: 10px 0
   .feedback-form
     width: 80%
+
+
+//    сорри за беспорядок, тут Артем писал в ночь перед защитой
+
+.feedback-block
+  background-color: $color-darkest
+  color: $color-light
+  border-radius: 0 0 20px 20px
+
+.feedback-block__title
+  color: $color-light
+  margin: 20px 0 0
+
+.feedback
+  background-color: $color-light
+  border-radius: 20px
+  +shadow-light
+  justify-content: space-between
+
+.feedback__photo
+  background-size: cover
+  width: 15vw
+  border-radius: 20px 0 0 20px
