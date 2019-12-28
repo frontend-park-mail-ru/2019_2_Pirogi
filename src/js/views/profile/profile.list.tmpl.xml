@@ -6,6 +6,9 @@
         <input type="button" class="button js-events-button" value="уведомления"/>
     </div>
     <div class="profile__lists">
+        <fest:if test="json.listsArray === undefined || json.listsArray.length == 0 ">
+            <div class="profile__warning">У вас пока нет списков.</div>
+        </fest:if>
         <fest:for iterate="json.listsArray" index="i" value="list">
             <div class="film-list">
                 <div class="title film-list__title">
@@ -13,7 +16,7 @@
                 </div>
                 <fest:for iterate="list.films" index="j" value="film">
                     <fest:choose>
-                        <fest:when test="j%2">
+                        <fest:when test="j%2 == 1 ">
                             <div class="film-list__item film-list__item_rose">
                                 <a href="/film?filmID={film.id}">
                                     <fest:value>film.title</fest:value>
@@ -21,7 +24,7 @@
                             </div>
                         </fest:when>
                         <fest:otherwise>
-                            <div class="film-list__item film-list__item_rose">
+                            <div class="film-list__item ">
                                 <a href="/film?filmID={film.id}">
                                     <fest:value>film.title</fest:value>
                                 </a>

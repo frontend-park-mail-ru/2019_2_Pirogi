@@ -184,6 +184,8 @@ export default class ProfileView extends View {
     }
     reviewsGood(data = {}) {
         if (this.localTmpl === reviewsTmpl) {
+            this.userData.reviews_num = data.length;
+            super.render(this.userData);
             this.reviewsData.reviewsArray = data;
             this.renderWall(this.reviewsData);
             this.addListenersForBar();
@@ -206,6 +208,7 @@ export default class ProfileView extends View {
     }
 
     addListenersForBar() {
+        this.editButton = document.querySelector('.js-edit-button');
         this.editButton.addEventListener('click', () => {
             this.onEditButtonClicked();
         });

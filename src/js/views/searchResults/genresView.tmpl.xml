@@ -5,7 +5,7 @@
             <div class="title"> Выберите жанр </div>
             <div class="nav-block__list">
                 <fest:for iterate="params.genres" index="j" value="v">
-                    <a href="/search?genres={v}" class="button"><fest:value>v</fest:value></a>
+                    <a href="/search?films&genres={v}" class="button"><fest:value>v</fest:value></a>
                 </fest:for>
             </div>
             <a href="/search" class="nav-block__button">уточнить поиск</a>
@@ -13,11 +13,15 @@
 
         <div class="genres-index">
             <div class="genre-films-bar">
-                <div class="title"><a href="/search?genres={params.genres[0]}"><fest:value>params.genres[0]</fest:value></a></div>
+                <div class="title">
+                    <a href="/search?genres={params.genres[0]}">
+                        <fest:value>params.searchParams.genres</fest:value>
+                    </a>
+                </div>
                 <fest:for iterate="params.filmsArray" index="i" value="film">
                     <div class="film-card">
                         <div class="film-card__img">
-                            <a href=" /film?filmID={film.id}"></a>
+                            <a href="/film?filmID={film.id}"/>
                             <img  src="/images/films/{film.images[0]}" alt="{film.title}"/>
                             <div class="title film-card__info">
                                 <fest:value>film.title</fest:value>
@@ -26,20 +30,7 @@
                     </div>
                 </fest:for>
             </div>
-            <div class="genre-films-bar genre-films-bar_accent">
-                <div class="title"><a href="/search?genres={params.genres[0]}"><fest:value>params.genres[3]</fest:value></a></div>
-                <fest:for iterate="params.filmsArray" index="i" value="film">
-                    <div class="film-card">
-                        <div class="film-card__img">
-                            <a href=" /film?filmID={film.id}"></a>
-                            <img  src="/images/films/{film.image}" alt="{film.title}"/>
-                            <div class="title film-card__info">
-                                <fest:value>film.title</fest:value>
-                            </div>
-                        </div>
-                    </div>
-                </fest:for>
-            </div>
+            <div class="button js-more-res-button"> Еще результаты </div>
         </div>
     </div>
     </main>
