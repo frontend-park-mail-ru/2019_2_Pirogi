@@ -25,6 +25,7 @@
 
 .trailers-bar__list
   text-align: center
+  padding-right: 10px
 
   .title
     font-size: $font-size-large
@@ -38,7 +39,19 @@
     padding: 2*$indent $indent
     +available
     border-radius: 0
-    border: 0
+    border-top: 0.2px solid $color-accent
+    border-bottom: 0.2px solid $color-accent
+
+    &:first-of-type
+      border-top: 0
+
+    &:last-of-type
+      border-bottom: 1px solid $color-darkest
+      border-radius: 0 0 10px 10px
+
+    &:hover
+      border-right: 1px solid $color-darkest
+      border-left: 1px solid $color-darkest
 
   .button_active
     background-color: $color-accent
@@ -90,6 +103,7 @@
       bottom: 0
       opacity: 0
       border-radius: 0 0 2.5*$indent 2.5*$indent
+      +transition(0.5s)
 
     &:hover
       .title
@@ -130,7 +144,12 @@
 .trailers-bar__list
   width: 20%
 
+  .title
+    border-radius: 10px 10px 0 0
+
 .trailers-bar
+  padding: 10px
+  border-radius: 10px
   margin: 4*$indent
   display: flex
   height: 42vw
@@ -141,10 +160,12 @@
 .trailers-bar__trailer
   width: 100%
   background-color: $color-accent
+  border-radius: 10px
 
   iframe
     width: 100%
     height: 100%
+    border-radius: 10px
 
 .trailers-bar__scroll
   text-align: center
@@ -152,6 +173,7 @@
   flex-direction: column
   overflow-y: scroll
   height: 38vw
+
 
 @media screen and (max-width: 1000px) and (orientation: portrait)
   .js-append-tmpl
@@ -206,6 +228,7 @@
     .button
       font-size: $font-size-small
       padding: $indent 0
+
   .trailers-bar
     display: unset
     width: 100%
