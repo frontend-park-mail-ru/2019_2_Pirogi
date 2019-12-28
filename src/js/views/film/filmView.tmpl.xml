@@ -136,6 +136,9 @@
                                        type="text" placeholder="Заголовок"/>
                                 <div class="button">
                                     <div class="stars" id="stars" data-value="{film.stars}">
+                                        <div class="stars__change">
+                                            изменить оценку?
+                                        </div>
                                         <i class="fas fa-star" data-index="0"/>
                                         <i class="fas fa-star" data-index="1"/>
                                         <i class="fas fa-star" data-index="2"/>
