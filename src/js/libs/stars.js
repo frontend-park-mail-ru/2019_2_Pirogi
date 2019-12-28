@@ -1,5 +1,5 @@
 export default function starsInit() {
-    const starsContainer = document.querySelector('div#stars');
+    const starsContainer = document.getElementById('stars');
     const stars = starsContainer.querySelectorAll('i');
     const starsChange = document.querySelector('div.stars__change');
     const starsReviewContainer = document.querySelectorAll('div.stars_review');
