@@ -8,19 +8,27 @@
         <input type="button" class="button js-events-button" value="уведомления"/>
     </div>
     <div class="profile__reviews">
+        <fest:if test="json.reviewsArray===undefined || json.reviewsArray.length == 0 ">
+            <div class="profile__warning">Вы не оставили ни одной рецензии.</div>
+        </fest:if>
         <fest:for iterate="json.reviewsArray" index="i" value="r">
             <div class="review">
                 <div class="review__text">
-                    <div> К фильму: <a href="/film?filmID={r.film_id}">фильм</a></div>
+                    <div> К фильму: <a href="/film?filmID={r.film_id}"><fest:value>r.film_title</fest:value></a></div>
                     <div class="title"><fest:value>r.title</fest:value></div>
                     <div>
                         <fest:value>r.body</fest:value>
                     </div>
                 </div>
                 <div class="review__likes">
-                    <fest:value>r.date</fest:value>
+                    <fest:script>
+                        var date = new Date(r.date);
+                        var day = date.getDate() +"."+date.getMonth()+"."+date.getYear()+" " + date.getHours() +":" + date.getMinutes();
+                    </fest:script>
+                    <fest:value>day</fest:value>
                 </div>
             </div>
+            <div class="hr"/>
         </fest:for>
         <!--
         <div class="profile__reviews">

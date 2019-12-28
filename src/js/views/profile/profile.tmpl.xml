@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="params">
     <main class="main">
+        <div class="page-title title"> Ваша страница </div>
         <div class="profile">
             <div class="profile__info"> <!-- to center this section or whatever -->
                 <div>
@@ -15,9 +16,6 @@
                         </div>
                     </div>
                     <div class="list__item">
-                        <div class="hr"></div>
-                        <div>рейтинг на сайте:</div>
-                        <fest:value>params.mark</fest:value>
                         <div class="hr"></div>
                         <div> рецензий:</div>
                         <fest:value>params.reviews_num</fest:value>

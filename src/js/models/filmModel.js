@@ -25,10 +25,19 @@ export default class FilmModel {
         this.localEventBus.addEventListener('getReviews',
             this.getReviews.bind(this));
 
-        this.localEventBus.addEventListener('isAuth',
-            this.isAuth.bind(this));
         this.localEventBus.addEventListener('addFilmToUserList',
             this.addFilmToUserList.bind(this));
+        this.localEventBus.addEventListener('setStar',
+            this.setStar.bind(this));
+    }
+
+    setStar(data = {}) {
+        Api.setStars(data)
+            .then((res) => {
+                if (res.ok) {
+                    this.localEventBus.dispatchEvent('setStarOK');
+                }
+            });
     }
 
     addFilmToUserList(data = {}) {
@@ -38,18 +47,6 @@ export default class FilmModel {
                     this.localEventBus.dispatchEvent('addFilmToListOK');
                 }
             });
-    }
-
-
-    isAuth() {
-        Api.authCheck()
-            .then((res) => {
-                if (res.ok) {
-                    res.json().then((data) => this.globalEventBus.dispatchEvent('newEventHappend', data));
-                    this.localEventBus.dispatchEvent('authOK');
-                }
-            })
-            .catch(() => {});
     }
 
     getReviews(data = {}) {
