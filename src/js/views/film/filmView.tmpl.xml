@@ -90,8 +90,8 @@
                             <i class="fas fa-star" data-index="3"/>
                             <i class="fas fa-star" data-index="4"/>
                         </div>
-                    </div>-->
-                    </fest:if>
+                    </div>
+                    </fest:if>-->
                     <fest:if test="film.is_auth">
                     <select name="select" class="button js-select">
                         <option value="value1">не в списке</option>
